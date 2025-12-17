@@ -9,7 +9,8 @@ import (
 )
 
 type DebugServer struct {
-	mux *http.ServeMux
+	mux    *http.ServeMux
+	server http.Server
 }
 
 func NewDebugServer() DebugServer {
@@ -39,5 +40,5 @@ func NewDebugServer() DebugServer {
 }
 
 func (server DebugServer) Run() {
-	http.ListenAndServe(":10000", server.mux)
+	http.ListenAndServe(":9999", server.mux)
 }
