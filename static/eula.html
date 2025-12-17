@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+    <title> 게임 이용 동의 </title>
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/ui.css?dt=20181007" type="text/css" media="all" />
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.json-2.2.min.js"></script>
+    <script type="text/javascript" src="/js/commons.js"></script>
+    <script type="text/javascript" src="/js/ui.js"></script>
+    <script type="text/javascript">
+        g_urlWww = "/www";
+        g_urlApi = "/api";
+        g_urlApiSsl = "/api";
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="wb_header">
+                <h1>Terms of Game service </h1>
+            </div>
+    <section class="section_agree">
+        <h1 class="hidden">Terms of Game service</h1>
+        <fieldset class="agree_policy">
+            <ul>
+                <li>
+                    <input type="checkbox" id="policy_agree_all" /><label for="policy_agree_all">Agree All</label>
+                    <ul>
+                        <!-- 체크박스 선택 여부에따라 checked 가 추가/삭제 됩니다 -->
+                        <li>
+                            <input type="checkbox" id="policy_service" value="Y" />
+                            <label for="policy_service">
+                                EULA                            </label>
+                            <a href="/www/mobile/global/terms?popup=Y&app_id=5014&platform_cd=ANDROID&nation_cd=US&navigation=false" target="_blank">Details</a>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="policy_personal" value="Y" />
+                            <label for="policy_personal">
+                                Privacy Policy                            </label>
+                            <a href="/www/mobile/global/privacy?popup=Y&app_id=5014&platform_cd=ANDROID&nation_cd=US&navigation=false" target="_blank">Details</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </fieldset>
+        <div class="btn_group">
+            <a class="btn_confirm" id="btn_confirm" name="btn_confirm">Agree and Play</a>
+        </div>
+    </section>
+</div>
+
+    <script>
+
+    $(document).ready(function(){
+
+        var nationCd = 'US';
+        var app_id = '5014';
+
+        $('#policy_agree_all').click(function() {
+
+            if ($('#policy_agree_all').prop("checked")) {
+                $('#policy_service').prop("checked", true);
+                $('#policy_personal').prop("checked", true);
+                $('#policy_nightpush').prop("checked", true);
+            }
+            else {
+                $('#policy_service').prop("checked", false);
+                $('#policy_personal').prop("checked", false);
+                $('#policy_nightpush').prop("checked", false);
+            }
+        });
+
+        $('#policy_service').click(function() {
+            checkAllAgree();
+        });
+
+        $('#policy_personal').click(function() {
+            checkAllAgree();
+        });
+
+        $('#policy_nightpush').click(function() {
+            checkAllAgree();
+        });
+
+        function checkAllAgree(){
+            if (! $('#policy_service').prop("checked") || ! $('#policy_personal').prop("checked") || ! $('#policy_nightpush').prop("checked")) {
+                $('#policy_agree_all').prop("checked", false);
+            }
+        }
+
+        //TooLong(app_id:635)인 경우 무조건 약관 체크
+        if (nationCd != 'KR' && app_id == 635) {
+            $('#policy_agree_all').prop("checked", true);
+            $('#policy_service').prop("checked", true);
+            $('#policy_personal').prop("checked", true);
+            $('#policy_nightpush').prop("checked", true);
+        }
+
+        $('#btn_confirm').click(function() {
+
+                            // <!-- 글로벌인데 실제 동작하는 코드는 아닐것 같다 -->
+                if (nationCd == 'KR') {
+                    var isNight = "N";
+                    if ($('#policy_nightpush').prop("checked")) {
+                        isNight = "Y";
+                    }
+
+                    if($('#policy_service').prop("checked") && $('#policy_personal').prop("checked")){
+                        location.href="pmangplus://closeview?link=agree&isDay=Y&isNight=" + isNight;
+                    }else{
+                        alert("You need to agree to the EULA and Privacy Policy in order to play the game.");
+                    }
+                } else {
+                    if($('#policy_service').prop("checked") && $('#policy_personal').prop("checked")){
+                        location.href="pmangplus://closeview?link=agree";
+                    }else{
+                        alert("You need to agree to the EULA and Privacy Policy in order to play the game.");
+                    }
+                }
+                    });
+    });
+
+    var showNight = function() {
+        alert("오후 9시 ~ 그 다음날 오전 8시까지의 시간에도 영리목적의 광고성 정보를 포함한 다양한 정보를 팝업 창, 어플리케이션의 다운로드 제공, 웹사이트 내 게임 안내, 푸시 알림 등의 방법으로 이용자에게 제공할 수 있습니다.");
+    }
+</script>
+
+</body>
+</html>

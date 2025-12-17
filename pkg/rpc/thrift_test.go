@@ -1,0 +1,41 @@
+package rpc
+
+import (
+	"os"
+	"testing"
+
+	"github.com/thrift-iterator/go/protocol"
+)
+
+func TestThriftDataToStruct(t *testing.T) {
+	testee, _ := os.ReadFile("./test_data/raw_data.bz2.b64")
+
+	actual, err := ThriftDataToStruct(string(testee))
+	if err != nil {
+		t.Error(err)
+	}
+
+	if actual == nil {
+		t.Fail()
+	}
+
+	action := actual.Get(protocol.FieldId(1))
+	if action != "init" {
+		t.Fail()
+	}
+
+	productionEnv := actual.Get(protocol.FieldId(2), protocol.FieldId(1))
+	if productionEnv != "real" {
+		t.Fail()
+	}
+
+	flag := actual.Get(protocol.FieldId(2), protocol.FieldId(2))
+	if flag != int16(1) {
+		t.Fail()
+	}
+
+	version := actual.Get(protocol.FieldId(2), protocol.FieldId(3))
+	if version != int32(800) {
+		t.Fail()
+	}
+}
