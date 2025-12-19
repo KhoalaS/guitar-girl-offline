@@ -31,6 +31,13 @@ type BaseAuthResponse struct {
 }
 
 type AuthServiceImpl struct {
+	serverLocale string
+}
+
+func NewAuthService() AuthService {
+	return AuthServiceImpl{
+		serverLocale: "KR",
+	}
 }
 
 func (service AuthServiceImpl) Analytics() BaseAuthResponse {
@@ -60,8 +67,7 @@ func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseAuthRespons
 	// this value is generated on the server and different for every session
 	// there is no schema that the characters have to follow
 	unknownOpt_1 := "618de92ee950717f49afcd82d359bc92b2c34a7f"
-	serverLocale := "KR"
-	accessToken := fmt.Sprintf("%d|%d|%s|%s|%s|%d", memberId, requestDto.appId, requestDto.deviceCd, serverLocale, unknownOpt_1, time.Now().UnixMilli())
+	accessToken := fmt.Sprintf("%d|%d|%s|%s|%s|%d", memberId, requestDto.appId, requestDto.deviceCd, service.serverLocale, unknownOpt_1, time.Now().UnixMilli())
 	return BaseAuthResponse{
 		Value: LoginResponseValue{
 			AccessToken: accessToken,

@@ -16,7 +16,7 @@ func main() {
 	defer stop()
 
 	authMux := http.NewServeMux()
-	authService := auth.AuthServiceImpl{}
+	authService := auth.NewAuthService()
 
 	authApi := auth.NewAuthApi(authService)
 	authApi.RegisterStaticRoutes(authMux)
