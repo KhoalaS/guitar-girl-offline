@@ -3,21 +3,27 @@ package core
 import "time"
 
 type GameApi struct {
-	service GameService
+	service  GameService
+	timeZone string
 }
 
 func NewGameApi() GameApi {
 	return GameApi{
-		service: &GameServiceImpl{},
+		service:  &GameServiceImpl{},
+		timeZone: "Asia/Seoul",
 	}
+}
+
+func (api *GameApi) SetTimeZone(timeZone string) {
+	api.timeZone = timeZone
 }
 
 func (api *GameApi) Init(params BaseGameRequest[InitParameters], apiCategory string) BaseGameResponse[InitServerUrls] {
 	serverList := api.service.Init(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, serverList)
+	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, serverList)
 }
 
-func NewBaseGameResponse[T any](functionName string, apiCategory string, data T) BaseGameResponse[T] {
+func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T) BaseGameResponse[T] {
 	now := time.Now()
 	return BaseGameResponse[T]{
 		UnknownField: UnknownField{
@@ -26,7 +32,7 @@ func NewBaseGameResponse[T any](functionName string, apiCategory string, data T)
 		},
 		Timestamp: BaseTimestamp{
 			UnixSeconds:       now.Unix(),
-			ServerTimeIsoDate: int64(MustAtoi(SecondsToServerISO(now))),
+			ServerTimeIsoDate: int64(MustAtoi(SecondsToServerISO(now, timeZone))),
 		},
 		Category:     apiCategory,
 		FunctionName: functionName,
@@ -35,8 +41,8 @@ func NewBaseGameResponse[T any](functionName string, apiCategory string, data T)
 	}
 }
 
-func SecondsToServerISO(t time.Time) string {
-	loc, _ := time.LoadLocation("Asia/Seoul")
+func SecondsToServerISO(t time.Time, timeZone string) string {
+	loc, _ := time.LoadLocation(timeZone)
 	return t.In(loc).Format("20060102150405")
 }
 
