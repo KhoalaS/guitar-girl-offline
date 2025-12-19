@@ -1,12 +1,12 @@
 package game
 
 import (
-	"encoding/json"
 	"net/http"
 	"net/url"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
 	"github.com/rs/zerolog/log"
+	thrifter "github.com/thrift-iterator/go"
 	"github.com/thrift-iterator/go/general"
 	"github.com/thrift-iterator/go/protocol"
 )
@@ -101,7 +101,14 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 
 	if baseRequest.FunctionName == "init" {
 		response := gameRpc.api.Init(baseRequest, "main")
-		responseData, _ := json.Marshal(response)
+
+		//responseData, _ := json.Marshal(response)
+		responseData, err := thrifter.Marshal(response)
+		if err != nil {
+			InternalErrorHandler(w, err)
+			log.Debug().Int("code", 3).Err(err).Send()
+			return
+		}
 		w.Write(responseData)
 		return
 	}

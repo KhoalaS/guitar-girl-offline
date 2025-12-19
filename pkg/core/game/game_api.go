@@ -73,10 +73,12 @@ type BaseGameRequest[T any] struct {
 }
 
 type BaseGameResponse[T any] struct {
-	UnknownField UnknownField
-	Timestamp    BaseTimestamp
-	Category     string
-	FunctionName string
-	EmptyValue   any
-	Data         T
+	UnknownField UnknownField  `thrift:",1"`
+	Timestamp    BaseTimestamp `thrift:",2"`
+	Category     string        `thrift:",3"`
+	FunctionName string        `thrift:",4"`
+	Data         T             `thrift:",5"`
+	EmptyValue   Empty         `thrift:",6"`
 }
+
+type Empty struct{}
