@@ -5,6 +5,8 @@ import (
 	"net/url"
 	"strconv"
 	"time"
+
+	"github.com/rs/zerolog/log"
 )
 
 // Most likely meaning of abbreviations for internal fields
@@ -15,15 +17,15 @@ import (
 // reg_ -> Registration
 
 type AuthService interface {
-	Analytics() BaseResponse
-	Register(fcmToken string, deviceId string, puid string, localeCd string) BaseResponse
-	Login(requestDto LoginRequestDto) BaseResponse
-	ReferrerSave(referrer string, adId string, appKey string, installBeginTime int64, referrerClickTime int, deviceCd string, appId int, appSecret string, localCd string) BaseResponse
-	GeoipCountryCodeInfo(deviceCd string, appId int, localCd string) BaseResponse
-	Eula(resultScheme int, platformCd string, releaseYmd string, nationCd string) BaseResponse
+	Analytics() BaseAuthResponse
+	Register(fcmToken string, deviceId string, puid string, localeCd string) BaseAuthResponse
+	Login(requestDto LoginRequestDto) BaseAuthResponse
+	ReferrerSave(referrer string, adId string, appKey string, installBeginTime int64, referrerClickTime int, deviceCd string, appId int, appSecret string, localCd string) BaseAuthResponse
+	GeoipCountryCodeInfo(deviceCd string, appId int, localCd string) BaseAuthResponse
+	Eula(resultScheme int, platformCd string, releaseYmd string, nationCd string) BaseAuthResponse
 }
 
-type BaseResponse struct {
+type BaseAuthResponse struct {
 	Value         any    `json:"value"`
 	ResultCode    string `json:"result_code"`
 	ResultMessage string `json:"result_msg"`
@@ -32,18 +34,18 @@ type BaseResponse struct {
 type AuthServiceImpl struct {
 }
 
-func (service AuthServiceImpl) Analytics() BaseResponse {
-	return BaseResponse{
+func (service AuthServiceImpl) Analytics() BaseAuthResponse {
+	return BaseAuthResponse{
 		Value:         true,
 		ResultCode:    "000",
 		ResultMessage: API_OK,
 	}
 }
 
-func (service AuthServiceImpl) Register(fcmToken string, deviceId string, puid string, localeCd string) BaseResponse {
+func (service AuthServiceImpl) Register(fcmToken string, deviceId string, puid string, localeCd string) BaseAuthResponse {
 	// TODO What is this "fcmheader" field? Firebase Cloud Messaging?
 	// Is it relevant? Is the value the same for all requests or dependant on the parameters?
-	return BaseResponse{
+	return BaseAuthResponse{
 		Value: RegisterResponseValue{
 			Unsubscription: []any{},
 			Subscription:   []any{},
@@ -52,7 +54,7 @@ func (service AuthServiceImpl) Register(fcmToken string, deviceId string, puid s
 	}
 }
 
-func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseResponse {
+func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseAuthResponse {
 	// we assume that the udid is the parameter which maps onto a memberId
 	nowMillis := time.Now().UnixMilli()
 	memberId := 429071553
@@ -61,7 +63,7 @@ func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseResponse {
 	unknownOpt_1 := "618de92ee950717f49afcd82d359bc92b2c34a7f"
 	serverLocale := "KR"
 	accessToken := fmt.Sprintf("%d|%d|%s|%s|%s|%d", memberId, requestDto.appId, requestDto.deviceCd, serverLocale, unknownOpt_1, time.Now().UnixMilli())
-	return BaseResponse{
+	return BaseAuthResponse{
 		Value: LoginResponseValue{
 			AccessToken: accessToken,
 			Member: LoginResponseValueMember{
@@ -106,24 +108,24 @@ func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseResponse {
 	}
 }
 
-func (service AuthServiceImpl) ReferrerSave(referrer string, adId string, appKey string, installBeginTime int64, referrerClickTime int, deviceCd string, appId int, appSecret string, localCd string) BaseResponse {
-	return BaseResponse{
+func (service AuthServiceImpl) ReferrerSave(referrer string, adId string, appKey string, installBeginTime int64, referrerClickTime int, deviceCd string, appId int, appSecret string, localCd string) BaseAuthResponse {
+	return BaseAuthResponse{
 		Value:         "OK",
 		ResultCode:    "000",
 		ResultMessage: API_OK,
 	}
 }
 
-func (service AuthServiceImpl) GeoipCountryCodeInfo(deviceCd string, appId int, localCd string) BaseResponse {
-	return BaseResponse{
+func (service AuthServiceImpl) GeoipCountryCodeInfo(deviceCd string, appId int, localCd string) BaseAuthResponse {
+	return BaseAuthResponse{
 		Value:         "US",
 		ResultCode:    "000",
 		ResultMessage: API_OK,
 	}
 }
 
-func (service AuthServiceImpl) Eula(resultScheme int, platformCd string, releaseYmd string, nationCd string) BaseResponse {
-	return BaseResponse{
+func (service AuthServiceImpl) Eula(resultScheme int, platformCd string, releaseYmd string, nationCd string) BaseAuthResponse {
+	return BaseAuthResponse{
 		Value:         true,
 		ResultCode:    "000",
 		ResultMessage: API_OK,
@@ -234,7 +236,7 @@ func LoginRequestDtoFromFormdata(formdata url.Values) LoginRequestDto {
 func MustAtoi(input string) int {
 	intValue, err := strconv.Atoi(input)
 	if err != nil {
-		panic(err)
+		log.Panic().Err(err).Msg("Error converting string to int")
 	}
 
 	return intValue
