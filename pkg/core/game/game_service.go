@@ -15,9 +15,9 @@ func (service *GameServiceImpl) Init(params InitParameters) InitServerUrls {
 }
 
 type InitParameters struct {
-	Version     int
+	Version     int32
 	Environment string
-	UnknownFlag int
+	UnknownFlag int16
 	DeviceId    string
 }
 

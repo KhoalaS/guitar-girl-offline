@@ -61,9 +61,9 @@ type BaseTimestamp struct {
 }
 
 type EnvironmentData struct {
-	Version     int
+	Version     int32
 	Environment string
-	UnknownFlag int
+	UnknownFlag int16
 }
 
 type BaseGameRequest[T any] struct {

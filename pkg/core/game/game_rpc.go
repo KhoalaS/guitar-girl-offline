@@ -1,6 +1,15 @@
 package game
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+	"net/url"
+
+	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
+	"github.com/rs/zerolog/log"
+	"github.com/thrift-iterator/go/general"
+	"github.com/thrift-iterator/go/protocol"
+)
 
 type GameRpc struct {
 	api      GameApi
@@ -23,58 +32,123 @@ func NewGameRpc(api GameApi) *GameRpc {
 	return gameRpc
 }
 
-func (rpc *GameRpc) RegisterRoutes(mux *http.ServeMux) {
-	mux.Handle("/main/", http.StripPrefix("/main/", rpc.mainMux))
-	mux.Handle("/post/", http.StripPrefix("/post/", rpc.postMux))
-	mux.Handle("/user/", http.StripPrefix("/user/", rpc.userMux))
-	mux.Handle("/store/", http.StripPrefix("/store/", rpc.storeMux))
+func (gameRpc *GameRpc) RegisterRoutes(mux *http.ServeMux) {
+	mux.Handle("/main/", http.StripPrefix("/main", gameRpc.mainMux))
+	mux.Handle("/post/", http.StripPrefix("/post", gameRpc.postMux))
+	mux.Handle("/user/", http.StripPrefix("/user", gameRpc.userMux))
+	mux.Handle("/store/", http.StripPrefix("/store", gameRpc.storeMux))
 }
 
-func (rpc *GameRpc) registerMainMux() {
+func (gameRpc *GameRpc) registerMainMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/Request/en", rpc.mainRequest)
+	mux.HandleFunc("/Request/en", gameRpc.mainRequest)
 
 	//TODO other endpoints
 
-	rpc.mainMux = mux
+	gameRpc.mainMux = mux
 }
 
-func (rpc *GameRpc) registerPostMux() {
+func (gameRpc *GameRpc) registerPostMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/getPostTime/en", rpc.getPostTime)
+	mux.HandleFunc("/getPostTime/en", gameRpc.getPostTime)
 
 	//TODO other endpoints
 
-	rpc.postMux = mux
+	gameRpc.postMux = mux
 }
 
-func (rpc *GameRpc) registerUserMux() {
+func (gameRpc *GameRpc) registerUserMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/userJoin/en", rpc.userJoin)
+	mux.HandleFunc("/userJoin/en", gameRpc.userJoin)
 
 	//TODO other endpoints
 
-	rpc.userMux = mux
+	gameRpc.userMux = mux
 }
 
-func (rpc *GameRpc) registerStoreMux() {
+func (gameRpc *GameRpc) registerStoreMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/getVarietyStore/en", rpc.getVarietyStore)
+	mux.HandleFunc("/getVarietyStore/en", gameRpc.getVarietyStore)
 
 	//TODO other endpoints
 
-	rpc.storeMux = mux
+	gameRpc.storeMux = mux
 }
 
-func (rpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
+func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 1).Send()
+		return
+	}
+
+	requestDto := FormDataToRpcRequestDto(r.Form)
+	log.Debug().Str("data", requestDto.TapsonicData).Send()
+	generalStruct, err := rpc.ThriftDataToStruct(requestDto.TapsonicData)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 2).Send()
+		return
+	}
+	baseRequest := ThriftStructToBaseGameRequest(generalStruct, InitParametersMapperFunc)
+
+	log.Info().Any("baseRequest", baseRequest).Send()
+
+	if baseRequest.FunctionName == "init" {
+		response := gameRpc.api.Init(baseRequest, "main")
+		responseData, _ := json.Marshal(response)
+		w.Write(responseData)
+		return
+	}
+
+	w.WriteHeader(http.StatusNotFound)
 }
-func (rpc *GameRpc) getPostTime(w http.ResponseWriter, r *http.Request) {
+
+func (gameRpc *GameRpc) mainInit(w http.ResponseWriter, r *http.Request) {
+
 }
-func (rpc *GameRpc) userJoin(w http.ResponseWriter, r *http.Request) {
+
+func (gameRpc *GameRpc) getPostTime(w http.ResponseWriter, r *http.Request) {
 }
-func (rpc *GameRpc) getVarietyStore(w http.ResponseWriter, r *http.Request) {
+func (gameRpc *GameRpc) userJoin(w http.ResponseWriter, r *http.Request) {
+}
+func (gameRpc *GameRpc) getVarietyStore(w http.ResponseWriter, r *http.Request) {
+}
+
+func ThriftStructToBaseGameRequest[T any](thriftStruct general.Struct, dataMapperFunc func(general.Struct) T) BaseGameRequest[T] {
+
+	return BaseGameRequest[T]{
+		FunctionName: thriftStruct.Get(protocol.FieldId(1)).(string),
+		Data:         dataMapperFunc(thriftStruct.Get(protocol.FieldId(2)).(general.Struct)),
+		Environment:  EnvironmentMapperFunc(thriftStruct.Get(protocol.FieldId(3)).(general.Struct)),
+	}
+}
+
+func FormDataToRpcRequestDto(formData url.Values) RpcRequestDto {
+	log.Debug().Any("formData", formData).Send()
+	return RpcRequestDto{
+		Call:         formData.Get("call"),
+		TapsonicData: formData.Get("tapsonic_data"),
+		AccessToken:  formData.Get("access_token"),
+		CacheControl: formData.Get("cache_control"),
+		CurrentTime:  formData.Get("current_time"),
+	}
+}
+
+type RpcRequestDto struct {
+	Call         string `json:"call"`
+	TapsonicData string `json:"tapsonic_data"`
+	AccessToken  string `json:"access_token"`
+	CacheControl string `json:"cache_control"`
+	CurrentTime  string `json:"current_time"`
+}
+
+func InternalErrorHandler(w http.ResponseWriter, err error) {
+	log.Error().Err(err).Msg("[Game Server]: Internal server error")
+	http.Error(w, "Internal server error", http.StatusInternalServerError)
 }
