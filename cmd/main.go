@@ -7,7 +7,7 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/KhoalaS/guitar-girl-offline/pkg/core"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/core/auth"
 	"github.com/rs/zerolog/log"
 )
 
@@ -16,9 +16,9 @@ func main() {
 	defer stop()
 
 	authMux := http.NewServeMux()
-	authService := core.AuthServiceImpl{}
+	authService := auth.AuthServiceImpl{}
 
-	authApi := core.NewAuthApi(authService)
+	authApi := auth.NewAuthApi(authService)
 	authApi.RegisterStaticRoutes(authMux)
 	authApi.RegisterAccountsRoutes(authMux)
 

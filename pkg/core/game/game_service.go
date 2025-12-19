@@ -1,4 +1,4 @@
-package core
+package game
 
 type GameService interface {
 	Init(params InitParameters) InitServerUrls

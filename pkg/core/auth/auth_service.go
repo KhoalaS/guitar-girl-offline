@@ -1,12 +1,11 @@
-package core
+package auth
 
 import (
 	"fmt"
 	"net/url"
-	"strconv"
 	"time"
 
-	"github.com/rs/zerolog/log"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/core"
 )
 
 // Most likely meaning of abbreviations for internal fields
@@ -220,24 +219,15 @@ func LoginRequestDtoFromFormdata(formdata url.Values) LoginRequestDto {
 		privacy:    YN(formdata.Get("privacy_yn")),
 		locale:     formdata.Get("locale"),
 		mobSvc:     YN(formdata.Get("mob_svc_yn")),
-		version:    MustAtoi(formdata.Get("version")),
+		version:    core.MustAtoi(formdata.Get("version")),
 		appKey:     formdata.Get("app_key"),
 		ad:         YN(formdata.Get("ad_yn")),
-		threadName: MustAtoi(formdata.Get("thread_name")),
+		threadName: core.MustAtoi(formdata.Get("thread_name")),
 		appVer:     formdata.Get("app_ver"),
 		udid:       formdata.Get("udid"),
-		appId:      MustAtoi(formdata.Get("app_id")),
+		appId:      core.MustAtoi(formdata.Get("app_id")),
 		appSecret:  formdata.Get("app_secret"),
 		localCd:    formdata.Get("local_cd"),
 		jailbreak:  YN(formdata.Get("jailbreak_yn")),
 	}
-}
-
-func MustAtoi(input string) int {
-	intValue, err := strconv.Atoi(input)
-	if err != nil {
-		log.Panic().Err(err).Msg("Error converting string to int")
-	}
-
-	return intValue
 }

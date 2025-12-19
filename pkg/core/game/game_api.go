@@ -1,6 +1,10 @@
-package core
+package game
 
-import "time"
+import (
+	"time"
+
+	"github.com/KhoalaS/guitar-girl-offline/pkg/core"
+)
 
 type GameApi struct {
 	service  GameService
@@ -32,7 +36,7 @@ func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZon
 		},
 		Timestamp: BaseTimestamp{
 			UnixSeconds:       now.Unix(),
-			ServerTimeIsoDate: int64(MustAtoi(SecondsToServerISO(now, timeZone))),
+			ServerTimeIsoDate: int64(core.MustAtoi(SecondsToServerISO(now, timeZone))),
 		},
 		Category:     apiCategory,
 		FunctionName: functionName,
