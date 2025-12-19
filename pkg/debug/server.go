@@ -9,11 +9,10 @@ import (
 )
 
 type DebugServer struct {
-	mux    *http.ServeMux
-	server http.Server
+	mux *http.ServeMux
 }
 
-func NewDebugServer() DebugServer {
+func NewDebugServer() *DebugServer {
 	mux := http.NewServeMux()
 	mux.HandleFunc("POST /translate", func(w http.ResponseWriter, r *http.Request) {
 		bodyBytes, err := io.ReadAll(r.Body)
@@ -34,11 +33,11 @@ func NewDebugServer() DebugServer {
 		w.Write(dataBytes)
 	})
 
-	return DebugServer{
+	return &DebugServer{
 		mux: mux,
 	}
 }
 
-func (server DebugServer) Run() {
+func (server *DebugServer) Run() {
 	http.ListenAndServe(":9999", server.mux)
 }
