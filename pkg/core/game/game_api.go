@@ -11,9 +11,9 @@ type GameApi struct {
 	timeZone string
 }
 
-func NewGameApi() GameApi {
+func NewGameApi(service GameService) GameApi {
 	return GameApi{
-		service:  &GameServiceImpl{},
+		service:  service,
 		timeZone: "Asia/Seoul",
 	}
 }

@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core/auth"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/core/game"
 	"github.com/rs/zerolog/log"
 )
 
@@ -27,8 +28,24 @@ func main() {
 		Handler: authMux,
 	}
 	go func() {
-
 		if err := authServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatal().Err(err).Msg("Listen error")
+		}
+	}()
+
+	gameService := &game.GameServiceImpl{}
+	gameApi := game.NewGameApi(gameService)
+	gameRpc := game.NewGameRpc(gameApi)
+
+	gameMux := http.NewServeMux()
+	gameRpc.RegisterRoutes(gameMux)
+	gameServer := http.Server{
+		Addr:    ":10001",
+		Handler: gameMux,
+	}
+
+	go func() {
+		if err := gameServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatal().Err(err).Msg("Listen error")
 		}
 	}()
