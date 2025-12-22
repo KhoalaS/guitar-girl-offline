@@ -51,25 +51,25 @@ func SecondsToServerISO(t time.Time, timeZone string) string {
 }
 
 type UnknownField struct {
-	UnknownInt    int
-	UnknownString string
+	UnknownInt    int    `thrift:",1"`
+	UnknownString string `thrift:",2"`
 }
 
 type BaseTimestamp struct {
-	UnixSeconds       int64
-	ServerTimeIsoDate int64
+	UnixSeconds       int64 `thrift:",1"`
+	ServerTimeIsoDate int64 `thrift:",2"`
 }
 
 type EnvironmentData struct {
-	Version     int32
-	Environment string
-	UnknownFlag int16
+	Version     int32  `thrift:",1"`
+	Environment string `thrift:",2"`
+	UnknownFlag int16  `thrift:",3"`
 }
 
 type BaseGameRequest[T any] struct {
-	FunctionName string
-	Data         T
-	Environment  EnvironmentData
+	FunctionName string          `thrift:",1"`
+	Data         T               `thrift:",2"`
+	Environment  EnvironmentData `thrift:",3"`
 }
 
 type BaseGameResponse[T any] struct {

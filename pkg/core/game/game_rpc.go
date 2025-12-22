@@ -1,6 +1,7 @@
 package game
 
 import (
+	"encoding/json"
 	"net/http"
 	"net/url"
 
@@ -102,13 +103,23 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 	if baseRequest.FunctionName == "init" {
 		response := gameRpc.api.Init(baseRequest, "main")
 
-		//responseData, _ := json.Marshal(response)
 		responseData, err := thrifter.Marshal(response)
 		if err != nil {
 			InternalErrorHandler(w, err)
 			log.Debug().Int("code", 3).Err(err).Send()
 			return
 		}
+
+		if requestDto.Debug {
+			var responseStructData general.Struct
+			thrifter.Unmarshal(responseData, &responseStructData)
+
+			responseJsonData, _ := json.Marshal(responseStructData)
+
+			w.Write(responseJsonData)
+			return
+		}
+
 		w.Write(responseData)
 		return
 	}
@@ -144,6 +155,7 @@ func FormDataToRpcRequestDto(formData url.Values) RpcRequestDto {
 		AccessToken:  formData.Get("access_token"),
 		CacheControl: formData.Get("cache_control"),
 		CurrentTime:  formData.Get("current_time"),
+		Debug:        formData.Get("debug") == "true",
 	}
 }
 
@@ -153,6 +165,7 @@ type RpcRequestDto struct {
 	AccessToken  string `json:"access_token"`
 	CacheControl string `json:"cache_control"`
 	CurrentTime  string `json:"current_time"`
+	Debug        bool   `json:"debug"`
 }
 
 func InternalErrorHandler(w http.ResponseWriter, err error) {

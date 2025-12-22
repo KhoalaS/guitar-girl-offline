@@ -22,7 +22,7 @@ type InitParameters struct {
 }
 
 type InitServerUrls struct {
-	UnknownInt     int
-	GameServerUrl  string
-	AssetServerUrl string
+	UnknownInt     int    `thrift:",1"`
+	GameServerUrl  string `thrift:",2"`
+	AssetServerUrl string `thrift:",3"`
 }
