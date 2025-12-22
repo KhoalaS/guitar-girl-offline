@@ -96,35 +96,45 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 		log.Debug().Int("code", 2).Send()
 		return
 	}
-	baseRequest := ThriftStructToBaseGameRequest(generalStruct, InitParametersMapperFunc)
 
-	log.Info().Any("baseRequest", baseRequest).Send()
+	var responseData []byte
 
-	if baseRequest.FunctionName == "init" {
+	functionName := GetFunctionNameFromThrift(generalStruct)
+	log.Debug().Str("name", functionName).Send()
+
+	switch functionName {
+	case "init":
+		baseRequest := ThriftStructToBaseGameRequest(generalStruct, InitParametersMapperFunc)
 		response := gameRpc.api.Init(baseRequest, "main")
-
-		responseData, err := thrifter.Marshal(response)
+		responseData, err = thrifter.Marshal(response)
 		if err != nil {
 			InternalErrorHandler(w, err)
 			log.Debug().Int("code", 3).Err(err).Send()
 			return
 		}
-
-		if requestDto.Debug {
-			var responseStructData general.Struct
-			thrifter.Unmarshal(responseData, &responseStructData)
-
-			responseJsonData, _ := json.Marshal(responseStructData)
-
-			w.Write(responseJsonData)
+	case "getServerTime":
+		baseRequest := ThriftStructToBaseGameRequest(generalStruct, GetServerTimeParamsMapperFunc)
+		baseRequest.Data.TimeZone = gameRpc.api.timeZone
+		response := gameRpc.api.GetServerTime(baseRequest, "main")
+		responseData, err = thrifter.Marshal(response)
+		if err != nil {
+			InternalErrorHandler(w, err)
+			log.Debug().Int("code", 3).Err(err).Send()
 			return
 		}
-
-		w.Write(responseData)
+	default:
+		w.WriteHeader(http.StatusNotFound)
 		return
 	}
 
-	w.WriteHeader(http.StatusNotFound)
+	if requestDto.Debug {
+		var responseStructData general.Struct
+		thrifter.Unmarshal(responseData, &responseStructData)
+
+		responseData, _ = json.Marshal(responseStructData)
+	}
+
+	w.Write(responseData)
 }
 
 func (gameRpc *GameRpc) mainInit(w http.ResponseWriter, r *http.Request) {
@@ -138,12 +148,23 @@ func (gameRpc *GameRpc) userJoin(w http.ResponseWriter, r *http.Request) {
 func (gameRpc *GameRpc) getVarietyStore(w http.ResponseWriter, r *http.Request) {
 }
 
+func GetFunctionNameFromThrift(thriftStruct general.Struct) string {
+	return thriftStruct.Get(protocol.FieldId(1)).(string)
+}
+
 func ThriftStructToBaseGameRequest[T any](thriftStruct general.Struct, dataMapperFunc func(general.Struct) T) BaseGameRequest[T] {
+
+	environmentRawStruct := thriftStruct.Get(protocol.FieldId(3))
+	if environmentRawStruct == nil {
+		environmentRawStruct = thriftStruct.Get(protocol.FieldId(4))
+	}
+
+	environment := EnvironmentMapperFunc(environmentRawStruct.(general.Struct))
 
 	return BaseGameRequest[T]{
 		FunctionName: thriftStruct.Get(protocol.FieldId(1)).(string),
 		Data:         dataMapperFunc(thriftStruct.Get(protocol.FieldId(2)).(general.Struct)),
-		Environment:  EnvironmentMapperFunc(thriftStruct.Get(protocol.FieldId(3)).(general.Struct)),
+		Environment:  environment,
 	}
 }
 

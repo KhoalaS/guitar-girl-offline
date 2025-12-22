@@ -23,3 +23,9 @@ func InitParametersMapperFunc(data general.Struct) InitParameters {
 		DeviceId:    data.Get(protocol.FieldId(4)).(string),
 	}
 }
+
+func GetServerTimeParamsMapperFunc(data general.Struct) GetServerTimeParams {
+	return GetServerTimeParams{
+		DeviceId: data.Get(protocol.FieldId(4)).(string),
+	}
+}

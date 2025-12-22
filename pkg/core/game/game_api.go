@@ -27,6 +27,11 @@ func (api *GameApi) Init(params BaseGameRequest[InitParameters], apiCategory str
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, serverList)
 }
 
+func (api *GameApi) GetServerTime(params BaseGameRequest[GetServerTimeParams], apiCategory string) BaseGameResponse[BaseTimestamp] {
+	timeStamp := api.service.GetServerTime(params.Data)
+	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, timeStamp)
+}
+
 func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T) BaseGameResponse[T] {
 	now := time.Now()
 	return BaseGameResponse[T]{
@@ -34,10 +39,7 @@ func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZon
 			UnknownInt:    0,
 			UnknownString: "",
 		},
-		Timestamp: BaseTimestamp{
-			UnixSeconds:       now.Unix(),
-			ServerTimeIsoDate: int64(core.MustAtoi(SecondsToServerISO(now, timeZone))),
-		},
+		Timestamp:    getBaseTimeStamp(now, timeZone),
 		Category:     apiCategory,
 		FunctionName: functionName,
 		EmptyValue:   struct{}{},
@@ -48,6 +50,14 @@ func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZon
 func SecondsToServerISO(t time.Time, timeZone string) string {
 	loc, _ := time.LoadLocation(timeZone)
 	return t.In(loc).Format("20060102150405")
+}
+
+func getBaseTimeStamp(t time.Time, timeZone string) BaseTimestamp {
+	now := time.Now()
+	return BaseTimestamp{
+		UnixSeconds:       now.Unix(),
+		ServerTimeIsoDate: int64(core.MustAtoi(SecondsToServerISO(now, timeZone))),
+	}
 }
 
 type UnknownField struct {
