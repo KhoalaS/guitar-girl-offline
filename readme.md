@@ -6,8 +6,9 @@
 **main**
 - [x] init
 - [x] getServerTime
-- [ ] userLogin
 - [ ] defaultSettingList
 - [ ] getUpdateTime
 - [ ] getGameDataList
-- [ ] 
+
+**user**
+- [x] userLogin

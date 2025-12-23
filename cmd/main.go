@@ -9,10 +9,13 @@ import (
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core/auth"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core/game"
+	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )
 
 func main() {
+	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
+
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer stop()
 

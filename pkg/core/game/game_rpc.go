@@ -64,6 +64,7 @@ func (gameRpc *GameRpc) registerUserMux() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/userJoin/en", gameRpc.userJoin)
+	mux.HandleFunc("/userLogin/en", gameRpc.userLogin)
 
 	//TODO other endpoints
 
@@ -104,7 +105,7 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 
 	switch functionName {
 	case "init":
-		baseRequest := ThriftStructToBaseGameRequest(generalStruct, InitParametersMapperFunc)
+		baseRequest := ThriftStructToBaseGameRequest(generalStruct, 3, InitParametersMapperFunc)
 		response := gameRpc.api.Init(baseRequest, "main")
 		responseData, err = thrifter.Marshal(response)
 		if err != nil {
@@ -113,7 +114,7 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	case "getServerTime":
-		baseRequest := ThriftStructToBaseGameRequest(generalStruct, GetServerTimeParamsMapperFunc)
+		baseRequest := ThriftStructToBaseGameRequest(generalStruct, 4, GetServerTimeParamsMapperFunc)
 		baseRequest.Data.TimeZone = gameRpc.api.timeZone
 		response := gameRpc.api.GetServerTime(baseRequest, "main")
 		responseData, err = thrifter.Marshal(response)
@@ -130,6 +131,7 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 	if requestDto.Debug {
 		var responseStructData general.Struct
 		thrifter.Unmarshal(responseData, &responseStructData)
+		log.Debug().Any("debugData", responseStructData).Send()
 
 		responseData, _ = json.Marshal(responseStructData)
 	}
@@ -138,12 +140,37 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 }
 
 func (gameRpc *GameRpc) mainInit(w http.ResponseWriter, r *http.Request) {
-
 }
-
 func (gameRpc *GameRpc) getPostTime(w http.ResponseWriter, r *http.Request) {
 }
 func (gameRpc *GameRpc) userJoin(w http.ResponseWriter, r *http.Request) {
+}
+func (gameRpc *GameRpc) userLogin(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 1).Send()
+		return
+	}
+
+	requestDto := FormDataToRpcRequestDto(r.Form)
+	generalStruct, err := rpc.ThriftDataToStruct(requestDto.TapsonicData)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 2).Send()
+		return
+	}
+
+	baseRequest := ThriftStructToBaseGameRequest(generalStruct, 3, UserLoginParamsMapperFunc)
+	response := gameRpc.api.UserLogin(baseRequest, "main")
+	responseData, err := thrifter.Marshal(response)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 3).Err(err).Send()
+		return
+	}
+	
+	w.Write(responseData)
 }
 func (gameRpc *GameRpc) getVarietyStore(w http.ResponseWriter, r *http.Request) {
 }
@@ -152,13 +179,9 @@ func GetFunctionNameFromThrift(thriftStruct general.Struct) string {
 	return thriftStruct.Get(protocol.FieldId(1)).(string)
 }
 
-func ThriftStructToBaseGameRequest[T any](thriftStruct general.Struct, dataMapperFunc func(general.Struct) T) BaseGameRequest[T] {
+func ThriftStructToBaseGameRequest[T any](thriftStruct general.Struct, environmentThriftIndex int16, dataMapperFunc func(general.Struct) T) BaseGameRequest[T] {
 
-	environmentRawStruct := thriftStruct.Get(protocol.FieldId(3))
-	if environmentRawStruct == nil {
-		environmentRawStruct = thriftStruct.Get(protocol.FieldId(4))
-	}
-
+	environmentRawStruct := thriftStruct.Get(protocol.FieldId(environmentThriftIndex))
 	environment := EnvironmentMapperFunc(environmentRawStruct.(general.Struct))
 
 	return BaseGameRequest[T]{

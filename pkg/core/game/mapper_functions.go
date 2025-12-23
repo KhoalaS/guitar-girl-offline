@@ -29,3 +29,12 @@ func GetServerTimeParamsMapperFunc(data general.Struct) GetServerTimeParams {
 		DeviceId: data.Get(protocol.FieldId(4)).(string),
 	}
 }
+
+func UserLoginParamsMapperFunc(data general.Struct) UserLoginParams {
+	return UserLoginParams{
+		UnknownInt:    data.Get(protocol.FieldId(1)).(int32),
+		UnknownString: data.Get(protocol.FieldId(2)).(string),
+		UserId:        data.Get(protocol.FieldId(3)).(string),
+		DeviceId:      data.Get(protocol.FieldId(4)).(string),
+	}
+}
