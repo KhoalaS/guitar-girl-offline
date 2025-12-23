@@ -1,7 +1,10 @@
 package game
 
 import (
+	"encoding/json"
 	"time"
+
+	embeds "github.com/KhoalaS/guitar-girl-offline"
 )
 
 type GameService interface {
@@ -10,6 +13,7 @@ type GameService interface {
 	UserLogin(params UserLoginParams) (*UserLoginResult, *ServiceError)
 	GetUpdateTime(params GetUpdateTimeParams) UpdateTime
 	DefaultSettingList(params DefaultSettingListParams) DefaultSettingList
+	GetGameDataList(params GetGameDataListParams) (map[string]any, *ServiceError)
 }
 
 type GameServiceImpl struct{}
@@ -154,6 +158,22 @@ func (service *GameServiceImpl) DefaultSettingList(params DefaultSettingListPara
 			},
 		},
 	}
+}
+
+func (service *GameServiceImpl) GetGameDataList(params GetGameDataListParams) (map[string]any, *ServiceError) {
+	var data map[string]any
+
+	err := json.Unmarshal(embeds.GameData, &data)
+	if err != nil {
+		return nil, NewServiceError(1, err.Error())
+	}
+
+	return data, nil
+}
+
+type GetGameDataListParams struct {
+	Type     string `thrift:",1"`
+	DeviceId string `thrift:",2"`
 }
 
 type DefaultSettingList struct {

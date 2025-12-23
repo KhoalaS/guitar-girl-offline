@@ -8,7 +8,7 @@
 - [x] getServerTime
 - [x] defaultSettingList
 - [x] getUpdateTime
-- [ ] getGameDataList
+- [x] getGameDataList (reuse raw data for now)
 
 **user**
 - [x] userLogin

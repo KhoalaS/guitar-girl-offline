@@ -51,3 +51,10 @@ func DefaultSettingListMapperFunc(data general.Struct) DefaultSettingListParams 
 		UnknownInt: data.Get(protocol.FieldId(2)).(int32),
 	}
 }
+
+func GetGameDataListMapperFunc(data general.Struct) GetGameDataListParams {
+	return GetGameDataListParams{
+		Type:     data.Get(protocol.FieldId(1)).(string),
+		DeviceId: data.Get(protocol.FieldId(2)).(string),
+	}
+}

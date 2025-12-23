@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 
+	embeds "github.com/KhoalaS/guitar-girl-offline"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
 	"github.com/rs/zerolog/log"
 	thrifter "github.com/thrift-iterator/go"
@@ -46,6 +47,7 @@ func (gameRpc *GameRpc) registerMainMux() {
 	mux.HandleFunc("/Request/en", gameRpc.mainRequest)
 	mux.HandleFunc("/getUpdateTime/en", gameRpc.getUpdateTime)
 	mux.HandleFunc("/defaultSettingList/en", gameRpc.defaultSettingList)
+	mux.HandleFunc("/getGameDataList/en", gameRpc.getGameDataList)
 
 	//TODO other endpoints
 
@@ -197,6 +199,10 @@ func (gameRpc *GameRpc) defaultSettingList(w http.ResponseWriter, r *http.Reques
 	}
 
 	w.Write(responseData)
+}
+
+func (gameRpc *GameRpc) getGameDataList(w http.ResponseWriter, r *http.Request) {
+	w.Write(embeds.RawGameData)
 }
 
 func GetFunctionNameFromThrift(thriftStruct general.Struct) string {

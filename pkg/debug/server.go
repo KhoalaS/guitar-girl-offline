@@ -2,10 +2,15 @@ package debug
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
+	"os"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
+	"github.com/rs/zerolog/log"
+	"github.com/thrift-iterator/go/general"
+	"github.com/thrift-iterator/go/protocol"
 )
 
 type DebugServer struct {
@@ -29,7 +34,18 @@ func NewDebugServer() *DebugServer {
 			return
 		}
 
-		dataBytes, _ := json.Marshal(data)
+		dataBytes, err := json.Marshal(data)
+
+		if err != nil {
+			d, _ := json.Marshal(JSONMapWrapper{
+				Map: data.Get(protocol.FieldId(5)).(general.Map),
+			})
+
+			os.WriteFile("dump.json", d, 0664)
+			log.Debug().Any("data", string(d)).Send()
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		w.Write(dataBytes)
 	})
 
@@ -40,4 +56,22 @@ func NewDebugServer() *DebugServer {
 
 func (server *DebugServer) Run() {
 	http.ListenAndServe(":9999", server.mux)
+}
+
+type JSONMapWrapper struct {
+	Map general.Map
+}
+
+func (w JSONMapWrapper) MarshalJSON() ([]byte, error) {
+	tmp := make(map[string]interface{})
+
+	for k, v := range w.Map {
+		key, ok := k.(string)
+		if !ok {
+			return nil, fmt.Errorf("json: key must be string, got %T", k)
+		}
+		tmp[key] = v
+	}
+
+	return json.Marshal(tmp)
 }
