@@ -45,6 +45,7 @@ func (gameRpc *GameRpc) registerMainMux() {
 
 	mux.HandleFunc("/Request/en", gameRpc.mainRequest)
 	mux.HandleFunc("/getUpdateTime/en", gameRpc.getUpdateTime)
+	mux.HandleFunc("/defaultSettingList/en", gameRpc.defaultSettingList)
 
 	//TODO other endpoints
 
@@ -168,6 +169,26 @@ func (gameRpc *GameRpc) getUpdateTime(w http.ResponseWriter, r *http.Request) {
 
 	baseRequest := ThriftStructToBaseGameRequest(generalStruct, 3, GetUpdateTimeMapperFunc)
 	response := gameRpc.api.GetUpdateTime(baseRequest, "main")
+	responseData, err := thrifter.Marshal(response)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 3).Err(err).Send()
+		return
+	}
+
+	w.Write(responseData)
+}
+
+func (gameRpc *GameRpc) defaultSettingList(w http.ResponseWriter, r *http.Request) {
+	generalStruct, err := getGeneralStructFromRequest(r)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Err(err).Send()
+		return
+	}
+
+	baseRequest := ThriftStructToBaseGameRequest(generalStruct, 3, DefaultSettingListMapperFunc)
+	response := gameRpc.api.DefaultSettingList(baseRequest, "main")
 	responseData, err := thrifter.Marshal(response)
 	if err != nil {
 		InternalErrorHandler(w, err)
