@@ -37,6 +37,11 @@ func (api *GameApi) UserLogin(params BaseGameRequest[UserLoginParams], apiCatego
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, serviceError)
 }
 
+func (api *GameApi) GetUpdateTime(params BaseGameRequest[GetUpdateTimeParams], apiCategory string) BaseGameResponse[UpdateTime] {
+	loginResult := api.service.GetUpdateTime(params.Data)
+	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, nil)
+}
+
 func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError *ServiceError) BaseGameResponse[T] {
 	now := time.Now()
 

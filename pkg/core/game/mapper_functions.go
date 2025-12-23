@@ -38,3 +38,9 @@ func UserLoginParamsMapperFunc(data general.Struct) UserLoginParams {
 		DeviceId:      data.Get(protocol.FieldId(4)).(string),
 	}
 }
+
+func GetUpdateTimeMapperFunc(data general.Struct) GetUpdateTimeParams {
+	return GetUpdateTimeParams{
+		DeviceId: data.Get(protocol.FieldId(1)).(string),
+	}
+}
