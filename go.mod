@@ -1,13 +1,11 @@
 module github.com/KhoalaS/guitar-girl-offline
 
-go 1.25.0
+go 1.25.5
+
+require github.com/rs/zerolog v1.34.0
 
 require (
-	github.com/rs/zerolog v1.34.0
-	github.com/thrift-iterator/go v0.0.0-20190402154806-9b5a67519118
-)
-
-require (
+	github.com/KhoalaS/thrifter v0.0.0-20251225121937-b069ec47745a // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/v2pro/plz v0.0.0-20221028024117-e5f9aec5b631 // indirect

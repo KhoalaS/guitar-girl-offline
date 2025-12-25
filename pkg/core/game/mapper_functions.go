@@ -1,9 +1,9 @@
 package game
 
 import (
+	"github.com/KhoalaS/thrifter/general"
+	"github.com/KhoalaS/thrifter/protocol"
 	"github.com/rs/zerolog/log"
-	"github.com/thrift-iterator/go/general"
-	"github.com/thrift-iterator/go/protocol"
 )
 
 func EnvironmentMapperFunc(data general.Struct) EnvironmentData {

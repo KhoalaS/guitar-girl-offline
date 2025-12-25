@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
-	"github.com/thrift-iterator/go/general"
+	"github.com/KhoalaS/thrifter/general"
 )
 
 type DebugServer struct {
@@ -34,7 +34,7 @@ func NewDebugServer() *DebugServer {
 		dataBytes, err := json.Marshal(data)
 
 		if err != nil {
-			
+
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}

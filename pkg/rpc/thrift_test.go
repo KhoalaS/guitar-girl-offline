@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/thrift-iterator/go/protocol"
+		"github.com/KhoalaS/thrifter/protocol"
 )
 
 func TestThriftDataToStruct(t *testing.T) {

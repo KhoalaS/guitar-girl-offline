@@ -1,8 +1,8 @@
 package rpc
 
 import (
-	thrifter "github.com/thrift-iterator/go"
-	"github.com/thrift-iterator/go/general"
+	"github.com/KhoalaS/thrifter"
+	"github.com/KhoalaS/thrifter/general"
 )
 
 func ThriftDataToStruct(input string) (general.Struct, error) {

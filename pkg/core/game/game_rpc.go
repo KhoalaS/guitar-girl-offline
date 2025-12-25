@@ -7,10 +7,10 @@ import (
 
 	embeds "github.com/KhoalaS/guitar-girl-offline"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
+	"github.com/KhoalaS/thrifter"
+	"github.com/KhoalaS/thrifter/general"
+	"github.com/KhoalaS/thrifter/protocol"
 	"github.com/rs/zerolog/log"
-	thrifter "github.com/thrift-iterator/go"
-	"github.com/thrift-iterator/go/general"
-	"github.com/thrift-iterator/go/protocol"
 )
 
 type GameRpc struct {
