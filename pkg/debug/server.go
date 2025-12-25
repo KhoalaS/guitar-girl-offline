@@ -5,12 +5,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
-	"github.com/rs/zerolog/log"
 	"github.com/thrift-iterator/go/general"
-	"github.com/thrift-iterator/go/protocol"
 )
 
 type DebugServer struct {
@@ -37,12 +34,7 @@ func NewDebugServer() *DebugServer {
 		dataBytes, err := json.Marshal(data)
 
 		if err != nil {
-			d, _ := json.Marshal(JSONMapWrapper{
-				Map: data.Get(protocol.FieldId(5)).(general.Map),
-			})
-
-			os.WriteFile("dump.json", d, 0664)
-			log.Debug().Any("data", string(d)).Send()
+			
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}

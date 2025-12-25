@@ -149,7 +149,7 @@ func (gameRpc *GameRpc) userLogin(w http.ResponseWriter, r *http.Request) {
 	}
 
 	baseRequest := ThriftStructToBaseGameRequest(generalStruct, 3, UserLoginParamsMapperFunc)
-	response := gameRpc.api.UserLogin(baseRequest, "main")
+	response := gameRpc.api.UserLogin(baseRequest, "user")
 	responseData, err := thrifter.Marshal(response)
 	if err != nil {
 		InternalErrorHandler(w, err)
