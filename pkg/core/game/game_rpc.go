@@ -44,10 +44,11 @@ func (gameRpc *GameRpc) RegisterRoutes(mux *http.ServeMux) {
 func (gameRpc *GameRpc) registerMainMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/Request/en", gameRpc.mainRequest)
-	mux.HandleFunc("/getUpdateTime/en", gameRpc.getUpdateTime)
-	mux.HandleFunc("/defaultSettingList/en", gameRpc.defaultSettingList)
-	mux.HandleFunc("/getGameDataList/en", gameRpc.getGameDataList)
+	mux.HandleFunc("/Request/en/", gameRpc.mainRequest)
+	mux.HandleFunc("/getUpdateTime/en/", gameRpc.getUpdateTime)
+	mux.HandleFunc("/defaultSettingList/en/", gameRpc.defaultSettingList)
+	mux.HandleFunc("/getGameDataList/en/", gameRpc.getGameDataList)
+	mux.HandleFunc("/getServerTime/en/", gameRpc.getServerTime)
 
 	//TODO other endpoints
 
@@ -57,7 +58,7 @@ func (gameRpc *GameRpc) registerMainMux() {
 func (gameRpc *GameRpc) registerPostMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/getPostTime/en", gameRpc.getPostTime)
+	mux.HandleFunc("/getPostTime/en/", gameRpc.getPostTime)
 
 	//TODO other endpoints
 
@@ -67,8 +68,8 @@ func (gameRpc *GameRpc) registerPostMux() {
 func (gameRpc *GameRpc) registerUserMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/userJoin/en", gameRpc.userJoin)
-	mux.HandleFunc("/userLogin/en", gameRpc.userLogin)
+	mux.HandleFunc("/userJoin/en/", gameRpc.userJoin)
+	mux.HandleFunc("/userLogin/en/", gameRpc.userLogin)
 
 	//TODO other endpoints
 
@@ -78,7 +79,7 @@ func (gameRpc *GameRpc) registerUserMux() {
 func (gameRpc *GameRpc) registerStoreMux() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/getVarietyStore/en", gameRpc.getVarietyStore)
+	mux.HandleFunc("/getVarietyStore/en/", gameRpc.getVarietyStore)
 
 	//TODO other endpoints
 
@@ -108,16 +109,6 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 			log.Debug().Int("code", 3).Err(err).Send()
 			return
 		}
-	case "getServerTime":
-		baseRequest := ThriftStructToBaseGameRequest(generalStruct, 4, GetServerTimeParamsMapperFunc)
-		baseRequest.Data.TimeZone = gameRpc.api.timeZone
-		response := gameRpc.api.GetServerTime(baseRequest, "main")
-		responseData, err = thrifter.Marshal(response)
-		if err != nil {
-			InternalErrorHandler(w, err)
-			log.Debug().Int("code", 3).Err(err).Send()
-			return
-		}
 	default:
 		w.WriteHeader(http.StatusNotFound)
 		return
@@ -131,7 +122,8 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 		responseData, _ = json.Marshal(responseStructData)
 	}
 
-	w.Write(responseData)
+	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
+	w.Write([]byte(thriftBytes))
 }
 
 func (gameRpc *GameRpc) mainInit(w http.ResponseWriter, r *http.Request) {
@@ -157,7 +149,9 @@ func (gameRpc *GameRpc) userLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write(responseData)
+	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
+
+	w.Write([]byte(thriftBytes))
 }
 func (gameRpc *GameRpc) getVarietyStore(w http.ResponseWriter, r *http.Request) {
 }
@@ -203,6 +197,28 @@ func (gameRpc *GameRpc) defaultSettingList(w http.ResponseWriter, r *http.Reques
 
 func (gameRpc *GameRpc) getGameDataList(w http.ResponseWriter, r *http.Request) {
 	w.Write(embeds.RawGameData)
+}
+
+func (gameRpc GameRpc) getServerTime(w http.ResponseWriter, r *http.Request) {
+	generalStruct, err := getGeneralStructFromRequest(r)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Err(err).Send()
+		return
+	}
+
+	baseRequest := ThriftStructToBaseGameRequest(generalStruct, 4, GetServerTimeParamsMapperFunc)
+	baseRequest.Data.TimeZone = gameRpc.api.timeZone
+	response := gameRpc.api.GetServerTime(baseRequest, "main")
+	responseData, err := thrifter.Marshal(response)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 3).Err(err).Send()
+		return
+	}
+
+	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
+	w.Write([]byte(thriftBytes))
 }
 
 func GetFunctionNameFromThrift(thriftStruct general.Struct) string {
