@@ -44,7 +44,7 @@ func (service AuthServiceImpl) Analytics() BaseAuthResponse {
 	return BaseAuthResponse{
 		Value:         true,
 		ResultCode:    "000",
-		ResultMessage: API_OK,
+		ResultMessage: API_OK_MESSAGE,
 	}
 }
 
@@ -109,7 +109,7 @@ func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseAuthRespons
 			CallTime:         0,
 		},
 		ResultCode:    "000",
-		ResultMessage: API_OK,
+		ResultMessage: API_OK_MESSAGE,
 	}
 }
 
@@ -117,7 +117,7 @@ func (service AuthServiceImpl) ReferrerSave(referrer string, adId string, appKey
 	return BaseAuthResponse{
 		Value:         "OK",
 		ResultCode:    "000",
-		ResultMessage: API_OK,
+		ResultMessage: API_OK_MESSAGE,
 	}
 }
 
@@ -125,7 +125,7 @@ func (service AuthServiceImpl) GeoipCountryCodeInfo(deviceCd string, appId int, 
 	return BaseAuthResponse{
 		Value:         "US",
 		ResultCode:    "000",
-		ResultMessage: API_OK,
+		ResultMessage: API_OK_MESSAGE,
 	}
 }
 
@@ -133,12 +133,12 @@ func (service AuthServiceImpl) Eula(resultScheme int, platformCd string, release
 	return BaseAuthResponse{
 		Value:         true,
 		ResultCode:    "000",
-		ResultMessage: API_OK,
+		ResultMessage: API_OK_MESSAGE,
 	}
 }
 
 const (
-	API_OK string = "API_OK"
+	API_OK_MESSAGE string = "API_OK"
 )
 
 type RegisterResponseValue struct {
