@@ -24,3 +24,12 @@ func ThriftDataToStruct(input string) (general.Struct, error) {
 
 	return thriftStruct, nil
 }
+
+func ThriftBytesToBz2B64(input []byte) (string, error) {
+	compressedBytes, err := compressBz2(input)
+	if err != nil {
+		return "", err
+	}
+
+	return encodeBase64(compressedBytes), nil
+}
