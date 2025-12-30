@@ -4,7 +4,8 @@ import (
 	"os"
 	"testing"
 
-		"github.com/KhoalaS/thrifter/protocol"
+	"github.com/KhoalaS/thrifter"
+	"github.com/KhoalaS/thrifter/protocol"
 )
 
 func TestThriftDataToStruct(t *testing.T) {
@@ -37,5 +38,15 @@ func TestThriftDataToStruct(t *testing.T) {
 	version := actual.Get(protocol.FieldId(2), protocol.FieldId(3))
 	if version != int32(800) {
 		t.Fail()
+	}
+}
+
+func TestThriftMapEncoding(t *testing.T) {
+	m := map[string]string{}
+	m["ret"] = "1"
+
+	_, err := thrifter.Marshal(&m)
+	if err != nil {
+		t.Error(err)
 	}
 }
