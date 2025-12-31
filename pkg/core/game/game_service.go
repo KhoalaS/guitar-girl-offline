@@ -9,33 +9,34 @@ import (
 )
 
 type GameService interface {
-	Init(params InitParameters) (model.InitRetDataInfo, *ServiceError)
-	GetServerTime(params GetServerTimeParams) (BaseTimestamp, *ServiceError)
-	UserLogin(params UserLoginParams) (*UserLoginResult, *ServiceError)
+	Init(params InitParameters) (model.InitRetDataInfo, model.ErrorRetCode)
+	GetServerTime(params GetServerTimeParams) (BaseTimestamp, model.ErrorRetCode)
+	UserLogin(params UserLoginParams) (*UserLoginResult, model.ErrorRetCode)
 	GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo
 	DefaultSettingList(params DefaultSettingListParams) DefaultSettingList
-	GetGameDataList(params GetGameDataListParams) (map[string]any, *ServiceError)
+	GetGameDataList(params GetGameDataListParams) (map[string]any, model.ErrorRetCode)
 }
 
 type GameServiceImpl struct{}
 
-func (service *GameServiceImpl) Init(params InitParameters) (model.InitRetDataInfo, *ServiceError) {
+func (service *GameServiceImpl) Init(params InitParameters) (model.InitRetDataInfo, model.ErrorRetCode) {
 	return model.InitRetDataInfo{
 		Idx:      253,
 		Game_url: "https://game.gtgl.pmang.cloud",
 		Cdn_url:  "https://dl.gtgl.pmang.cloud",
-	}, nil
+	}, model.ErrorRetCode{}
 }
 
-func (service *GameServiceImpl) GetServerTime(params GetServerTimeParams) (BaseTimestamp, *ServiceError) {
-	return getBaseTimeStamp(time.Now(), params.TimeZone), nil
+func (service *GameServiceImpl) GetServerTime(params GetServerTimeParams) (BaseTimestamp, model.ErrorRetCode) {
+	return getBaseTimeStamp(time.Now(), params.TimeZone), model.ErrorRetCode{}
 }
 
-func (service *GameServiceImpl) UserLogin(params UserLoginParams) (*UserLoginResult, *ServiceError) {
+func (service *GameServiceImpl) UserLogin(params UserLoginParams) (*UserLoginResult, model.ErrorRetCode) {
 	// TODO internal logic
-	return nil, NewServiceError(
-		998, "Sorry. Not a registered user.",
-	)
+	return nil, model.ErrorRetCode{
+		Code:   998,
+		Errmsg: "Sorry. Not a registered user.",
+	}
 }
 
 func (service *GameServiceImpl) GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo {
@@ -161,15 +162,15 @@ func (service *GameServiceImpl) DefaultSettingList(params DefaultSettingListPara
 	}
 }
 
-func (service *GameServiceImpl) GetGameDataList(params GetGameDataListParams) (map[string]any, *ServiceError) {
+func (service *GameServiceImpl) GetGameDataList(params GetGameDataListParams) (map[string]any, model.ErrorRetCode) {
 	var data map[string]any
 
 	err := json.Unmarshal(embeds.GameData, &data)
 	if err != nil {
-		return nil, NewServiceError(1, err.Error())
+		return nil, model.ErrorRetCode{Code: 1, Errmsg: err.Error()}
 	}
 
-	return data, nil
+	return data, model.ErrorRetCode{}
 }
 
 type GetGameDataListParams struct {
@@ -190,18 +191,6 @@ type Pair struct {
 type DefaultSettingListParams struct {
 	DeviceId   string `thrift:",1"`
 	UnknownInt int32  `thrift:",2"`
-}
-
-type ServiceError struct {
-	ErrorCode    int    `thrift:",1"`
-	ErrorMessage string `thrift:",2"`
-}
-
-func NewServiceError(code int, message string) *ServiceError {
-	return &ServiceError{
-		ErrorCode:    code,
-		ErrorMessage: message,
-	}
 }
 
 type GetUpdateTimeParams struct {

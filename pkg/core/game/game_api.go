@@ -40,12 +40,12 @@ func (api *GameApi) UserLogin(params BaseGameRequest[UserLoginParams], apiCatego
 
 func (api *GameApi) GetUpdateTime(params BaseGameRequest[GetUpdateTimeParams], apiCategory string) BaseGameResponse[model.GetUpdateTimeRetDataInfo] {
 	loginResult := api.service.GetUpdateTime(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, nil)
+	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, model.ErrorRetCode{})
 }
 
 func (api *GameApi) DefaultSettingList(params BaseGameRequest[DefaultSettingListParams], apiCategory string) BaseGameResponse[DefaultSettingList] {
 	settingList := api.service.DefaultSettingList(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, nil)
+	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, model.ErrorRetCode{})
 }
 
 func (api *GameApi) GetGameDataList(params BaseGameRequest[GetGameDataListParams], apiCategory string) BaseGameResponse[map[string]any] {
@@ -54,7 +54,7 @@ func (api *GameApi) GetGameDataList(params BaseGameRequest[GetGameDataListParams
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, err)
 }
 
-func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError *ServiceError) BaseGameResponse[T] {
+func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError model.ErrorRetCode) BaseGameResponse[T] {
 	now := time.Now()
 
 	baseResponse := BaseGameResponse[T]{
@@ -64,10 +64,8 @@ func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZon
 		EmptyValue:   struct{}{},
 	}
 
-	if serviceError != nil {
-		baseResponse.Error = serviceError
-	} else {
-		baseResponse.Error = NewServiceError(0, "")
+	baseResponse.Error = serviceError
+	if serviceError.Code == 0 {
 		baseResponse.Data = data
 	}
 
@@ -104,12 +102,12 @@ type BaseGameRequest[T any] struct {
 }
 
 type BaseGameResponse[T any] struct {
-	Error        *ServiceError `thrift:",1"`
-	Timestamp    BaseTimestamp `thrift:",2"`
-	Category     string        `thrift:",3"`
-	FunctionName string        `thrift:",4"`
-	Data         T             `thrift:",5,omitempty"`
-	EmptyValue   Empty         `thrift:",6"`
+	Error        model.ErrorRetCode `thrift:",1"`
+	Timestamp    BaseTimestamp      `thrift:",2"`
+	Category     string             `thrift:",3"`
+	FunctionName string             `thrift:",4"`
+	Data         T                  `thrift:",5,omitempty"`
+	EmptyValue   Empty              `thrift:",6"`
 }
 
 type Empty struct{}
