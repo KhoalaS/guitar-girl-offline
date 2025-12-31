@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model"
 )
 
 type GameApi struct {
@@ -22,7 +23,7 @@ func (api *GameApi) SetTimeZone(timeZone string) {
 	api.timeZone = timeZone
 }
 
-func (api *GameApi) Init(params BaseGameRequest[InitParameters], apiCategory string) BaseGameResponse[InitServerUrls] {
+func (api *GameApi) Init(params BaseGameRequest[InitParameters], apiCategory string) BaseGameResponse[model.InitRetDataInfo] {
 	serverList, err := api.service.Init(params.Data)
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, serverList, err)
 }

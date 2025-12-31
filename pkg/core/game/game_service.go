@@ -5,10 +5,11 @@ import (
 	"time"
 
 	embeds "github.com/KhoalaS/guitar-girl-offline"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model"
 )
 
 type GameService interface {
-	Init(params InitParameters) (InitServerUrls, *ServiceError)
+	Init(params InitParameters) (model.InitRetDataInfo, *ServiceError)
 	GetServerTime(params GetServerTimeParams) (BaseTimestamp, *ServiceError)
 	UserLogin(params UserLoginParams) (*UserLoginResult, *ServiceError)
 	GetUpdateTime(params GetUpdateTimeParams) UpdateTime
@@ -18,11 +19,11 @@ type GameService interface {
 
 type GameServiceImpl struct{}
 
-func (service *GameServiceImpl) Init(params InitParameters) (InitServerUrls, *ServiceError) {
-	return InitServerUrls{
-		UnknownInt:     253,
-		GameServerUrl:  "https://game.gtgl.pmang.cloud",
-		AssetServerUrl: "https://dl.gtgl.pmang.cloud",
+func (service *GameServiceImpl) Init(params InitParameters) (model.InitRetDataInfo, *ServiceError) {
+	return model.InitRetDataInfo{
+		Idx:      253,
+		Game_url: "https://game.gtgl.pmang.cloud",
+		Cdn_url:  "https://dl.gtgl.pmang.cloud",
 	}, nil
 }
 
