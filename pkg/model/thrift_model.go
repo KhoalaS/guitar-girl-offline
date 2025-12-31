@@ -6,12 +6,14 @@ type Error struct {
 	Err_message     string
 	Is_debug        bool
 	Is_achieve_noti bool
-	Mission_notis   []any
+	Mission_notis   []any // TODO
 }
+
 type MoreGamesLog struct {
 	Call string
 	Data MoreGamesLogDataInfo
 }
+
 type MoreGamesLogDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -19,9 +21,11 @@ type MoreGamesLogDataInfo struct {
 	Device_uuid string
 	App_id      int32
 }
+
 type MoreGamesLogRetDataInfo struct {
 	Ret string
 }
+
 type MoreGamesLogReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -30,82 +34,98 @@ type MoreGamesLogReturn struct {
 	Data        MoreGamesLogRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type Rect struct {
 	Left   float64
 	Top    float64
 	Width  float64
 	Height float64
 }
+
 type Request struct {
 	Call        string
 	Data        InitDataInfo
 	Common_data ParamData
 }
+
 type StageFollowerProfileScore struct {
 	I_id        int32
 	Score       int32
 	Bonus_score int32
 }
+
 type UserAdLevel struct {
 	I_id    int32
 	I_Level int32
 	I_EXP   int32
 }
+
 type UserAdList struct {
 	I_id           int32
 	I_Count        int32
 	I_TotalCount   int32
 	I_LastViewTime int32
 }
+
 type UserApData struct {
 	I_Ap         int32
 	I_FullApTime int32
 	I_MaxAp      int32
 }
+
 type UserChThirdChapterReward struct {
 	I_id              int32
 	I_ReceivedReward1 int32
 	I_ReceivedReward2 int32
 	I_ReceivedReward3 int32
 }
+
 type UserChThirdStage struct {
 	I_id         int32
 	I_ChapterId  int32
 	I_StageIndex int32
 	I_Star       int32
 }
+
 type UserFollowerGiftItem struct {
 	I_id    int32
 	I_Value int32
 }
+
 type UserFollowerProfile struct {
 	I_id       int32
 	I_Level    int32
 	D_Exp      int64
 	I_AddCandy int32
 }
+
 type UserFollowerProfileReward struct {
 	I_id          int32
 	I_RewardLevel int32
 }
+
 type UserSelectReward struct {
 	I_GroupId          int32
 	I_RewardGroupId    int32
 	I_AltRewardGroupId int32
 }
+
 type UserTutorial struct {
 	I_id int32
 }
+
 type Vector3 struct {
 	X float64
 	Y float64
 	Z float64
 }
+
 type AdViewLog struct {
 	Call        string
 	Data        AdViewLogDataInfo
 	Common_data ParamData
 }
+
 type AdViewLogDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -114,9 +134,11 @@ type AdViewLogDataInfo struct {
 	Ad_type     string
 	Ad_name     string
 }
+
 type AdViewLogRetDataInfo struct {
 	Status string
 }
+
 type AdViewLogReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -125,26 +147,31 @@ type AdViewLogReturn struct {
 	Data        AdViewLogRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type AlbumListInfo struct {
 	Album_idx  int64
 	Country    string
 	Date_issue string
 	Cdn_dir    string
 	Album_img  string
-	Language   map[any]any
+	Language   map[any]any // TODO
 }
+
 type AlbumListLanguage struct {
 	Title        string
 	Company      string
 	Album_artist string
 }
+
 type AvatarList struct {
 	Call string
 	Data AvatarListDataInfo
 }
+
 type AvatarListDataInfo struct {
 	Type string
 }
+
 type AvatarListRetDataInfo struct {
 	Idx           int16
 	Resource_name string
@@ -156,21 +183,25 @@ type AvatarListRetDataInfo struct {
 	Value         int32
 	Event_point   int64
 }
+
 type AvatarListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type Bookmark_list struct {
 	Music_idx int32
 	Flag      int16
 }
+
 type BuyAvatar struct {
 	Call string
 	Data BuyAvatarDataInfo
 }
+
 type BuyAvatarDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -178,12 +209,14 @@ type BuyAvatarDataInfo struct {
 	Device_uuid string
 	Idx         int16
 }
+
 type BuyAvatarRetDataInfo struct {
 	Avatar_idx int16
 	U_gold     int64
 	U_cp       int64
 	U_mp       int64
 }
+
 type BuyAvatarReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -191,10 +224,12 @@ type BuyAvatarReturn struct {
 	Data        BuyAvatarRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyCheck struct {
 	Call string
 	Data BuyCheckDataInfo
 }
+
 type BuyCheckDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -202,9 +237,11 @@ type BuyCheckDataInfo struct {
 	Device_uuid string
 	Idx         int32
 }
+
 type BuyCheckRetDataInfo struct {
 	Result int64
 }
+
 type BuyCheckReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -213,10 +250,12 @@ type BuyCheckReturn struct {
 	Data        BuyCheckRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyCollectionItem struct {
 	Call string
 	Data BuyCollectionItemDataInfo
 }
+
 type BuyCollectionItemDataInfo struct {
 	U_seq             int32
 	U_id              string
@@ -225,11 +264,13 @@ type BuyCollectionItemDataInfo struct {
 	Special_music_idx int32
 	Idx               int32
 }
+
 type BuyCollectionItemRetDataInfo struct {
 	Item_type    int16
 	Item_value   int64
 	Buy_datetime string
 }
+
 type BuyCollectionItemReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -237,10 +278,12 @@ type BuyCollectionItemReturn struct {
 	Data        BuyCollectionItemRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyCollectionMusic struct {
 	Call string
 	Data BuyCollectionMusicDataInfo
 }
+
 type BuyCollectionMusicDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -248,10 +291,12 @@ type BuyCollectionMusicDataInfo struct {
 	Device_uuid string
 	Idx         int32
 }
+
 type BuyCollectionMusicRetDataInfo struct {
 	Music_idx    int64
 	Buy_datetime string
 }
+
 type BuyCollectionMusicReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -259,12 +304,14 @@ type BuyCollectionMusicReturn struct {
 	Data        BuyCollectionMusicRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyContents struct {
 	Call        string
 	Data        BuyContentsDataInfo
 	Sub_mode    string
 	Common_data ParamData
 }
+
 type BuyContentsDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -273,12 +320,14 @@ type BuyContentsDataInfo struct {
 	Type        string
 	Idx         int32
 }
+
 type BuyContentsRetDataInfo struct {
 	U_cp       int64
 	U_candy    float64
 	User_skill UserSkill
 	User_unit  UserUnit
 }
+
 type BuyContentsReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -287,10 +336,12 @@ type BuyContentsReturn struct {
 	Data        BuyContentsRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyExtraMode struct {
 	Call string
 	Data BuyExtraModeDataInfo
 }
+
 type BuyExtraModeDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -299,9 +350,11 @@ type BuyExtraModeDataInfo struct {
 	Music_idx   int32
 	Key_flg     int64
 }
+
 type BuyExtraModeRetDataInfo struct {
 	Music_idx int32
 }
+
 type BuyExtraModeReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -309,10 +362,12 @@ type BuyExtraModeReturn struct {
 	Data        BuyExtraModeRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyItem struct {
 	Call string
 	Data BuyItemDataInfo
 }
+
 type BuyItemDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -320,6 +375,7 @@ type BuyItemDataInfo struct {
 	Device_uuid string
 	Idx         int16
 }
+
 type BuyItemRetDataInfo struct {
 	Idx      int32
 	U_gold   int64
@@ -327,6 +383,7 @@ type BuyItemRetDataInfo struct {
 	U_mp     int64
 	U_credit int64
 }
+
 type BuyItemReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -334,10 +391,12 @@ type BuyItemReturn struct {
 	Data        BuyItemRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyMusic struct {
 	Call string
 	Data BuyMusicDataInfo
 }
+
 type BuyMusicDataInfo struct {
 	Type          int16
 	Idx           int32
@@ -347,12 +406,14 @@ type BuyMusicDataInfo struct {
 	Device_uuid   string
 	Purchase_type int16
 }
+
 type BuyMusicRetDataInfo struct {
 	U_gold int32
 	U_cp   int32
 	U_mp   int32
-	Music  map[any]any
+	Music  map[any]any // TODO
 }
+
 type BuyMusicReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -361,10 +422,12 @@ type BuyMusicReturn struct {
 	Data        BuyMusicRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyPackage struct {
 	Call string
 	Data BuyPackageDataInfo
 }
+
 type BuyPackageDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -373,16 +436,19 @@ type BuyPackageDataInfo struct {
 	Store_idx   int64
 	Product_id  int64
 }
+
 type BuyPackageMusic struct {
 	Music_idx int64
 }
+
 type BuyPackageRetDataInfo struct {
 	U_gold     int64
 	U_cp       int64
 	U_mp       int64
 	U_credit   int64
-	Music_data []any
+	Music_data []any // TODO
 }
+
 type BuyPackageReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -390,10 +456,12 @@ type BuyPackageReturn struct {
 	Data        BuyPackageRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyPiece struct {
 	Call string
 	Data BuyPieceDataInfo
 }
+
 type BuyPieceDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -402,12 +470,14 @@ type BuyPieceDataInfo struct {
 	Idx         int32
 	Cnt         int64
 }
+
 type BuyPieceRetDataInfo struct {
 	Idx    int32
 	U_gold int64
 	U_cp   int32
 	U_mp   int32
 }
+
 type BuyPieceReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -415,12 +485,14 @@ type BuyPieceReturn struct {
 	Data        BuyPieceRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyShop struct {
 	Call        string
 	Data        BuyShopDataInfo
 	Sub_mode    string
 	Common_data ParamData
 }
+
 type BuyShopDataInfo struct {
 	U_seq             int32
 	U_id              string
@@ -435,12 +507,14 @@ type BuyShopDataInfo struct {
 	App_id            string
 	Member_id         string
 }
+
 type BuyShopRetDataInfo struct {
 	U_cp          int64
 	U_candy       float64
-	Reward_data   []any
+	Reward_data   []any // TODO
 	User_ad_level UserAdLevel
 }
+
 type BuyShopReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -449,10 +523,12 @@ type BuyShopReturn struct {
 	Data        BuyShopRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyUserTitle struct {
 	Call string
 	Data BuyUserTitleDataInfo
 }
+
 type BuyUserTitleDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -460,12 +536,14 @@ type BuyUserTitleDataInfo struct {
 	Device_uuid string
 	Idx         int16
 }
+
 type BuyUserTitleRetDataInfo struct {
 	Title_idx int16
 	U_gold    int64
 	U_cp      int64
 	U_mp      int64
 }
+
 type BuyUserTitleReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -473,11 +551,13 @@ type BuyUserTitleReturn struct {
 	Data        BuyUserTitleRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type BuyVarietyStore struct {
 	Call        string
 	Data        BuyVarietyStoreDataInfo
 	Common_data ParamData
 }
+
 type BuyVarietyStoreDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -485,6 +565,7 @@ type BuyVarietyStoreDataInfo struct {
 	Device_uuid string
 	Idx         int32
 }
+
 type BuyVarietyStoreRetDataInfo struct {
 	U_cp         int64
 	U_candy      float64
@@ -493,6 +574,7 @@ type BuyVarietyStoreRetDataInfo struct {
 	Reward_value int64
 	Status       string
 }
+
 type BuyVarietyStoreReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -501,11 +583,13 @@ type BuyVarietyStoreReturn struct {
 	Data        BuyVarietyStoreRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ChThirdStage struct {
 	Call        string
 	Data        ChThirdStageDataInfo
 	Common_data ParamData
 }
+
 type ChThirdStageDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -515,6 +599,7 @@ type ChThirdStageDataInfo struct {
 	Music_id    int32
 	Profile_ids string
 }
+
 type ChThirdStageRetDataInfo struct {
 	Star                        int32
 	Character_score             int32
@@ -526,12 +611,13 @@ type ChThirdStageRetDataInfo struct {
 	User_ap                     UserApData
 	User_ch_third_stage         UserChThirdStage
 	User_music                  UserMusic
-	Reward_data                 []any
-	Bonus_follower_profile_ids  []any
+	Reward_data                 []any // TODO
+	Bonus_follower_profile_ids  []any // TODO
 	User_follower_profile       UserFollowerProfile
 	Bonus_music_score           int32
-	User_follower_profile_score []any
+	User_follower_profile_score []any // TODO
 }
+
 type ChThirdStageReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -540,11 +626,13 @@ type ChThirdStageReturn struct {
 	Data        ChThirdStageRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ChThirdStreamStage struct {
 	Call        string
 	Data        ChThirdStreamStageDataInfo
 	Common_data ParamData
 }
+
 type ChThirdStreamStageDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -553,12 +641,14 @@ type ChThirdStreamStageDataInfo struct {
 	I_id        int32
 	Count       int32
 }
+
 type ChThirdStreamStageRetDataInfo struct {
 	I_id                  int32
 	User_ap               UserApData
 	User_follower_profile UserFollowerProfile
-	Reward_data           map[any]any
+	Reward_data           map[any]any // TODO
 }
+
 type ChThirdStreamStageReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -567,10 +657,12 @@ type ChThirdStreamStageReturn struct {
 	Data        ChThirdStreamStageRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ChallengeMissionList struct {
 	Call string
 	Data ChallengeMissionListDataInfo
 }
+
 type ChallengeMissionListDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -581,16 +673,19 @@ type ChallengeMissionListDataInfo struct {
 	Up          int32
 	Down        int32
 }
+
 type ChallengeMissionListInfo struct {
 	Music_idx    int32
 	Difficulty   int16
-	Mission_list []any
+	Mission_list []any // TODO
 }
+
 type ChallengeMissionListRetDataInfo struct {
 	Music_idx    int32
 	Difficulty   int16
-	Mission_list map[any]any
+	Mission_list map[any]any // TODO
 }
+
 type ChallengeMissionListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -598,11 +693,13 @@ type ChallengeMissionListReturn struct {
 	Data        ChallengeMissionListRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ChangeUser struct {
 	Call        string
 	Data        ChangeUserDataInfo
 	Common_data ParamData
 }
+
 type ChangeUserDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -610,9 +707,11 @@ type ChangeUserDataInfo struct {
 	Device_uuid string
 	Change_uuid string
 }
+
 type ChangeUserRetDataInfo struct {
 	Result string
 }
+
 type ChangeUserReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -620,6 +719,7 @@ type ChangeUserReturn struct {
 	Data        ChangeUserRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ChannelList struct {
 	Channel        int16
 	Url            string
@@ -629,10 +729,12 @@ type ChannelList struct {
 	Maintenance_en string
 	Maintenance_jp string
 }
+
 type CheckBuyProduct struct {
 	Call string
 	Data CheckBuyProductDataInfo
 }
+
 type CheckBuyProductDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -640,9 +742,11 @@ type CheckBuyProductDataInfo struct {
 	Device_uuid string
 	Product_id  string
 }
+
 type CheckBuyProductRetDataInfo struct {
 	Is_owner int16
 }
+
 type CheckBuyProductReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -650,11 +754,13 @@ type CheckBuyProductReturn struct {
 	Data        CheckBuyProductRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type CheckBuyShop struct {
 	Call        string
 	Data        CheckBuyShopDataInfo
 	Common_data ParamData
 }
+
 type CheckBuyShopDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -662,9 +768,11 @@ type CheckBuyShopDataInfo struct {
 	Device_uuid string
 	Shop_id     string
 }
+
 type CheckBuyShopRetDataInfo struct {
 	Is_owner int16
 }
+
 type CheckBuyShopReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -672,20 +780,24 @@ type CheckBuyShopReturn struct {
 	Data        CheckBuyShopRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type CheckPurchased struct {
 	Call        string
 	Data        CheckPurchasedDataInfo
 	Common_data ParamData
 }
+
 type CheckPurchasedDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type CheckPurchasedRetDataInfo struct {
 	Is_purchased int16
 }
+
 type CheckPurchasedReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -693,19 +805,23 @@ type CheckPurchasedReturn struct {
 	Data        CheckPurchasedRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type CheckUser struct {
 	Call        string
 	Data        CheckUserDataInfo
 	Common_data ParamData
 }
+
 type CheckUserDataInfo struct {
 	Uuid        string
 	Device_uuid string
 }
+
 type CheckUserRetDataInfo struct {
 	U_seq int32
 	U_id  string
 }
+
 type CheckUserReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -714,6 +830,7 @@ type CheckUserReturn struct {
 	Data        CheckUserRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ChoiceUserData struct {
 	U_girl_level int64
 	U_fans       int64
@@ -723,15 +840,18 @@ type ChoiceUserData struct {
 	U_like       float64
 	U_last_login string
 }
+
 type CollectionRetData struct {
 	Music_idx int64
 	Cnt       int64
 }
+
 type CompleteLog struct {
 	Call        string
 	Data        CompleteLogDataInfo
 	Common_data ParamData
 }
+
 type CompleteLogDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -741,9 +861,11 @@ type CompleteLogDataInfo struct {
 	Id          int32
 	Value       string
 }
+
 type CompleteLogRetDataInfo struct {
 	Status string
 }
+
 type CompleteLogReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -752,23 +874,28 @@ type CompleteLogReturn struct {
 	Data        CompleteLogRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type DefaultSettingDataList struct {
 	Setting_key   string
 	Setting_value string
 }
+
 type DefaultSettingList struct {
 	Call        string
 	Data        DefaultSettingListDataInfo
 	Common_data ParamData
 }
+
 type DefaultSettingListDataInfo struct {
 	Device_uuid string
 	Os          int16
 }
+
 type DefaultSettingListRetDataInfo struct {
 	Status       string
-	Setting_list []any
+	Setting_list []any // TODO
 }
+
 type DefaultSettingListReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -777,11 +904,13 @@ type DefaultSettingListReturn struct {
 	Data        DefaultSettingListRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type DeletePost struct {
 	Call        string
 	Data        DeletePostDataInfo
 	Common_data ParamData
 }
+
 type DeletePostDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -790,9 +919,11 @@ type DeletePostDataInfo struct {
 	Idx         int64
 	Type        int16
 }
+
 type DeletePostRetDataInfo struct {
 	Idx int64
 }
+
 type DeletePostReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -800,19 +931,23 @@ type DeletePostReturn struct {
 	Data        DeletePostRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type DeleteUser struct {
 	Call string
 	Data DeleteUserDataInfo
 }
+
 type DeleteUserDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type DeleteUserRetDataInfo struct {
 	Result string
 }
+
 type DeleteUserReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -821,10 +956,12 @@ type DeleteUserReturn struct {
 	Data        DeleteUserRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type EndPlayMusic struct {
 	Call string
 	Data EndPlayMusicDataInfo
 }
+
 type EndPlayMusicDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -834,9 +971,11 @@ type EndPlayMusicDataInfo struct {
 	Medal       int16
 	Over_flg    int16
 }
+
 type EndPlayMusicRetDataInfo struct {
 	Code int16
 }
+
 type EndPlayMusicReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -844,10 +983,12 @@ type EndPlayMusicReturn struct {
 	Data        EndPlayMusicRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ErrorRetCode struct {
 	Code   int32
 	Errmsg string
 }
+
 type EventRankRewardListArr struct {
 	Event_idx    int32
 	Title        string
@@ -857,6 +998,7 @@ type EventRankRewardListArr struct {
 	Reward_type  int16
 	Reward_value int64
 }
+
 type EventRankRewardListData struct {
 	Title        string
 	Desc_cn      string
@@ -865,30 +1007,36 @@ type EventRankRewardListData struct {
 	Reward_type  int16
 	Reward_value int64
 }
+
 type EventRewardList struct {
 	Call string
 	Data EventRewardListDataInfo
 }
+
 type EventRewardListArr struct {
 	Event_idx    int32
 	Gain_point   int64
 	Reward_type  int16
 	Reward_value int64
 }
+
 type EventRewardListData struct {
 	Gain_point   int64
 	Reward_type  int16
 	Reward_value int64
 }
+
 type EventRewardListDataInfo struct {
 	Event_idx   int32
 	Device_uuid string
 }
+
 type EventRewardListRetDataInfo struct {
 	Event_idx        int32
-	Reward_list      []any
-	Rank_reward_list []any
+	Reward_list      []any // TODO
+	Rank_reward_list []any // TODO
 }
+
 type EventRewardListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -896,14 +1044,17 @@ type EventRewardListReturn struct {
 	Data        EventRewardListRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type FacebookUserJoin struct {
 	Call        string
 	Data        FacebookUserJoinDataInfo
 	Common_data ParamData
 }
+
 type FacebookUserJoinDataInfo struct {
 	Access_token string
 }
+
 type GetAchievementData struct {
 	I_id                       int32
 	S_Title_KO                 string
@@ -989,6 +1140,7 @@ type GetAchievementData struct {
 	I_Reward_19                int64
 	I_Reward_20                int64
 }
+
 type GetAdLevelData struct {
 	I_GroupID     int32
 	I_Level       int32
@@ -997,6 +1149,7 @@ type GetAdLevelData struct {
 	B_IsActive    int16
 	I_id          int32
 }
+
 type GetAdListData struct {
 	I_id              int32
 	I_Category        int32
@@ -1023,41 +1176,51 @@ type GetAdListData struct {
 	S_ExtraValue      string
 	S_AdType          string
 }
+
 type GetAlbum struct {
 	Call string
 	Data GetAlbumDataInfo
 }
+
 type GetAlbumDataInfo struct {
 	Null string
 }
+
 type GetAlbumInfoLanguage struct {
 	Seq          int32
 	Album_title  string
 	Company      string
 	Album_artist string
 }
+
 type GetAlbumInfoList struct {
 	Call string
 	Data GetAlbumListDataInfo
 }
+
 type GetAlbumInfoListDataInfo struct {
 }
+
 type GetAlbumInfoListRetDataInfo struct {
-	Language map[any]any
+	Language map[any]any // TODO
 }
+
 type GetAlbumInfoListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetAlbumList struct {
 	Call string
 	Data GetAlbumListDataInfo
 }
+
 type GetAlbumListDataInfo struct {
 }
+
 type GetAlbumListRetDataInfo struct {
 	Album_idx  int32
 	Country    string
@@ -1065,35 +1228,41 @@ type GetAlbumListRetDataInfo struct {
 	Cdn_dir    string
 	Album_img  string
 }
+
 type GetAlbumListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetAlbumRetDataInfo struct {
 	Album     AlbumListInfo
-	List_info []any
+	List_info []any // TODO
 }
+
 type GetAlbumReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetAllPoint struct {
 	Call     string
 	Data     GetAllPointDataInfo
 	Sub_mode string
 }
+
 type GetAllPointDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetAllPointRetDataInfo struct {
 	U_gold           int64
 	U_cp             int64
@@ -1102,6 +1271,7 @@ type GetAllPointRetDataInfo struct {
 	Next_credit_time int64
 	Max_credit_time  int64
 }
+
 type GetAllPointReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -1109,6 +1279,7 @@ type GetAllPointReturn struct {
 	Data        GetAllPointRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetBuffData struct {
 	I_id               int32
 	S_ResourceName     string
@@ -1139,16 +1310,20 @@ type GetBuffData struct {
 	I_Type             int16
 	I_Retention_Time   int64
 }
+
 type GetCache struct {
 	Call string
 	Data GetCacheDataInfo
 }
+
 type GetCacheDataInfo struct {
 	Type int16
 }
+
 type GetCacheRetDataInfo struct {
 	Uptime int32
 }
+
 type GetCacheReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -1156,11 +1331,13 @@ type GetCacheReturn struct {
 	Data        GetCacheRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetChThird struct {
 	Call        string
 	Data        GetChThirdDataInfo
 	Common_data ParamData
 }
+
 type GetChThirdChapterData struct {
 	I_id             int32
 	I_unlockLevel    int32
@@ -1184,18 +1361,21 @@ type GetChThirdChapterData struct {
 	S_Name_HI        string
 	B_IsActive       int16
 }
+
 type GetChThirdDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetChThirdRetDataInfo struct {
 	U_seq                        int32
 	User_ap                      UserApData
-	User_ch_third_stage          []any
-	User_ch_third_chapter_reward []any
+	User_ch_third_stage          []any // TODO
+	User_ch_third_chapter_reward []any // TODO
 }
+
 type GetChThirdReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -1204,6 +1384,7 @@ type GetChThirdReturn struct {
 	Data        GetChThirdRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetChThirdScoreData struct {
 	I_id             int32
 	I_Level          int32
@@ -1212,6 +1393,7 @@ type GetChThirdScoreData struct {
 	I_MusicScore     int32
 	B_IsActive       int16
 }
+
 type GetChThirdStageData struct {
 	I_id                   int32
 	I_Chapter              int32
@@ -1251,11 +1433,13 @@ type GetChThirdStageData struct {
 	I_BonusMusicID         int32
 	S_PercentRewardGroupID string
 }
+
 type GetChThirdStarReward struct {
 	Call        string
 	Data        GetChThirdStarRewardDataInfo
 	Common_data ParamData
 }
+
 type GetChThirdStarRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -1264,12 +1448,14 @@ type GetChThirdStarRewardDataInfo struct {
 	I_id        int32
 	Reward_num  int32
 }
+
 type GetChThirdStarRewardRetDataInfo struct {
 	I_id        int32
 	Reward_num  int32
 	User_ap     UserApData
-	Reward_data []any
+	Reward_data []any // TODO
 }
+
 type GetChThirdStarRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -1278,6 +1464,7 @@ type GetChThirdStarRewardReturn struct {
 	Data        GetChThirdStarRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetCharacterData struct {
 	I_id                      int32
 	I_Area                    int16
@@ -1326,11 +1513,13 @@ type GetCharacterData struct {
 	I_RequirementPropCount    int64
 	B_IsActive                int16
 }
+
 type GetChoiceUser struct {
 	Call        string
 	Data        GetChoiceUserDataInfo
 	Common_data ParamData
 }
+
 type GetChoiceUserDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -1338,10 +1527,12 @@ type GetChoiceUserDataInfo struct {
 	Device_uuid string
 	Choice_uuid string
 }
+
 type GetChoiceUserRetDataInfo struct {
 	User        ChoiceUserData
 	Choice_user ChoiceUserData
 }
+
 type GetChoiceUserReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -1349,12 +1540,15 @@ type GetChoiceUserReturn struct {
 	Data        GetChoiceUserRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetCollection struct {
 	Call string
 	Data GetCollectionDataInfo
 }
+
 type GetCollectionDataInfo struct {
 }
+
 type GetCollectionItem struct {
 	Special_music_idx int64
 	Idx               int64
@@ -1362,19 +1556,22 @@ type GetCollectionItem struct {
 	Item_value        int64
 	Buy_cnt           int64
 }
+
 type GetCollectionRetDataInfo struct {
 	Idx      int32
 	Buy_type int16
 	Price    int64
-	Item     []any
+	Item     []any // TODO
 }
+
 type GetCollectionReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetConsumeData struct {
 	I_id           int32
 	S_ResourceName string
@@ -1396,6 +1593,7 @@ type GetConsumeData struct {
 	I_Area         int16
 	B_IsActive     int16
 }
+
 type GetCostumeData struct {
 	I_id                      int32
 	S_Name_KO                 string
@@ -1451,10 +1649,12 @@ type GetCostumeData struct {
 	S_AltCostumeStartTime     string
 	S_AltCostumeEndTime       string
 }
+
 type GetCountryMyRank struct {
 	Call string
 	Data GetCountryMyRankDataInfo
 }
+
 type GetCountryMyRankDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -1464,6 +1664,7 @@ type GetCountryMyRankDataInfo struct {
 	Start_limit int32
 	End_limit   int32
 }
+
 type GetCountryMyRankRet struct {
 	G           int16
 	S           int16
@@ -1476,13 +1677,15 @@ type GetCountryMyRankRet struct {
 	U_country   string
 	Rank        int32
 }
+
 type GetCountryMyRankRetDataInfo struct {
 	Select_country string
 	Start_limit    int16
 	End_limit      int16
 	My_rank        GetCountryMyRankRet
-	Rank_list      []any
+	Rank_list      []any // TODO
 }
+
 type GetCountryMyRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -1490,12 +1693,15 @@ type GetCountryMyRankReturn struct {
 	Data        GetCountryMyRankRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetCountryRank struct {
 	Call string
 	Data GetCountryRankDataInfo
 }
+
 type GetCountryRankDataInfo struct {
 }
+
 type GetCountryRankRetDataInfo struct {
 	Rank        int32
 	Country     string
@@ -1504,13 +1710,15 @@ type GetCountryRankRetDataInfo struct {
 	Bronze      int32
 	Total_score int32
 }
+
 type GetCountryRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetCountryUserRank struct {
 	G           int16
 	S           int16
@@ -1520,6 +1728,7 @@ type GetCountryUserRank struct {
 	U_nick      string
 	U_seq       int32
 }
+
 type GetCountryUserRankRet struct {
 	G           int16
 	S           int16
@@ -1530,6 +1739,7 @@ type GetCountryUserRankRet struct {
 	U_nick      string
 	U_seq       int32
 }
+
 type GetDailyMissionData struct {
 	I_id                        int32
 	S_Title_KO                  string
@@ -1576,6 +1786,7 @@ type GetDailyMissionData struct {
 	I_Area                      int16
 	B_IsActive                  int16
 }
+
 type GetDefaultSettingRetDataInfo struct {
 	Ad_count          int32
 	Ad_probability    float64
@@ -1591,16 +1802,19 @@ type GetDefaultSettingRetDataInfo struct {
 	Tour_bg_movie     string
 	Event_bg_movie    string
 }
+
 type GetDiamondBonus struct {
 	Call string
 	Data GetDiamondBonusDataInfo
 }
+
 type GetDiamondBonusDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetDiamondBonusRetDataInfo struct {
 	Bonus1 int64
 	Bonus2 int64
@@ -1609,6 +1823,7 @@ type GetDiamondBonusRetDataInfo struct {
 	Bonus5 int64
 	Bonus6 int64
 }
+
 type GetDiamondBonusReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -1616,6 +1831,7 @@ type GetDiamondBonusReturn struct {
 	Data        GetDiamondBonusRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetEventListData struct {
 	Idx        int32
 	Event_type string
@@ -1623,16 +1839,19 @@ type GetEventListData struct {
 	End_date   string
 	B_IsActive int16
 }
+
 type GetEventMain struct {
 	Call string
 	Data GetEventMainDataInfo
 }
+
 type GetEventMainDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetEventMainRetDataInfo struct {
 	Idx         int32
 	Title       string
@@ -1650,6 +1869,7 @@ type GetEventMainRetDataInfo struct {
 	My_score    int64
 	My_rank     int64
 }
+
 type GetEventMainReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -1657,10 +1877,12 @@ type GetEventMainReturn struct {
 	Data        GetEventMainRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetEventRank struct {
 	Call string
 	Data GetEventRankDataInfo
 }
+
 type GetEventRankDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -1670,6 +1892,7 @@ type GetEventRankDataInfo struct {
 	Start_rank  int64
 	End_rank    int64
 }
+
 type GetEventRankRetDataInfo struct {
 	U_seq     int64
 	U_nick    string
@@ -1680,19 +1903,22 @@ type GetEventRankRetDataInfo struct {
 	Rank      int64
 	Score     int64
 }
+
 type GetEventRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetEventRewardList struct {
 	Call        string
 	Data        GetEventRewardListDataInfo
 	Sub_mode    string
 	Common_data ParamData
 }
+
 type GetEventRewardListData struct {
 	Idx                int64
 	Event_name         string
@@ -1707,6 +1933,7 @@ type GetEventRewardListData struct {
 	S_CustomIconType   string
 	S_CustomIconSprite string
 }
+
 type GetEventRewardListDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -1714,18 +1941,21 @@ type GetEventRewardListDataInfo struct {
 	Device_uuid string
 	Event_idx   int32
 }
+
 type GetEventRewardListRetDataInfo struct {
-	Reward_list []any
+	Reward_list []any // TODO
 	Group_idx   int32
 }
+
 type GetEventRewardListReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetFanData struct {
 	I_Area        int64
 	I_Grade       int64
@@ -1733,6 +1963,7 @@ type GetFanData struct {
 	I_BonusRate   int64
 	I_BonusRateUI int64
 }
+
 type GetFollowerData struct {
 	I_id                      int32
 	S_Name_KO                 string
@@ -1782,6 +2013,7 @@ type GetFollowerData struct {
 	I_DownloadType            int32
 	I_ProfileID               int32
 }
+
 type GetFollowerGiftItemData struct {
 	I_id           int32
 	I_GiftType     int32
@@ -1802,6 +2034,7 @@ type GetFollowerGiftItemData struct {
 	S_Name_HI      string
 	B_IsActive     int16
 }
+
 type GetFollowerProfileData struct {
 	I_id              int32
 	S_Name_KO         string
@@ -1821,6 +2054,7 @@ type GetFollowerProfileData struct {
 	B_IsVisible       int16
 	S_BackgroundColor string
 }
+
 type GetFollowerProfileLevelData struct {
 	I_id                int32
 	I_ProfileID         int32
@@ -1832,6 +2066,7 @@ type GetFollowerProfileLevelData struct {
 	I_UnlockStoryID     int32
 	B_IsActive          int16
 }
+
 type GetFollowerQuestData struct {
 	I_id                  int32
 	I_UnlockFollowerID    int32
@@ -1863,65 +2098,70 @@ type GetFollowerQuestData struct {
 	B_IsActive            int16
 	I_Type                int32
 }
+
 type GetGameDataList struct {
 	Call        string
 	Data        GetGameDataListDataInfo
 	Sub_mode    string
 	Common_data ParamData
 }
+
 type GetGameDataListDataInfo struct {
 	Game_type   string
 	Device_uuid string
 }
+
 type GetGameDataListRetDataInfo struct {
-	Consume                        []any
-	Music                          []any
-	Costume                        []any
-	Prop                           []any
-	Follower                       []any
-	Buff                           []any
-	Unit                           []any
-	Skill                          []any
-	Achievement                    []any
-	Daily_mission                  []any
-	Music_level                    []any
-	Shop                           []any
-	Reward_group                   []any
-	Fan                            []any
-	SystemNotification             []any
-	SystemString                   []any
-	SubscribeList                  []any
-	SubscribePassReward            []any
-	SubscribePass                  []any
-	Guitar                         []any
-	SubscribePassRewardInformation []any
-	Ticketcollection               []any
-	Character                      []any
-	Samseckevent                   []any
-	Localpush                      []any
-	Followerquest                  []any
-	Proplevel                      []any
-	Follower_profile               []any
-	Passgoodsshop                  []any
-	Followergiftitem               []any
-	Followerprofilelevel           []any
-	Ad_list                        []any
-	Chthird_stage                  []any
-	Chthird_score                  []any
-	Chthird_chapter                []any
-	Percent                        []any
-	Ad_level                       []any
-	Event_list                     []any
-	Select_reward                  []any
+	Consume                        []any // TODO
+	Music                          []any // TODO
+	Costume                        []any // TODO
+	Prop                           []any // TODO
+	Follower                       []any // TODO
+	Buff                           []any // TODO
+	Unit                           []any // TODO
+	Skill                          []any // TODO
+	Achievement                    []any // TODO
+	Daily_mission                  []any // TODO
+	Music_level                    []any // TODO
+	Shop                           []any // TODO
+	Reward_group                   []any // TODO
+	Fan                            []any // TODO
+	SystemNotification             []any // TODO
+	SystemString                   []any // TODO
+	SubscribeList                  []any // TODO
+	SubscribePassReward            []any // TODO
+	SubscribePass                  []any // TODO
+	Guitar                         []any // TODO
+	SubscribePassRewardInformation []any // TODO
+	Ticketcollection               []any // TODO
+	Character                      []any // TODO
+	Samseckevent                   []any // TODO
+	Localpush                      []any // TODO
+	Followerquest                  []any // TODO
+	Proplevel                      []any // TODO
+	Follower_profile               []any // TODO
+	Passgoodsshop                  []any // TODO
+	Followergiftitem               []any // TODO
+	Followerprofilelevel           []any // TODO
+	Ad_list                        []any // TODO
+	Chthird_stage                  []any // TODO
+	Chthird_score                  []any // TODO
+	Chthird_chapter                []any // TODO
+	Percent                        []any // TODO
+	Ad_level                       []any // TODO
+	Event_list                     []any // TODO
+	Select_reward                  []any // TODO
 }
+
 type GetGameDataListReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetGuitarData struct {
 	I_id                        int32
 	I_Area                      int16
@@ -1962,10 +2202,12 @@ type GetGuitarData struct {
 	B_IsActive                  int16
 	I_DownloadType              int16
 }
+
 type GetLocalPush struct {
 	Call string
 	Data GetLocalPushDataInfo
 }
+
 type GetLocalPushData struct {
 	I_id                    int32
 	S_LocalPushRegisterType string
@@ -1985,9 +2227,11 @@ type GetLocalPushData struct {
 	S_JsonMessage_HI        string
 	B_IsActive              int16
 }
+
 type GetLocalPushDataInfo struct {
 	Device_uuid string
 }
+
 type GetLocalPushRetDataInfo struct {
 	I_LocalPushID           int32
 	S_LocalPushRegisterType int16
@@ -1996,17 +2240,20 @@ type GetLocalPushRetDataInfo struct {
 	S_JsonMessage_en        string
 	S_JsonMessage_ja        string
 }
+
 type GetLocalPushReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetMastersRank struct {
 	Call string
 	Data GetMastersRankDataInfo
 }
+
 type GetMastersRankDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -2015,6 +2262,7 @@ type GetMastersRankDataInfo struct {
 	Start_limit int32
 	End_limit   int32
 }
+
 type GetMastersRankRet struct {
 	All_per   int16
 	All_com   int16
@@ -2025,12 +2273,14 @@ type GetMastersRankRet struct {
 	U_country string
 	Rank      int32
 }
+
 type GetMastersRankRetDataInfo struct {
 	Start_limit int16
 	End_limit   int16
 	My_rank     GetMastersRankRet
-	Rank_list   []any
+	Rank_list   []any // TODO
 }
+
 type GetMastersRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2038,6 +2288,7 @@ type GetMastersRankReturn struct {
 	Data        GetMastersRankRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetMusicData struct {
 	I_id                      int32
 	S_Title_KO                string
@@ -2092,6 +2343,7 @@ type GetMusicData struct {
 	I_DownloadType_img        int32
 	I_DownloadType_file       int32
 }
+
 type GetMusicInfoLanguage struct {
 	Seq         int32
 	Music_idx   int64
@@ -2101,23 +2353,28 @@ type GetMusicInfoLanguage struct {
 	Lyricist    string
 	Description string
 }
+
 type GetMusicInfoList struct {
 	Call string
 	Data GetMusicInfoListDataInfo
 }
+
 type GetMusicInfoListDataInfo struct {
 	Country_code string
 }
+
 type GetMusicInfoListRetDataInfo struct {
-	Language map[any]any
+	Language map[any]any // TODO
 }
+
 type GetMusicInfoListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetMusicLevelData struct {
 	I_Level                          int16
 	F_EncoreBonusAppearRate          float64
@@ -2128,13 +2385,16 @@ type GetMusicLevelData struct {
 	I_EncoreFollowerProfileExp       int32
 	I_ChThirdCoolTime                int32
 }
+
 type GetMusicList struct {
 	Call string
 	Data GetMusicListDataInfo
 }
+
 type GetMusicListDataInfo struct {
 	Country_code string
 }
+
 type GetMusicListRetDataInfo struct {
 	Music_idx              int32
 	Album_idx              int32
@@ -2171,24 +2431,29 @@ type GetMusicListRetDataInfo struct {
 	Bga_path               string
 	Bg_opacity             int16
 }
+
 type GetMusicListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetMusicRank struct {
 	Call string
 	Data GetMusicRankDataInfo
 }
+
 type GetMusicRankDataInfo struct {
 	Music_idx int32
 }
+
 type GetMusicRankRetDataInfo struct {
 	Id    string
 	Score int32
 }
+
 type GetMusicRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2196,26 +2461,30 @@ type GetMusicRankReturn struct {
 	Data        GetMusicRankRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetMusicReward struct {
 	Call        string
 	Data        GetMusicRewardDataInfo
 	Common_data ParamData
 }
+
 type GetMusicRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
-	I_ids       []any
-	I_levels    []any
+	I_ids       []any // TODO
+	I_levels    []any // TODO
 }
+
 type GetMusicRewardRetDataInfo struct {
 	Total_reward_value    int32
-	Reward_music_id       []any
-	Reward_value          []any
-	User_follower_profile []any
-	Error_data            map[any]any
+	Reward_music_id       []any       // TODO
+	Reward_value          []any       // TODO
+	User_follower_profile []any       // TODO
+	Error_data            map[any]any // TODO
 }
+
 type GetMusicRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -2224,27 +2493,32 @@ type GetMusicRewardReturn struct {
 	Data        GetMusicRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetNoticeList struct {
 	Call string
 	Data GetNoticeListDataInfo
 }
+
 type GetNoticeListDataInfo struct {
 	Device_uuid string
 }
+
 type GetNoticeListRetDataInfo struct {
 	Seq          int32
 	Notice_name  string
 	Location_url string
 	Img_url      string
 }
+
 type GetNoticeListReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetPassGoodsShopData struct {
 	I_id            int32
 	I_TicketID      int32
@@ -2253,6 +2527,7 @@ type GetPassGoodsShopData struct {
 	B_IsActive      int16
 	I_SaleShopID    int32
 }
+
 type GetPercentData struct {
 	I_GroupID        int32
 	I_RewardType     int32
@@ -2261,17 +2536,20 @@ type GetPercentData struct {
 	B_IsActive       int16
 	I_id             int32
 }
+
 type GetPost struct {
 	Call        string
 	Data        GetPostDataInfo
 	Common_data ParamData
 }
+
 type GetPostDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetPostList struct {
 	Idx                 int64
 	Notice_type         int16
@@ -2305,14 +2583,16 @@ type GetPostList struct {
 	Flg                 int16
 	Create_time         int64
 	Del_time            int64
-	Item_list           []any
+	Item_list           []any // TODO
 	Url                 string
 	Image_resource_name string
 }
+
 type GetPostRetDataInfo struct {
 	Server_time int64
-	Post_list   []any
+	Post_list   []any // TODO
 }
+
 type GetPostReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -2321,19 +2601,23 @@ type GetPostReturn struct {
 	Data        GetPostRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetPostTime struct {
 	Call string
 	Data GetPostTimeDataInfo
 }
+
 type GetPostTimeDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetPostTimeRetDataInfo struct {
 	Time int64
 }
+
 type GetPostTimeReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2341,10 +2625,12 @@ type GetPostTimeReturn struct {
 	Data        GetPostTimeRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetProfile struct {
 	Call string
 	Data GetProfileDataInfo
 }
+
 type GetProfileDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -2352,10 +2638,12 @@ type GetProfileDataInfo struct {
 	Device_uuid string
 	Get_u_seq   int64
 }
+
 type GetProfileMusic struct {
 	Call string
 	Data GetProfileMusicDataInfo
 }
+
 type GetProfileMusicDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -2365,6 +2653,7 @@ type GetProfileMusicDataInfo struct {
 	Start_limit int64
 	End_limit   int64
 }
+
 type GetProfileMusicRetDataInfo struct {
 	Music_idx    int32
 	Single_cnt   int64
@@ -2373,13 +2662,15 @@ type GetProfileMusicRetDataInfo struct {
 	Single_score int64
 	Multi_score  int64
 }
+
 type GetProfileMusicReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetProfileRetDataInfo struct {
 	U_avatar        int32
 	U_id            string
@@ -2399,6 +2690,7 @@ type GetProfileRetDataInfo struct {
 	Local_rank      int64
 	Individual_rank int64
 }
+
 type GetProfileReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2406,6 +2698,7 @@ type GetProfileReturn struct {
 	Data        GetProfileRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetPropData struct {
 	I_id                 int32
 	S_Name_KO            string
@@ -2438,6 +2731,7 @@ type GetPropData struct {
 	B_IsActive           int64
 	I_MaxLevel           int16
 }
+
 type GetPropLevelData struct {
 	I_id         int32
 	I_PropId     int64
@@ -2447,16 +2741,19 @@ type GetPropLevelData struct {
 	D_PerksValue float64
 	B_IsActive   int16
 }
+
 type GetPurchaseDiamondLog struct {
 	Call string
 	Data GetPurchaseDiamondLogDataInfo
 }
+
 type GetPurchaseDiamondLogDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetPurchaseDiamondLogRetDataInfo struct {
 	Bonus1 int64
 	Bonus2 int64
@@ -2465,6 +2762,7 @@ type GetPurchaseDiamondLogRetDataInfo struct {
 	Bonus5 int64
 	Bonus6 int64
 }
+
 type GetPurchaseDiamondLogReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2472,22 +2770,26 @@ type GetPurchaseDiamondLogReturn struct {
 	Data        GetPurchaseDiamondLogRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetRankMain struct {
 	Call string
 	Data GetRankMainDataInfo
 }
+
 type GetRankMainDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetRankMainRetDataInfo struct {
 	My_country_rank       GetCountryMyRankRet
 	Total_country_my_rank GetTotalCountryRankRet
-	Country_rank          []any
+	Country_rank          []any // TODO
 	Masters_rank          GetMastersRankRet
 }
+
 type GetRankMainReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2495,25 +2797,30 @@ type GetRankMainReturn struct {
 	Data        GetRankMainRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetReviewPoint struct {
 	Call string
 	Data GetAlbumDataInfo
 }
+
 type GetReviewPointDataInfo struct {
 	Null string
 }
+
 type GetReviewPointRetDataInfo struct {
 	Music_idx  int32
 	Difficulty int16
 	Point      float64
 }
+
 type GetReviewPointReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetRewardGroupData struct {
 	I_id               int64
 	I_Group            int64
@@ -2522,6 +2829,7 @@ type GetRewardGroupData struct {
 	L_RewardQuantity   int64
 	I_BuyFirstQuantity int64
 }
+
 type GetSamSeckEventData struct {
 	I_id                 int32
 	S_Description_KO     string
@@ -2541,21 +2849,25 @@ type GetSamSeckEventData struct {
 	I_MailRewardID       int64
 	B_IsActive           int16
 }
+
 type GetSamSeckList struct {
 	Call        string
 	Data        GetSamSeckListDataInfo
 	Common_data ParamData
 }
+
 type GetSamSeckListDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetSamSeckListRetDataInfo struct {
 	Event_type string
-	RewardList []any
+	RewardList []any // TODO
 }
+
 type GetSamSeckListReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -2564,11 +2876,13 @@ type GetSamSeckListReturn struct {
 	Data        GetSamSeckListRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetSamSeckReward struct {
 	Call        string
 	Data        GetSamSeckRewardDataInfo
 	Common_data ParamData
 }
+
 type GetSamSeckRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -2576,9 +2890,11 @@ type GetSamSeckRewardDataInfo struct {
 	Device_uuid string
 	I_id        int32
 }
+
 type GetSamSeckRewardRetDataInfo struct {
 	Step int16
 }
+
 type GetSamSeckRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -2587,6 +2903,7 @@ type GetSamSeckRewardReturn struct {
 	Data        GetSamSeckRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetSelectRewardData struct {
 	I_id               int32
 	I_GroupId          int32
@@ -2594,10 +2911,12 @@ type GetSelectRewardData struct {
 	I_AltRewardGroupId int32
 	B_IsActive         int16
 }
+
 type GetServerList struct {
 	Call string
 	Data GetServerListDataInfo
 }
+
 type GetServerListDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -2605,10 +2924,12 @@ type GetServerListDataInfo struct {
 	Device_uuid string
 	Type        string
 }
+
 type GetServerListRetDataInfo struct {
 	User_data    UserData
-	Channel_list []any
+	Channel_list []any // TODO
 }
+
 type GetServerListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2616,19 +2937,23 @@ type GetServerListReturn struct {
 	Data        GetServerListRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetServerTime struct {
 	Call        string
 	Data        MainDataInfo
 	Sub_mode    string
 	Common_data ParamData
 }
+
 type GetServerTimeDataInfo struct {
 	Device_uuid string
 }
+
 type GetServerTimeRetDataInfo struct {
 	Time     int64
 	Datetime int64
 }
+
 type GetServerTimeReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -2637,6 +2962,7 @@ type GetServerTimeReturn struct {
 	Data        GetServerTimeRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetShopData struct {
 	I_id                    int64
 	S_ProductID_ios         string
@@ -2699,6 +3025,7 @@ type GetShopData struct {
 	S_StartTime             string
 	S_EndTime               string
 }
+
 type GetSkillData struct {
 	I_id                      int32
 	I_Area                    int16
@@ -2746,6 +3073,7 @@ type GetSkillData struct {
 	I_RequirementPropId_2     int64
 	I_RequirementPropCount    int64
 }
+
 type GetSubscribeList struct {
 	I_id              int64
 	I_Area            int16
@@ -2756,6 +3084,7 @@ type GetSubscribeList struct {
 	I_MonthGroupIndex int32
 	B_IsActive        int16
 }
+
 type GetSubscribePass struct {
 	I_id                 int64
 	I_SubscribeID        int64
@@ -2768,6 +3097,7 @@ type GetSubscribePass struct {
 	I_ADCoolTime         int64
 	I_TicketCollectionId int64
 }
+
 type GetSubscribePassReward struct {
 	I_id              int64
 	I_Group           int64
@@ -2776,6 +3106,7 @@ type GetSubscribePassReward struct {
 	I_FreeRewardGroup int64
 	I_PaidRewardGroup int64
 }
+
 type GetSubscribePassRewardInformation struct {
 	I_id                 int32
 	S_ResourceName       string
@@ -2793,6 +3124,7 @@ type GetSubscribePassRewardInformation struct {
 	S_Description_HI     string
 	B_IsActive           int16
 }
+
 type GetSystemNotificationData struct {
 	I_Id                 int64
 	S_DescriptionType    string
@@ -2811,6 +3143,7 @@ type GetSystemNotificationData struct {
 	S_Description_PT     string
 	S_Description_HI     string
 }
+
 type GetSystemStringData struct {
 	I_StringID int64
 	S_Category string
@@ -2832,24 +3165,29 @@ type GetSystemStringData struct {
 	S_TH       string
 	S_HI       string
 }
+
 type GetTabList struct {
 	Call string
 	Data InitDataInfo
 }
+
 type GetTabListDataInfo struct {
 	Type        string
 	Device_uuid string
 }
+
 type GetTabListRetDataInfo struct {
-	Tab_list []any
+	Tab_list []any // TODO
 }
+
 type GetTabListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetTicketCollectionData struct {
 	I_id                 int32
 	S_TicketType         string
@@ -2888,10 +3226,12 @@ type GetTicketCollectionData struct {
 	I_SortOrder          int32
 	B_IsActive           int16
 }
+
 type GetTotalCountryRank struct {
 	Call string
 	Data GetTotalCountryRankDataInfo
 }
+
 type GetTotalCountryRankDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -2900,6 +3240,7 @@ type GetTotalCountryRankDataInfo struct {
 	Start_limit int32
 	End_limit   int32
 }
+
 type GetTotalCountryRankRet struct {
 	G           int16
 	S           int16
@@ -2911,12 +3252,14 @@ type GetTotalCountryRankRet struct {
 	U_country   string
 	Rank        int32
 }
+
 type GetTotalCountryRankRetDataInfo struct {
 	Start_limit int16
 	End_limit   int16
 	My_rank     GetTotalCountryRankRet
-	Rank_list   []any
+	Rank_list   []any // TODO
 }
+
 type GetTotalCountryRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -2924,6 +3267,7 @@ type GetTotalCountryRankReturn struct {
 	Data        GetTotalCountryRankRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetTotalCountryUserRankRet struct {
 	G           int16
 	S           int16
@@ -2934,6 +3278,7 @@ type GetTotalCountryUserRankRet struct {
 	U_nick      string
 	U_country   string
 }
+
 type GetTotalMastersRankRet struct {
 	All_per   int16
 	All_com   int16
@@ -2943,15 +3288,18 @@ type GetTotalMastersRankRet struct {
 	U_nick    string
 	U_country string
 }
+
 type GetTotalMusicMyRank struct {
 	Grade string
 	Rank  int32
 	Score int32
 }
+
 type GetTotalMusicRank struct {
 	Call string
 	Data GetTotalMusicRankDataInfo
 }
+
 type GetTotalMusicRankDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -2961,6 +3309,7 @@ type GetTotalMusicRankDataInfo struct {
 	Start_limit int32
 	End_limit   int32
 }
+
 type GetTotalMusicRankList struct {
 	Rank    int32
 	Id      string
@@ -2968,67 +3317,79 @@ type GetTotalMusicRankList struct {
 	Country string
 	Score   int32
 }
+
 type GetTotalMusicRankList1 struct {
 	Rank  int32
 	Id    string
 	Score int32
 }
+
 type GetTotalMusicRankList2 struct {
 	Rank  int32
 	Id    string
 	Score int32
 }
+
 type GetTotalMusicRankList3 struct {
 	Rank  int32
 	Id    string
 	Score int32
 }
+
 type GetTotalMusicRankRetData struct {
-	Total_rank_list []any
-	Rank_list1      []any
-	Rank_list2      []any
-	Rank_list3      []any
-	My_rank_list    []any
+	Total_rank_list []any // TODO
+	Rank_list1      []any // TODO
+	Rank_list2      []any // TODO
+	Rank_list3      []any // TODO
+	My_rank_list    []any // TODO
 }
+
 type GetTotalMusicRankRetDataInfo struct {
-	Total_rank_list []any
-	Rank_list1      []any
-	Rank_list2      []any
-	Rank_list3      []any
-	My_rank_list    []any
+	Total_rank_list []any // TODO
+	Rank_list1      []any // TODO
+	Rank_list2      []any // TODO
+	Rank_list3      []any // TODO
+	My_rank_list    []any // TODO
 }
+
 type GetTotalMusicRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetTourList struct {
 	Call string
 	Data GetTourListDataInfo
 }
+
 type GetTourListDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetTourListRetDataInfo struct {
 	Tour_idx int32
 	Title    string
 }
+
 type GetTourListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetTourRank struct {
 	Call string
 	Data GetTourRankDataInfo
 }
+
 type GetTourRankData struct {
 	U_seq     int64
 	U_id      string
@@ -3037,8 +3398,9 @@ type GetTourRankData struct {
 	U_country string
 	Rank      int64
 	Score     int64
-	Medal     []any
+	Medal     []any // TODO
 }
+
 type GetTourRankDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3050,10 +3412,12 @@ type GetTourRankDataInfo struct {
 	Start_limit int64
 	End_limit   int64
 }
+
 type GetTourRankRetDataInfo struct {
 	My_rank GetTourRankData
-	Rank    []any
+	Rank    []any // TODO
 }
+
 type GetTourRankReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -3061,19 +3425,23 @@ type GetTourRankReturn struct {
 	Data        GetTourRankRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetTransferId struct {
 	Call string
 	Data GetTransferIdDataInfo
 }
+
 type GetTransferIdDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetTransferIdRetDataInfo struct {
 	Transfer_id string
 }
+
 type GetTransferIdReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -3081,6 +3449,7 @@ type GetTransferIdReturn struct {
 	Data        GetTransferIdRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetUnitData struct {
 	I_id                      int32
 	S_Name_KO                 string
@@ -3126,17 +3495,21 @@ type GetUnitData struct {
 	I_Area                    int16
 	B_IsActive                int16
 }
+
 type GetUpdateTime struct {
 	Call        string
 	Data        GetUpdateTimeDataInfo
 	Common_data ParamData
 }
+
 type GetUpdateTimeDataInfo struct {
 	Device_uuid string
 }
+
 type GetUpdateTimeRetDataInfo struct {
 	Upd_time int64
 }
+
 type GetUpdateTimeReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3145,16 +3518,19 @@ type GetUpdateTimeReturn struct {
 	Data        GetUpdateTimeRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetUserCollection struct {
 	Call string
 	Data GetUserCollectionDataInfo
 }
+
 type GetUserCollectionDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetUserCollectionRetDataInfo struct {
 	Music_idx   int64
 	Value       int64
@@ -3162,30 +3538,35 @@ type GetUserCollectionRetDataInfo struct {
 	Get_time    string
 	Create_time string
 }
+
 type GetUserCollectionReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type GetUserInfo struct {
 	Call        string
 	Data        GetUserInfoDataInfo
 	Common_data ParamData
 }
+
 type GetUserInfoDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetUserInfoRetDataInfo struct {
 	U_cp    int64
 	U_candy float64
 	U_like  float64
 	U_fans  int64
 }
+
 type GetUserInfoReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3194,20 +3575,24 @@ type GetUserInfoReturn struct {
 	Data        GetUserInfoRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetUserItemInven struct {
 	Call string
 	Data GetUserItemInvenDataInfo
 }
+
 type GetUserItemInvenDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type GetUserItemInvenRetDataInfo struct {
-	Item_inven_list map[any]any
+	Item_inven_list map[any]any // TODO
 	Empty           string
 }
+
 type GetUserItemInvenReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3216,14 +3601,17 @@ type GetUserItemInvenReturn struct {
 	Data        GetUserItemInvenRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type GetVarietyStore struct {
 	Call        string
 	Data        GetVarietyStoreDataInfo
 	Common_data ParamData
 }
+
 type GetVarietyStoreDataInfo struct {
 	Device_uuid string
 }
+
 type GetVarietyStoreRetDataInfo struct {
 	I_id                 int32
 	S_ResourceName       string
@@ -3256,27 +3644,32 @@ type GetVarietyStoreRetDataInfo struct {
 	I_RewardId           int32
 	I_RewardQuantity     int32
 }
+
 type GetVarietyStoreReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type HibernationLog struct {
 	Call string
 	Data HibernationLogDataInfo
 }
+
 type HibernationLogDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type HibernationLogRetDataInfo struct {
 	Action int32
 }
+
 type HibernationLogReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3285,17 +3678,20 @@ type HibernationLogReturn struct {
 	Data        HibernationLogRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type InitDataInfo struct {
 	Type        string
 	Os          int16
 	Ver         int32
 	Device_uuid string
 }
+
 type InitRetDataInfo struct {
 	Idx      int16
 	Game_url string
 	Cdn_url  string
 }
+
 type InitReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3304,16 +3700,19 @@ type InitReturn struct {
 	Data        InitRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ItemList struct {
 	I_RewardType     int32
 	I_RewardId       int32
 	D_RewardQuantity float64
 }
+
 type ItemPurchase struct {
 	Call     string
 	Data     ItemPurchaseDataInfo
 	Sub_mode string
 }
+
 type ItemPurchaseDataInfo struct {
 	U_seq             int32
 	U_id              string
@@ -3326,6 +3725,7 @@ type ItemPurchaseDataInfo struct {
 	Os                int16
 	Restore           int16
 }
+
 type ItemPurchaseRetDataInfo struct {
 	Item_type   int16
 	Item_value  int64
@@ -3333,6 +3733,7 @@ type ItemPurchaseRetDataInfo struct {
 	Product_id  string
 	Purchase_id string
 }
+
 type ItemPurchaseReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -3340,11 +3741,13 @@ type ItemPurchaseReturn struct {
 	Data        ItemPurchaseRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ItemStoreList struct {
 	Call        string
 	Data        ItemStoreListDataInfo
 	Common_data ParamData
 }
+
 type ItemStoreListDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3352,6 +3755,7 @@ type ItemStoreListDataInfo struct {
 	Device_uuid string
 	Store_type  int16
 }
+
 type ItemStoreListRetDataInfo struct {
 	Bonus             int64
 	Idx               int64
@@ -3374,28 +3778,33 @@ type ItemStoreListRetDataInfo struct {
 	Aos_pp_product_id string
 	Ios_pp_product_id string
 }
+
 type ItemStoreListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type LastSaveTime struct {
 	Call        string
 	Data        LastSaveTimeDataInfo
 	Common_data ParamData
 }
+
 type LastSaveTimeDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type LastSaveTimeRetDataInfo struct {
 	Last_save_time int64
 	Device_uuid    string
 }
+
 type LastSaveTimeReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3404,10 +3813,12 @@ type LastSaveTimeReturn struct {
 	Data        LastSaveTimeRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type LogCashComplete struct {
 	Call string
 	Data LogCashCompleteDataInfo
 }
+
 type LogCashCompleteDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3416,9 +3827,11 @@ type LogCashCompleteDataInfo struct {
 	Shop_id     int32
 	Value       string
 }
+
 type LogCashCompleteRetDataInfo struct {
 	Status string
 }
+
 type LogCashCompleteReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3427,11 +3840,13 @@ type LogCashCompleteReturn struct {
 	Data        LogCashCompleteRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type Main struct {
 	Call     string
 	Data     MainDataInfo
 	Sub_mode string
 }
+
 type MainDataInfo struct {
 	U_seq        int32
 	U_id         string
@@ -3439,6 +3854,7 @@ type MainDataInfo struct {
 	Device_uuid  string
 	Country_code string
 }
+
 type MainFeatures struct {
 	Album_idx    int32
 	F_type       int16
@@ -3449,19 +3865,22 @@ type MainFeatures struct {
 	Banner_url   string
 	Location_url string
 }
+
 type MainGameInfo struct {
-	Album_list      []any
-	Music_list      []any
-	Album_language  map[any]any
-	Music_language  map[any]any
-	Tab             map[any]any
-	Notice          []any
+	Album_list      []any       // TODO
+	Music_list      []any       // TODO
+	Album_language  map[any]any // TODO
+	Music_language  map[any]any // TODO
+	Tab             map[any]any // TODO
+	Notice          []any       // TODO
 	Default_setting GetDefaultSettingRetDataInfo
 }
+
 type MainRetDataInfo struct {
 	GameInfo MainGameInfo
-	Features []any
+	Features []any // TODO
 }
+
 type MainReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3470,6 +3889,7 @@ type MainReturn struct {
 	Data        MainRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type MaintenanceData struct {
 	Code           int16
 	Title          string
@@ -3479,6 +3899,7 @@ type MaintenanceData struct {
 	Start_datetime string
 	End_datetime   string
 }
+
 type MaintenanceList struct {
 	Idx            int16
 	Title          string
@@ -3486,15 +3907,18 @@ type MaintenanceList struct {
 	End_datetime   int32
 	View_flg       int16
 }
+
 type MoreGames struct {
 	Call string
 	Data MoreGamesDataInfo
 }
+
 type MoreGamesDataInfo struct {
 	Locale     string
 	Adset_type string
 	Uuid       string
 }
+
 type MoreGamesRetDataInfo struct {
 	App_id            int32
 	Material_id       int32
@@ -3509,19 +3933,22 @@ type MoreGamesRetDataInfo struct {
 	Icon_url          string
 	Update_date       string
 }
+
 type MoreGamesReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type MusicData struct {
 	Music_idx int32
 	Score1    int32
 	Score2    int32
 	Score3    int32
 }
+
 type MusicListInfo struct {
 	Music_idx   int64
 	Genre_idx   int32
@@ -3540,37 +3967,43 @@ type MusicListInfo struct {
 	File_type   int16
 	New_status  int16
 	Update_time int32
-	Language    map[any]any
+	Language    map[any]any // TODO
 }
+
 type MusicListLanguage struct {
 	Title      string
 	Artist     string
 	Songwriter string
 	Lyricist   string
 }
+
 type MusicPointReview struct {
 	Call string
 	Data MusicPointReviewDataInfo
 }
+
 type MusicPointReviewDataInfo struct {
 	U_seq        int32
 	U_id         string
 	Uuid         string
 	Device_uuid  string
-	Review_point []any
+	Review_point []any // TODO
 }
+
 type MusicPointReviewRetDataInfo struct {
 	Music_idx  int32
 	Point      float64
 	Difficulty int16
 }
+
 type MusicPointReviewReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type MusicProduct struct {
 	Product_id     int32
 	Product_type   int16
@@ -3586,14 +4019,17 @@ type MusicProduct struct {
 	Thumbnail      string
 	Main_desc      string
 }
+
 type NewStoreList struct {
 	Call string
 	Data NewStoreListDataInfo
 }
+
 type NewStoreListData struct {
 	Store_idx int16
 	Music_idx int32
 }
+
 type NewStoreListDataInfo struct {
 	Os           int16
 	Type         string
@@ -3603,6 +4039,7 @@ type NewStoreListDataInfo struct {
 	Uuid         string
 	Device_uuid  string
 }
+
 type NewStoreListRetDataInfo struct {
 	Store_idx    int16
 	Store_type   int16
@@ -3612,17 +4049,19 @@ type NewStoreListRetDataInfo struct {
 	Title        string
 	Sub_title    string
 	Img_url      string
-	Store_list   map[any]any
+	Store_list   map[any]any // TODO
 	Product_data NewStoreProduct
 	Is_sale      int16
 }
+
 type NewStoreListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type NewStoreProduct struct {
 	Product_id     int32
 	Product_type   int16
@@ -3638,11 +4077,13 @@ type NewStoreProduct struct {
 	Thumbnail      string
 	Main_desc      string
 }
+
 type PaidEventPoint struct {
 	Call        string
 	Data        PaidEventPointDataInfo
 	Common_data ParamData
 }
+
 type PaidEventPointDataInfo struct {
 	U_seq         int32
 	U_id          string
@@ -3652,6 +4093,7 @@ type PaidEventPointDataInfo struct {
 	I_SubscribeID int64
 	I_Version     int32
 }
+
 type PaidEventPointRetDataInfo struct {
 	U_cp          int64
 	U_candy       float64
@@ -3659,6 +4101,7 @@ type PaidEventPointRetDataInfo struct {
 	I_Point       int64
 	I_Version     int32
 }
+
 type PaidEventPointReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3667,15 +4110,18 @@ type PaidEventPointReturn struct {
 	Data        PaidEventPointRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ParamData struct {
 	Client_ver int32
 	Type       string
 	Os         int16
 }
+
 type PlayCheck struct {
 	Call string
 	Data PlayCheckDataInfo
 }
+
 type PlayCheckDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3685,6 +4131,7 @@ type PlayCheckDataInfo struct {
 	Track_idx   int32
 	Music_idx   int32
 }
+
 type PlayCheckRetDataInfo struct {
 	Basic       int32
 	Pro         int32
@@ -3692,6 +4139,7 @@ type PlayCheckRetDataInfo struct {
 	Extra       int32
 	Server_time int64
 }
+
 type PlayCheckReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -3699,10 +4147,12 @@ type PlayCheckReturn struct {
 	Data        PlayCheckRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type PlayMusic struct {
 	Call string
 	Data PlayMusicDataInfo
 }
+
 type PlayMusicDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3711,6 +4161,7 @@ type PlayMusicDataInfo struct {
 	Music_idx   int32
 	Difficulty  int32
 }
+
 type PlayMusicRetDataInfo struct {
 	Code      int16
 	Album_idx int32
@@ -3727,6 +4178,7 @@ type PlayMusicRetDataInfo struct {
 	Buy_type  int16
 	Price     float64
 }
+
 type PlayMusicReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3735,11 +4187,13 @@ type PlayMusicReturn struct {
 	Data        PlayMusicRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type ProvidePost struct {
 	Call        string
 	Data        ProvidePostDataInfo
 	Common_data ParamData
 }
+
 type ProvidePostDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3748,22 +4202,26 @@ type ProvidePostDataInfo struct {
 	Idx         int64
 	Type        int16
 }
+
 type ProvidePostRetDataInfo struct {
 	I_RewardType     int32
 	I_RewardId       int32
 	D_RewardQuantity float64
 }
+
 type ProvidePostReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type ReadPost struct {
 	Call string
 	Data ReadPostDataInfo
 }
+
 type ReadPostDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3771,9 +4229,11 @@ type ReadPostDataInfo struct {
 	Device_uuid string
 	Idx         int64
 }
+
 type ReadPostRetDataInfo struct {
 	Idx int64
 }
+
 type ReadPostReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -3781,33 +4241,39 @@ type ReadPostReturn struct {
 	Data        ReadPostRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type RetReward struct {
 	Reward_type  int16
 	Reward_id    int32
 	Reward_value float64
 }
+
 type ReviewDataList struct {
 	Music_idx  int32
 	Point      float64
 	Difficulty int16
 }
+
 type RewardList struct {
 	I_id             int64
 	I_RewardType     int32
 	I_RewardId       int32
 	D_RewardQuantity float64
 }
+
 type RewardListData struct {
 	I_id             int64
 	I_RewardType     int32
 	I_RewardId       int32
 	D_RewardQuantity float64
 }
+
 type SaveUserAchievement struct {
 	I_id       int64
 	D_Quantity float64
 	S_Quantity string
 }
+
 type SaveUserAreaInfo struct {
 	U_area_num          int16
 	D_Like              float64
@@ -3821,20 +4287,24 @@ type SaveUserAreaInfo struct {
 	S_Gp1               string
 	S_Gp2               string
 }
+
 type SaveUserCharacter struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type SaveUserCostume struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type SaveUserDailyMission struct {
 	I_id       int64
 	D_Quantity int64
 }
+
 type SaveUserEventPoint struct {
 	S_EventType string
 	I_DataID    int64
@@ -3842,22 +4312,26 @@ type SaveUserEventPoint struct {
 	I_Step      int64
 	I_Version   int32
 }
+
 type SaveUserFollower struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type SaveUserFollowerQuest struct {
 	I_CurrentID       int32
 	D_ConditionValue1 float64
 	D_ConditionValue2 float64
 	D_ConditionValue3 float64
 }
+
 type SaveUserGuitar struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type SaveUserInfo struct {
 	U_like                float64
 	U_fans                int64
@@ -3865,12 +4339,14 @@ type SaveUserInfo struct {
 	U_selected_costume_id int64
 	U_selected_music_id   int64
 }
+
 type SaveUserMessenger struct {
 	I_MessengerChatRoomId int64
 	I_LastConfirmIndex    int64
 	S_UnlockGroupList     string
 	L_UpdateTimeTicks     int64
 }
+
 type SaveUserMusic struct {
 	I_id                    int64
 	I_Level                 int64
@@ -3878,12 +4354,14 @@ type SaveUserMusic struct {
 	B_EncoreBonusAppear     int64
 	I_EncoreBonusFollowerId int64
 }
+
 type SaveUserSkill struct {
 	I_id               int64
 	B_Activate         int16
 	L_ActivateOnTicks  int64
 	L_ActivateOffTicks int64
 }
+
 type ScoreDataList struct {
 	Music_idx     int32
 	Score         int32
@@ -3899,15 +4377,18 @@ type ScoreDataList struct {
 	Combo_grade   int16
 	Is_credit     int16
 }
+
 type ServerTimeRet struct {
 	Time     int32
 	Datetime int64
 }
+
 type SetAdReward struct {
 	Call        string
 	Data        SetAdRewardDataInfo
 	Common_data ParamData
 }
+
 type SetAdRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3918,12 +4399,14 @@ type SetAdRewardDataInfo struct {
 	Param2      string
 	Param3      string
 }
+
 type SetAdRewardRetDataInfo struct {
 	I_id                  int32
 	User_ad_list          UserAdList
-	Reward_data           []any
+	Reward_data           []any // TODO
 	User_follower_profile UserFollowerProfile
 }
+
 type SetAdRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3932,11 +4415,13 @@ type SetAdRewardReturn struct {
 	Data        SetAdRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetAttendance struct {
 	Call        string
 	Data        SetAttendanceDataInfo
 	Common_data ParamData
 }
+
 type SetAttendanceDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3944,6 +4429,7 @@ type SetAttendanceDataInfo struct {
 	Device_uuid string
 	Type        string
 }
+
 type SetAttendanceRetDataInfo struct {
 	Status                          string
 	User_follower_quest             UserFollowerQuest
@@ -3951,6 +4437,7 @@ type SetAttendanceRetDataInfo struct {
 	Attendance_date                 int32
 	Max_coutinuous_attendance_count int32
 }
+
 type SetAttendanceReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -3959,38 +4446,45 @@ type SetAttendanceReturn struct {
 	Data        SetAttendanceRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetBookmark struct {
 	Call string
 	Data SetBookmarkDataInfo
 }
+
 type SetBookmarkDataInfo struct {
 	U_seq         int32
 	U_id          string
 	Uuid          string
 	Device_uuid   string
-	Bookmark_list []any
+	Bookmark_list []any // TODO
 }
+
 type SetBookmarkDataList struct {
 	Music_idx int32
 	Flag      int16
 }
+
 type SetBookmarkRetDataInfo struct {
 	Music_idx int32
 	Flag      int16
 }
+
 type SetBookmarkReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type SetEventReward struct {
 	Call        string
 	Data        SetEventRewardDataInfo
 	Common_data ParamData
 }
+
 type SetEventRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -3998,11 +4492,13 @@ type SetEventRewardDataInfo struct {
 	Device_uuid string
 	Event_idx   int32
 }
+
 type SetEventRewardItem struct {
 	Item_type int32
 	Item_id   int32
 	Count     int64
 }
+
 type SetEventRewardRetDataInfo struct {
 	U_cp         int64
 	U_candy      float64
@@ -4012,8 +4508,9 @@ type SetEventRewardRetDataInfo struct {
 	Reward_id    int32
 	Reward_value int32
 	Status       string
-	Reward_data  []any
+	Reward_data  []any // TODO
 }
+
 type SetEventRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4022,11 +4519,13 @@ type SetEventRewardReturn struct {
 	Data        SetEventRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetFollowerProfileGift struct {
 	Call        string
 	Data        SetFollowerProfileGiftDataInfo
 	Common_data ParamData
 }
+
 type SetFollowerProfileGiftDataInfo struct {
 	U_seq          int32
 	U_id           string
@@ -4036,11 +4535,13 @@ type SetFollowerProfileGiftDataInfo struct {
 	Gift_id        int32
 	Use_gitf_value int32
 }
+
 type SetFollowerProfileGiftRetDataInfo struct {
 	I_gift_type            int32
 	User_follower_giftitem UserFollowerGiftItem
 	User_follower_profile  UserFollowerProfile
 }
+
 type SetFollowerProfileGiftReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4049,21 +4550,25 @@ type SetFollowerProfileGiftReturn struct {
 	Data        SetFollowerProfileGiftRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetFollowerQuestInfinite struct {
 	Call        string
 	Data        SetFollowerQuestInfiniteDataInfo
 	Common_data ParamData
 }
+
 type SetFollowerQuestInfiniteDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type SetFollowerQuestInfiniteRetDataInfo struct {
 	U_seq               int32
 	User_follower_quest UserFollowerQuest
 }
+
 type SetFollowerQuestInfiniteReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4072,11 +4577,13 @@ type SetFollowerQuestInfiniteReturn struct {
 	Data        SetFollowerQuestInfiniteRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetGameReward struct {
 	Call        string
 	Data        SetGameRewardDataInfo
 	Common_data ParamData
 }
+
 type SetGameRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4088,6 +4595,7 @@ type SetGameRewardDataInfo struct {
 	Quantity    float64
 	S_quantity  string
 }
+
 type SetGameRewardRetDataInfo struct {
 	Type                  string
 	Id                    int32
@@ -4097,6 +4605,7 @@ type SetGameRewardRetDataInfo struct {
 	Status                string
 	User_follower_profile UserFollowerProfile
 }
+
 type SetGameRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4105,11 +4614,13 @@ type SetGameRewardReturn struct {
 	Data        SetGameRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetPassReward struct {
 	Call        string
 	Data        SetPassRewardDataInfo
 	Common_data ParamData
 }
+
 type SetPassRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4120,10 +4631,12 @@ type SetPassRewardDataInfo struct {
 	Type        int16
 	I_Version   int32
 }
+
 type SetPassRewardRetDataInfo struct {
 	Subscribe_pass_reward UserSubscribePassReward
-	Reward_data           []any
+	Reward_data           []any // TODO
 }
+
 type SetPassRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4132,20 +4645,24 @@ type SetPassRewardReturn struct {
 	Data        SetPassRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetReviewPopup struct {
 	Call        string
 	Data        SetReviewPopupDataInfo
 	Common_data ParamData
 }
+
 type SetReviewPopupDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type SetReviewPopupRetDataInfo struct {
 	Status string
 }
+
 type SetReviewPopupReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4154,11 +4671,13 @@ type SetReviewPopupReturn struct {
 	Data        SetReviewPopupRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetSelectReward struct {
 	Call        string
 	Data        SetSelectRewardDataInfo
 	Common_data ParamData
 }
+
 type SetSelectRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4166,6 +4685,7 @@ type SetSelectRewardDataInfo struct {
 	Device_uuid string
 	I_id        int32
 }
+
 type SetSelectRewardInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4173,10 +4693,12 @@ type SetSelectRewardInfo struct {
 	Device_uuid string
 	I_id        int32
 }
+
 type SetSelectRewardRetDataInfo struct {
 	U_seq                   int32
-	User_select_reward_list []any
+	User_select_reward_list []any // TODO
 }
+
 type SetSelectRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4185,22 +4707,26 @@ type SetSelectRewardReturn struct {
 	Data        SetSelectRewardRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetSubscribe struct {
 	Call        string
 	Data        SetSubscribeDataInfo
 	Common_data ParamData
 }
+
 type SetSubscribeDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
-	I_ids       []any
+	I_ids       []any // TODO
 }
+
 type SetSubscribeRetDataInfo struct {
 	U_seq               int32
-	User_subscribe_list []any
+	User_subscribe_list []any // TODO
 }
+
 type SetSubscribeReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4209,11 +4735,13 @@ type SetSubscribeReturn struct {
 	Data        SetSubscribeRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetTutorial struct {
 	Call        string
 	Data        SetTutorialDataInfo
 	Common_data ParamData
 }
+
 type SetTutorialDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4221,22 +4749,26 @@ type SetTutorialDataInfo struct {
 	Device_uuid string
 	Step        string
 }
+
 type SetTutorialNew struct {
 	Call        string
 	Data        SetTutorialNewDataInfo
 	Common_data ParamData
 }
+
 type SetTutorialNewDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
-	I_ids       []any
+	I_ids       []any // TODO
 }
+
 type SetTutorialNewRetDataInfo struct {
 	U_seq    int32
-	Tutorial []any
+	Tutorial []any // TODO
 }
+
 type SetTutorialNewReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4245,9 +4777,11 @@ type SetTutorialNewReturn struct {
 	Data        SetTutorialNewRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetTutorialRetDataInfo struct {
 	Step string
 }
+
 type SetTutorialReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4256,11 +4790,13 @@ type SetTutorialReturn struct {
 	Data        SetTutorialRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetUserFollowerProfileReward struct {
 	Call        string
 	Data        SetUserFollowerProfileRewardDataInfo
 	Common_data ParamData
 }
+
 type SetUserFollowerProfileRewardDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4269,25 +4805,29 @@ type SetUserFollowerProfileRewardDataInfo struct {
 	I_id        int32
 	S_level     string
 }
+
 type SetUserFollowerProfileRewardRetDataInfo struct {
 	I_id                  int32
 	I_level               int32
-	Reward_data           []any
+	Reward_data           []any // TODO
 	User_follower_profile UserFollowerProfile
 }
+
 type SetUserFollowerProfileRewardReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type SetUserFollowerQuest struct {
 	Call        string
 	Data        SetUserFollowerQuestDataInfo
 	Common_data ParamData
 }
+
 type SetUserFollowerQuestDataInfo struct {
 	U_seq            int32
 	U_id             string
@@ -4297,6 +4837,7 @@ type SetUserFollowerQuestDataInfo struct {
 	I_SubID          int32
 	D_ConditionValue float64
 }
+
 type SetUserFollowerQuestRetDataInfo struct {
 	I_CurrentID       int32
 	I_CompleteID      int32
@@ -4307,8 +4848,9 @@ type SetUserFollowerQuestRetDataInfo struct {
 	I_RewardReceived2 int16
 	I_RewardReceived3 int16
 	Next_flg          int16
-	Reward_data       []any
+	Reward_data       []any // TODO
 }
+
 type SetUserFollowerQuestReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4317,10 +4859,12 @@ type SetUserFollowerQuestReturn struct {
 	Data        SetUserFollowerQuestRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type SetUserGP struct {
 	Call string
 	Data SetUserGPDataInfo
 }
+
 type SetUserGPDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4328,9 +4872,11 @@ type SetUserGPDataInfo struct {
 	Device_uuid string
 	Gp          int32
 }
+
 type SetUserGPRetDataInfo struct {
 	Gp int32
 }
+
 type SetUserGPReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4339,44 +4885,52 @@ type SetUserGPReturn struct {
 	Data        SetUserGPRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type StoreList struct {
 	Call string
 	Data StoreListDataInfo
 }
+
 type StoreListData struct {
 	Store_idx int16
 	Music_idx int32
 }
+
 type StoreListDataInfo struct {
 	U_seq int32
 	U_id  string
 	Uuid  string
 }
+
 type StoreListRetDataInfo struct {
 	Store_idx  int16
 	Store_type int16
 	Title      string
 	Sub_title  string
 	Img_url    string
-	Store_list map[any]any
+	Store_list map[any]any // TODO
 }
+
 type StoreListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        map[any]any
+	Data        map[any]any // TODO
 	Maintenance MaintenanceData
 }
+
 type StoreNotice struct {
 	Call string
 	Data StoreNoticeDataInfo
 }
+
 type StoreNoticeDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type StoreNoticeRetDataInfo struct {
 	Idx            int32
 	Product_id_aos int64
@@ -4386,24 +4940,29 @@ type StoreNoticeRetDataInfo struct {
 	Main_desc      string
 	Sub_desc       string
 }
+
 type StoreNoticeReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type TabListData struct {
 	Tap_idx   int16
 	Music_idx int32
 }
+
 type TitleList struct {
 	Call string
 	Data TitleListDataInfo
 }
+
 type TitleListDataInfo struct {
 	Type string
 }
+
 type TitleListRetDataInfo struct {
 	Idx           int16
 	Resource_name string
@@ -4418,25 +4977,30 @@ type TitleListRetDataInfo struct {
 	Desc_en       string
 	Desc_ja       string
 }
+
 type TitleListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
 	Call        string
-	Data        []any
+	Data        []any // TODO
 	Maintenance MaintenanceData
 }
+
 type TotalTopRank struct {
 }
+
 type TourMain struct {
 	Call string
 	Data TourMainDataInfo
 }
+
 type TourMainDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type TourMainRetDataInfo struct {
 	Idx         int32
 	Title       string
@@ -4444,11 +5008,12 @@ type TourMainRetDataInfo struct {
 	End_time    int64
 	Server_time int64
 	Mode        string
-	Tour_track  []any
+	Tour_track  []any // TODO
 	Tour_rank   TourRank
-	Track_rank  map[any]any
+	Track_rank  map[any]any // TODO
 	Utc         int16
 }
+
 type TourMainReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4456,22 +5021,27 @@ type TourMainReturn struct {
 	Data        TourMainRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type TourMusicList struct {
 	Music_idx int32
 }
+
 type TourMyRank struct {
 	Rank  int64
 	Score int64
-	Medal []any
+	Medal []any // TODO
 }
+
 type TourRank struct {
 	My_rank  TourMyRank
-	Top_rank []any
+	Top_rank []any // TODO
 }
+
 type TourRankData struct {
-	Track []any
+	Track []any // TODO
 	Total TotalTopRank
 }
+
 type TourTrackList struct {
 	Idx         int32
 	Tour_idx    int32
@@ -4485,17 +5055,21 @@ type TourTrackList struct {
 	Difficulty3 int16
 	Difficulty4 int16
 }
+
 type TrackMyRank struct {
 	Score int64
 	Medal int16
 }
+
 type TrackMyScore struct {
 	Score int64
 	Medal int16
 }
+
 type TrackRank struct {
-	My_score map[any]any
+	My_score map[any]any // TODO
 }
+
 type TrackTopRank struct {
 	U_seq     int64
 	U_id      string
@@ -4504,10 +5078,12 @@ type TrackTopRank struct {
 	Rank      int64
 	Score     int64
 }
+
 type TransferUser struct {
 	Call string
 	Data TransferUserDataInfo
 }
+
 type TransferUserDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4515,9 +5091,11 @@ type TransferUserDataInfo struct {
 	Device_uuid string
 	Email       string
 }
+
 type TransferUserRetDataInfo struct {
 	Transfer_id string
 }
+
 type TransferUserReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4525,10 +5103,12 @@ type TransferUserReturn struct {
 	Data        TransferUserRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UpdateAchievement struct {
 	Call string
 	Data UpdateAchievementDataInfo
 }
+
 type UpdateAchievementDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4536,9 +5116,11 @@ type UpdateAchievementDataInfo struct {
 	Device_uuid string
 	Achievement int16
 }
+
 type UpdateAchievementRetDataInfo struct {
 	Achievement int16
 }
+
 type UpdateAchievementReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4546,10 +5128,12 @@ type UpdateAchievementReturn struct {
 	Data        UpdateAchievementRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UpdateAvatar struct {
 	Call string
 	Data UpdateAvatarDataInfo
 }
+
 type UpdateAvatarDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4557,9 +5141,11 @@ type UpdateAvatarDataInfo struct {
 	Device_uuid string
 	U_avatar    int16
 }
+
 type UpdateAvatarRetDataInfo struct {
 	U_avatar int16
 }
+
 type UpdateAvatarReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4567,11 +5153,13 @@ type UpdateAvatarReturn struct {
 	Data        UpdateAvatarRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UpdateNickName struct {
 	Call        string
 	Data        UpdateNickNameDataInfo
 	Common_data ParamData
 }
+
 type UpdateNickNameDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4579,9 +5167,11 @@ type UpdateNickNameDataInfo struct {
 	Device_uuid string
 	Nickname    string
 }
+
 type UpdateNickNameRetDataInfo struct {
 	Nickname string
 }
+
 type UpdateNickNameReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4589,17 +5179,20 @@ type UpdateNickNameReturn struct {
 	Data        UpdateNickNameRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UpdateScore struct {
 	Call string
 	Data UpdateScoreDataInfo
 }
+
 type UpdateScoreDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
-	Score_list  []any
+	Score_list  []any // TODO
 }
+
 type UpdateScoreDataList struct {
 	Music_idx   int32
 	Score       int32
@@ -4607,14 +5200,16 @@ type UpdateScoreDataList struct {
 	Play_cnt    int32
 	Difficulty  int16
 	Combo_grade int16
-	Collection  []any
+	Collection  []any // TODO
 }
+
 type UpdateScoreRetDataInfo struct {
-	Update_list []any
+	Update_list []any // TODO
 	U_gold      int64
 	U_ep        int64
 	Event_flg   int16
 }
+
 type UpdateScoreReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4623,10 +5218,12 @@ type UpdateScoreReturn struct {
 	Data        UpdateScoreRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UpdateUserTitle struct {
 	Call string
 	Data UpdateUserTitleDataInfo
 }
+
 type UpdateUserTitleDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4634,9 +5231,11 @@ type UpdateUserTitleDataInfo struct {
 	Device_uuid string
 	U_title     int16
 }
+
 type UpdateUserTitleRetDataInfo struct {
 	U_title int16
 }
+
 type UpdateUserTitleReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4644,10 +5243,12 @@ type UpdateUserTitleReturn struct {
 	Data        UpdateUserTitleRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UseCoupon struct {
 	Call string
 	Data UseCouponDataInfo
 }
+
 type UseCouponDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4656,9 +5257,11 @@ type UseCouponDataInfo struct {
 	Send_ppid   string
 	Coupon      string
 }
+
 type UseCouponRetDataInfo struct {
 	Ret string
 }
+
 type UseCouponReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4666,10 +5269,12 @@ type UseCouponReturn struct {
 	Data        UseCouponRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UseCredit struct {
 	Call string
 	Data UseCreditDataInfo
 }
+
 type UseCreditDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4677,12 +5282,14 @@ type UseCreditDataInfo struct {
 	Device_uuid string
 	Credit      int64
 }
+
 type UseCreditRetDataInfo struct {
 	U_gold   int64
 	U_cp     int64
 	U_mp     int64
 	U_credit int64
 }
+
 type UseCreditReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4690,12 +5297,14 @@ type UseCreditReturn struct {
 	Data        UseCreditRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserAchievement struct {
 	I_id       int64
 	I_Level    int64
 	D_Quantity float64
 	S_Quantity string
 }
+
 type UserAreaData struct {
 	U_area_num          int16
 	D_Candy             float64
@@ -4709,20 +5318,24 @@ type UserAreaData struct {
 	S_Gp1               string
 	S_Gp2               string
 }
+
 type UserAvatarList struct {
 	Call string
 	Data UserAvatarListDataInfo
 }
+
 type UserAvatarListDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type UserAvatarListRetDataInfo struct {
 	U_seq  int32
-	Avatar []any
+	Avatar []any // TODO
 }
+
 type UserAvatarListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4730,12 +5343,14 @@ type UserAvatarListReturn struct {
 	Data        UserAvatarListRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserBuff struct {
 	I_id         int64
 	I_Level      int64
 	I_ActiveTime int64
 	I_EndTime    int64
 }
+
 type UserCandyShop struct {
 	I_id              int64
 	I_CurrentBuyCount int64
@@ -4743,69 +5358,78 @@ type UserCandyShop struct {
 	L_LastBuyTick     float64
 	Upd_day           int64
 }
+
 type UserCharacter struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type UserContentsData struct {
-	User_achievement             []any
-	User_buff                    []any
-	User_candy_shop              []any
-	User_character               []any
-	User_costume                 []any
-	User_daily_mission           []any
-	User_follower                []any
-	User_music                   []any
-	User_prop                    []any
-	User_unit                    []any
-	User_skill                   []any
-	User_shop                    []any
-	User_messenger               []any
-	User_guitar                  []any
-	User_event_point             []any
-	User_subscribe_list          []any
-	User_subscribe_pass_reward   []any
-	User_ticketcollection        []any
-	User_follower_quest          []any
-	User_follower_profile_reward []any
-	User_follower_profile        []any
-	User_follower_giftitem       []any
-	User_ad_list                 []any
-	User_chthird_stage           []any
-	User_tutorial                []any
-	User_ad_level                []any
-	User_select_reward           []any
+	User_achievement             []any // TODO
+	User_buff                    []any // TODO
+	User_candy_shop              []any // TODO
+	User_character               []any // TODO
+	User_costume                 []any // TODO
+	User_daily_mission           []any // TODO
+	User_follower                []any // TODO
+	User_music                   []any // TODO
+	User_prop                    []any // TODO
+	User_unit                    []any // TODO
+	User_skill                   []any // TODO
+	User_shop                    []any // TODO
+	User_messenger               []any // TODO
+	User_guitar                  []any // TODO
+	User_event_point             []any // TODO
+	User_subscribe_list          []any // TODO
+	User_subscribe_pass_reward   []any // TODO
+	User_ticketcollection        []any // TODO
+	User_follower_quest          []any // TODO
+	User_follower_profile_reward []any // TODO
+	User_follower_profile        []any // TODO
+	User_follower_giftitem       []any // TODO
+	User_ad_list                 []any // TODO
+	User_chthird_stage           []any // TODO
+	User_tutorial                []any // TODO
+	User_ad_level                []any // TODO
+	User_select_reward           []any // TODO
 }
+
 type UserCostume struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type UserDailyMission struct {
 	I_id       int64
 	I_Level    int64
 	D_Quantity int64
 	Upd_date   string
 }
+
 type UserData struct {
 	U_seq int64
 	U_mp  int64
 }
+
 type UserDel struct {
 	Call        string
 	Data        UserDelDataInfo
 	Common_data ParamData
 }
+
 type UserDelDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type UserDelRetDataInfo struct {
 	Result string
 }
+
 type UserDelReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -4813,6 +5437,7 @@ type UserDelReturn struct {
 	Data        UserDelRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserEventPoint struct {
 	S_EventType  string
 	I_DataID     int64
@@ -4821,11 +5446,13 @@ type UserEventPoint struct {
 	I_ADViewTime int64
 	I_Version    int32
 }
+
 type UserFollower struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type UserFollowerQuest struct {
 	I_id              int64
 	I_CurrentID       int64
@@ -4838,11 +5465,13 @@ type UserFollowerQuest struct {
 	I_RewardReceived3 int16
 	I_isInfinity      int16
 }
+
 type UserGuitar struct {
 	I_id         int64
 	I_Level      int64
 	I_BonusLevel int64
 }
+
 type UserInfo struct {
 	U_like                float64
 	U_fans                int64
@@ -4850,19 +5479,23 @@ type UserInfo struct {
 	U_selected_costume_id int64
 	U_selected_music_id   int64
 }
+
 type UserItemInvenList struct {
-	Item_list []any
+	Item_list []any // TODO
 }
+
 type UserItemList struct {
 	Item_type int32
 	Item_id   int32
 	Count     int64
 }
+
 type UserJoin struct {
 	Call        string
 	Data        UserJoinDataInfo
 	Common_data ParamData
 }
+
 type UserJoinDataInfo struct {
 	Os           int16
 	Join_type    int16
@@ -4874,10 +5507,12 @@ type UserJoinDataInfo struct {
 	Country      string
 	State        string
 }
+
 type UserJoinRetDataInfo struct {
 	U_seq int32
 	U_id  string
 }
+
 type UserJoinReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4886,6 +5521,7 @@ type UserJoinReturn struct {
 	Data        UserJoinRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserLevel struct {
 	U_girl_level     int64
 	U_skill_level    int64
@@ -4893,11 +5529,13 @@ type UserLevel struct {
 	U_follower_level int64
 	U_play_level     int64
 }
+
 type UserLoad struct {
 	Call        string
 	Data        UserLoadDataInfo
 	Common_data ParamData
 }
+
 type UserLoadDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4905,11 +5543,13 @@ type UserLoadDataInfo struct {
 	Device_uuid string
 	Type        string
 }
+
 type UserLoadRetDataInfo struct {
 	User          UserData
-	Area_data     map[any]any
+	Area_data     map[any]any // TODO
 	User_contents UserContentsData
 }
+
 type UserLoadReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4918,11 +5558,13 @@ type UserLoadReturn struct {
 	Data        UserLoadRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserLogin struct {
 	Call        string
 	Data        UserLoginDataInfo
 	Common_data ParamData
 }
+
 type UserLoginDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4930,11 +5572,13 @@ type UserLoginDataInfo struct {
 	Device_uuid string
 	U_state     string
 }
+
 type UserLoginRetDataInfo struct {
 	User          UserData
-	Area_data     map[any]any
+	Area_data     map[any]any // TODO
 	User_contents UserContentsData
 }
+
 type UserLoginReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -4943,12 +5587,14 @@ type UserLoginReturn struct {
 	Data        UserLoginRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserMessenger struct {
 	I_MessengerChatRoomId int64
 	I_LastConfirmIndex    int64
 	S_UnlockGroupList     string
 	L_UpdateTimeTicks     int64
 }
+
 type UserMusic struct {
 	I_id                      int64
 	I_Level                   int64
@@ -4958,15 +5604,18 @@ type UserMusic struct {
 	I_EncoreBonusFollowerId   int64
 	I_ChThirdActiveTime       int64
 }
+
 type UserProp struct {
 	I_id    int64
 	I_Level int64
 }
+
 type UserPurchase struct {
 	Call     string
 	Data     UserPurchaseDataInfo
 	Sub_mode string
 }
+
 type UserPurchaseDataInfo struct {
 	U_seq             int32
 	U_id              string
@@ -4979,10 +5628,12 @@ type UserPurchaseDataInfo struct {
 	Os                int16
 	Restore           int16
 }
+
 type UserPurchaseErrorLog struct {
 	Call string
 	Data UserPurchaseErrorLogDataInfo
 }
+
 type UserPurchaseErrorLogDataInfo struct {
 	U_seq       int32
 	U_id        string
@@ -4990,9 +5641,11 @@ type UserPurchaseErrorLogDataInfo struct {
 	Device_uuid string
 	Error_log   string
 }
+
 type UserPurchaseErrorLogRetDataInfo struct {
 	Ret string
 }
+
 type UserPurchaseErrorLogReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -5000,15 +5653,18 @@ type UserPurchaseErrorLogReturn struct {
 	Data        UserPurchaseErrorLogRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserPurchaseMusicIdx struct {
 	Music_idx int32
 }
+
 type UserPurchaseRetDataInfo struct {
 	Pay_id      string
 	Product_id  string
 	Purchase_id string
-	Music_data  []any
+	Music_data  []any // TODO
 }
+
 type UserPurchaseReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -5016,11 +5672,13 @@ type UserPurchaseReturn struct {
 	Data        UserPurchaseRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserSave struct {
 	Call        string
 	Data        UserSaveDataInfo
 	Common_data ParamData
 }
+
 type UserSaveData struct {
 	U_candy          int64
 	U_like           int64
@@ -5031,29 +5689,32 @@ type UserSaveData struct {
 	U_follower_level int64
 	U_play_level     int64
 }
+
 type UserSaveDataInfo struct {
 	U_seq               int32
 	U_id                string
 	Uuid                string
 	Device_uuid         string
 	Type                string
-	User_info           []any
-	User_area_info      []any
-	User_achievement    []any
-	User_character      []any
-	User_costume        []any
-	User_daily_mission  []any
-	User_follower       []any
-	User_music          []any
-	User_skill          []any
-	User_messenger      []any
-	User_guitar         []any
-	User_event_point    []any
-	User_follower_quest []any
+	User_info           []any // TODO
+	User_area_info      []any // TODO
+	User_achievement    []any // TODO
+	User_character      []any // TODO
+	User_costume        []any // TODO
+	User_daily_mission  []any // TODO
+	User_follower       []any // TODO
+	User_music          []any // TODO
+	User_skill          []any // TODO
+	User_messenger      []any // TODO
+	User_guitar         []any // TODO
+	User_event_point    []any // TODO
+	User_follower_quest []any // TODO
 }
+
 type UserSaveRetDataInfo struct {
 	Status string
 }
+
 type UserSaveReturn struct {
 	Error       ErrorRetCode
 	Server_time ServerTimeRet
@@ -5062,6 +5723,7 @@ type UserSaveReturn struct {
 	Data        UserSaveRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserScore struct {
 	Music_idx          int32
 	Score1             int64
@@ -5097,6 +5759,7 @@ type UserScore struct {
 	Review_point       int16
 	Rank_list          GetTotalMusicRankRetDataInfo
 }
+
 type UserShop struct {
 	I_id           int64
 	I_Count        int64
@@ -5104,6 +5767,7 @@ type UserShop struct {
 	I_PurchaseTime int64
 	Upd_day        int64
 }
+
 type UserSkill struct {
 	I_id               int64
 	I_Level            int64
@@ -5111,11 +5775,13 @@ type UserSkill struct {
 	L_ActivateOnTicks  int64
 	L_ActivateOffTicks int64
 }
+
 type UserSubscribeList struct {
 	I_SubscribeID int64
 	I_ActiveTime  int64
 	I_isActive    int64
 }
+
 type UserSubscribePassReward struct {
 	I_SubscribeID int64
 	I_Type        int64
@@ -5123,23 +5789,28 @@ type UserSubscribePassReward struct {
 	I_UpdateTime  int64
 	I_Version     int32
 }
+
 type UserTicketCollection struct {
 	I_id int64
 }
+
 type UserTitleList struct {
 	Call string
 	Data UserTitleListDataInfo
 }
+
 type UserTitleListDataInfo struct {
 	U_seq       int32
 	U_id        string
 	Uuid        string
 	Device_uuid string
 }
+
 type UserTitleListRetDataInfo struct {
 	U_seq int32
-	Title []any
+	Title []any // TODO
 }
+
 type UserTitleListReturn struct {
 	Error       ErrorRetCode
 	Mode        string
@@ -5147,6 +5818,7 @@ type UserTitleListReturn struct {
 	Data        UserTitleListRetDataInfo
 	Maintenance MaintenanceData
 }
+
 type UserUnit struct {
 	I_id    int64
 	I_Level int64

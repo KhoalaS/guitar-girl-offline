@@ -20,8 +20,8 @@ var csGoTypeMapping = map[string]string{
 	"Boolean":      "bool",
 	"Double":       "float64",
 	"Float":        "float32",
-	"List`1":       "[]any",
-	"Dictionary`2": "map[any]any",
+	"List`1":       "[]any // TODO",
+	"Dictionary`2": "map[any]any // TODO",
 }
 
 const BAD_ARGS_CODE = 1
@@ -80,7 +80,7 @@ func generateGoModels(classes []ThriftClass) error {
 	}
 	defer goModelFile.Close()
 
-	goModelFile.WriteString("package model\n")
+	goModelFile.WriteString("package model\n\n")
 
 	addedClasses := map[string]bool{}
 
@@ -103,7 +103,7 @@ func generateGoModels(classes []ThriftClass) error {
 			fmt.Fprintf(&structLine, "\t%s %s\n", prop.Name, _type)
 		}
 
-		structLine.WriteString("}\n")
+		structLine.WriteString("}\n\n")
 		goModelFile.WriteString(structLine.String())
 	}
 
