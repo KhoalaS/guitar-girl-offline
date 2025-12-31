@@ -27,8 +27,8 @@ Then make post requests to http://localhost:9999/translate with a body like `Qlp
 
 ```
 ├── cmd
-│   ├── debug/
-│   │   └── main.go             # Entry point for debug server
+│   ├── extract/                # Model extractor tool
+│   ├── debug/                  # Debug server
 │   └── main.go                 # Main entry point for game + auth server
 │
 ├── pkg
@@ -56,13 +56,24 @@ Then make post requests to http://localhost:9999/translate with a body like `Qlp
 The IL2CPP dump is in the `dump.cs` file.
 
 Generated classes that correspond to a thrift response have a `RetDataInfo` suffix.
+
 ```cs
 public class initRetDataInfo : TBase, TAbstractBase
 ```
+
 The classes for request data have a `DataInfo` suffix.
+
 ```cs
 public class initDataInfo : TBase, TAbstractBase
 ```
+
+The thrift models can be extracted with the `cmd/extract` tool
+
+```bash
+go run cmd/extract/main.go ./dump.cs
+```
+
+This will generate a `thrift_model.go` file with go struct types.
 
 ## TODO
 
