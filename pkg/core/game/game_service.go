@@ -12,7 +12,7 @@ type GameService interface {
 	Init(params InitParameters) (model.InitRetDataInfo, *ServiceError)
 	GetServerTime(params GetServerTimeParams) (BaseTimestamp, *ServiceError)
 	UserLogin(params UserLoginParams) (*UserLoginResult, *ServiceError)
-	GetUpdateTime(params GetUpdateTimeParams) UpdateTime
+	GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo
 	DefaultSettingList(params DefaultSettingListParams) DefaultSettingList
 	GetGameDataList(params GetGameDataListParams) (map[string]any, *ServiceError)
 }
@@ -38,10 +38,10 @@ func (service *GameServiceImpl) UserLogin(params UserLoginParams) (*UserLoginRes
 	)
 }
 
-func (service *GameServiceImpl) GetUpdateTime(params GetUpdateTimeParams) UpdateTime {
+func (service *GameServiceImpl) GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo {
 	// TODO internal logic
-	return UpdateTime{
-		UnixSeconds: 1761876067,
+	return model.GetUpdateTimeRetDataInfo{
+		Upd_time: 1761876067,
 	}
 }
 
@@ -206,10 +206,6 @@ func NewServiceError(code int, message string) *ServiceError {
 
 type GetUpdateTimeParams struct {
 	DeviceId string
-}
-
-type UpdateTime struct {
-	UnixSeconds int64 `thrift:",1"`
 }
 
 type UserLoginResult struct {
