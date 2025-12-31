@@ -70,10 +70,10 @@ public class initDataInfo : TBase, TAbstractBase
 The thrift models can be extracted with the `cmd/extract` tool
 
 ```bash
-go run cmd/extract/main.go ./dump.cs
+go run cmd/extract/main.go --dump ./dump.cs --target [go|python]
 ```
 
-This will generate a `thrift_model.go` file with go struct types.
+This will generate a `thrift_model.[py|go]` file with model types.
 
 ## TODO
 

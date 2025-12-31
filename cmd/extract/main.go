@@ -24,22 +24,32 @@ var csGoTypeMapping = map[string]string{
 	"Dictionary`2": "map[any]any // TODO",
 }
 
+var csPythonTypeMapping = map[string]string{
+	"String":       "str",
+	"Int32":        "int",
+	"Int16":        "int",
+	"Int64":        "int",
+	"Boolean":      "bool",
+	"Double":       "float",
+	"Float":        "float",
+	"List`1":       "list[Any] # TODO",
+	"Dictionary`2": "dict[Any, Any] # TODO",
+}
+
 const BAD_ARGS_CODE = 1
 const BAD_INPUT_FILE_CODE = 2
 const BAD_CLASS_MATCHING_CODE = 3
 
 func main() {
 	var debugFlag bool
+	var targetFlag string
+	var dumpFilePath string
 	flag.BoolVar(&debugFlag, "debug", false, "dump thrift classes to json file")
+	flag.StringVar(&targetFlag, "target", "go", "target programming language")
+	flag.StringVar(&dumpFilePath, "dump", "./dump.cs", "path to the dump.cs file")
 	flag.Parse()
 
-	argsWithoutProg := os.Args[1:]
-	if len(argsWithoutProg) == 0 {
-		os.Exit(BAD_ARGS_CODE)
-	}
-
-	inputFilepath := argsWithoutProg[0]
-	dumpFile, err := os.Open(inputFilepath)
+	dumpFile, err := os.Open(dumpFilePath)
 	if err != nil {
 		os.Exit(BAD_INPUT_FILE_CODE)
 	}
@@ -66,14 +76,21 @@ func main() {
 		defer outfile.Close()
 	}
 
-	generateGoModels(classes)
-}
-
-func generateGoModels(classes []ThriftClass) error {
 	sort.Slice(classes, func(i, j int) bool {
 		return classes[i].Name < classes[j].Name
 	})
 
+	switch targetFlag {
+	case "go":
+		generateGoModels(classes)
+	case "python":
+		generatePythonModels(classes)
+	default:
+		fmt.Println("Invalid target language:", targetFlag)
+	}
+}
+
+func generateGoModels(classes []ThriftClass) error {
 	goModelFile, err := os.Create("thrift_model.go")
 	if err != nil {
 		return err
@@ -106,8 +123,46 @@ func generateGoModels(classes []ThriftClass) error {
 		structLine.WriteString("}\n\n")
 		goModelFile.WriteString(structLine.String())
 	}
+	fmt.Println("Created thrift data models")
+	return nil
+}
 
-	fmt.Println("Created thrift data models at ./thrift_model.go")
+func generatePythonModels(classes []ThriftClass) error {
+	pythonModelFile, err := os.Create("thrift_model.py")
+	if err != nil {
+		return err
+	}
+	defer pythonModelFile.Close()
+	pythonModelFile.WriteString("from typing import Any\nfrom dataclasses import dataclass\nfrom __future__ import annotations\n\n")
+
+	addedClasses := map[string]bool{}
+
+	for _, class := range classes {
+		pythonClassName := strings.ToUpper(class.Name[0:1]) + class.Name[1:]
+		if _, ok := addedClasses[pythonClassName]; ok {
+			continue
+		}
+		addedClasses[pythonClassName] = true
+
+		var structLine strings.Builder
+
+		fmt.Fprintf(&structLine, "@dataclass\nclass %s:\n", pythonClassName)
+		for _, prop := range class.Properties {
+			_type := csPythonTypeMapping[prop.Type]
+			if _type == "" {
+				_type = strings.ToUpper(prop.Type[0:1]) + prop.Type[1:]
+			}
+			fmt.Fprintf(&structLine, "\t%s: %s\n", prop.Name, _type)
+		}
+
+		if len(class.Properties) == 0 {
+			fmt.Fprint(&structLine, "\tpass\n")
+		}
+
+		structLine.WriteString("\n\n")
+		pythonModelFile.WriteString(structLine.String())
+	}
+
 	return nil
 }
 
