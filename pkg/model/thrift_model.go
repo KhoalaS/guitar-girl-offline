@@ -1,5825 +1,5825 @@
 package model
 
 type Error struct {
-	Is_success      bool
-	Err_code        int32
-	Err_message     string
-	Is_debug        bool
-	Is_achieve_noti bool
-	Mission_notis   []any // TODO
+	Is_success      bool   `thrift:",1,omitempty"`
+	Err_code        int32  `thrift:",2,omitempty"`
+	Err_message     string `thrift:",3,omitempty"`
+	Is_debug        bool   `thrift:",4,omitempty"`
+	Is_achieve_noti bool   `thrift:",5,omitempty"`
+	Mission_notis   []any  `thrift:",6,omitempty"` // TODO
 }
 
 type MoreGamesLog struct {
-	Call string
-	Data MoreGamesLogDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data MoreGamesLogDataInfo `thrift:",2,omitempty"`
 }
 
 type MoreGamesLogDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	App_id      int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	App_id      int32  `thrift:",5,omitempty"`
 }
 
 type MoreGamesLogRetDataInfo struct {
-	Ret string
+	Ret string `thrift:",1,omitempty"`
 }
 
 type MoreGamesLogReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        MoreGamesLogRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Server_time ServerTimeRet           `thrift:",2,omitempty"`
+	Mode        string                  `thrift:",3,omitempty"`
+	Call        string                  `thrift:",4,omitempty"`
+	Data        MoreGamesLogRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData         `thrift:",6,omitempty"`
 }
 
 type Rect struct {
-	Left   float64
-	Top    float64
-	Width  float64
-	Height float64
+	Left   float64 `thrift:",1,omitempty"`
+	Top    float64 `thrift:",2,omitempty"`
+	Width  float64 `thrift:",3,omitempty"`
+	Height float64 `thrift:",4,omitempty"`
 }
 
 type Request struct {
-	Call        string
-	Data        InitDataInfo
-	Common_data ParamData
+	Call        string       `thrift:",1,omitempty"`
+	Data        InitDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData    `thrift:",3,omitempty"`
 }
 
 type StageFollowerProfileScore struct {
-	I_id        int32
-	Score       int32
-	Bonus_score int32
+	I_id        int32 `thrift:",1,omitempty"`
+	Score       int32 `thrift:",2,omitempty"`
+	Bonus_score int32 `thrift:",3,omitempty"`
 }
 
 type UserAdLevel struct {
-	I_id    int32
-	I_Level int32
-	I_EXP   int32
+	I_id    int32 `thrift:",1,omitempty"`
+	I_Level int32 `thrift:",2,omitempty"`
+	I_EXP   int32 `thrift:",3,omitempty"`
 }
 
 type UserAdList struct {
-	I_id           int32
-	I_Count        int32
-	I_TotalCount   int32
-	I_LastViewTime int32
+	I_id           int32 `thrift:",1,omitempty"`
+	I_Count        int32 `thrift:",2,omitempty"`
+	I_TotalCount   int32 `thrift:",3,omitempty"`
+	I_LastViewTime int32 `thrift:",4,omitempty"`
 }
 
 type UserApData struct {
-	I_Ap         int32
-	I_FullApTime int32
-	I_MaxAp      int32
+	I_Ap         int32 `thrift:",1,omitempty"`
+	I_FullApTime int32 `thrift:",2,omitempty"`
+	I_MaxAp      int32 `thrift:",3,omitempty"`
 }
 
 type UserChThirdChapterReward struct {
-	I_id              int32
-	I_ReceivedReward1 int32
-	I_ReceivedReward2 int32
-	I_ReceivedReward3 int32
+	I_id              int32 `thrift:",1,omitempty"`
+	I_ReceivedReward1 int32 `thrift:",2,omitempty"`
+	I_ReceivedReward2 int32 `thrift:",3,omitempty"`
+	I_ReceivedReward3 int32 `thrift:",4,omitempty"`
 }
 
 type UserChThirdStage struct {
-	I_id         int32
-	I_ChapterId  int32
-	I_StageIndex int32
-	I_Star       int32
+	I_id         int32 `thrift:",1,omitempty"`
+	I_ChapterId  int32 `thrift:",2,omitempty"`
+	I_StageIndex int32 `thrift:",3,omitempty"`
+	I_Star       int32 `thrift:",4,omitempty"`
 }
 
 type UserFollowerGiftItem struct {
-	I_id    int32
-	I_Value int32
+	I_id    int32 `thrift:",1,omitempty"`
+	I_Value int32 `thrift:",2,omitempty"`
 }
 
 type UserFollowerProfile struct {
-	I_id       int32
-	I_Level    int32
-	D_Exp      int64
-	I_AddCandy int32
+	I_id       int32 `thrift:",1,omitempty"`
+	I_Level    int32 `thrift:",2,omitempty"`
+	D_Exp      int64 `thrift:",3,omitempty"`
+	I_AddCandy int32 `thrift:",4,omitempty"`
 }
 
 type UserFollowerProfileReward struct {
-	I_id          int32
-	I_RewardLevel int32
+	I_id          int32 `thrift:",1,omitempty"`
+	I_RewardLevel int32 `thrift:",2,omitempty"`
 }
 
 type UserSelectReward struct {
-	I_GroupId          int32
-	I_RewardGroupId    int32
-	I_AltRewardGroupId int32
+	I_GroupId          int32 `thrift:",1,omitempty"`
+	I_RewardGroupId    int32 `thrift:",2,omitempty"`
+	I_AltRewardGroupId int32 `thrift:",3,omitempty"`
 }
 
 type UserTutorial struct {
-	I_id int32
+	I_id int32 `thrift:",1,omitempty"`
 }
 
 type Vector3 struct {
-	X float64
-	Y float64
-	Z float64
+	X float64 `thrift:",1,omitempty"`
+	Y float64 `thrift:",2,omitempty"`
+	Z float64 `thrift:",3,omitempty"`
 }
 
 type AdViewLog struct {
-	Call        string
-	Data        AdViewLogDataInfo
-	Common_data ParamData
+	Call        string            `thrift:",1,omitempty"`
+	Data        AdViewLogDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData         `thrift:",3,omitempty"`
 }
 
 type AdViewLogDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Ad_type     string
-	Ad_name     string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Ad_type     string `thrift:",5,omitempty"`
+	Ad_name     string `thrift:",6,omitempty"`
 }
 
 type AdViewLogRetDataInfo struct {
-	Status string
+	Status string `thrift:",1,omitempty"`
 }
 
 type AdViewLogReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        AdViewLogRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Server_time ServerTimeRet        `thrift:",2,omitempty"`
+	Mode        string               `thrift:",3,omitempty"`
+	Call        string               `thrift:",4,omitempty"`
+	Data        AdViewLogRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData      `thrift:",6,omitempty"`
 }
 
 type AlbumListInfo struct {
-	Album_idx  int64
-	Country    string
-	Date_issue string
-	Cdn_dir    string
-	Album_img  string
-	Language   map[any]any // TODO
+	Album_idx  int64       `thrift:",1,omitempty"`
+	Country    string      `thrift:",2,omitempty"`
+	Date_issue string      `thrift:",3,omitempty"`
+	Cdn_dir    string      `thrift:",4,omitempty"`
+	Album_img  string      `thrift:",5,omitempty"`
+	Language   map[any]any `thrift:",6,omitempty"` // TODO
 }
 
 type AlbumListLanguage struct {
-	Title        string
-	Company      string
-	Album_artist string
+	Title        string `thrift:",1,omitempty"`
+	Company      string `thrift:",2,omitempty"`
+	Album_artist string `thrift:",3,omitempty"`
 }
 
 type AvatarList struct {
-	Call string
-	Data AvatarListDataInfo
+	Call string             `thrift:",1,omitempty"`
+	Data AvatarListDataInfo `thrift:",2,omitempty"`
 }
 
 type AvatarListDataInfo struct {
-	Type string
+	Type string `thrift:",1,omitempty"`
 }
 
 type AvatarListRetDataInfo struct {
-	Idx           int16
-	Resource_name string
-	Down_status   int16
-	Buy_type      int16
-	Price         int32
-	Buy_type2     int16
-	Price2        int32
-	Value         int32
-	Event_point   int64
+	Idx           int16  `thrift:",1,omitempty"`
+	Resource_name string `thrift:",2,omitempty"`
+	Down_status   int16  `thrift:",3,omitempty"`
+	Buy_type      int16  `thrift:",4,omitempty"`
+	Price         int32  `thrift:",5,omitempty"`
+	Buy_type2     int16  `thrift:",6,omitempty"`
+	Price2        int32  `thrift:",7,omitempty"`
+	Value         int32  `thrift:",8,omitempty"`
+	Event_point   int64  `thrift:",9,omitempty"`
 }
 
 type AvatarListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type Bookmark_list struct {
-	Music_idx int32
-	Flag      int16
+	Music_idx int32 `thrift:",1,omitempty"`
+	Flag      int16 `thrift:",2,omitempty"`
 }
 
 type BuyAvatar struct {
-	Call string
-	Data BuyAvatarDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data BuyAvatarDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyAvatarDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int16  `thrift:",5,omitempty"`
 }
 
 type BuyAvatarRetDataInfo struct {
-	Avatar_idx int16
-	U_gold     int64
-	U_cp       int64
-	U_mp       int64
+	Avatar_idx int16 `thrift:",1,omitempty"`
+	U_gold     int64 `thrift:",2,omitempty"`
+	U_cp       int64 `thrift:",3,omitempty"`
+	U_mp       int64 `thrift:",4,omitempty"`
 }
 
 type BuyAvatarReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyAvatarRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Mode        string               `thrift:",2,omitempty"`
+	Call        string               `thrift:",3,omitempty"`
+	Data        BuyAvatarRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData      `thrift:",5,omitempty"`
 }
 
 type BuyCheck struct {
-	Call string
-	Data BuyCheckDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data BuyCheckDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyCheckDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int32  `thrift:",5,omitempty"`
 }
 
 type BuyCheckRetDataInfo struct {
-	Result int64
+	Result int64 `thrift:",1,omitempty"`
 }
 
 type BuyCheckReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        BuyCheckRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Server_time ServerTimeRet       `thrift:",2,omitempty"`
+	Mode        string              `thrift:",3,omitempty"`
+	Call        string              `thrift:",4,omitempty"`
+	Data        BuyCheckRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData     `thrift:",6,omitempty"`
 }
 
 type BuyCollectionItem struct {
-	Call string
-	Data BuyCollectionItemDataInfo
+	Call string                    `thrift:",1,omitempty"`
+	Data BuyCollectionItemDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyCollectionItemDataInfo struct {
-	U_seq             int32
-	U_id              string
-	Uuid              string
-	Device_uuid       string
-	Special_music_idx int32
-	Idx               int32
+	U_seq             int32  `thrift:",1,omitempty"`
+	U_id              string `thrift:",2,omitempty"`
+	Uuid              string `thrift:",3,omitempty"`
+	Device_uuid       string `thrift:",4,omitempty"`
+	Special_music_idx int32  `thrift:",5,omitempty"`
+	Idx               int32  `thrift:",6,omitempty"`
 }
 
 type BuyCollectionItemRetDataInfo struct {
-	Item_type    int16
-	Item_value   int64
-	Buy_datetime string
+	Item_type    int16  `thrift:",1,omitempty"`
+	Item_value   int64  `thrift:",2,omitempty"`
+	Buy_datetime string `thrift:",3,omitempty"`
 }
 
 type BuyCollectionItemReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyCollectionItemRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                 `thrift:",1,omitempty"`
+	Mode        string                       `thrift:",2,omitempty"`
+	Call        string                       `thrift:",3,omitempty"`
+	Data        BuyCollectionItemRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData              `thrift:",5,omitempty"`
 }
 
 type BuyCollectionMusic struct {
-	Call string
-	Data BuyCollectionMusicDataInfo
+	Call string                     `thrift:",1,omitempty"`
+	Data BuyCollectionMusicDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyCollectionMusicDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int32  `thrift:",5,omitempty"`
 }
 
 type BuyCollectionMusicRetDataInfo struct {
-	Music_idx    int64
-	Buy_datetime string
+	Music_idx    int64  `thrift:",1,omitempty"`
+	Buy_datetime string `thrift:",2,omitempty"`
 }
 
 type BuyCollectionMusicReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyCollectionMusicRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                  `thrift:",1,omitempty"`
+	Mode        string                        `thrift:",2,omitempty"`
+	Call        string                        `thrift:",3,omitempty"`
+	Data        BuyCollectionMusicRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData               `thrift:",5,omitempty"`
 }
 
 type BuyContents struct {
-	Call        string
-	Data        BuyContentsDataInfo
-	Sub_mode    string
-	Common_data ParamData
+	Call        string              `thrift:",1,omitempty"`
+	Data        BuyContentsDataInfo `thrift:",2,omitempty"`
+	Sub_mode    string              `thrift:",3,omitempty"`
+	Common_data ParamData           `thrift:",4,omitempty"`
 }
 
 type BuyContentsDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Type        string
-	Idx         int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Type        string `thrift:",5,omitempty"`
+	Idx         int32  `thrift:",6,omitempty"`
 }
 
 type BuyContentsRetDataInfo struct {
-	U_cp       int64
-	U_candy    float64
-	User_skill UserSkill
-	User_unit  UserUnit
+	U_cp       int64     `thrift:",1,omitempty"`
+	U_candy    float64   `thrift:",2,omitempty"`
+	User_skill UserSkill `thrift:",3,omitempty"`
+	User_unit  UserUnit  `thrift:",4,omitempty"`
 }
 
 type BuyContentsReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        BuyContentsRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Server_time ServerTimeRet          `thrift:",2,omitempty"`
+	Mode        string                 `thrift:",3,omitempty"`
+	Call        string                 `thrift:",4,omitempty"`
+	Data        BuyContentsRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData        `thrift:",6,omitempty"`
 }
 
 type BuyExtraMode struct {
-	Call string
-	Data BuyExtraModeDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data BuyExtraModeDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyExtraModeDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Music_idx   int32
-	Key_flg     int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Music_idx   int32  `thrift:",5,omitempty"`
+	Key_flg     int64  `thrift:",6,omitempty"`
 }
 
 type BuyExtraModeRetDataInfo struct {
-	Music_idx int32
+	Music_idx int32 `thrift:",1,omitempty"`
 }
 
 type BuyExtraModeReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyExtraModeRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        BuyExtraModeRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type BuyItem struct {
-	Call string
-	Data BuyItemDataInfo
+	Call string          `thrift:",1,omitempty"`
+	Data BuyItemDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyItemDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int16  `thrift:",5,omitempty"`
 }
 
 type BuyItemRetDataInfo struct {
-	Idx      int32
-	U_gold   int64
-	U_cp     int64
-	U_mp     int64
-	U_credit int64
+	Idx      int32 `thrift:",1,omitempty"`
+	U_gold   int64 `thrift:",2,omitempty"`
+	U_cp     int64 `thrift:",3,omitempty"`
+	U_mp     int64 `thrift:",4,omitempty"`
+	U_credit int64 `thrift:",5,omitempty"`
 }
 
 type BuyItemReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyItemRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode       `thrift:",1,omitempty"`
+	Mode        string             `thrift:",2,omitempty"`
+	Call        string             `thrift:",3,omitempty"`
+	Data        BuyItemRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData    `thrift:",5,omitempty"`
 }
 
 type BuyMusic struct {
-	Call string
-	Data BuyMusicDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data BuyMusicDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyMusicDataInfo struct {
-	Type          int16
-	Idx           int32
-	U_seq         int32
-	U_id          string
-	Uuid          string
-	Device_uuid   string
-	Purchase_type int16
+	Type          int16  `thrift:",1,omitempty"`
+	Idx           int32  `thrift:",2,omitempty"`
+	U_seq         int32  `thrift:",3,omitempty"`
+	U_id          string `thrift:",4,omitempty"`
+	Uuid          string `thrift:",5,omitempty"`
+	Device_uuid   string `thrift:",6,omitempty"`
+	Purchase_type int16  `thrift:",7,omitempty"`
 }
 
 type BuyMusicRetDataInfo struct {
-	U_gold int32
-	U_cp   int32
-	U_mp   int32
-	Music  map[any]any // TODO
+	U_gold int32       `thrift:",1,omitempty"`
+	U_cp   int32       `thrift:",2,omitempty"`
+	U_mp   int32       `thrift:",3,omitempty"`
+	Music  map[any]any `thrift:",4,omitempty"` // TODO
 }
 
 type BuyMusicReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        BuyMusicRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Server_time ServerTimeRet       `thrift:",2,omitempty"`
+	Mode        string              `thrift:",3,omitempty"`
+	Call        string              `thrift:",4,omitempty"`
+	Data        BuyMusicRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData     `thrift:",6,omitempty"`
 }
 
 type BuyPackage struct {
-	Call string
-	Data BuyPackageDataInfo
+	Call string             `thrift:",1,omitempty"`
+	Data BuyPackageDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyPackageDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Store_idx   int64
-	Product_id  int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Store_idx   int64  `thrift:",5,omitempty"`
+	Product_id  int64  `thrift:",6,omitempty"`
 }
 
 type BuyPackageMusic struct {
-	Music_idx int64
+	Music_idx int64 `thrift:",1,omitempty"`
 }
 
 type BuyPackageRetDataInfo struct {
-	U_gold     int64
-	U_cp       int64
-	U_mp       int64
-	U_credit   int64
-	Music_data []any // TODO
+	U_gold     int64 `thrift:",1,omitempty"`
+	U_cp       int64 `thrift:",2,omitempty"`
+	U_mp       int64 `thrift:",3,omitempty"`
+	U_credit   int64 `thrift:",4,omitempty"`
+	Music_data []any `thrift:",5,omitempty"` // TODO
 }
 
 type BuyPackageReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyPackageRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode          `thrift:",1,omitempty"`
+	Mode        string                `thrift:",2,omitempty"`
+	Call        string                `thrift:",3,omitempty"`
+	Data        BuyPackageRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData       `thrift:",5,omitempty"`
 }
 
 type BuyPiece struct {
-	Call string
-	Data BuyPieceDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data BuyPieceDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyPieceDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int32
-	Cnt         int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int32  `thrift:",5,omitempty"`
+	Cnt         int64  `thrift:",6,omitempty"`
 }
 
 type BuyPieceRetDataInfo struct {
-	Idx    int32
-	U_gold int64
-	U_cp   int32
-	U_mp   int32
+	Idx    int32 `thrift:",1,omitempty"`
+	U_gold int64 `thrift:",2,omitempty"`
+	U_cp   int32 `thrift:",3,omitempty"`
+	U_mp   int32 `thrift:",4,omitempty"`
 }
 
 type BuyPieceReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyPieceRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Mode        string              `thrift:",2,omitempty"`
+	Call        string              `thrift:",3,omitempty"`
+	Data        BuyPieceRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData     `thrift:",5,omitempty"`
 }
 
 type BuyShop struct {
-	Call        string
-	Data        BuyShopDataInfo
-	Sub_mode    string
-	Common_data ParamData
+	Call        string          `thrift:",1,omitempty"`
+	Data        BuyShopDataInfo `thrift:",2,omitempty"`
+	Sub_mode    string          `thrift:",3,omitempty"`
+	Common_data ParamData       `thrift:",4,omitempty"`
 }
 
 type BuyShopDataInfo struct {
-	U_seq             int32
-	U_id              string
-	Uuid              string
-	Device_uuid       string
-	Idx               int32
-	Developer_payload string
-	Pay_id            string
-	Purchase_token    string
-	Purchase_id       string
-	Os                int16
-	App_id            string
-	Member_id         string
+	U_seq             int32  `thrift:",1,omitempty"`
+	U_id              string `thrift:",2,omitempty"`
+	Uuid              string `thrift:",3,omitempty"`
+	Device_uuid       string `thrift:",4,omitempty"`
+	Idx               int32  `thrift:",5,omitempty"`
+	Developer_payload string `thrift:",6,omitempty"`
+	Pay_id            string `thrift:",7,omitempty"`
+	Purchase_token    string `thrift:",8,omitempty"`
+	Purchase_id       string `thrift:",9,omitempty"`
+	Os                int16  `thrift:",10,omitempty"`
+	App_id            string `thrift:",11,omitempty"`
+	Member_id         string `thrift:",12,omitempty"`
 }
 
 type BuyShopRetDataInfo struct {
-	U_cp          int64
-	U_candy       float64
-	Reward_data   []any // TODO
-	User_ad_level UserAdLevel
+	U_cp          int64       `thrift:",1,omitempty"`
+	U_candy       float64     `thrift:",2,omitempty"`
+	Reward_data   []any       `thrift:",3,omitempty"` // TODO
+	User_ad_level UserAdLevel `thrift:",4,omitempty"`
 }
 
 type BuyShopReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        BuyShopRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode       `thrift:",1,omitempty"`
+	Server_time ServerTimeRet      `thrift:",2,omitempty"`
+	Mode        string             `thrift:",3,omitempty"`
+	Call        string             `thrift:",4,omitempty"`
+	Data        BuyShopRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData    `thrift:",6,omitempty"`
 }
 
 type BuyUserTitle struct {
-	Call string
-	Data BuyUserTitleDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data BuyUserTitleDataInfo `thrift:",2,omitempty"`
 }
 
 type BuyUserTitleDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int16  `thrift:",5,omitempty"`
 }
 
 type BuyUserTitleRetDataInfo struct {
-	Title_idx int16
-	U_gold    int64
-	U_cp      int64
-	U_mp      int64
+	Title_idx int16 `thrift:",1,omitempty"`
+	U_gold    int64 `thrift:",2,omitempty"`
+	U_cp      int64 `thrift:",3,omitempty"`
+	U_mp      int64 `thrift:",4,omitempty"`
 }
 
 type BuyUserTitleReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        BuyUserTitleRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        BuyUserTitleRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type BuyVarietyStore struct {
-	Call        string
-	Data        BuyVarietyStoreDataInfo
-	Common_data ParamData
+	Call        string                  `thrift:",1,omitempty"`
+	Data        BuyVarietyStoreDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData               `thrift:",3,omitempty"`
 }
 
 type BuyVarietyStoreDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int32  `thrift:",5,omitempty"`
 }
 
 type BuyVarietyStoreRetDataInfo struct {
-	U_cp         int64
-	U_candy      float64
-	Reward_type  int16
-	Reward_id    int32
-	Reward_value int64
-	Status       string
+	U_cp         int64   `thrift:",1,omitempty"`
+	U_candy      float64 `thrift:",2,omitempty"`
+	Reward_type  int16   `thrift:",3,omitempty"`
+	Reward_id    int32   `thrift:",4,omitempty"`
+	Reward_value int64   `thrift:",5,omitempty"`
+	Status       string  `thrift:",6,omitempty"`
 }
 
 type BuyVarietyStoreReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        BuyVarietyStoreRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode               `thrift:",1,omitempty"`
+	Server_time ServerTimeRet              `thrift:",2,omitempty"`
+	Mode        string                     `thrift:",3,omitempty"`
+	Call        string                     `thrift:",4,omitempty"`
+	Data        BuyVarietyStoreRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData            `thrift:",6,omitempty"`
 }
 
 type ChThirdStage struct {
-	Call        string
-	Data        ChThirdStageDataInfo
-	Common_data ParamData
+	Call        string               `thrift:",1,omitempty"`
+	Data        ChThirdStageDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData            `thrift:",3,omitempty"`
 }
 
 type ChThirdStageDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
-	Music_id    int32
-	Profile_ids string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
+	Music_id    int32  `thrift:",6,omitempty"`
+	Profile_ids string `thrift:",7,omitempty"`
 }
 
 type ChThirdStageRetDataInfo struct {
-	Star                        int32
-	Character_score             int32
-	Music_score                 int32
-	Follower_profile_score      int32
-	Bonus_score                 int32
-	Total_score                 int64
-	Clear                       int32
-	User_ap                     UserApData
-	User_ch_third_stage         UserChThirdStage
-	User_music                  UserMusic
-	Reward_data                 []any // TODO
-	Bonus_follower_profile_ids  []any // TODO
-	User_follower_profile       UserFollowerProfile
-	Bonus_music_score           int32
-	User_follower_profile_score []any // TODO
+	Star                        int32               `thrift:",1,omitempty"`
+	Character_score             int32               `thrift:",2,omitempty"`
+	Music_score                 int32               `thrift:",3,omitempty"`
+	Follower_profile_score      int32               `thrift:",4,omitempty"`
+	Bonus_score                 int32               `thrift:",5,omitempty"`
+	Total_score                 int64               `thrift:",6,omitempty"`
+	Clear                       int32               `thrift:",7,omitempty"`
+	User_ap                     UserApData          `thrift:",8,omitempty"`
+	User_ch_third_stage         UserChThirdStage    `thrift:",9,omitempty"`
+	User_music                  UserMusic           `thrift:",10,omitempty"`
+	Reward_data                 []any               `thrift:",11,omitempty"` // TODO
+	Bonus_follower_profile_ids  []any               `thrift:",12,omitempty"` // TODO
+	User_follower_profile       UserFollowerProfile `thrift:",13,omitempty"`
+	Bonus_music_score           int32               `thrift:",14,omitempty"`
+	User_follower_profile_score []any               `thrift:",15,omitempty"` // TODO
 }
 
 type ChThirdStageReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        ChThirdStageRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Server_time ServerTimeRet           `thrift:",2,omitempty"`
+	Mode        string                  `thrift:",3,omitempty"`
+	Call        string                  `thrift:",4,omitempty"`
+	Data        ChThirdStageRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData         `thrift:",6,omitempty"`
 }
 
 type ChThirdStreamStage struct {
-	Call        string
-	Data        ChThirdStreamStageDataInfo
-	Common_data ParamData
+	Call        string                     `thrift:",1,omitempty"`
+	Data        ChThirdStreamStageDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                  `thrift:",3,omitempty"`
 }
 
 type ChThirdStreamStageDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
-	Count       int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
+	Count       int32  `thrift:",6,omitempty"`
 }
 
 type ChThirdStreamStageRetDataInfo struct {
-	I_id                  int32
-	User_ap               UserApData
-	User_follower_profile UserFollowerProfile
-	Reward_data           map[any]any // TODO
+	I_id                  int32               `thrift:",1,omitempty"`
+	User_ap               UserApData          `thrift:",2,omitempty"`
+	User_follower_profile UserFollowerProfile `thrift:",3,omitempty"`
+	Reward_data           map[any]any         `thrift:",4,omitempty"` // TODO
 }
 
 type ChThirdStreamStageReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        ChThirdStreamStageRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                  `thrift:",1,omitempty"`
+	Server_time ServerTimeRet                 `thrift:",2,omitempty"`
+	Mode        string                        `thrift:",3,omitempty"`
+	Call        string                        `thrift:",4,omitempty"`
+	Data        ChThirdStreamStageRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData               `thrift:",6,omitempty"`
 }
 
 type ChallengeMissionList struct {
-	Call string
-	Data ChallengeMissionListDataInfo
+	Call string                       `thrift:",1,omitempty"`
+	Data ChallengeMissionListDataInfo `thrift:",2,omitempty"`
 }
 
 type ChallengeMissionListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Music_idx   int32
-	Difficulty  int16
-	Up          int32
-	Down        int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Music_idx   int32  `thrift:",5,omitempty"`
+	Difficulty  int16  `thrift:",6,omitempty"`
+	Up          int32  `thrift:",7,omitempty"`
+	Down        int32  `thrift:",8,omitempty"`
 }
 
 type ChallengeMissionListInfo struct {
-	Music_idx    int32
-	Difficulty   int16
-	Mission_list []any // TODO
+	Music_idx    int32 `thrift:",1,omitempty"`
+	Difficulty   int16 `thrift:",2,omitempty"`
+	Mission_list []any `thrift:",3,omitempty"` // TODO
 }
 
 type ChallengeMissionListRetDataInfo struct {
-	Music_idx    int32
-	Difficulty   int16
-	Mission_list map[any]any // TODO
+	Music_idx    int32       `thrift:",1,omitempty"`
+	Difficulty   int16       `thrift:",2,omitempty"`
+	Mission_list map[any]any `thrift:",3,omitempty"` // TODO
 }
 
 type ChallengeMissionListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        ChallengeMissionListRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                    `thrift:",1,omitempty"`
+	Mode        string                          `thrift:",2,omitempty"`
+	Call        string                          `thrift:",3,omitempty"`
+	Data        ChallengeMissionListRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData                 `thrift:",5,omitempty"`
 }
 
 type ChangeUser struct {
-	Call        string
-	Data        ChangeUserDataInfo
-	Common_data ParamData
+	Call        string             `thrift:",1,omitempty"`
+	Data        ChangeUserDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData          `thrift:",3,omitempty"`
 }
 
 type ChangeUserDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Change_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Change_uuid string `thrift:",5,omitempty"`
 }
 
 type ChangeUserRetDataInfo struct {
-	Result string
+	Result string `thrift:",1,omitempty"`
 }
 
 type ChangeUserReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        ChangeUserRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode          `thrift:",1,omitempty"`
+	Mode        string                `thrift:",2,omitempty"`
+	Call        string                `thrift:",3,omitempty"`
+	Data        ChangeUserRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData       `thrift:",5,omitempty"`
 }
 
 type ChannelList struct {
-	Channel        int16
-	Url            string
-	Port           int64
-	Flg            int16
-	Maintenance_cn string
-	Maintenance_en string
-	Maintenance_jp string
+	Channel        int16  `thrift:",1,omitempty"`
+	Url            string `thrift:",2,omitempty"`
+	Port           int64  `thrift:",3,omitempty"`
+	Flg            int16  `thrift:",4,omitempty"`
+	Maintenance_cn string `thrift:",5,omitempty"`
+	Maintenance_en string `thrift:",6,omitempty"`
+	Maintenance_jp string `thrift:",7,omitempty"`
 }
 
 type CheckBuyProduct struct {
-	Call string
-	Data CheckBuyProductDataInfo
+	Call string                  `thrift:",1,omitempty"`
+	Data CheckBuyProductDataInfo `thrift:",2,omitempty"`
 }
 
 type CheckBuyProductDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Product_id  string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Product_id  string `thrift:",5,omitempty"`
 }
 
 type CheckBuyProductRetDataInfo struct {
-	Is_owner int16
+	Is_owner int16 `thrift:",1,omitempty"`
 }
 
 type CheckBuyProductReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        CheckBuyProductRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode               `thrift:",1,omitempty"`
+	Mode        string                     `thrift:",2,omitempty"`
+	Call        string                     `thrift:",3,omitempty"`
+	Data        CheckBuyProductRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData            `thrift:",5,omitempty"`
 }
 
 type CheckBuyShop struct {
-	Call        string
-	Data        CheckBuyShopDataInfo
-	Common_data ParamData
+	Call        string               `thrift:",1,omitempty"`
+	Data        CheckBuyShopDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData            `thrift:",3,omitempty"`
 }
 
 type CheckBuyShopDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Shop_id     string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Shop_id     string `thrift:",5,omitempty"`
 }
 
 type CheckBuyShopRetDataInfo struct {
-	Is_owner int16
+	Is_owner int16 `thrift:",1,omitempty"`
 }
 
 type CheckBuyShopReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        CheckBuyShopRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        CheckBuyShopRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type CheckPurchased struct {
-	Call        string
-	Data        CheckPurchasedDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        CheckPurchasedDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type CheckPurchasedDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type CheckPurchasedRetDataInfo struct {
-	Is_purchased int16
+	Is_purchased int16 `thrift:",1,omitempty"`
 }
 
 type CheckPurchasedReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        CheckPurchasedRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Mode        string                    `thrift:",2,omitempty"`
+	Call        string                    `thrift:",3,omitempty"`
+	Data        CheckPurchasedRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData           `thrift:",5,omitempty"`
 }
 
 type CheckUser struct {
-	Call        string
-	Data        CheckUserDataInfo
-	Common_data ParamData
+	Call        string            `thrift:",1,omitempty"`
+	Data        CheckUserDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData         `thrift:",3,omitempty"`
 }
 
 type CheckUserDataInfo struct {
-	Uuid        string
-	Device_uuid string
+	Uuid        string `thrift:",1,omitempty"`
+	Device_uuid string `thrift:",2,omitempty"`
 }
 
 type CheckUserRetDataInfo struct {
-	U_seq int32
-	U_id  string
+	U_seq int32  `thrift:",1,omitempty"`
+	U_id  string `thrift:",2,omitempty"`
 }
 
 type CheckUserReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        CheckUserRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Server_time ServerTimeRet        `thrift:",2,omitempty"`
+	Mode        string               `thrift:",3,omitempty"`
+	Call        string               `thrift:",4,omitempty"`
+	Data        CheckUserRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData      `thrift:",6,omitempty"`
 }
 
 type ChoiceUserData struct {
-	U_girl_level int64
-	U_fans       int64
-	U_fans_grade int16
-	U_cp         int64
-	U_candy      float64
-	U_like       float64
-	U_last_login string
+	U_girl_level int64   `thrift:",1,omitempty"`
+	U_fans       int64   `thrift:",2,omitempty"`
+	U_fans_grade int16   `thrift:",3,omitempty"`
+	U_cp         int64   `thrift:",4,omitempty"`
+	U_candy      float64 `thrift:",5,omitempty"`
+	U_like       float64 `thrift:",6,omitempty"`
+	U_last_login string  `thrift:",7,omitempty"`
 }
 
 type CollectionRetData struct {
-	Music_idx int64
-	Cnt       int64
+	Music_idx int64 `thrift:",1,omitempty"`
+	Cnt       int64 `thrift:",2,omitempty"`
 }
 
 type CompleteLog struct {
-	Call        string
-	Data        CompleteLogDataInfo
-	Common_data ParamData
+	Call        string              `thrift:",1,omitempty"`
+	Data        CompleteLogDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData           `thrift:",3,omitempty"`
 }
 
 type CompleteLogDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Type        string
-	Id          int32
-	Value       string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Type        string `thrift:",5,omitempty"`
+	Id          int32  `thrift:",6,omitempty"`
+	Value       string `thrift:",7,omitempty"`
 }
 
 type CompleteLogRetDataInfo struct {
-	Status string
+	Status string `thrift:",1,omitempty"`
 }
 
 type CompleteLogReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        CompleteLogRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Server_time ServerTimeRet          `thrift:",2,omitempty"`
+	Mode        string                 `thrift:",3,omitempty"`
+	Call        string                 `thrift:",4,omitempty"`
+	Data        CompleteLogRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData        `thrift:",6,omitempty"`
 }
 
 type DefaultSettingDataList struct {
-	Setting_key   string
-	Setting_value string
+	Setting_key   string `thrift:",1,omitempty"`
+	Setting_value string `thrift:",2,omitempty"`
 }
 
 type DefaultSettingList struct {
-	Call        string
-	Data        DefaultSettingListDataInfo
-	Common_data ParamData
+	Call        string                     `thrift:",1,omitempty"`
+	Data        DefaultSettingListDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                  `thrift:",3,omitempty"`
 }
 
 type DefaultSettingListDataInfo struct {
-	Device_uuid string
-	Os          int16
+	Device_uuid string `thrift:",1,omitempty"`
+	Os          int16  `thrift:",2,omitempty"`
 }
 
 type DefaultSettingListRetDataInfo struct {
-	Status       string
-	Setting_list []any // TODO
+	Status       string `thrift:",1,omitempty"`
+	Setting_list []any  `thrift:",2,omitempty"` // TODO
 }
 
 type DefaultSettingListReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        DefaultSettingListRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                  `thrift:",1,omitempty"`
+	Server_time ServerTimeRet                 `thrift:",2,omitempty"`
+	Mode        string                        `thrift:",3,omitempty"`
+	Call        string                        `thrift:",4,omitempty"`
+	Data        DefaultSettingListRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData               `thrift:",6,omitempty"`
 }
 
 type DeletePost struct {
-	Call        string
-	Data        DeletePostDataInfo
-	Common_data ParamData
+	Call        string             `thrift:",1,omitempty"`
+	Data        DeletePostDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData          `thrift:",3,omitempty"`
 }
 
 type DeletePostDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int64
-	Type        int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int64  `thrift:",5,omitempty"`
+	Type        int16  `thrift:",6,omitempty"`
 }
 
 type DeletePostRetDataInfo struct {
-	Idx int64
+	Idx int64 `thrift:",1,omitempty"`
 }
 
 type DeletePostReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        DeletePostRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode          `thrift:",1,omitempty"`
+	Mode        string                `thrift:",2,omitempty"`
+	Call        string                `thrift:",3,omitempty"`
+	Data        DeletePostRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData       `thrift:",5,omitempty"`
 }
 
 type DeleteUser struct {
-	Call string
-	Data DeleteUserDataInfo
+	Call string             `thrift:",1,omitempty"`
+	Data DeleteUserDataInfo `thrift:",2,omitempty"`
 }
 
 type DeleteUserDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type DeleteUserRetDataInfo struct {
-	Result string
+	Result string `thrift:",1,omitempty"`
 }
 
 type DeleteUserReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        DeleteUserRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode          `thrift:",1,omitempty"`
+	Server_time ServerTimeRet         `thrift:",2,omitempty"`
+	Mode        string                `thrift:",3,omitempty"`
+	Call        string                `thrift:",4,omitempty"`
+	Data        DeleteUserRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData       `thrift:",6,omitempty"`
 }
 
 type EndPlayMusic struct {
-	Call string
-	Data EndPlayMusicDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data EndPlayMusicDataInfo `thrift:",2,omitempty"`
 }
 
 type EndPlayMusicDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Score       int32
-	Medal       int16
-	Over_flg    int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Score       int32  `thrift:",5,omitempty"`
+	Medal       int16  `thrift:",6,omitempty"`
+	Over_flg    int16  `thrift:",7,omitempty"`
 }
 
 type EndPlayMusicRetDataInfo struct {
-	Code int16
+	Code int16 `thrift:",1,omitempty"`
 }
 
 type EndPlayMusicReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        EndPlayMusicRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        EndPlayMusicRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type ErrorRetCode struct {
-	Code   int32
-	Errmsg string
+	Code   int32  `thrift:",1,omitempty"`
+	Errmsg string `thrift:",2,omitempty"`
 }
 
 type EventRankRewardListArr struct {
-	Event_idx    int32
-	Title        string
-	Desc_kr      string
-	Desc_en      string
-	Desc_jp      string
-	Reward_type  int16
-	Reward_value int64
+	Event_idx    int32  `thrift:",1,omitempty"`
+	Title        string `thrift:",2,omitempty"`
+	Desc_kr      string `thrift:",3,omitempty"`
+	Desc_en      string `thrift:",4,omitempty"`
+	Desc_jp      string `thrift:",5,omitempty"`
+	Reward_type  int16  `thrift:",6,omitempty"`
+	Reward_value int64  `thrift:",7,omitempty"`
 }
 
 type EventRankRewardListData struct {
-	Title        string
-	Desc_cn      string
-	Desc_en      string
-	Desc_jp      string
-	Reward_type  int16
-	Reward_value int64
+	Title        string `thrift:",1,omitempty"`
+	Desc_cn      string `thrift:",2,omitempty"`
+	Desc_en      string `thrift:",3,omitempty"`
+	Desc_jp      string `thrift:",4,omitempty"`
+	Reward_type  int16  `thrift:",5,omitempty"`
+	Reward_value int64  `thrift:",6,omitempty"`
 }
 
 type EventRewardList struct {
-	Call string
-	Data EventRewardListDataInfo
+	Call string                  `thrift:",1,omitempty"`
+	Data EventRewardListDataInfo `thrift:",2,omitempty"`
 }
 
 type EventRewardListArr struct {
-	Event_idx    int32
-	Gain_point   int64
-	Reward_type  int16
-	Reward_value int64
+	Event_idx    int32 `thrift:",1,omitempty"`
+	Gain_point   int64 `thrift:",2,omitempty"`
+	Reward_type  int16 `thrift:",3,omitempty"`
+	Reward_value int64 `thrift:",4,omitempty"`
 }
 
 type EventRewardListData struct {
-	Gain_point   int64
-	Reward_type  int16
-	Reward_value int64
+	Gain_point   int64 `thrift:",1,omitempty"`
+	Reward_type  int16 `thrift:",2,omitempty"`
+	Reward_value int64 `thrift:",3,omitempty"`
 }
 
 type EventRewardListDataInfo struct {
-	Event_idx   int32
-	Device_uuid string
+	Event_idx   int32  `thrift:",1,omitempty"`
+	Device_uuid string `thrift:",2,omitempty"`
 }
 
 type EventRewardListRetDataInfo struct {
-	Event_idx        int32
-	Reward_list      []any // TODO
-	Rank_reward_list []any // TODO
+	Event_idx        int32 `thrift:",1,omitempty"`
+	Reward_list      []any `thrift:",2,omitempty"` // TODO
+	Rank_reward_list []any `thrift:",3,omitempty"` // TODO
 }
 
 type EventRewardListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        EventRewardListRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode               `thrift:",1,omitempty"`
+	Mode        string                     `thrift:",2,omitempty"`
+	Call        string                     `thrift:",3,omitempty"`
+	Data        EventRewardListRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData            `thrift:",5,omitempty"`
 }
 
 type FacebookUserJoin struct {
-	Call        string
-	Data        FacebookUserJoinDataInfo
-	Common_data ParamData
+	Call        string                   `thrift:",1,omitempty"`
+	Data        FacebookUserJoinDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                `thrift:",3,omitempty"`
 }
 
 type FacebookUserJoinDataInfo struct {
-	Access_token string
+	Access_token string `thrift:",1,omitempty"`
 }
 
 type GetAchievementData struct {
-	I_id                       int32
-	S_Title_KO                 string
-	S_Title_EN                 string
-	S_Title_JA                 string
-	S_Title_ZH_CHS             string
-	S_Title_ZH_CHT             string
-	S_Title_VI                 string
-	S_Title_ES                 string
-	S_Title_IT                 string
-	S_Title_ID                 string
-	S_Title_TH                 string
-	S_Title_PT                 string
-	S_Title_HI                 string
-	S_Description_KO           string
-	S_Description_EN           string
-	S_Description_JA           string
-	S_Description_ZH_CHS       string
-	S_Description_ZH_CHT       string
-	S_Description_VI           string
-	S_Description_ES           string
-	S_Description_IT           string
-	S_Description_ID           string
-	S_Description_TH           string
-	S_Description_PT           string
-	S_Description_HI           string
-	S_ResourceName             string
-	S_AchievementConditionType string
-	S_RewardType               string
-	S_RewardDescription_KO     string
-	S_RewardDescription_EN     string
-	S_RewardDescription_JA     string
-	S_RewardDescription_ZH_CHS string
-	S_RewardDescription_ZH_CHT string
-	S_RewardDescription_VI     string
-	S_RewardDescription_ES     string
-	S_RewardDescription_IT     string
-	S_RewardDescription_ID     string
-	S_RewardDescription_TH     string
-	S_RewardDescription_PT     string
-	S_RewardDescription_HI     string
-	I_Reward_1                 int64
-	I_Reward_2                 int64
-	I_Reward_3                 int64
-	I_Reward_4                 int64
-	I_Reward_5                 int64
-	I_Reward_6                 int64
-	I_Reward_7                 int64
-	I_Reward_8                 int64
-	I_Reward_9                 int64
-	I_Reward_10                int64
-	I_Area                     int16
-	B_IsActive                 int16
-	I_Reward_11                int64
-	I_Reward_12                int64
-	I_MaxLevel                 int16
-	S_Condition_1              string
-	S_Condition_2              string
-	S_Condition_3              string
-	S_Condition_4              string
-	S_Condition_5              string
-	S_Condition_6              string
-	S_Condition_7              string
-	S_Condition_8              string
-	S_Condition_9              string
-	S_Condition_10             string
-	S_Condition_11             string
-	S_Condition_12             string
-	S_Condition_13             string
-	S_Condition_14             string
-	S_Condition_15             string
-	S_Condition_16             string
-	S_Condition_17             string
-	S_Condition_18             string
-	S_Condition_19             string
-	S_Condition_20             string
-	I_Reward_13                int64
-	I_Reward_14                int64
-	I_Reward_15                int64
-	I_Reward_16                int64
-	I_Reward_17                int64
-	I_Reward_18                int64
-	I_Reward_19                int64
-	I_Reward_20                int64
+	I_id                       int32  `thrift:",1,omitempty"`
+	S_Title_KO                 string `thrift:",2,omitempty"`
+	S_Title_EN                 string `thrift:",3,omitempty"`
+	S_Title_JA                 string `thrift:",4,omitempty"`
+	S_Title_ZH_CHS             string `thrift:",5,omitempty"`
+	S_Title_ZH_CHT             string `thrift:",6,omitempty"`
+	S_Title_VI                 string `thrift:",7,omitempty"`
+	S_Title_ES                 string `thrift:",8,omitempty"`
+	S_Title_IT                 string `thrift:",9,omitempty"`
+	S_Title_ID                 string `thrift:",10,omitempty"`
+	S_Title_TH                 string `thrift:",11,omitempty"`
+	S_Title_PT                 string `thrift:",12,omitempty"`
+	S_Title_HI                 string `thrift:",13,omitempty"`
+	S_Description_KO           string `thrift:",14,omitempty"`
+	S_Description_EN           string `thrift:",15,omitempty"`
+	S_Description_JA           string `thrift:",16,omitempty"`
+	S_Description_ZH_CHS       string `thrift:",17,omitempty"`
+	S_Description_ZH_CHT       string `thrift:",18,omitempty"`
+	S_Description_VI           string `thrift:",19,omitempty"`
+	S_Description_ES           string `thrift:",20,omitempty"`
+	S_Description_IT           string `thrift:",21,omitempty"`
+	S_Description_ID           string `thrift:",22,omitempty"`
+	S_Description_TH           string `thrift:",23,omitempty"`
+	S_Description_PT           string `thrift:",24,omitempty"`
+	S_Description_HI           string `thrift:",25,omitempty"`
+	S_ResourceName             string `thrift:",26,omitempty"`
+	S_AchievementConditionType string `thrift:",27,omitempty"`
+	S_RewardType               string `thrift:",28,omitempty"`
+	S_RewardDescription_KO     string `thrift:",29,omitempty"`
+	S_RewardDescription_EN     string `thrift:",30,omitempty"`
+	S_RewardDescription_JA     string `thrift:",31,omitempty"`
+	S_RewardDescription_ZH_CHS string `thrift:",32,omitempty"`
+	S_RewardDescription_ZH_CHT string `thrift:",33,omitempty"`
+	S_RewardDescription_VI     string `thrift:",34,omitempty"`
+	S_RewardDescription_ES     string `thrift:",35,omitempty"`
+	S_RewardDescription_IT     string `thrift:",36,omitempty"`
+	S_RewardDescription_ID     string `thrift:",37,omitempty"`
+	S_RewardDescription_TH     string `thrift:",38,omitempty"`
+	S_RewardDescription_PT     string `thrift:",39,omitempty"`
+	S_RewardDescription_HI     string `thrift:",40,omitempty"`
+	I_Reward_1                 int64  `thrift:",41,omitempty"`
+	I_Reward_2                 int64  `thrift:",42,omitempty"`
+	I_Reward_3                 int64  `thrift:",43,omitempty"`
+	I_Reward_4                 int64  `thrift:",44,omitempty"`
+	I_Reward_5                 int64  `thrift:",45,omitempty"`
+	I_Reward_6                 int64  `thrift:",46,omitempty"`
+	I_Reward_7                 int64  `thrift:",47,omitempty"`
+	I_Reward_8                 int64  `thrift:",48,omitempty"`
+	I_Reward_9                 int64  `thrift:",49,omitempty"`
+	I_Reward_10                int64  `thrift:",50,omitempty"`
+	I_Area                     int16  `thrift:",51,omitempty"`
+	B_IsActive                 int16  `thrift:",52,omitempty"`
+	I_Reward_11                int64  `thrift:",53,omitempty"`
+	I_Reward_12                int64  `thrift:",54,omitempty"`
+	I_MaxLevel                 int16  `thrift:",55,omitempty"`
+	S_Condition_1              string `thrift:",56,omitempty"`
+	S_Condition_2              string `thrift:",57,omitempty"`
+	S_Condition_3              string `thrift:",58,omitempty"`
+	S_Condition_4              string `thrift:",59,omitempty"`
+	S_Condition_5              string `thrift:",60,omitempty"`
+	S_Condition_6              string `thrift:",61,omitempty"`
+	S_Condition_7              string `thrift:",62,omitempty"`
+	S_Condition_8              string `thrift:",63,omitempty"`
+	S_Condition_9              string `thrift:",64,omitempty"`
+	S_Condition_10             string `thrift:",65,omitempty"`
+	S_Condition_11             string `thrift:",66,omitempty"`
+	S_Condition_12             string `thrift:",67,omitempty"`
+	S_Condition_13             string `thrift:",68,omitempty"`
+	S_Condition_14             string `thrift:",69,omitempty"`
+	S_Condition_15             string `thrift:",70,omitempty"`
+	S_Condition_16             string `thrift:",71,omitempty"`
+	S_Condition_17             string `thrift:",72,omitempty"`
+	S_Condition_18             string `thrift:",73,omitempty"`
+	S_Condition_19             string `thrift:",74,omitempty"`
+	S_Condition_20             string `thrift:",75,omitempty"`
+	I_Reward_13                int64  `thrift:",76,omitempty"`
+	I_Reward_14                int64  `thrift:",77,omitempty"`
+	I_Reward_15                int64  `thrift:",78,omitempty"`
+	I_Reward_16                int64  `thrift:",79,omitempty"`
+	I_Reward_17                int64  `thrift:",80,omitempty"`
+	I_Reward_18                int64  `thrift:",81,omitempty"`
+	I_Reward_19                int64  `thrift:",82,omitempty"`
+	I_Reward_20                int64  `thrift:",83,omitempty"`
 }
 
 type GetAdLevelData struct {
-	I_GroupID     int32
-	I_Level       int32
-	I_RequireEXP  int32
-	I_RewardGroup int32
-	B_IsActive    int16
-	I_id          int32
+	I_GroupID     int32 `thrift:",1,omitempty"`
+	I_Level       int32 `thrift:",2,omitempty"`
+	I_RequireEXP  int32 `thrift:",3,omitempty"`
+	I_RewardGroup int32 `thrift:",4,omitempty"`
+	B_IsActive    int16 `thrift:",5,omitempty"`
+	I_id          int32 `thrift:",6,omitempty"`
 }
 
 type GetAdListData struct {
-	I_id              int32
-	I_Category        int32
-	S_ConditionType1  string
-	S_ConditionValue1 string
-	S_ConditionType2  string
-	S_ConditionValue2 string
-	S_ResourceName    string
-	S_Name_KO         string
-	S_Name_EN         string
-	S_Name_JA         string
-	S_Name_ZH_CHS     string
-	S_Name_ZH_CHT     string
-	S_Name_VI         string
-	S_Name_ES         string
-	S_Name_IT         string
-	S_Name_ID         string
-	S_Name_TH         string
-	S_Name_PT         string
-	S_Name_HI         string
-	B_IsActive        int16
-	S_RewardType      string
-	I_RewardGroup     int32
-	S_ExtraValue      string
-	S_AdType          string
+	I_id              int32  `thrift:",1,omitempty"`
+	I_Category        int32  `thrift:",2,omitempty"`
+	S_ConditionType1  string `thrift:",3,omitempty"`
+	S_ConditionValue1 string `thrift:",4,omitempty"`
+	S_ConditionType2  string `thrift:",5,omitempty"`
+	S_ConditionValue2 string `thrift:",6,omitempty"`
+	S_ResourceName    string `thrift:",7,omitempty"`
+	S_Name_KO         string `thrift:",8,omitempty"`
+	S_Name_EN         string `thrift:",9,omitempty"`
+	S_Name_JA         string `thrift:",10,omitempty"`
+	S_Name_ZH_CHS     string `thrift:",11,omitempty"`
+	S_Name_ZH_CHT     string `thrift:",12,omitempty"`
+	S_Name_VI         string `thrift:",13,omitempty"`
+	S_Name_ES         string `thrift:",14,omitempty"`
+	S_Name_IT         string `thrift:",15,omitempty"`
+	S_Name_ID         string `thrift:",16,omitempty"`
+	S_Name_TH         string `thrift:",17,omitempty"`
+	S_Name_PT         string `thrift:",18,omitempty"`
+	S_Name_HI         string `thrift:",19,omitempty"`
+	B_IsActive        int16  `thrift:",20,omitempty"`
+	S_RewardType      string `thrift:",21,omitempty"`
+	I_RewardGroup     int32  `thrift:",22,omitempty"`
+	S_ExtraValue      string `thrift:",23,omitempty"`
+	S_AdType          string `thrift:",24,omitempty"`
 }
 
 type GetAlbum struct {
-	Call string
-	Data GetAlbumDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data GetAlbumDataInfo `thrift:",2,omitempty"`
 }
 
 type GetAlbumDataInfo struct {
-	Null string
+	Null string `thrift:",1,omitempty"`
 }
 
 type GetAlbumInfoLanguage struct {
-	Seq          int32
-	Album_title  string
-	Company      string
-	Album_artist string
+	Seq          int32  `thrift:",1,omitempty"`
+	Album_title  string `thrift:",2,omitempty"`
+	Company      string `thrift:",3,omitempty"`
+	Album_artist string `thrift:",4,omitempty"`
 }
 
 type GetAlbumInfoList struct {
-	Call string
-	Data GetAlbumListDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data GetAlbumListDataInfo `thrift:",2,omitempty"`
 }
 
 type GetAlbumInfoListDataInfo struct {
 }
 
 type GetAlbumInfoListRetDataInfo struct {
-	Language map[any]any // TODO
+	Language map[any]any `thrift:",1,omitempty"` // TODO
 }
 
 type GetAlbumInfoListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        map[any]any     `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetAlbumList struct {
-	Call string
-	Data GetAlbumListDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data GetAlbumListDataInfo `thrift:",2,omitempty"`
 }
 
 type GetAlbumListDataInfo struct {
 }
 
 type GetAlbumListRetDataInfo struct {
-	Album_idx  int32
-	Country    string
-	Date_issue string
-	Cdn_dir    string
-	Album_img  string
+	Album_idx  int32  `thrift:",1,omitempty"`
+	Country    string `thrift:",2,omitempty"`
+	Date_issue string `thrift:",3,omitempty"`
+	Cdn_dir    string `thrift:",4,omitempty"`
+	Album_img  string `thrift:",5,omitempty"`
 }
 
 type GetAlbumListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetAlbumRetDataInfo struct {
-	Album     AlbumListInfo
-	List_info []any // TODO
+	Album     AlbumListInfo `thrift:",1,omitempty"`
+	List_info []any         `thrift:",2,omitempty"` // TODO
 }
 
 type GetAlbumReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetAllPoint struct {
-	Call     string
-	Data     GetAllPointDataInfo
-	Sub_mode string
+	Call     string              `thrift:",1,omitempty"`
+	Data     GetAllPointDataInfo `thrift:",2,omitempty"`
+	Sub_mode string              `thrift:",3,omitempty"`
 }
 
 type GetAllPointDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetAllPointRetDataInfo struct {
-	U_gold           int64
-	U_cp             int64
-	U_mp             int64
-	U_credit         int64
-	Next_credit_time int64
-	Max_credit_time  int64
+	U_gold           int64 `thrift:",1,omitempty"`
+	U_cp             int64 `thrift:",2,omitempty"`
+	U_mp             int64 `thrift:",3,omitempty"`
+	U_credit         int64 `thrift:",4,omitempty"`
+	Next_credit_time int64 `thrift:",5,omitempty"`
+	Max_credit_time  int64 `thrift:",6,omitempty"`
 }
 
 type GetAllPointReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetAllPointRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Mode        string                 `thrift:",2,omitempty"`
+	Call        string                 `thrift:",3,omitempty"`
+	Data        GetAllPointRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData        `thrift:",5,omitempty"`
 }
 
 type GetBuffData struct {
-	I_id               int32
-	S_ResourceName     string
-	S_Title_KO         string
-	S_Title_EN         string
-	S_Title_JA         string
-	S_Title_ZH_CHS     string
-	S_Title_ZH_CHT     string
-	S_Title_VI         string
-	S_Title_ES         string
-	S_Title_IT         string
-	S_Title_ID         string
-	S_Title_TH         string
-	S_Title_PT         string
-	S_Title_HI         string
-	S_Buff_Desc_KO     string
-	S_Buff_Desc_EN     string
-	S_Buff_Desc_JA     string
-	S_Buff_Desc_ZH_CHS string
-	S_Buff_Desc_ZH_CHT string
-	S_Buff_Desc_VI     string
-	S_Buff_Desc_ES     string
-	S_Buff_Desc_IT     string
-	S_Buff_Desc_ID     string
-	S_Buff_Desc_TH     string
-	S_Buff_Desc_PT     string
-	S_Buff_Desc_HI     string
-	I_Type             int16
-	I_Retention_Time   int64
+	I_id               int32  `thrift:",1,omitempty"`
+	S_ResourceName     string `thrift:",2,omitempty"`
+	S_Title_KO         string `thrift:",3,omitempty"`
+	S_Title_EN         string `thrift:",4,omitempty"`
+	S_Title_JA         string `thrift:",5,omitempty"`
+	S_Title_ZH_CHS     string `thrift:",6,omitempty"`
+	S_Title_ZH_CHT     string `thrift:",7,omitempty"`
+	S_Title_VI         string `thrift:",8,omitempty"`
+	S_Title_ES         string `thrift:",9,omitempty"`
+	S_Title_IT         string `thrift:",10,omitempty"`
+	S_Title_ID         string `thrift:",11,omitempty"`
+	S_Title_TH         string `thrift:",12,omitempty"`
+	S_Title_PT         string `thrift:",13,omitempty"`
+	S_Title_HI         string `thrift:",14,omitempty"`
+	S_Buff_Desc_KO     string `thrift:",15,omitempty"`
+	S_Buff_Desc_EN     string `thrift:",16,omitempty"`
+	S_Buff_Desc_JA     string `thrift:",17,omitempty"`
+	S_Buff_Desc_ZH_CHS string `thrift:",18,omitempty"`
+	S_Buff_Desc_ZH_CHT string `thrift:",19,omitempty"`
+	S_Buff_Desc_VI     string `thrift:",20,omitempty"`
+	S_Buff_Desc_ES     string `thrift:",21,omitempty"`
+	S_Buff_Desc_IT     string `thrift:",22,omitempty"`
+	S_Buff_Desc_ID     string `thrift:",23,omitempty"`
+	S_Buff_Desc_TH     string `thrift:",24,omitempty"`
+	S_Buff_Desc_PT     string `thrift:",25,omitempty"`
+	S_Buff_Desc_HI     string `thrift:",26,omitempty"`
+	I_Type             int16  `thrift:",27,omitempty"`
+	I_Retention_Time   int64  `thrift:",28,omitempty"`
 }
 
 type GetCache struct {
-	Call string
-	Data GetCacheDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data GetCacheDataInfo `thrift:",2,omitempty"`
 }
 
 type GetCacheDataInfo struct {
-	Type int16
+	Type int16 `thrift:",1,omitempty"`
 }
 
 type GetCacheRetDataInfo struct {
-	Uptime int32
+	Uptime int32 `thrift:",1,omitempty"`
 }
 
 type GetCacheReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetCacheRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Mode        string              `thrift:",2,omitempty"`
+	Call        string              `thrift:",3,omitempty"`
+	Data        GetCacheRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData     `thrift:",5,omitempty"`
 }
 
 type GetChThird struct {
-	Call        string
-	Data        GetChThirdDataInfo
-	Common_data ParamData
+	Call        string             `thrift:",1,omitempty"`
+	Data        GetChThirdDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData          `thrift:",3,omitempty"`
 }
 
 type GetChThirdChapterData struct {
-	I_id             int32
-	I_unlockLevel    int32
-	I_RewardGroupID1 int32
-	I_GoalStar1      int32
-	I_RewardGroupID2 int32
-	I_GoalStar2      int32
-	I_RewardGroupID3 int32
-	I_GoalStar3      int32
-	S_Name_KO        string
-	S_Name_EN        string
-	S_Name_JA        string
-	S_Name_ZH_CHS    string
-	S_Name_ZH_CHT    string
-	S_Name_VI        string
-	S_Name_ES        string
-	S_Name_IT        string
-	S_Name_ID        string
-	S_Name_TH        string
-	S_Name_PT        string
-	S_Name_HI        string
-	B_IsActive       int16
+	I_id             int32  `thrift:",1,omitempty"`
+	I_unlockLevel    int32  `thrift:",2,omitempty"`
+	I_RewardGroupID1 int32  `thrift:",3,omitempty"`
+	I_GoalStar1      int32  `thrift:",4,omitempty"`
+	I_RewardGroupID2 int32  `thrift:",5,omitempty"`
+	I_GoalStar2      int32  `thrift:",6,omitempty"`
+	I_RewardGroupID3 int32  `thrift:",7,omitempty"`
+	I_GoalStar3      int32  `thrift:",8,omitempty"`
+	S_Name_KO        string `thrift:",9,omitempty"`
+	S_Name_EN        string `thrift:",10,omitempty"`
+	S_Name_JA        string `thrift:",11,omitempty"`
+	S_Name_ZH_CHS    string `thrift:",12,omitempty"`
+	S_Name_ZH_CHT    string `thrift:",13,omitempty"`
+	S_Name_VI        string `thrift:",14,omitempty"`
+	S_Name_ES        string `thrift:",15,omitempty"`
+	S_Name_IT        string `thrift:",16,omitempty"`
+	S_Name_ID        string `thrift:",17,omitempty"`
+	S_Name_TH        string `thrift:",18,omitempty"`
+	S_Name_PT        string `thrift:",19,omitempty"`
+	S_Name_HI        string `thrift:",20,omitempty"`
+	B_IsActive       int16  `thrift:",21,omitempty"`
 }
 
 type GetChThirdDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetChThirdRetDataInfo struct {
-	U_seq                        int32
-	User_ap                      UserApData
-	User_ch_third_stage          []any // TODO
-	User_ch_third_chapter_reward []any // TODO
+	U_seq                        int32      `thrift:",1,omitempty"`
+	User_ap                      UserApData `thrift:",2,omitempty"`
+	User_ch_third_stage          []any      `thrift:",3,omitempty"` // TODO
+	User_ch_third_chapter_reward []any      `thrift:",4,omitempty"` // TODO
 }
 
 type GetChThirdReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetChThirdRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode          `thrift:",1,omitempty"`
+	Server_time ServerTimeRet         `thrift:",2,omitempty"`
+	Mode        string                `thrift:",3,omitempty"`
+	Call        string                `thrift:",4,omitempty"`
+	Data        GetChThirdRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData       `thrift:",6,omitempty"`
 }
 
 type GetChThirdScoreData struct {
-	I_id             int32
-	I_Level          int32
-	I_CharacterScore int32
-	I_FollowerScore  int32
-	I_MusicScore     int32
-	B_IsActive       int16
+	I_id             int32 `thrift:",1,omitempty"`
+	I_Level          int32 `thrift:",2,omitempty"`
+	I_CharacterScore int32 `thrift:",3,omitempty"`
+	I_FollowerScore  int32 `thrift:",4,omitempty"`
+	I_MusicScore     int32 `thrift:",5,omitempty"`
+	B_IsActive       int16 `thrift:",6,omitempty"`
 }
 
 type GetChThirdStageData struct {
-	I_id                   int32
-	I_Chapter              int32
-	I_StageIndex           int32
-	I_RewardGroupID        int32
-	I_GoalScore1           int32
-	I_GoalScore2           int32
-	I_GoalScore3           int32
-	S_BonusProfileID       string
-	S_Name_KO              string
-	S_Name_EN              string
-	S_Name_JA              string
-	S_Name_ZH_CHS          string
-	S_Name_ZH_CHT          string
-	S_Name_VI              string
-	S_Name_ES              string
-	S_Name_IT              string
-	S_Name_ID              string
-	S_Name_TH              string
-	S_Name_PT              string
-	S_Name_HI              string
-	S_Description_KO       string
-	S_Description_EN       string
-	S_Description_JA       string
-	S_Description_ZH_CHS   string
-	S_Description_ZH_CHT   string
-	S_Description_VI       string
-	S_Description_ES       string
-	S_Description_IT       string
-	S_Description_ID       string
-	S_Description_TH       string
-	S_Description_PT       string
-	S_Description_HI       string
-	B_IsActive             int16
-	S_StageType            string
-	I_StoryID              int32
-	I_BonusMusicID         int32
-	S_PercentRewardGroupID string
+	I_id                   int32  `thrift:",1,omitempty"`
+	I_Chapter              int32  `thrift:",2,omitempty"`
+	I_StageIndex           int32  `thrift:",3,omitempty"`
+	I_RewardGroupID        int32  `thrift:",4,omitempty"`
+	I_GoalScore1           int32  `thrift:",5,omitempty"`
+	I_GoalScore2           int32  `thrift:",6,omitempty"`
+	I_GoalScore3           int32  `thrift:",7,omitempty"`
+	S_BonusProfileID       string `thrift:",8,omitempty"`
+	S_Name_KO              string `thrift:",9,omitempty"`
+	S_Name_EN              string `thrift:",10,omitempty"`
+	S_Name_JA              string `thrift:",11,omitempty"`
+	S_Name_ZH_CHS          string `thrift:",12,omitempty"`
+	S_Name_ZH_CHT          string `thrift:",13,omitempty"`
+	S_Name_VI              string `thrift:",14,omitempty"`
+	S_Name_ES              string `thrift:",15,omitempty"`
+	S_Name_IT              string `thrift:",16,omitempty"`
+	S_Name_ID              string `thrift:",17,omitempty"`
+	S_Name_TH              string `thrift:",18,omitempty"`
+	S_Name_PT              string `thrift:",19,omitempty"`
+	S_Name_HI              string `thrift:",20,omitempty"`
+	S_Description_KO       string `thrift:",21,omitempty"`
+	S_Description_EN       string `thrift:",22,omitempty"`
+	S_Description_JA       string `thrift:",23,omitempty"`
+	S_Description_ZH_CHS   string `thrift:",24,omitempty"`
+	S_Description_ZH_CHT   string `thrift:",25,omitempty"`
+	S_Description_VI       string `thrift:",26,omitempty"`
+	S_Description_ES       string `thrift:",27,omitempty"`
+	S_Description_IT       string `thrift:",28,omitempty"`
+	S_Description_ID       string `thrift:",29,omitempty"`
+	S_Description_TH       string `thrift:",30,omitempty"`
+	S_Description_PT       string `thrift:",31,omitempty"`
+	S_Description_HI       string `thrift:",32,omitempty"`
+	B_IsActive             int16  `thrift:",33,omitempty"`
+	S_StageType            string `thrift:",34,omitempty"`
+	I_StoryID              int32  `thrift:",35,omitempty"`
+	I_BonusMusicID         int32  `thrift:",36,omitempty"`
+	S_PercentRewardGroupID string `thrift:",37,omitempty"`
 }
 
 type GetChThirdStarReward struct {
-	Call        string
-	Data        GetChThirdStarRewardDataInfo
-	Common_data ParamData
+	Call        string                       `thrift:",1,omitempty"`
+	Data        GetChThirdStarRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                    `thrift:",3,omitempty"`
 }
 
 type GetChThirdStarRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
-	Reward_num  int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
+	Reward_num  int32  `thrift:",6,omitempty"`
 }
 
 type GetChThirdStarRewardRetDataInfo struct {
-	I_id        int32
-	Reward_num  int32
-	User_ap     UserApData
-	Reward_data []any // TODO
+	I_id        int32      `thrift:",1,omitempty"`
+	Reward_num  int32      `thrift:",2,omitempty"`
+	User_ap     UserApData `thrift:",3,omitempty"`
+	Reward_data []any      `thrift:",4,omitempty"` // TODO
 }
 
 type GetChThirdStarRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetChThirdStarRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet                   `thrift:",2,omitempty"`
+	Mode        string                          `thrift:",3,omitempty"`
+	Call        string                          `thrift:",4,omitempty"`
+	Data        GetChThirdStarRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData                 `thrift:",6,omitempty"`
 }
 
 type GetCharacterData struct {
-	I_id                      int32
-	I_Area                    int16
-	S_BundleName              string
-	S_Name_KO                 string
-	S_Name_EN                 string
-	S_Name_JA                 string
-	S_Name_ZH_CHS             string
-	S_Name_ZH_CHT             string
-	S_Name_VI                 string
-	S_Name_ES                 string
-	S_Name_IT                 string
-	S_Name_ID                 string
-	S_Name_TH                 string
-	S_Name_PT                 string
-	S_Name_HI                 string
-	S_Description_KO          string
-	S_Description_EN          string
-	S_Description_JA          string
-	S_Description_ZH_CHS      string
-	S_Description_ZH_CHT      string
-	S_Description_VI          string
-	S_Description_ES          string
-	S_Description_IT          string
-	S_Description_ID          string
-	S_Description_TH          string
-	S_Description_PT          string
-	S_Description_HI          string
-	S_ResourceName            string
-	I_MaxLevel                int64
-	D_LevelRate               float64
-	D_LateCost                float64
-	D_Cost                    float64
-	D_CostIncreaseValue       float64
-	D_CostValueConstant       float64
-	D_Amount                  float64
-	D_AmountIncreaseValue     float64
-	D_AmountValueConstant     float64
-	D_BonusAmountIncreaseRate float64
-	I_UnlockLevel             int64
-	D_UnlockCost              float64
-	I_RequirementFollowerId_1 int64
-	I_RequirementFollowerId_2 int64
-	I_RequirementPropId_1     int64
-	I_RequirementPropId_2     int64
-	I_RequirementPropCount    int64
-	B_IsActive                int16
+	I_id                      int32   `thrift:",1,omitempty"`
+	I_Area                    int16   `thrift:",2,omitempty"`
+	S_BundleName              string  `thrift:",3,omitempty"`
+	S_Name_KO                 string  `thrift:",4,omitempty"`
+	S_Name_EN                 string  `thrift:",5,omitempty"`
+	S_Name_JA                 string  `thrift:",6,omitempty"`
+	S_Name_ZH_CHS             string  `thrift:",7,omitempty"`
+	S_Name_ZH_CHT             string  `thrift:",8,omitempty"`
+	S_Name_VI                 string  `thrift:",9,omitempty"`
+	S_Name_ES                 string  `thrift:",10,omitempty"`
+	S_Name_IT                 string  `thrift:",11,omitempty"`
+	S_Name_ID                 string  `thrift:",12,omitempty"`
+	S_Name_TH                 string  `thrift:",13,omitempty"`
+	S_Name_PT                 string  `thrift:",14,omitempty"`
+	S_Name_HI                 string  `thrift:",15,omitempty"`
+	S_Description_KO          string  `thrift:",16,omitempty"`
+	S_Description_EN          string  `thrift:",17,omitempty"`
+	S_Description_JA          string  `thrift:",18,omitempty"`
+	S_Description_ZH_CHS      string  `thrift:",19,omitempty"`
+	S_Description_ZH_CHT      string  `thrift:",20,omitempty"`
+	S_Description_VI          string  `thrift:",21,omitempty"`
+	S_Description_ES          string  `thrift:",22,omitempty"`
+	S_Description_IT          string  `thrift:",23,omitempty"`
+	S_Description_ID          string  `thrift:",24,omitempty"`
+	S_Description_TH          string  `thrift:",25,omitempty"`
+	S_Description_PT          string  `thrift:",26,omitempty"`
+	S_Description_HI          string  `thrift:",27,omitempty"`
+	S_ResourceName            string  `thrift:",28,omitempty"`
+	I_MaxLevel                int64   `thrift:",29,omitempty"`
+	D_LevelRate               float64 `thrift:",30,omitempty"`
+	D_LateCost                float64 `thrift:",31,omitempty"`
+	D_Cost                    float64 `thrift:",32,omitempty"`
+	D_CostIncreaseValue       float64 `thrift:",33,omitempty"`
+	D_CostValueConstant       float64 `thrift:",34,omitempty"`
+	D_Amount                  float64 `thrift:",35,omitempty"`
+	D_AmountIncreaseValue     float64 `thrift:",36,omitempty"`
+	D_AmountValueConstant     float64 `thrift:",37,omitempty"`
+	D_BonusAmountIncreaseRate float64 `thrift:",38,omitempty"`
+	I_UnlockLevel             int64   `thrift:",39,omitempty"`
+	D_UnlockCost              float64 `thrift:",40,omitempty"`
+	I_RequirementFollowerId_1 int64   `thrift:",41,omitempty"`
+	I_RequirementFollowerId_2 int64   `thrift:",42,omitempty"`
+	I_RequirementPropId_1     int64   `thrift:",43,omitempty"`
+	I_RequirementPropId_2     int64   `thrift:",44,omitempty"`
+	I_RequirementPropCount    int64   `thrift:",45,omitempty"`
+	B_IsActive                int16   `thrift:",46,omitempty"`
 }
 
 type GetChoiceUser struct {
-	Call        string
-	Data        GetChoiceUserDataInfo
-	Common_data ParamData
+	Call        string                `thrift:",1,omitempty"`
+	Data        GetChoiceUserDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData             `thrift:",3,omitempty"`
 }
 
 type GetChoiceUserDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Choice_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Choice_uuid string `thrift:",5,omitempty"`
 }
 
 type GetChoiceUserRetDataInfo struct {
-	User        ChoiceUserData
-	Choice_user ChoiceUserData
+	User        ChoiceUserData `thrift:",1,omitempty"`
+	Choice_user ChoiceUserData `thrift:",2,omitempty"`
 }
 
 type GetChoiceUserReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetChoiceUserRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Mode        string                   `thrift:",2,omitempty"`
+	Call        string                   `thrift:",3,omitempty"`
+	Data        GetChoiceUserRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData          `thrift:",5,omitempty"`
 }
 
 type GetCollection struct {
-	Call string
-	Data GetCollectionDataInfo
+	Call string                `thrift:",1,omitempty"`
+	Data GetCollectionDataInfo `thrift:",2,omitempty"`
 }
 
 type GetCollectionDataInfo struct {
 }
 
 type GetCollectionItem struct {
-	Special_music_idx int64
-	Idx               int64
-	Item_type         int16
-	Item_value        int64
-	Buy_cnt           int64
+	Special_music_idx int64 `thrift:",1,omitempty"`
+	Idx               int64 `thrift:",2,omitempty"`
+	Item_type         int16 `thrift:",3,omitempty"`
+	Item_value        int64 `thrift:",4,omitempty"`
+	Buy_cnt           int64 `thrift:",5,omitempty"`
 }
 
 type GetCollectionRetDataInfo struct {
-	Idx      int32
-	Buy_type int16
-	Price    int64
-	Item     []any // TODO
+	Idx      int32 `thrift:",1,omitempty"`
+	Buy_type int16 `thrift:",2,omitempty"`
+	Price    int64 `thrift:",3,omitempty"`
+	Item     []any `thrift:",4,omitempty"` // TODO
 }
 
 type GetCollectionReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetConsumeData struct {
-	I_id           int32
-	S_ResourceName string
-	S_Title_KO     string
-	S_Title_EN     string
-	S_Title_JA     string
-	S_Title_ZH_CHS string
-	S_Title_ZH_CHT string
-	S_Title_VI     string
-	S_Title_ES     string
-	S_Title_IT     string
-	S_Title_ID     string
-	S_Title_TH     string
-	S_Title_PT     string
-	S_Title_HI     string
-	S_Limit        string
-	I_Type         int16
-	S_ExtraValue   string
-	I_Area         int16
-	B_IsActive     int16
+	I_id           int32  `thrift:",1,omitempty"`
+	S_ResourceName string `thrift:",2,omitempty"`
+	S_Title_KO     string `thrift:",3,omitempty"`
+	S_Title_EN     string `thrift:",4,omitempty"`
+	S_Title_JA     string `thrift:",5,omitempty"`
+	S_Title_ZH_CHS string `thrift:",6,omitempty"`
+	S_Title_ZH_CHT string `thrift:",7,omitempty"`
+	S_Title_VI     string `thrift:",8,omitempty"`
+	S_Title_ES     string `thrift:",9,omitempty"`
+	S_Title_IT     string `thrift:",10,omitempty"`
+	S_Title_ID     string `thrift:",11,omitempty"`
+	S_Title_TH     string `thrift:",12,omitempty"`
+	S_Title_PT     string `thrift:",13,omitempty"`
+	S_Title_HI     string `thrift:",14,omitempty"`
+	S_Limit        string `thrift:",15,omitempty"`
+	I_Type         int16  `thrift:",16,omitempty"`
+	S_ExtraValue   string `thrift:",17,omitempty"`
+	I_Area         int16  `thrift:",18,omitempty"`
+	B_IsActive     int16  `thrift:",19,omitempty"`
 }
 
 type GetCostumeData struct {
-	I_id                      int32
-	S_Name_KO                 string
-	S_Name_EN                 string
-	S_Name_JA                 string
-	S_Name_ZH_CHS             string
-	S_Name_ZH_CHT             string
-	S_Name_VI                 string
-	S_Name_ES                 string
-	S_Name_IT                 string
-	S_Name_ID                 string
-	S_Name_TH                 string
-	S_Name_PT                 string
-	S_Name_HI                 string
-	S_Description_KO          string
-	S_Description_EN          string
-	S_Description_JA          string
-	S_Description_ZH_CHS      string
-	S_Description_ZH_CHT      string
-	S_Description_VI          string
-	S_Description_ES          string
-	S_Description_IT          string
-	S_Description_ID          string
-	S_Description_TH          string
-	S_Description_PT          string
-	S_Description_HI          string
-	S_ResourceName            string
-	S_CostumeName             string
-	I_MaxLevel                int64
-	S_GoodsType               string
-	S_Cost                    string
-	F_CostIncreaseRate        float64
-	S_Operation               string
-	D_Amount                  int64
-	F_AmountIncreaseRate      float64
-	S_BonusOperation          string
-	D_BonusAmount             int64
-	F_BonusAmountIncreaseRate float64
-	I_UnlockLevel             int64
-	I_RequirementFollowerId_1 int64
-	I_RequirementFollowerId_2 int64
-	I_RequirementPropId_1     int64
-	I_RequirementPropId_2     int64
-	I_RequirementPropCount    int64
-	I_SortOrder               int64
-	F_FanMultiply             float64
-	I_AcquisitionType         int64
-	I_AcquisitionId           int64
-	B_IsActive                int16
-	I_Area                    int16
-	I_DownloadType            int16
-	S_AltCostumeName          string
-	S_AltCostumeStartTime     string
-	S_AltCostumeEndTime       string
+	I_id                      int32   `thrift:",1,omitempty"`
+	S_Name_KO                 string  `thrift:",2,omitempty"`
+	S_Name_EN                 string  `thrift:",3,omitempty"`
+	S_Name_JA                 string  `thrift:",4,omitempty"`
+	S_Name_ZH_CHS             string  `thrift:",5,omitempty"`
+	S_Name_ZH_CHT             string  `thrift:",6,omitempty"`
+	S_Name_VI                 string  `thrift:",7,omitempty"`
+	S_Name_ES                 string  `thrift:",8,omitempty"`
+	S_Name_IT                 string  `thrift:",9,omitempty"`
+	S_Name_ID                 string  `thrift:",10,omitempty"`
+	S_Name_TH                 string  `thrift:",11,omitempty"`
+	S_Name_PT                 string  `thrift:",12,omitempty"`
+	S_Name_HI                 string  `thrift:",13,omitempty"`
+	S_Description_KO          string  `thrift:",14,omitempty"`
+	S_Description_EN          string  `thrift:",15,omitempty"`
+	S_Description_JA          string  `thrift:",16,omitempty"`
+	S_Description_ZH_CHS      string  `thrift:",17,omitempty"`
+	S_Description_ZH_CHT      string  `thrift:",18,omitempty"`
+	S_Description_VI          string  `thrift:",19,omitempty"`
+	S_Description_ES          string  `thrift:",20,omitempty"`
+	S_Description_IT          string  `thrift:",21,omitempty"`
+	S_Description_ID          string  `thrift:",22,omitempty"`
+	S_Description_TH          string  `thrift:",23,omitempty"`
+	S_Description_PT          string  `thrift:",24,omitempty"`
+	S_Description_HI          string  `thrift:",25,omitempty"`
+	S_ResourceName            string  `thrift:",26,omitempty"`
+	S_CostumeName             string  `thrift:",27,omitempty"`
+	I_MaxLevel                int64   `thrift:",28,omitempty"`
+	S_GoodsType               string  `thrift:",29,omitempty"`
+	S_Cost                    string  `thrift:",30,omitempty"`
+	F_CostIncreaseRate        float64 `thrift:",31,omitempty"`
+	S_Operation               string  `thrift:",32,omitempty"`
+	D_Amount                  int64   `thrift:",33,omitempty"`
+	F_AmountIncreaseRate      float64 `thrift:",34,omitempty"`
+	S_BonusOperation          string  `thrift:",35,omitempty"`
+	D_BonusAmount             int64   `thrift:",36,omitempty"`
+	F_BonusAmountIncreaseRate float64 `thrift:",37,omitempty"`
+	I_UnlockLevel             int64   `thrift:",38,omitempty"`
+	I_RequirementFollowerId_1 int64   `thrift:",39,omitempty"`
+	I_RequirementFollowerId_2 int64   `thrift:",40,omitempty"`
+	I_RequirementPropId_1     int64   `thrift:",41,omitempty"`
+	I_RequirementPropId_2     int64   `thrift:",42,omitempty"`
+	I_RequirementPropCount    int64   `thrift:",43,omitempty"`
+	I_SortOrder               int64   `thrift:",44,omitempty"`
+	F_FanMultiply             float64 `thrift:",45,omitempty"`
+	I_AcquisitionType         int64   `thrift:",46,omitempty"`
+	I_AcquisitionId           int64   `thrift:",47,omitempty"`
+	B_IsActive                int16   `thrift:",48,omitempty"`
+	I_Area                    int16   `thrift:",49,omitempty"`
+	I_DownloadType            int16   `thrift:",50,omitempty"`
+	S_AltCostumeName          string  `thrift:",51,omitempty"`
+	S_AltCostumeStartTime     string  `thrift:",52,omitempty"`
+	S_AltCostumeEndTime       string  `thrift:",53,omitempty"`
 }
 
 type GetCountryMyRank struct {
-	Call string
-	Data GetCountryMyRankDataInfo
+	Call string                   `thrift:",1,omitempty"`
+	Data GetCountryMyRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetCountryMyRankDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Country     string
-	Start_limit int32
-	End_limit   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Country     string `thrift:",5,omitempty"`
+	Start_limit int32  `thrift:",6,omitempty"`
+	End_limit   int32  `thrift:",7,omitempty"`
 }
 
 type GetCountryMyRankRet struct {
-	G           int16
-	S           int16
-	B           int16
-	Total_score int32
-	U_avatar    int16
-	U_id        string
-	U_nick      string
-	U_seq       int32
-	U_country   string
-	Rank        int32
+	G           int16  `thrift:",1,omitempty"`
+	S           int16  `thrift:",2,omitempty"`
+	B           int16  `thrift:",3,omitempty"`
+	Total_score int32  `thrift:",4,omitempty"`
+	U_avatar    int16  `thrift:",5,omitempty"`
+	U_id        string `thrift:",6,omitempty"`
+	U_nick      string `thrift:",7,omitempty"`
+	U_seq       int32  `thrift:",8,omitempty"`
+	U_country   string `thrift:",9,omitempty"`
+	Rank        int32  `thrift:",10,omitempty"`
 }
 
 type GetCountryMyRankRetDataInfo struct {
-	Select_country string
-	Start_limit    int16
-	End_limit      int16
-	My_rank        GetCountryMyRankRet
-	Rank_list      []any // TODO
+	Select_country string              `thrift:",1,omitempty"`
+	Start_limit    int16               `thrift:",2,omitempty"`
+	End_limit      int16               `thrift:",3,omitempty"`
+	My_rank        GetCountryMyRankRet `thrift:",4,omitempty"`
+	Rank_list      []any               `thrift:",5,omitempty"` // TODO
 }
 
 type GetCountryMyRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetCountryMyRankRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                `thrift:",1,omitempty"`
+	Mode        string                      `thrift:",2,omitempty"`
+	Call        string                      `thrift:",3,omitempty"`
+	Data        GetCountryMyRankRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData             `thrift:",5,omitempty"`
 }
 
 type GetCountryRank struct {
-	Call string
-	Data GetCountryRankDataInfo
+	Call string                 `thrift:",1,omitempty"`
+	Data GetCountryRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetCountryRankDataInfo struct {
 }
 
 type GetCountryRankRetDataInfo struct {
-	Rank        int32
-	Country     string
-	Gold        int32
-	Silver      int32
-	Bronze      int32
-	Total_score int32
+	Rank        int32  `thrift:",1,omitempty"`
+	Country     string `thrift:",2,omitempty"`
+	Gold        int32  `thrift:",3,omitempty"`
+	Silver      int32  `thrift:",4,omitempty"`
+	Bronze      int32  `thrift:",5,omitempty"`
+	Total_score int32  `thrift:",6,omitempty"`
 }
 
 type GetCountryRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetCountryUserRank struct {
-	G           int16
-	S           int16
-	B           int16
-	Total_score int32
-	U_avatar    int16
-	U_nick      string
-	U_seq       int32
+	G           int16  `thrift:",1,omitempty"`
+	S           int16  `thrift:",2,omitempty"`
+	B           int16  `thrift:",3,omitempty"`
+	Total_score int32  `thrift:",4,omitempty"`
+	U_avatar    int16  `thrift:",5,omitempty"`
+	U_nick      string `thrift:",6,omitempty"`
+	U_seq       int32  `thrift:",7,omitempty"`
 }
 
 type GetCountryUserRankRet struct {
-	G           int16
-	S           int16
-	B           int16
-	Total_score int32
-	U_avatar    int16
-	U_id        string
-	U_nick      string
-	U_seq       int32
+	G           int16  `thrift:",1,omitempty"`
+	S           int16  `thrift:",2,omitempty"`
+	B           int16  `thrift:",3,omitempty"`
+	Total_score int32  `thrift:",4,omitempty"`
+	U_avatar    int16  `thrift:",5,omitempty"`
+	U_id        string `thrift:",6,omitempty"`
+	U_nick      string `thrift:",7,omitempty"`
+	U_seq       int32  `thrift:",8,omitempty"`
 }
 
 type GetDailyMissionData struct {
-	I_id                        int32
-	S_Title_KO                  string
-	S_Title_EN                  string
-	S_Title_JA                  string
-	S_Title_ZH_CHS              string
-	S_Title_ZH_CHT              string
-	S_Title_VI                  string
-	S_Title_ES                  string
-	S_Title_IT                  string
-	S_Title_ID                  string
-	S_Title_TH                  string
-	S_Title_PT                  string
-	S_Title_HI                  string
-	S_Description_KO            string
-	S_Description_EN            string
-	S_Description_JA            string
-	S_Description_ZH_CHS        string
-	S_Description_ZH_CHT        string
-	S_Description_VI            string
-	S_Description_ES            string
-	S_Description_IT            string
-	S_Description_ID            string
-	S_Description_TH            string
-	S_Description_PT            string
-	S_Description_HI            string
-	S_ResourceName              string
-	S_DailyMissionConditionType string
-	D_Condition_1               float64
-	S_RewardType                string
-	S_RewardDescription_KO      string
-	S_RewardDescription_EN      string
-	S_RewardDescription_JA      string
-	S_RewardDescription_ZH_CHS  string
-	S_RewardDescription_ZH_CHT  string
-	S_RewardDescription_VI      string
-	S_RewardDescription_ES      string
-	S_RewardDescription_IT      string
-	S_RewardDescription_ID      string
-	S_RewardDescription_TH      string
-	S_RewardDescription_PT      string
-	S_RewardDescription_HI      string
-	I_Reward_1                  int32
-	I_Area                      int16
-	B_IsActive                  int16
+	I_id                        int32   `thrift:",1,omitempty"`
+	S_Title_KO                  string  `thrift:",2,omitempty"`
+	S_Title_EN                  string  `thrift:",3,omitempty"`
+	S_Title_JA                  string  `thrift:",4,omitempty"`
+	S_Title_ZH_CHS              string  `thrift:",5,omitempty"`
+	S_Title_ZH_CHT              string  `thrift:",6,omitempty"`
+	S_Title_VI                  string  `thrift:",7,omitempty"`
+	S_Title_ES                  string  `thrift:",8,omitempty"`
+	S_Title_IT                  string  `thrift:",9,omitempty"`
+	S_Title_ID                  string  `thrift:",10,omitempty"`
+	S_Title_TH                  string  `thrift:",11,omitempty"`
+	S_Title_PT                  string  `thrift:",12,omitempty"`
+	S_Title_HI                  string  `thrift:",13,omitempty"`
+	S_Description_KO            string  `thrift:",14,omitempty"`
+	S_Description_EN            string  `thrift:",15,omitempty"`
+	S_Description_JA            string  `thrift:",16,omitempty"`
+	S_Description_ZH_CHS        string  `thrift:",17,omitempty"`
+	S_Description_ZH_CHT        string  `thrift:",18,omitempty"`
+	S_Description_VI            string  `thrift:",19,omitempty"`
+	S_Description_ES            string  `thrift:",20,omitempty"`
+	S_Description_IT            string  `thrift:",21,omitempty"`
+	S_Description_ID            string  `thrift:",22,omitempty"`
+	S_Description_TH            string  `thrift:",23,omitempty"`
+	S_Description_PT            string  `thrift:",24,omitempty"`
+	S_Description_HI            string  `thrift:",25,omitempty"`
+	S_ResourceName              string  `thrift:",26,omitempty"`
+	S_DailyMissionConditionType string  `thrift:",27,omitempty"`
+	D_Condition_1               float64 `thrift:",28,omitempty"`
+	S_RewardType                string  `thrift:",29,omitempty"`
+	S_RewardDescription_KO      string  `thrift:",30,omitempty"`
+	S_RewardDescription_EN      string  `thrift:",31,omitempty"`
+	S_RewardDescription_JA      string  `thrift:",32,omitempty"`
+	S_RewardDescription_ZH_CHS  string  `thrift:",33,omitempty"`
+	S_RewardDescription_ZH_CHT  string  `thrift:",34,omitempty"`
+	S_RewardDescription_VI      string  `thrift:",35,omitempty"`
+	S_RewardDescription_ES      string  `thrift:",36,omitempty"`
+	S_RewardDescription_IT      string  `thrift:",37,omitempty"`
+	S_RewardDescription_ID      string  `thrift:",38,omitempty"`
+	S_RewardDescription_TH      string  `thrift:",39,omitempty"`
+	S_RewardDescription_PT      string  `thrift:",40,omitempty"`
+	S_RewardDescription_HI      string  `thrift:",41,omitempty"`
+	I_Reward_1                  int32   `thrift:",42,omitempty"`
+	I_Area                      int16   `thrift:",43,omitempty"`
+	B_IsActive                  int16   `thrift:",44,omitempty"`
 }
 
 type GetDefaultSettingRetDataInfo struct {
-	Ad_count          int32
-	Ad_probability    float64
-	Challenge_mission float64
-	Seed_value        int16
-	Rank_up_limit     int16
-	Rank_down_limit   int16
-	Reward_rate       float64
-	Tour_btn_name     string
-	Event_btn_name    string
-	Event_rank_url    string
-	Tour_intro_movie  string
-	Tour_bg_movie     string
-	Event_bg_movie    string
+	Ad_count          int32   `thrift:",1,omitempty"`
+	Ad_probability    float64 `thrift:",2,omitempty"`
+	Challenge_mission float64 `thrift:",3,omitempty"`
+	Seed_value        int16   `thrift:",4,omitempty"`
+	Rank_up_limit     int16   `thrift:",5,omitempty"`
+	Rank_down_limit   int16   `thrift:",6,omitempty"`
+	Reward_rate       float64 `thrift:",7,omitempty"`
+	Tour_btn_name     string  `thrift:",8,omitempty"`
+	Event_btn_name    string  `thrift:",9,omitempty"`
+	Event_rank_url    string  `thrift:",10,omitempty"`
+	Tour_intro_movie  string  `thrift:",11,omitempty"`
+	Tour_bg_movie     string  `thrift:",12,omitempty"`
+	Event_bg_movie    string  `thrift:",13,omitempty"`
 }
 
 type GetDiamondBonus struct {
-	Call string
-	Data GetDiamondBonusDataInfo
+	Call string                  `thrift:",1,omitempty"`
+	Data GetDiamondBonusDataInfo `thrift:",2,omitempty"`
 }
 
 type GetDiamondBonusDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetDiamondBonusRetDataInfo struct {
-	Bonus1 int64
-	Bonus2 int64
-	Bonus3 int64
-	Bonus4 int64
-	Bonus5 int64
-	Bonus6 int64
+	Bonus1 int64 `thrift:",1,omitempty"`
+	Bonus2 int64 `thrift:",2,omitempty"`
+	Bonus3 int64 `thrift:",3,omitempty"`
+	Bonus4 int64 `thrift:",4,omitempty"`
+	Bonus5 int64 `thrift:",5,omitempty"`
+	Bonus6 int64 `thrift:",6,omitempty"`
 }
 
 type GetDiamondBonusReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetDiamondBonusRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode               `thrift:",1,omitempty"`
+	Mode        string                     `thrift:",2,omitempty"`
+	Call        string                     `thrift:",3,omitempty"`
+	Data        GetDiamondBonusRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData            `thrift:",5,omitempty"`
 }
 
 type GetEventListData struct {
-	Idx        int32
-	Event_type string
-	Start_date string
-	End_date   string
-	B_IsActive int16
+	Idx        int32  `thrift:",1,omitempty"`
+	Event_type string `thrift:",2,omitempty"`
+	Start_date string `thrift:",3,omitempty"`
+	End_date   string `thrift:",4,omitempty"`
+	B_IsActive int16  `thrift:",5,omitempty"`
 }
 
 type GetEventMain struct {
-	Call string
-	Data GetEventMainDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data GetEventMainDataInfo `thrift:",2,omitempty"`
 }
 
 type GetEventMainDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetEventMainRetDataInfo struct {
-	Idx         int32
-	Title       string
-	Img1        string
-	Img2        string
-	Movie       string
-	Utc         int64
-	Banner      string
-	Desc_cn     string
-	Desc_en     string
-	Desc_jp     string
-	Server_time int64
-	Start_time  int64
-	End_time    int64
-	My_score    int64
-	My_rank     int64
+	Idx         int32  `thrift:",1,omitempty"`
+	Title       string `thrift:",2,omitempty"`
+	Img1        string `thrift:",3,omitempty"`
+	Img2        string `thrift:",4,omitempty"`
+	Movie       string `thrift:",5,omitempty"`
+	Utc         int64  `thrift:",6,omitempty"`
+	Banner      string `thrift:",7,omitempty"`
+	Desc_cn     string `thrift:",8,omitempty"`
+	Desc_en     string `thrift:",9,omitempty"`
+	Desc_jp     string `thrift:",10,omitempty"`
+	Server_time int64  `thrift:",11,omitempty"`
+	Start_time  int64  `thrift:",12,omitempty"`
+	End_time    int64  `thrift:",13,omitempty"`
+	My_score    int64  `thrift:",14,omitempty"`
+	My_rank     int64  `thrift:",15,omitempty"`
 }
 
 type GetEventMainReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetEventMainRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        GetEventMainRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type GetEventRank struct {
-	Call string
-	Data GetEventRankDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data GetEventRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetEventRankDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Event_idx   int32
-	Start_rank  int64
-	End_rank    int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Event_idx   int32  `thrift:",5,omitempty"`
+	Start_rank  int64  `thrift:",6,omitempty"`
+	End_rank    int64  `thrift:",7,omitempty"`
 }
 
 type GetEventRankRetDataInfo struct {
-	U_seq     int64
-	U_nick    string
-	U_id      string
-	U_avatar  int32
-	U_country string
-	U_title   int32
-	Rank      int64
-	Score     int64
+	U_seq     int64  `thrift:",1,omitempty"`
+	U_nick    string `thrift:",2,omitempty"`
+	U_id      string `thrift:",3,omitempty"`
+	U_avatar  int32  `thrift:",4,omitempty"`
+	U_country string `thrift:",5,omitempty"`
+	U_title   int32  `thrift:",6,omitempty"`
+	Rank      int64  `thrift:",7,omitempty"`
+	Score     int64  `thrift:",8,omitempty"`
 }
 
 type GetEventRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetEventRewardList struct {
-	Call        string
-	Data        GetEventRewardListDataInfo
-	Sub_mode    string
-	Common_data ParamData
+	Call        string                     `thrift:",1,omitempty"`
+	Data        GetEventRewardListDataInfo `thrift:",2,omitempty"`
+	Sub_mode    string                     `thrift:",3,omitempty"`
+	Common_data ParamData                  `thrift:",4,omitempty"`
 }
 
 type GetEventRewardListData struct {
-	Idx                int64
-	Event_name         string
-	Event_type         string
-	Reward_idx         int64
-	Reward_num         int32
-	Reward_type        int32
-	Reward_id          int32
-	Reward_value       int32
-	Reward_flg         string
-	Get_date           int32
-	S_CustomIconType   string
-	S_CustomIconSprite string
+	Idx                int64  `thrift:",1,omitempty"`
+	Event_name         string `thrift:",2,omitempty"`
+	Event_type         string `thrift:",3,omitempty"`
+	Reward_idx         int64  `thrift:",4,omitempty"`
+	Reward_num         int32  `thrift:",5,omitempty"`
+	Reward_type        int32  `thrift:",6,omitempty"`
+	Reward_id          int32  `thrift:",7,omitempty"`
+	Reward_value       int32  `thrift:",8,omitempty"`
+	Reward_flg         string `thrift:",9,omitempty"`
+	Get_date           int32  `thrift:",10,omitempty"`
+	S_CustomIconType   string `thrift:",11,omitempty"`
+	S_CustomIconSprite string `thrift:",12,omitempty"`
 }
 
 type GetEventRewardListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Event_idx   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Event_idx   int32  `thrift:",5,omitempty"`
 }
 
 type GetEventRewardListRetDataInfo struct {
-	Reward_list []any // TODO
-	Group_idx   int32
+	Reward_list []any `thrift:",1,omitempty"` // TODO
+	Group_idx   int32 `thrift:",2,omitempty"`
 }
 
 type GetEventRewardListReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        map[any]any     `thrift:",5,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type GetFanData struct {
-	I_Area        int64
-	I_Grade       int64
-	I_FanCount    int64
-	I_BonusRate   int64
-	I_BonusRateUI int64
+	I_Area        int64 `thrift:",1,omitempty"`
+	I_Grade       int64 `thrift:",2,omitempty"`
+	I_FanCount    int64 `thrift:",3,omitempty"`
+	I_BonusRate   int64 `thrift:",4,omitempty"`
+	I_BonusRateUI int64 `thrift:",5,omitempty"`
 }
 
 type GetFollowerData struct {
-	I_id                      int32
-	S_Name_KO                 string
-	S_Name_EN                 string
-	S_Name_JA                 string
-	S_Name_ZH_CHS             string
-	S_Name_ZH_CHT             string
-	S_Name_VI                 string
-	S_Name_ES                 string
-	S_Name_IT                 string
-	S_Name_ID                 string
-	S_Name_TH                 string
-	S_Name_PT                 string
-	S_Name_HI                 string
-	S_Description_KO          string
-	S_Description_EN          string
-	S_Description_JA          string
-	S_Description_ZH_CHS      string
-	S_Description_ZH_CHT      string
-	S_Description_VI          string
-	S_Description_ES          string
-	S_Description_IT          string
-	S_Description_ID          string
-	S_Description_TH          string
-	S_Description_PT          string
-	S_Description_HI          string
-	S_ResourceName            string
-	I_MaxLevel                int64
-	D_LevelRate               float64
-	D_LateCost                int64
-	D_Cost                    float64
-	D_CostIncreaseValue       float64
-	D_CostValueConstant       int64
-	D_Amount                  float64
-	D_AmountIncreaseValue     float64
-	D_AmountValueConstant     int64
-	D_BonusAmountIncreaseRate int64
-	I_UnlockLevel             int64
-	D_UnlockCost              int64
-	I_RequirementFollowerId_1 int64
-	I_RequirementFollowerId_2 int64
-	I_RequirementPropId_1     int64
-	I_RequirementPropId_2     int64
-	I_RequirementPropCount    int64
-	B_IsActive                int16
-	I_Area                    int16
-	I_DownloadType            int32
-	I_ProfileID               int32
+	I_id                      int32   `thrift:",1,omitempty"`
+	S_Name_KO                 string  `thrift:",2,omitempty"`
+	S_Name_EN                 string  `thrift:",3,omitempty"`
+	S_Name_JA                 string  `thrift:",4,omitempty"`
+	S_Name_ZH_CHS             string  `thrift:",5,omitempty"`
+	S_Name_ZH_CHT             string  `thrift:",6,omitempty"`
+	S_Name_VI                 string  `thrift:",7,omitempty"`
+	S_Name_ES                 string  `thrift:",8,omitempty"`
+	S_Name_IT                 string  `thrift:",9,omitempty"`
+	S_Name_ID                 string  `thrift:",10,omitempty"`
+	S_Name_TH                 string  `thrift:",11,omitempty"`
+	S_Name_PT                 string  `thrift:",12,omitempty"`
+	S_Name_HI                 string  `thrift:",13,omitempty"`
+	S_Description_KO          string  `thrift:",14,omitempty"`
+	S_Description_EN          string  `thrift:",15,omitempty"`
+	S_Description_JA          string  `thrift:",16,omitempty"`
+	S_Description_ZH_CHS      string  `thrift:",17,omitempty"`
+	S_Description_ZH_CHT      string  `thrift:",18,omitempty"`
+	S_Description_VI          string  `thrift:",19,omitempty"`
+	S_Description_ES          string  `thrift:",20,omitempty"`
+	S_Description_IT          string  `thrift:",21,omitempty"`
+	S_Description_ID          string  `thrift:",22,omitempty"`
+	S_Description_TH          string  `thrift:",23,omitempty"`
+	S_Description_PT          string  `thrift:",24,omitempty"`
+	S_Description_HI          string  `thrift:",25,omitempty"`
+	S_ResourceName            string  `thrift:",26,omitempty"`
+	I_MaxLevel                int64   `thrift:",27,omitempty"`
+	D_LevelRate               float64 `thrift:",28,omitempty"`
+	D_LateCost                int64   `thrift:",29,omitempty"`
+	D_Cost                    float64 `thrift:",30,omitempty"`
+	D_CostIncreaseValue       float64 `thrift:",31,omitempty"`
+	D_CostValueConstant       int64   `thrift:",32,omitempty"`
+	D_Amount                  float64 `thrift:",33,omitempty"`
+	D_AmountIncreaseValue     float64 `thrift:",34,omitempty"`
+	D_AmountValueConstant     int64   `thrift:",35,omitempty"`
+	D_BonusAmountIncreaseRate int64   `thrift:",36,omitempty"`
+	I_UnlockLevel             int64   `thrift:",37,omitempty"`
+	D_UnlockCost              int64   `thrift:",38,omitempty"`
+	I_RequirementFollowerId_1 int64   `thrift:",39,omitempty"`
+	I_RequirementFollowerId_2 int64   `thrift:",40,omitempty"`
+	I_RequirementPropId_1     int64   `thrift:",41,omitempty"`
+	I_RequirementPropId_2     int64   `thrift:",42,omitempty"`
+	I_RequirementPropCount    int64   `thrift:",43,omitempty"`
+	B_IsActive                int16   `thrift:",44,omitempty"`
+	I_Area                    int16   `thrift:",45,omitempty"`
+	I_DownloadType            int32   `thrift:",46,omitempty"`
+	I_ProfileID               int32   `thrift:",47,omitempty"`
 }
 
 type GetFollowerGiftItemData struct {
-	I_id           int32
-	I_GiftType     int32
-	D_Value        int64
-	I_Limit        int32
-	S_ResourceName string
-	S_Name_KO      string
-	S_Name_EN      string
-	S_Name_JA      string
-	S_Name_ZH_CHS  string
-	S_Name_ZH_CHT  string
-	S_Name_VI      string
-	S_Name_ES      string
-	S_Name_IT      string
-	S_Name_ID      string
-	S_Name_TH      string
-	S_Name_PT      string
-	S_Name_HI      string
-	B_IsActive     int16
+	I_id           int32  `thrift:",1,omitempty"`
+	I_GiftType     int32  `thrift:",2,omitempty"`
+	D_Value        int64  `thrift:",3,omitempty"`
+	I_Limit        int32  `thrift:",4,omitempty"`
+	S_ResourceName string `thrift:",5,omitempty"`
+	S_Name_KO      string `thrift:",6,omitempty"`
+	S_Name_EN      string `thrift:",7,omitempty"`
+	S_Name_JA      string `thrift:",8,omitempty"`
+	S_Name_ZH_CHS  string `thrift:",9,omitempty"`
+	S_Name_ZH_CHT  string `thrift:",10,omitempty"`
+	S_Name_VI      string `thrift:",11,omitempty"`
+	S_Name_ES      string `thrift:",12,omitempty"`
+	S_Name_IT      string `thrift:",13,omitempty"`
+	S_Name_ID      string `thrift:",14,omitempty"`
+	S_Name_TH      string `thrift:",15,omitempty"`
+	S_Name_PT      string `thrift:",16,omitempty"`
+	S_Name_HI      string `thrift:",17,omitempty"`
+	B_IsActive     int16  `thrift:",18,omitempty"`
 }
 
 type GetFollowerProfileData struct {
-	I_id              int32
-	S_Name_KO         string
-	S_Name_EN         string
-	S_Name_JA         string
-	S_Name_ZH_CHS     string
-	S_Name_ZH_CHT     string
-	S_Name_VI         string
-	S_Name_ES         string
-	S_Name_IT         string
-	S_Name_ID         string
-	S_Name_TH         string
-	S_Name_PT         string
-	S_Name_HI         string
-	B_IsActive        int16
-	S_GiftItemID      string
-	B_IsVisible       int16
-	S_BackgroundColor string
+	I_id              int32  `thrift:",1,omitempty"`
+	S_Name_KO         string `thrift:",2,omitempty"`
+	S_Name_EN         string `thrift:",3,omitempty"`
+	S_Name_JA         string `thrift:",4,omitempty"`
+	S_Name_ZH_CHS     string `thrift:",5,omitempty"`
+	S_Name_ZH_CHT     string `thrift:",6,omitempty"`
+	S_Name_VI         string `thrift:",7,omitempty"`
+	S_Name_ES         string `thrift:",8,omitempty"`
+	S_Name_IT         string `thrift:",9,omitempty"`
+	S_Name_ID         string `thrift:",10,omitempty"`
+	S_Name_TH         string `thrift:",11,omitempty"`
+	S_Name_PT         string `thrift:",12,omitempty"`
+	S_Name_HI         string `thrift:",13,omitempty"`
+	B_IsActive        int16  `thrift:",14,omitempty"`
+	S_GiftItemID      string `thrift:",15,omitempty"`
+	B_IsVisible       int16  `thrift:",16,omitempty"`
+	S_BackgroundColor string `thrift:",17,omitempty"`
 }
 
 type GetFollowerProfileLevelData struct {
-	I_id                int32
-	I_ProfileID         int32
-	I_Level             int32
-	D_RequireEXP        int64
-	I_RewardGroup       int32
-	S_UnlockInformation string
-	I_AddCandy          int32
-	I_UnlockStoryID     int32
-	B_IsActive          int16
+	I_id                int32  `thrift:",1,omitempty"`
+	I_ProfileID         int32  `thrift:",2,omitempty"`
+	I_Level             int32  `thrift:",3,omitempty"`
+	D_RequireEXP        int64  `thrift:",4,omitempty"`
+	I_RewardGroup       int32  `thrift:",5,omitempty"`
+	S_UnlockInformation string `thrift:",6,omitempty"`
+	I_AddCandy          int32  `thrift:",7,omitempty"`
+	I_UnlockStoryID     int32  `thrift:",8,omitempty"`
+	B_IsActive          int16  `thrift:",9,omitempty"`
 }
 
 type GetFollowerQuestData struct {
-	I_id                  int32
-	I_UnlockFollowerID    int32
-	I_UnlockFollowerLevel int32
-	S_ConditionType1      string
-	D_Condition1_1        float64
-	D_Condition1_2        float64
-	S_ConditionType2      string
-	D_Condition2_1        float64
-	D_Condition2_2        float64
-	S_ConditionType3      string
-	D_Condition3_1        float64
-	D_Condition3_2        float64
-	I_RewardGroup1        int32
-	I_RewardGroup2        int32
-	I_RewardGroup3        int32
-	S_Description_KO      string
-	S_Description_EN      string
-	S_Description_ZH_CHS  string
-	S_Description_ZH_CHT  string
-	S_Description_JA      string
-	S_Description_VI      string
-	S_Description_ES      string
-	S_Description_IT      string
-	S_Description_ID      string
-	S_Description_TH      string
-	S_Description_PT      string
-	S_Description_HI      string
-	B_IsActive            int16
-	I_Type                int32
+	I_id                  int32   `thrift:",1,omitempty"`
+	I_UnlockFollowerID    int32   `thrift:",2,omitempty"`
+	I_UnlockFollowerLevel int32   `thrift:",3,omitempty"`
+	S_ConditionType1      string  `thrift:",4,omitempty"`
+	D_Condition1_1        float64 `thrift:",5,omitempty"`
+	D_Condition1_2        float64 `thrift:",6,omitempty"`
+	S_ConditionType2      string  `thrift:",7,omitempty"`
+	D_Condition2_1        float64 `thrift:",8,omitempty"`
+	D_Condition2_2        float64 `thrift:",9,omitempty"`
+	S_ConditionType3      string  `thrift:",10,omitempty"`
+	D_Condition3_1        float64 `thrift:",11,omitempty"`
+	D_Condition3_2        float64 `thrift:",12,omitempty"`
+	I_RewardGroup1        int32   `thrift:",13,omitempty"`
+	I_RewardGroup2        int32   `thrift:",14,omitempty"`
+	I_RewardGroup3        int32   `thrift:",15,omitempty"`
+	S_Description_KO      string  `thrift:",16,omitempty"`
+	S_Description_EN      string  `thrift:",17,omitempty"`
+	S_Description_ZH_CHS  string  `thrift:",18,omitempty"`
+	S_Description_ZH_CHT  string  `thrift:",19,omitempty"`
+	S_Description_JA      string  `thrift:",20,omitempty"`
+	S_Description_VI      string  `thrift:",21,omitempty"`
+	S_Description_ES      string  `thrift:",22,omitempty"`
+	S_Description_IT      string  `thrift:",23,omitempty"`
+	S_Description_ID      string  `thrift:",24,omitempty"`
+	S_Description_TH      string  `thrift:",25,omitempty"`
+	S_Description_PT      string  `thrift:",26,omitempty"`
+	S_Description_HI      string  `thrift:",27,omitempty"`
+	B_IsActive            int16   `thrift:",28,omitempty"`
+	I_Type                int32   `thrift:",29,omitempty"`
 }
 
 type GetGameDataList struct {
-	Call        string
-	Data        GetGameDataListDataInfo
-	Sub_mode    string
-	Common_data ParamData
+	Call        string                  `thrift:",1,omitempty"`
+	Data        GetGameDataListDataInfo `thrift:",2,omitempty"`
+	Sub_mode    string                  `thrift:",3,omitempty"`
+	Common_data ParamData               `thrift:",4,omitempty"`
 }
 
 type GetGameDataListDataInfo struct {
-	Game_type   string
-	Device_uuid string
+	Game_type   string `thrift:",1,omitempty"`
+	Device_uuid string `thrift:",2,omitempty"`
 }
 
 type GetGameDataListRetDataInfo struct {
-	Consume                        []any // TODO
-	Music                          []any // TODO
-	Costume                        []any // TODO
-	Prop                           []any // TODO
-	Follower                       []any // TODO
-	Buff                           []any // TODO
-	Unit                           []any // TODO
-	Skill                          []any // TODO
-	Achievement                    []any // TODO
-	Daily_mission                  []any // TODO
-	Music_level                    []any // TODO
-	Shop                           []any // TODO
-	Reward_group                   []any // TODO
-	Fan                            []any // TODO
-	SystemNotification             []any // TODO
-	SystemString                   []any // TODO
-	SubscribeList                  []any // TODO
-	SubscribePassReward            []any // TODO
-	SubscribePass                  []any // TODO
-	Guitar                         []any // TODO
-	SubscribePassRewardInformation []any // TODO
-	Ticketcollection               []any // TODO
-	Character                      []any // TODO
-	Samseckevent                   []any // TODO
-	Localpush                      []any // TODO
-	Followerquest                  []any // TODO
-	Proplevel                      []any // TODO
-	Follower_profile               []any // TODO
-	Passgoodsshop                  []any // TODO
-	Followergiftitem               []any // TODO
-	Followerprofilelevel           []any // TODO
-	Ad_list                        []any // TODO
-	Chthird_stage                  []any // TODO
-	Chthird_score                  []any // TODO
-	Chthird_chapter                []any // TODO
-	Percent                        []any // TODO
-	Ad_level                       []any // TODO
-	Event_list                     []any // TODO
-	Select_reward                  []any // TODO
+	Consume                        []any `thrift:",1,omitempty"`  // TODO
+	Music                          []any `thrift:",2,omitempty"`  // TODO
+	Costume                        []any `thrift:",3,omitempty"`  // TODO
+	Prop                           []any `thrift:",4,omitempty"`  // TODO
+	Follower                       []any `thrift:",5,omitempty"`  // TODO
+	Buff                           []any `thrift:",6,omitempty"`  // TODO
+	Unit                           []any `thrift:",7,omitempty"`  // TODO
+	Skill                          []any `thrift:",8,omitempty"`  // TODO
+	Achievement                    []any `thrift:",9,omitempty"`  // TODO
+	Daily_mission                  []any `thrift:",10,omitempty"` // TODO
+	Music_level                    []any `thrift:",11,omitempty"` // TODO
+	Shop                           []any `thrift:",12,omitempty"` // TODO
+	Reward_group                   []any `thrift:",13,omitempty"` // TODO
+	Fan                            []any `thrift:",14,omitempty"` // TODO
+	SystemNotification             []any `thrift:",15,omitempty"` // TODO
+	SystemString                   []any `thrift:",16,omitempty"` // TODO
+	SubscribeList                  []any `thrift:",17,omitempty"` // TODO
+	SubscribePassReward            []any `thrift:",18,omitempty"` // TODO
+	SubscribePass                  []any `thrift:",19,omitempty"` // TODO
+	Guitar                         []any `thrift:",20,omitempty"` // TODO
+	SubscribePassRewardInformation []any `thrift:",21,omitempty"` // TODO
+	Ticketcollection               []any `thrift:",22,omitempty"` // TODO
+	Character                      []any `thrift:",23,omitempty"` // TODO
+	Samseckevent                   []any `thrift:",24,omitempty"` // TODO
+	Localpush                      []any `thrift:",25,omitempty"` // TODO
+	Followerquest                  []any `thrift:",26,omitempty"` // TODO
+	Proplevel                      []any `thrift:",27,omitempty"` // TODO
+	Follower_profile               []any `thrift:",28,omitempty"` // TODO
+	Passgoodsshop                  []any `thrift:",29,omitempty"` // TODO
+	Followergiftitem               []any `thrift:",30,omitempty"` // TODO
+	Followerprofilelevel           []any `thrift:",31,omitempty"` // TODO
+	Ad_list                        []any `thrift:",32,omitempty"` // TODO
+	Chthird_stage                  []any `thrift:",33,omitempty"` // TODO
+	Chthird_score                  []any `thrift:",34,omitempty"` // TODO
+	Chthird_chapter                []any `thrift:",35,omitempty"` // TODO
+	Percent                        []any `thrift:",36,omitempty"` // TODO
+	Ad_level                       []any `thrift:",37,omitempty"` // TODO
+	Event_list                     []any `thrift:",38,omitempty"` // TODO
+	Select_reward                  []any `thrift:",39,omitempty"` // TODO
 }
 
 type GetGameDataListReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        map[any]any     `thrift:",5,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type GetGuitarData struct {
-	I_id                        int32
-	I_Area                      int16
-	S_Title_KO                  string
-	S_Title_EN                  string
-	S_Title_JA                  string
-	S_Title_ZH_CHS              string
-	S_Title_ZH_CHT              string
-	S_Title_VI                  string
-	S_Title_ES                  string
-	S_Title_IT                  string
-	S_Title_ID                  string
-	S_Title_TH                  string
-	S_Title_PT                  string
-	S_Title_HI                  string
-	S_Description_KO            string
-	S_Description_EN            string
-	S_Description_JA            string
-	S_Description_ZH_CHS        string
-	S_Description_ZH_CHT        string
-	S_Description_VI            string
-	S_Description_ES            string
-	S_Description_IT            string
-	S_Description_ID            string
-	S_Description_TH            string
-	S_Description_PT            string
-	S_Description_HI            string
-	S_ResourceName              string
-	S_GuitarName                string
-	I_GuitarType                int16
-	S_GoodsType                 string
-	S_Cost                      string
-	I_RequirementCharacterLevel int64
-	D_IncrementValue            float64
-	I_AcquisitionType           int64
-	I_AcquisitionId             int64
-	I_SortOrder                 int64
-	B_IsActive                  int16
-	I_DownloadType              int16
+	I_id                        int32   `thrift:",1,omitempty"`
+	I_Area                      int16   `thrift:",2,omitempty"`
+	S_Title_KO                  string  `thrift:",3,omitempty"`
+	S_Title_EN                  string  `thrift:",4,omitempty"`
+	S_Title_JA                  string  `thrift:",5,omitempty"`
+	S_Title_ZH_CHS              string  `thrift:",6,omitempty"`
+	S_Title_ZH_CHT              string  `thrift:",7,omitempty"`
+	S_Title_VI                  string  `thrift:",8,omitempty"`
+	S_Title_ES                  string  `thrift:",9,omitempty"`
+	S_Title_IT                  string  `thrift:",10,omitempty"`
+	S_Title_ID                  string  `thrift:",11,omitempty"`
+	S_Title_TH                  string  `thrift:",12,omitempty"`
+	S_Title_PT                  string  `thrift:",13,omitempty"`
+	S_Title_HI                  string  `thrift:",14,omitempty"`
+	S_Description_KO            string  `thrift:",15,omitempty"`
+	S_Description_EN            string  `thrift:",16,omitempty"`
+	S_Description_JA            string  `thrift:",17,omitempty"`
+	S_Description_ZH_CHS        string  `thrift:",18,omitempty"`
+	S_Description_ZH_CHT        string  `thrift:",19,omitempty"`
+	S_Description_VI            string  `thrift:",20,omitempty"`
+	S_Description_ES            string  `thrift:",21,omitempty"`
+	S_Description_IT            string  `thrift:",22,omitempty"`
+	S_Description_ID            string  `thrift:",23,omitempty"`
+	S_Description_TH            string  `thrift:",24,omitempty"`
+	S_Description_PT            string  `thrift:",25,omitempty"`
+	S_Description_HI            string  `thrift:",26,omitempty"`
+	S_ResourceName              string  `thrift:",27,omitempty"`
+	S_GuitarName                string  `thrift:",28,omitempty"`
+	I_GuitarType                int16   `thrift:",29,omitempty"`
+	S_GoodsType                 string  `thrift:",30,omitempty"`
+	S_Cost                      string  `thrift:",31,omitempty"`
+	I_RequirementCharacterLevel int64   `thrift:",32,omitempty"`
+	D_IncrementValue            float64 `thrift:",33,omitempty"`
+	I_AcquisitionType           int64   `thrift:",34,omitempty"`
+	I_AcquisitionId             int64   `thrift:",35,omitempty"`
+	I_SortOrder                 int64   `thrift:",36,omitempty"`
+	B_IsActive                  int16   `thrift:",37,omitempty"`
+	I_DownloadType              int16   `thrift:",38,omitempty"`
 }
 
 type GetLocalPush struct {
-	Call string
-	Data GetLocalPushDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data GetLocalPushDataInfo `thrift:",2,omitempty"`
 }
 
 type GetLocalPushData struct {
-	I_id                    int32
-	S_LocalPushRegisterType string
-	I_TimeForSeconds        int64
-	B_IsMultipleJson        int16
-	S_JsonMessage_KO        string
-	S_JsonMessage_EN        string
-	S_JsonMessage_JA        string
-	S_JsonMessage_ZH_CHS    string
-	S_JsonMessage_ZH_CHT    string
-	S_JsonMessage_VI        string
-	S_JsonMessage_ES        string
-	S_JsonMessage_IT        string
-	S_JsonMessage_ID        string
-	S_JsonMessage_TH        string
-	S_JsonMessage_PT        string
-	S_JsonMessage_HI        string
-	B_IsActive              int16
+	I_id                    int32  `thrift:",1,omitempty"`
+	S_LocalPushRegisterType string `thrift:",2,omitempty"`
+	I_TimeForSeconds        int64  `thrift:",3,omitempty"`
+	B_IsMultipleJson        int16  `thrift:",4,omitempty"`
+	S_JsonMessage_KO        string `thrift:",5,omitempty"`
+	S_JsonMessage_EN        string `thrift:",6,omitempty"`
+	S_JsonMessage_JA        string `thrift:",7,omitempty"`
+	S_JsonMessage_ZH_CHS    string `thrift:",8,omitempty"`
+	S_JsonMessage_ZH_CHT    string `thrift:",9,omitempty"`
+	S_JsonMessage_VI        string `thrift:",10,omitempty"`
+	S_JsonMessage_ES        string `thrift:",11,omitempty"`
+	S_JsonMessage_IT        string `thrift:",12,omitempty"`
+	S_JsonMessage_ID        string `thrift:",13,omitempty"`
+	S_JsonMessage_TH        string `thrift:",14,omitempty"`
+	S_JsonMessage_PT        string `thrift:",15,omitempty"`
+	S_JsonMessage_HI        string `thrift:",16,omitempty"`
+	B_IsActive              int16  `thrift:",17,omitempty"`
 }
 
 type GetLocalPushDataInfo struct {
-	Device_uuid string
+	Device_uuid string `thrift:",1,omitempty"`
 }
 
 type GetLocalPushRetDataInfo struct {
-	I_LocalPushID           int32
-	S_LocalPushRegisterType int16
-	I_TimeForSeconds        int64
-	S_JsonMessage_ko        string
-	S_JsonMessage_en        string
-	S_JsonMessage_ja        string
+	I_LocalPushID           int32  `thrift:",1,omitempty"`
+	S_LocalPushRegisterType int16  `thrift:",2,omitempty"`
+	I_TimeForSeconds        int64  `thrift:",3,omitempty"`
+	S_JsonMessage_ko        string `thrift:",4,omitempty"`
+	S_JsonMessage_en        string `thrift:",5,omitempty"`
+	S_JsonMessage_ja        string `thrift:",6,omitempty"`
 }
 
 type GetLocalPushReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetMastersRank struct {
-	Call string
-	Data GetMastersRankDataInfo
+	Call string                 `thrift:",1,omitempty"`
+	Data GetMastersRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetMastersRankDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Start_limit int32
-	End_limit   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Start_limit int32  `thrift:",5,omitempty"`
+	End_limit   int32  `thrift:",6,omitempty"`
 }
 
 type GetMastersRankRet struct {
-	All_per   int16
-	All_com   int16
-	Score     int32
-	U_avatar  int16
-	U_id      string
-	U_nick    string
-	U_country string
-	Rank      int32
+	All_per   int16  `thrift:",1,omitempty"`
+	All_com   int16  `thrift:",2,omitempty"`
+	Score     int32  `thrift:",3,omitempty"`
+	U_avatar  int16  `thrift:",4,omitempty"`
+	U_id      string `thrift:",5,omitempty"`
+	U_nick    string `thrift:",6,omitempty"`
+	U_country string `thrift:",7,omitempty"`
+	Rank      int32  `thrift:",8,omitempty"`
 }
 
 type GetMastersRankRetDataInfo struct {
-	Start_limit int16
-	End_limit   int16
-	My_rank     GetMastersRankRet
-	Rank_list   []any // TODO
+	Start_limit int16             `thrift:",1,omitempty"`
+	End_limit   int16             `thrift:",2,omitempty"`
+	My_rank     GetMastersRankRet `thrift:",3,omitempty"`
+	Rank_list   []any             `thrift:",4,omitempty"` // TODO
 }
 
 type GetMastersRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetMastersRankRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Mode        string                    `thrift:",2,omitempty"`
+	Call        string                    `thrift:",3,omitempty"`
+	Data        GetMastersRankRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData           `thrift:",5,omitempty"`
 }
 
 type GetMusicData struct {
-	I_id                      int32
-	S_Title_KO                string
-	S_Title_EN                string
-	S_Title_JA                string
-	S_Title_ZH_CHS            string
-	S_Title_ZH_CHT            string
-	S_Title_VI                string
-	S_Title_ES                string
-	S_Title_IT                string
-	S_Title_ID                string
-	S_Title_TH                string
-	S_Title_PT                string
-	S_Title_HI                string
-	S_Description_1_KO        string
-	S_Description_1_EN        string
-	S_Description_1_JA        string
-	S_Description_1_ZH_CHS    string
-	S_Description_1_ZH_CHT    string
-	S_Description_1_VI        string
-	S_Description_1_ES        string
-	S_Description_1_IT        string
-	S_Description_1_ID        string
-	S_Description_1_TH        string
-	S_Description_1_PT        string
-	S_Description_1_HI        string
-	S_ResourceName            string
-	S_MusicFileName           string
-	I_MaxLevel                int64
-	D_LevelRate               float64
-	D_LateCost                int64
-	D_Cost                    float64
-	D_CostIncreaseValue       float64
-	D_CostValueConstant       int64
-	D_Amount                  float64
-	D_AmountIncreaseValue     float64
-	D_AmountValueConstant     int64
-	D_BonusAmountIncreaseRate int64
-	I_UnlockLevel             int64
-	D_UnlockCost              int64
-	I_RequirementFollowerId_1 int64
-	I_RequirementFollowerId_2 int64
-	I_RequirementMusicId_1    int64
-	I_RequirementMusicId_2    int64
-	I_RequirementMusicCount   int64
-	S_GoodsType               string
-	I_SortOrder               int64
-	I_AcquisitionType         int64
-	I_AcquisitionId           int64
-	B_IsActive                int16
-	I_Area                    int16
-	I_DownloadType_img        int32
-	I_DownloadType_file       int32
+	I_id                      int32   `thrift:",1,omitempty"`
+	S_Title_KO                string  `thrift:",2,omitempty"`
+	S_Title_EN                string  `thrift:",3,omitempty"`
+	S_Title_JA                string  `thrift:",4,omitempty"`
+	S_Title_ZH_CHS            string  `thrift:",5,omitempty"`
+	S_Title_ZH_CHT            string  `thrift:",6,omitempty"`
+	S_Title_VI                string  `thrift:",7,omitempty"`
+	S_Title_ES                string  `thrift:",8,omitempty"`
+	S_Title_IT                string  `thrift:",9,omitempty"`
+	S_Title_ID                string  `thrift:",10,omitempty"`
+	S_Title_TH                string  `thrift:",11,omitempty"`
+	S_Title_PT                string  `thrift:",12,omitempty"`
+	S_Title_HI                string  `thrift:",13,omitempty"`
+	S_Description_1_KO        string  `thrift:",14,omitempty"`
+	S_Description_1_EN        string  `thrift:",15,omitempty"`
+	S_Description_1_JA        string  `thrift:",16,omitempty"`
+	S_Description_1_ZH_CHS    string  `thrift:",17,omitempty"`
+	S_Description_1_ZH_CHT    string  `thrift:",18,omitempty"`
+	S_Description_1_VI        string  `thrift:",19,omitempty"`
+	S_Description_1_ES        string  `thrift:",20,omitempty"`
+	S_Description_1_IT        string  `thrift:",21,omitempty"`
+	S_Description_1_ID        string  `thrift:",22,omitempty"`
+	S_Description_1_TH        string  `thrift:",23,omitempty"`
+	S_Description_1_PT        string  `thrift:",24,omitempty"`
+	S_Description_1_HI        string  `thrift:",25,omitempty"`
+	S_ResourceName            string  `thrift:",26,omitempty"`
+	S_MusicFileName           string  `thrift:",27,omitempty"`
+	I_MaxLevel                int64   `thrift:",28,omitempty"`
+	D_LevelRate               float64 `thrift:",29,omitempty"`
+	D_LateCost                int64   `thrift:",30,omitempty"`
+	D_Cost                    float64 `thrift:",31,omitempty"`
+	D_CostIncreaseValue       float64 `thrift:",32,omitempty"`
+	D_CostValueConstant       int64   `thrift:",33,omitempty"`
+	D_Amount                  float64 `thrift:",34,omitempty"`
+	D_AmountIncreaseValue     float64 `thrift:",35,omitempty"`
+	D_AmountValueConstant     int64   `thrift:",36,omitempty"`
+	D_BonusAmountIncreaseRate int64   `thrift:",37,omitempty"`
+	I_UnlockLevel             int64   `thrift:",38,omitempty"`
+	D_UnlockCost              int64   `thrift:",39,omitempty"`
+	I_RequirementFollowerId_1 int64   `thrift:",40,omitempty"`
+	I_RequirementFollowerId_2 int64   `thrift:",41,omitempty"`
+	I_RequirementMusicId_1    int64   `thrift:",42,omitempty"`
+	I_RequirementMusicId_2    int64   `thrift:",43,omitempty"`
+	I_RequirementMusicCount   int64   `thrift:",44,omitempty"`
+	S_GoodsType               string  `thrift:",45,omitempty"`
+	I_SortOrder               int64   `thrift:",46,omitempty"`
+	I_AcquisitionType         int64   `thrift:",47,omitempty"`
+	I_AcquisitionId           int64   `thrift:",48,omitempty"`
+	B_IsActive                int16   `thrift:",49,omitempty"`
+	I_Area                    int16   `thrift:",50,omitempty"`
+	I_DownloadType_img        int32   `thrift:",51,omitempty"`
+	I_DownloadType_file       int32   `thrift:",52,omitempty"`
 }
 
 type GetMusicInfoLanguage struct {
-	Seq         int32
-	Music_idx   int64
-	Music_title string
-	Artist      string
-	Songwriter  string
-	Lyricist    string
-	Description string
+	Seq         int32  `thrift:",1,omitempty"`
+	Music_idx   int64  `thrift:",2,omitempty"`
+	Music_title string `thrift:",3,omitempty"`
+	Artist      string `thrift:",4,omitempty"`
+	Songwriter  string `thrift:",5,omitempty"`
+	Lyricist    string `thrift:",6,omitempty"`
+	Description string `thrift:",7,omitempty"`
 }
 
 type GetMusicInfoList struct {
-	Call string
-	Data GetMusicInfoListDataInfo
+	Call string                   `thrift:",1,omitempty"`
+	Data GetMusicInfoListDataInfo `thrift:",2,omitempty"`
 }
 
 type GetMusicInfoListDataInfo struct {
-	Country_code string
+	Country_code string `thrift:",1,omitempty"`
 }
 
 type GetMusicInfoListRetDataInfo struct {
-	Language map[any]any // TODO
+	Language map[any]any `thrift:",1,omitempty"` // TODO
 }
 
 type GetMusicInfoListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        map[any]any     `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetMusicLevelData struct {
-	I_Level                          int16
-	F_EncoreBonusAppearRate          float64
-	I_EncoreBonusAppearPercent       int64
-	F_EncoreBonusAppearCooltime_Sec  float64
-	F_EncoreBonusAppearCooltime_Hour float64
-	I_EncoreBonusGiftAmount          int16
-	I_EncoreFollowerProfileExp       int32
-	I_ChThirdCoolTime                int32
+	I_Level                          int16   `thrift:",1,omitempty"`
+	F_EncoreBonusAppearRate          float64 `thrift:",2,omitempty"`
+	I_EncoreBonusAppearPercent       int64   `thrift:",3,omitempty"`
+	F_EncoreBonusAppearCooltime_Sec  float64 `thrift:",4,omitempty"`
+	F_EncoreBonusAppearCooltime_Hour float64 `thrift:",5,omitempty"`
+	I_EncoreBonusGiftAmount          int16   `thrift:",6,omitempty"`
+	I_EncoreFollowerProfileExp       int32   `thrift:",7,omitempty"`
+	I_ChThirdCoolTime                int32   `thrift:",8,omitempty"`
 }
 
 type GetMusicList struct {
-	Call string
-	Data GetMusicListDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data GetMusicListDataInfo `thrift:",2,omitempty"`
 }
 
 type GetMusicListDataInfo struct {
-	Country_code string
+	Country_code string `thrift:",1,omitempty"`
 }
 
 type GetMusicListRetDataInfo struct {
-	Music_idx              int32
-	Album_idx              int32
-	Genre_idx              int32
-	Difficulty1            int16
-	Difficulty2            int16
-	Difficulty3            int16
-	Difficulty4            int16
-	Purchaselink_type      int16
-	Credit_cnt             int16
-	Buy_type               int16
-	Free_type              int16
-	Price                  float64
-	Is_extra               int16
-	Extra_buy_type1        int16
-	Extra_price1           int64
-	Extra_buy_type2        int16
-	Extra_price2           int64
-	Buy_ad                 int32
-	Music_ver              int32
-	Bpm                    float64
-	Cdn_dir                string
-	Track_type             int16
-	File_type              int16
-	New_status             int16
-	Update_time            int32
-	Point_average          float64
-	Use_movie              int16
-	Movie_timing           int32
-	Music_product_aos      MusicProduct
-	Music_product_ios      MusicProduct
-	Music_product_aos_pack MusicProduct
-	Music_product_ios_pack MusicProduct
-	Bga_path               string
-	Bg_opacity             int16
+	Music_idx              int32        `thrift:",1,omitempty"`
+	Album_idx              int32        `thrift:",2,omitempty"`
+	Genre_idx              int32        `thrift:",3,omitempty"`
+	Difficulty1            int16        `thrift:",4,omitempty"`
+	Difficulty2            int16        `thrift:",5,omitempty"`
+	Difficulty3            int16        `thrift:",6,omitempty"`
+	Difficulty4            int16        `thrift:",7,omitempty"`
+	Purchaselink_type      int16        `thrift:",8,omitempty"`
+	Credit_cnt             int16        `thrift:",9,omitempty"`
+	Buy_type               int16        `thrift:",10,omitempty"`
+	Free_type              int16        `thrift:",11,omitempty"`
+	Price                  float64      `thrift:",12,omitempty"`
+	Is_extra               int16        `thrift:",13,omitempty"`
+	Extra_buy_type1        int16        `thrift:",14,omitempty"`
+	Extra_price1           int64        `thrift:",15,omitempty"`
+	Extra_buy_type2        int16        `thrift:",16,omitempty"`
+	Extra_price2           int64        `thrift:",17,omitempty"`
+	Buy_ad                 int32        `thrift:",18,omitempty"`
+	Music_ver              int32        `thrift:",19,omitempty"`
+	Bpm                    float64      `thrift:",20,omitempty"`
+	Cdn_dir                string       `thrift:",21,omitempty"`
+	Track_type             int16        `thrift:",22,omitempty"`
+	File_type              int16        `thrift:",23,omitempty"`
+	New_status             int16        `thrift:",24,omitempty"`
+	Update_time            int32        `thrift:",25,omitempty"`
+	Point_average          float64      `thrift:",26,omitempty"`
+	Use_movie              int16        `thrift:",27,omitempty"`
+	Movie_timing           int32        `thrift:",28,omitempty"`
+	Music_product_aos      MusicProduct `thrift:",29,omitempty"`
+	Music_product_ios      MusicProduct `thrift:",30,omitempty"`
+	Music_product_aos_pack MusicProduct `thrift:",31,omitempty"`
+	Music_product_ios_pack MusicProduct `thrift:",32,omitempty"`
+	Bga_path               string       `thrift:",33,omitempty"`
+	Bg_opacity             int16        `thrift:",34,omitempty"`
 }
 
 type GetMusicListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetMusicRank struct {
-	Call string
-	Data GetMusicRankDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data GetMusicRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetMusicRankDataInfo struct {
-	Music_idx int32
+	Music_idx int32 `thrift:",1,omitempty"`
 }
 
 type GetMusicRankRetDataInfo struct {
-	Id    string
-	Score int32
+	Id    string `thrift:",1,omitempty"`
+	Score int32  `thrift:",2,omitempty"`
 }
 
 type GetMusicRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetMusicRankRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        GetMusicRankRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type GetMusicReward struct {
-	Call        string
-	Data        GetMusicRewardDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        GetMusicRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type GetMusicRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_ids       []any // TODO
-	I_levels    []any // TODO
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_ids       []any  `thrift:",5,omitempty"` // TODO
+	I_levels    []any  `thrift:",6,omitempty"` // TODO
 }
 
 type GetMusicRewardRetDataInfo struct {
-	Total_reward_value    int32
-	Reward_music_id       []any       // TODO
-	Reward_value          []any       // TODO
-	User_follower_profile []any       // TODO
-	Error_data            map[any]any // TODO
+	Total_reward_value    int32       `thrift:",1,omitempty"`
+	Reward_music_id       []any       `thrift:",2,omitempty"` // TODO
+	Reward_value          []any       `thrift:",3,omitempty"` // TODO
+	User_follower_profile []any       `thrift:",4,omitempty"` // TODO
+	Error_data            map[any]any `thrift:",5,omitempty"` // TODO
 }
 
 type GetMusicRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetMusicRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Server_time ServerTimeRet             `thrift:",2,omitempty"`
+	Mode        string                    `thrift:",3,omitempty"`
+	Call        string                    `thrift:",4,omitempty"`
+	Data        GetMusicRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData           `thrift:",6,omitempty"`
 }
 
 type GetNoticeList struct {
-	Call string
-	Data GetNoticeListDataInfo
+	Call string                `thrift:",1,omitempty"`
+	Data GetNoticeListDataInfo `thrift:",2,omitempty"`
 }
 
 type GetNoticeListDataInfo struct {
-	Device_uuid string
+	Device_uuid string `thrift:",1,omitempty"`
 }
 
 type GetNoticeListRetDataInfo struct {
-	Seq          int32
-	Notice_name  string
-	Location_url string
-	Img_url      string
+	Seq          int32  `thrift:",1,omitempty"`
+	Notice_name  string `thrift:",2,omitempty"`
+	Location_url string `thrift:",3,omitempty"`
+	Img_url      string `thrift:",4,omitempty"`
 }
 
 type GetNoticeListReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        []any           `thrift:",5,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type GetPassGoodsShopData struct {
-	I_id            int32
-	I_TicketID      int32
-	I_GoodsTicketID int32
-	I_ShopID        int32
-	B_IsActive      int16
-	I_SaleShopID    int32
+	I_id            int32 `thrift:",1,omitempty"`
+	I_TicketID      int32 `thrift:",2,omitempty"`
+	I_GoodsTicketID int32 `thrift:",3,omitempty"`
+	I_ShopID        int32 `thrift:",4,omitempty"`
+	B_IsActive      int16 `thrift:",5,omitempty"`
+	I_SaleShopID    int32 `thrift:",6,omitempty"`
 }
 
 type GetPercentData struct {
-	I_GroupID        int32
-	I_RewardType     int32
-	I_RewardID       int32
-	L_RewardQuantity int32
-	B_IsActive       int16
-	I_id             int32
+	I_GroupID        int32 `thrift:",1,omitempty"`
+	I_RewardType     int32 `thrift:",2,omitempty"`
+	I_RewardID       int32 `thrift:",3,omitempty"`
+	L_RewardQuantity int32 `thrift:",4,omitempty"`
+	B_IsActive       int16 `thrift:",5,omitempty"`
+	I_id             int32 `thrift:",6,omitempty"`
 }
 
 type GetPost struct {
-	Call        string
-	Data        GetPostDataInfo
-	Common_data ParamData
+	Call        string          `thrift:",1,omitempty"`
+	Data        GetPostDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData       `thrift:",3,omitempty"`
 }
 
 type GetPostDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetPostList struct {
-	Idx                 int64
-	Notice_type         int16
-	Title_ko            string
-	Memo_ko             string
-	Title_en            string
-	Memo_en             string
-	Title_jp            string
-	Memo_jp             string
-	Title_zh_chs        string
-	Memo_zh_chs         string
-	Title_zh_cht        string
-	Memo_zh_cht         string
-	Title_vi            string
-	Memo_vi             string
-	Title_es            string
-	Memo_es             string
-	Title_it            string
-	Memo_it             string
-	Title_id            string
-	Memo_id             string
-	Title_th            string
-	Memo_th             string
-	Title_pt            string
-	Memo_pt             string
-	Title_hi            string
-	Memo_hi             string
-	Have_reward         int16
-	Status              int16
-	Unlimit_flg         int16
-	Flg                 int16
-	Create_time         int64
-	Del_time            int64
-	Item_list           []any // TODO
-	Url                 string
-	Image_resource_name string
+	Idx                 int64  `thrift:",1,omitempty"`
+	Notice_type         int16  `thrift:",2,omitempty"`
+	Title_ko            string `thrift:",3,omitempty"`
+	Memo_ko             string `thrift:",4,omitempty"`
+	Title_en            string `thrift:",5,omitempty"`
+	Memo_en             string `thrift:",6,omitempty"`
+	Title_jp            string `thrift:",7,omitempty"`
+	Memo_jp             string `thrift:",8,omitempty"`
+	Title_zh_chs        string `thrift:",9,omitempty"`
+	Memo_zh_chs         string `thrift:",10,omitempty"`
+	Title_zh_cht        string `thrift:",11,omitempty"`
+	Memo_zh_cht         string `thrift:",12,omitempty"`
+	Title_vi            string `thrift:",13,omitempty"`
+	Memo_vi             string `thrift:",14,omitempty"`
+	Title_es            string `thrift:",15,omitempty"`
+	Memo_es             string `thrift:",16,omitempty"`
+	Title_it            string `thrift:",17,omitempty"`
+	Memo_it             string `thrift:",18,omitempty"`
+	Title_id            string `thrift:",19,omitempty"`
+	Memo_id             string `thrift:",20,omitempty"`
+	Title_th            string `thrift:",21,omitempty"`
+	Memo_th             string `thrift:",22,omitempty"`
+	Title_pt            string `thrift:",23,omitempty"`
+	Memo_pt             string `thrift:",24,omitempty"`
+	Title_hi            string `thrift:",25,omitempty"`
+	Memo_hi             string `thrift:",26,omitempty"`
+	Have_reward         int16  `thrift:",27,omitempty"`
+	Status              int16  `thrift:",28,omitempty"`
+	Unlimit_flg         int16  `thrift:",29,omitempty"`
+	Flg                 int16  `thrift:",30,omitempty"`
+	Create_time         int64  `thrift:",31,omitempty"`
+	Del_time            int64  `thrift:",32,omitempty"`
+	Item_list           []any  `thrift:",33,omitempty"` // TODO
+	Url                 string `thrift:",34,omitempty"`
+	Image_resource_name string `thrift:",35,omitempty"`
 }
 
 type GetPostRetDataInfo struct {
-	Server_time int64
-	Post_list   []any // TODO
+	Server_time int64 `thrift:",1,omitempty"`
+	Post_list   []any `thrift:",2,omitempty"` // TODO
 }
 
 type GetPostReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetPostRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode       `thrift:",1,omitempty"`
+	Server_time ServerTimeRet      `thrift:",2,omitempty"`
+	Mode        string             `thrift:",3,omitempty"`
+	Call        string             `thrift:",4,omitempty"`
+	Data        GetPostRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData    `thrift:",6,omitempty"`
 }
 
 type GetPostTime struct {
-	Call string
-	Data GetPostTimeDataInfo
+	Call string              `thrift:",1,omitempty"`
+	Data GetPostTimeDataInfo `thrift:",2,omitempty"`
 }
 
 type GetPostTimeDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetPostTimeRetDataInfo struct {
-	Time int64
+	Time int64 `thrift:",1,omitempty"`
 }
 
 type GetPostTimeReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetPostTimeRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Mode        string                 `thrift:",2,omitempty"`
+	Call        string                 `thrift:",3,omitempty"`
+	Data        GetPostTimeRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData        `thrift:",5,omitempty"`
 }
 
 type GetProfile struct {
-	Call string
-	Data GetProfileDataInfo
+	Call string             `thrift:",1,omitempty"`
+	Data GetProfileDataInfo `thrift:",2,omitempty"`
 }
 
 type GetProfileDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Get_u_seq   int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Get_u_seq   int64  `thrift:",5,omitempty"`
 }
 
 type GetProfileMusic struct {
-	Call string
-	Data GetProfileMusicDataInfo
+	Call string                  `thrift:",1,omitempty"`
+	Data GetProfileMusicDataInfo `thrift:",2,omitempty"`
 }
 
 type GetProfileMusicDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Get_u_seq   int64
-	Start_limit int64
-	End_limit   int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Get_u_seq   int64  `thrift:",5,omitempty"`
+	Start_limit int64  `thrift:",6,omitempty"`
+	End_limit   int64  `thrift:",7,omitempty"`
 }
 
 type GetProfileMusicRetDataInfo struct {
-	Music_idx    int32
-	Single_cnt   int64
-	Multi_cnt    int64
-	Master_cnt   int64
-	Single_score int64
-	Multi_score  int64
+	Music_idx    int32 `thrift:",1,omitempty"`
+	Single_cnt   int64 `thrift:",2,omitempty"`
+	Multi_cnt    int64 `thrift:",3,omitempty"`
+	Master_cnt   int64 `thrift:",4,omitempty"`
+	Single_score int64 `thrift:",5,omitempty"`
+	Multi_score  int64 `thrift:",6,omitempty"`
 }
 
 type GetProfileMusicReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetProfileRetDataInfo struct {
-	U_avatar        int32
-	U_id            string
-	U_nick          string
-	U_country       string
-	U_title         int32
-	Allper          int32
-	Allcom          int32
-	Gold            int32
-	Silver          int32
-	Bronze          int32
-	Single_cnt      int64
-	Multi_cnt       int64
-	Master_cnt      int64
-	Single_score    int64
-	Multi_score     int64
-	Local_rank      int64
-	Individual_rank int64
+	U_avatar        int32  `thrift:",1,omitempty"`
+	U_id            string `thrift:",2,omitempty"`
+	U_nick          string `thrift:",3,omitempty"`
+	U_country       string `thrift:",4,omitempty"`
+	U_title         int32  `thrift:",5,omitempty"`
+	Allper          int32  `thrift:",6,omitempty"`
+	Allcom          int32  `thrift:",7,omitempty"`
+	Gold            int32  `thrift:",8,omitempty"`
+	Silver          int32  `thrift:",9,omitempty"`
+	Bronze          int32  `thrift:",10,omitempty"`
+	Single_cnt      int64  `thrift:",11,omitempty"`
+	Multi_cnt       int64  `thrift:",12,omitempty"`
+	Master_cnt      int64  `thrift:",13,omitempty"`
+	Single_score    int64  `thrift:",14,omitempty"`
+	Multi_score     int64  `thrift:",15,omitempty"`
+	Local_rank      int64  `thrift:",16,omitempty"`
+	Individual_rank int64  `thrift:",17,omitempty"`
 }
 
 type GetProfileReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetProfileRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode          `thrift:",1,omitempty"`
+	Mode        string                `thrift:",2,omitempty"`
+	Call        string                `thrift:",3,omitempty"`
+	Data        GetProfileRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData       `thrift:",5,omitempty"`
 }
 
 type GetPropData struct {
-	I_id                 int32
-	S_Name_KO            string
-	S_Name_EN            string
-	S_Name_JA            string
-	S_Name_ZH_CHS        string
-	S_Name_ZH_CHT        string
-	S_Name_VI            string
-	S_Name_ES            string
-	S_Name_IT            string
-	S_Name_ID            string
-	S_Name_TH            string
-	S_Name_PT            string
-	S_Name_HI            string
-	S_Description_KO     string
-	S_Description_EN     string
-	S_Description_JA     string
-	S_Description_ZH_CHS string
-	S_Description_ZH_CHT string
-	S_Description_VI     string
-	S_Description_ES     string
-	S_Description_IT     string
-	S_Description_ID     string
-	S_Description_TH     string
-	S_Description_PT     string
-	S_Description_HI     string
-	S_ResourceName       string
-	I_RequirementPropId  int64
-	I_Area               int64
-	B_IsActive           int64
-	I_MaxLevel           int16
+	I_id                 int32  `thrift:",1,omitempty"`
+	S_Name_KO            string `thrift:",2,omitempty"`
+	S_Name_EN            string `thrift:",3,omitempty"`
+	S_Name_JA            string `thrift:",4,omitempty"`
+	S_Name_ZH_CHS        string `thrift:",5,omitempty"`
+	S_Name_ZH_CHT        string `thrift:",6,omitempty"`
+	S_Name_VI            string `thrift:",7,omitempty"`
+	S_Name_ES            string `thrift:",8,omitempty"`
+	S_Name_IT            string `thrift:",9,omitempty"`
+	S_Name_ID            string `thrift:",10,omitempty"`
+	S_Name_TH            string `thrift:",11,omitempty"`
+	S_Name_PT            string `thrift:",12,omitempty"`
+	S_Name_HI            string `thrift:",13,omitempty"`
+	S_Description_KO     string `thrift:",14,omitempty"`
+	S_Description_EN     string `thrift:",15,omitempty"`
+	S_Description_JA     string `thrift:",16,omitempty"`
+	S_Description_ZH_CHS string `thrift:",17,omitempty"`
+	S_Description_ZH_CHT string `thrift:",18,omitempty"`
+	S_Description_VI     string `thrift:",19,omitempty"`
+	S_Description_ES     string `thrift:",20,omitempty"`
+	S_Description_IT     string `thrift:",21,omitempty"`
+	S_Description_ID     string `thrift:",22,omitempty"`
+	S_Description_TH     string `thrift:",23,omitempty"`
+	S_Description_PT     string `thrift:",24,omitempty"`
+	S_Description_HI     string `thrift:",25,omitempty"`
+	S_ResourceName       string `thrift:",26,omitempty"`
+	I_RequirementPropId  int64  `thrift:",27,omitempty"`
+	I_Area               int64  `thrift:",28,omitempty"`
+	B_IsActive           int64  `thrift:",29,omitempty"`
+	I_MaxLevel           int16  `thrift:",30,omitempty"`
 }
 
 type GetPropLevelData struct {
-	I_id         int32
-	I_PropId     int64
-	I_Level      int64
-	D_Cost       float64
-	I_PerksId    int64
-	D_PerksValue float64
-	B_IsActive   int16
+	I_id         int32   `thrift:",1,omitempty"`
+	I_PropId     int64   `thrift:",2,omitempty"`
+	I_Level      int64   `thrift:",3,omitempty"`
+	D_Cost       float64 `thrift:",4,omitempty"`
+	I_PerksId    int64   `thrift:",5,omitempty"`
+	D_PerksValue float64 `thrift:",6,omitempty"`
+	B_IsActive   int16   `thrift:",7,omitempty"`
 }
 
 type GetPurchaseDiamondLog struct {
-	Call string
-	Data GetPurchaseDiamondLogDataInfo
+	Call string                        `thrift:",1,omitempty"`
+	Data GetPurchaseDiamondLogDataInfo `thrift:",2,omitempty"`
 }
 
 type GetPurchaseDiamondLogDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetPurchaseDiamondLogRetDataInfo struct {
-	Bonus1 int64
-	Bonus2 int64
-	Bonus3 int64
-	Bonus4 int64
-	Bonus5 int64
-	Bonus6 int64
+	Bonus1 int64 `thrift:",1,omitempty"`
+	Bonus2 int64 `thrift:",2,omitempty"`
+	Bonus3 int64 `thrift:",3,omitempty"`
+	Bonus4 int64 `thrift:",4,omitempty"`
+	Bonus5 int64 `thrift:",5,omitempty"`
+	Bonus6 int64 `thrift:",6,omitempty"`
 }
 
 type GetPurchaseDiamondLogReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetPurchaseDiamondLogRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                     `thrift:",1,omitempty"`
+	Mode        string                           `thrift:",2,omitempty"`
+	Call        string                           `thrift:",3,omitempty"`
+	Data        GetPurchaseDiamondLogRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData                  `thrift:",5,omitempty"`
 }
 
 type GetRankMain struct {
-	Call string
-	Data GetRankMainDataInfo
+	Call string              `thrift:",1,omitempty"`
+	Data GetRankMainDataInfo `thrift:",2,omitempty"`
 }
 
 type GetRankMainDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetRankMainRetDataInfo struct {
-	My_country_rank       GetCountryMyRankRet
-	Total_country_my_rank GetTotalCountryRankRet
-	Country_rank          []any // TODO
-	Masters_rank          GetMastersRankRet
+	My_country_rank       GetCountryMyRankRet    `thrift:",1,omitempty"`
+	Total_country_my_rank GetTotalCountryRankRet `thrift:",2,omitempty"`
+	Country_rank          []any                  `thrift:",3,omitempty"` // TODO
+	Masters_rank          GetMastersRankRet      `thrift:",4,omitempty"`
 }
 
 type GetRankMainReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetRankMainRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Mode        string                 `thrift:",2,omitempty"`
+	Call        string                 `thrift:",3,omitempty"`
+	Data        GetRankMainRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData        `thrift:",5,omitempty"`
 }
 
 type GetReviewPoint struct {
-	Call string
-	Data GetAlbumDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data GetAlbumDataInfo `thrift:",2,omitempty"`
 }
 
 type GetReviewPointDataInfo struct {
-	Null string
+	Null string `thrift:",1,omitempty"`
 }
 
 type GetReviewPointRetDataInfo struct {
-	Music_idx  int32
-	Difficulty int16
-	Point      float64
+	Music_idx  int32   `thrift:",1,omitempty"`
+	Difficulty int16   `thrift:",2,omitempty"`
+	Point      float64 `thrift:",3,omitempty"`
 }
 
 type GetReviewPointReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetRewardGroupData struct {
-	I_id               int64
-	I_Group            int64
-	I_RewardType       int64
-	I_RewardID         int64
-	L_RewardQuantity   int64
-	I_BuyFirstQuantity int64
+	I_id               int64 `thrift:",1,omitempty"`
+	I_Group            int64 `thrift:",2,omitempty"`
+	I_RewardType       int64 `thrift:",3,omitempty"`
+	I_RewardID         int64 `thrift:",4,omitempty"`
+	L_RewardQuantity   int64 `thrift:",5,omitempty"`
+	I_BuyFirstQuantity int64 `thrift:",6,omitempty"`
 }
 
 type GetSamSeckEventData struct {
-	I_id                 int32
-	S_Description_KO     string
-	S_Description_EN     string
-	S_Description_JA     string
-	S_Description_ZH_CHS string
-	S_Description_ZH_CHT string
-	S_Description_VI     string
-	S_Description_ES     string
-	S_Description_IT     string
-	S_Description_ID     string
-	S_Description_TH     string
-	S_Description_PT     string
-	S_Description_HI     string
-	S_ConditionType      string
-	D_Condition          float64
-	I_MailRewardID       int64
-	B_IsActive           int16
+	I_id                 int32   `thrift:",1,omitempty"`
+	S_Description_KO     string  `thrift:",2,omitempty"`
+	S_Description_EN     string  `thrift:",3,omitempty"`
+	S_Description_JA     string  `thrift:",4,omitempty"`
+	S_Description_ZH_CHS string  `thrift:",5,omitempty"`
+	S_Description_ZH_CHT string  `thrift:",6,omitempty"`
+	S_Description_VI     string  `thrift:",7,omitempty"`
+	S_Description_ES     string  `thrift:",8,omitempty"`
+	S_Description_IT     string  `thrift:",9,omitempty"`
+	S_Description_ID     string  `thrift:",10,omitempty"`
+	S_Description_TH     string  `thrift:",11,omitempty"`
+	S_Description_PT     string  `thrift:",12,omitempty"`
+	S_Description_HI     string  `thrift:",13,omitempty"`
+	S_ConditionType      string  `thrift:",14,omitempty"`
+	D_Condition          float64 `thrift:",15,omitempty"`
+	I_MailRewardID       int64   `thrift:",16,omitempty"`
+	B_IsActive           int16   `thrift:",17,omitempty"`
 }
 
 type GetSamSeckList struct {
-	Call        string
-	Data        GetSamSeckListDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        GetSamSeckListDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type GetSamSeckListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetSamSeckListRetDataInfo struct {
-	Event_type string
-	RewardList []any // TODO
+	Event_type string `thrift:",1,omitempty"`
+	RewardList []any  `thrift:",2,omitempty"` // TODO
 }
 
 type GetSamSeckListReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetSamSeckListRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Server_time ServerTimeRet             `thrift:",2,omitempty"`
+	Mode        string                    `thrift:",3,omitempty"`
+	Call        string                    `thrift:",4,omitempty"`
+	Data        GetSamSeckListRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData           `thrift:",6,omitempty"`
 }
 
 type GetSamSeckReward struct {
-	Call        string
-	Data        GetSamSeckRewardDataInfo
-	Common_data ParamData
+	Call        string                   `thrift:",1,omitempty"`
+	Data        GetSamSeckRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                `thrift:",3,omitempty"`
 }
 
 type GetSamSeckRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
 }
 
 type GetSamSeckRewardRetDataInfo struct {
-	Step int16
+	Step int16 `thrift:",1,omitempty"`
 }
 
 type GetSamSeckRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetSamSeckRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                `thrift:",1,omitempty"`
+	Server_time ServerTimeRet               `thrift:",2,omitempty"`
+	Mode        string                      `thrift:",3,omitempty"`
+	Call        string                      `thrift:",4,omitempty"`
+	Data        GetSamSeckRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData             `thrift:",6,omitempty"`
 }
 
 type GetSelectRewardData struct {
-	I_id               int32
-	I_GroupId          int32
-	I_RewardGroupId    int32
-	I_AltRewardGroupId int32
-	B_IsActive         int16
+	I_id               int32 `thrift:",1,omitempty"`
+	I_GroupId          int32 `thrift:",2,omitempty"`
+	I_RewardGroupId    int32 `thrift:",3,omitempty"`
+	I_AltRewardGroupId int32 `thrift:",4,omitempty"`
+	B_IsActive         int16 `thrift:",5,omitempty"`
 }
 
 type GetServerList struct {
-	Call string
-	Data GetServerListDataInfo
+	Call string                `thrift:",1,omitempty"`
+	Data GetServerListDataInfo `thrift:",2,omitempty"`
 }
 
 type GetServerListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Type        string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Type        string `thrift:",5,omitempty"`
 }
 
 type GetServerListRetDataInfo struct {
-	User_data    UserData
-	Channel_list []any // TODO
+	User_data    UserData `thrift:",1,omitempty"`
+	Channel_list []any    `thrift:",2,omitempty"` // TODO
 }
 
 type GetServerListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetServerListRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Mode        string                   `thrift:",2,omitempty"`
+	Call        string                   `thrift:",3,omitempty"`
+	Data        GetServerListRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData          `thrift:",5,omitempty"`
 }
 
 type GetServerTime struct {
-	Call        string
-	Data        MainDataInfo
-	Sub_mode    string
-	Common_data ParamData
+	Call        string       `thrift:",1,omitempty"`
+	Data        MainDataInfo `thrift:",2,omitempty"`
+	Sub_mode    string       `thrift:",3,omitempty"`
+	Common_data ParamData    `thrift:",4,omitempty"`
 }
 
 type GetServerTimeDataInfo struct {
-	Device_uuid string
+	Device_uuid string `thrift:",1,omitempty"`
 }
 
 type GetServerTimeRetDataInfo struct {
-	Time     int64
-	Datetime int64
+	Time     int64 `thrift:",1,omitempty"`
+	Datetime int64 `thrift:",2,omitempty"`
 }
 
 type GetServerTimeReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetServerTimeRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Server_time ServerTimeRet            `thrift:",2,omitempty"`
+	Mode        string                   `thrift:",3,omitempty"`
+	Call        string                   `thrift:",4,omitempty"`
+	Data        GetServerTimeRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData          `thrift:",6,omitempty"`
 }
 
 type GetShopData struct {
-	I_id                    int64
-	S_ProductID_ios         string
-	S_ProductID_aos         string
-	I_ShopCategory          int64
-	I_ProductType           int64
-	S_ResourceName          string
-	S_Title_KO              string
-	S_Title_EN              string
-	S_Title_JA              string
-	S_Title_ZH_CHS          string
-	S_Title_ZH_CHT          string
-	S_Title_VI              string
-	S_Title_ES              string
-	S_Title_IT              string
-	S_Title_ID              string
-	S_Title_TH              string
-	S_Title_PT              string
-	S_Title_HI              string
-	S_Description_KO        string
-	S_Description_EN        string
-	S_Description_JA        string
-	S_Description_ZH_CHS    string
-	S_Description_ZH_CHT    string
-	S_Description_VI        string
-	S_Description_ES        string
-	S_Description_IT        string
-	S_Description_ID        string
-	S_Description_TH        string
-	S_Description_PT        string
-	S_Description_HI        string
-	I_RewardGroup           int64
-	I_Tag                   int64
-	I_SellType              int64
-	I_SellValue             int64
-	B_IsActive              int16
-	I_Condition             int64
-	I_ConditionValue        int64
-	S_StorePrice_AOS        string
-	S_StorePrice_IOS        string
-	I_SortIndex             int16
-	S_AreaList              string
-	S_AltResourceName       string
-	S_AltDescription_KO     string
-	S_AltDescription_EN     string
-	S_AltDescription_JA     string
-	S_AltDescription_ZH_CHS string
-	S_AltDescription_ZH_CHT string
-	S_AltDescription_VI     string
-	S_AltDescription_ES     string
-	S_AltDescription_IT     string
-	S_AltDescription_ID     string
-	S_AltDescription_TH     string
-	S_AltDescription_PT     string
-	S_AltDescription_HI     string
-	S_Kor_StorePrice_AOS    string
-	S_Kor_StorePrice_IOS    string
-	B_IsLimitTime           int16
-	S_UIStartTime           string
-	S_StartTime             string
-	S_EndTime               string
+	I_id                    int64  `thrift:",1,omitempty"`
+	S_ProductID_ios         string `thrift:",2,omitempty"`
+	S_ProductID_aos         string `thrift:",3,omitempty"`
+	I_ShopCategory          int64  `thrift:",4,omitempty"`
+	I_ProductType           int64  `thrift:",5,omitempty"`
+	S_ResourceName          string `thrift:",6,omitempty"`
+	S_Title_KO              string `thrift:",7,omitempty"`
+	S_Title_EN              string `thrift:",8,omitempty"`
+	S_Title_JA              string `thrift:",9,omitempty"`
+	S_Title_ZH_CHS          string `thrift:",10,omitempty"`
+	S_Title_ZH_CHT          string `thrift:",11,omitempty"`
+	S_Title_VI              string `thrift:",12,omitempty"`
+	S_Title_ES              string `thrift:",13,omitempty"`
+	S_Title_IT              string `thrift:",14,omitempty"`
+	S_Title_ID              string `thrift:",15,omitempty"`
+	S_Title_TH              string `thrift:",16,omitempty"`
+	S_Title_PT              string `thrift:",17,omitempty"`
+	S_Title_HI              string `thrift:",18,omitempty"`
+	S_Description_KO        string `thrift:",19,omitempty"`
+	S_Description_EN        string `thrift:",20,omitempty"`
+	S_Description_JA        string `thrift:",21,omitempty"`
+	S_Description_ZH_CHS    string `thrift:",22,omitempty"`
+	S_Description_ZH_CHT    string `thrift:",23,omitempty"`
+	S_Description_VI        string `thrift:",24,omitempty"`
+	S_Description_ES        string `thrift:",25,omitempty"`
+	S_Description_IT        string `thrift:",26,omitempty"`
+	S_Description_ID        string `thrift:",27,omitempty"`
+	S_Description_TH        string `thrift:",28,omitempty"`
+	S_Description_PT        string `thrift:",29,omitempty"`
+	S_Description_HI        string `thrift:",30,omitempty"`
+	I_RewardGroup           int64  `thrift:",31,omitempty"`
+	I_Tag                   int64  `thrift:",32,omitempty"`
+	I_SellType              int64  `thrift:",33,omitempty"`
+	I_SellValue             int64  `thrift:",34,omitempty"`
+	B_IsActive              int16  `thrift:",35,omitempty"`
+	I_Condition             int64  `thrift:",36,omitempty"`
+	I_ConditionValue        int64  `thrift:",37,omitempty"`
+	S_StorePrice_AOS        string `thrift:",38,omitempty"`
+	S_StorePrice_IOS        string `thrift:",39,omitempty"`
+	I_SortIndex             int16  `thrift:",40,omitempty"`
+	S_AreaList              string `thrift:",41,omitempty"`
+	S_AltResourceName       string `thrift:",42,omitempty"`
+	S_AltDescription_KO     string `thrift:",43,omitempty"`
+	S_AltDescription_EN     string `thrift:",44,omitempty"`
+	S_AltDescription_JA     string `thrift:",45,omitempty"`
+	S_AltDescription_ZH_CHS string `thrift:",46,omitempty"`
+	S_AltDescription_ZH_CHT string `thrift:",47,omitempty"`
+	S_AltDescription_VI     string `thrift:",48,omitempty"`
+	S_AltDescription_ES     string `thrift:",49,omitempty"`
+	S_AltDescription_IT     string `thrift:",50,omitempty"`
+	S_AltDescription_ID     string `thrift:",51,omitempty"`
+	S_AltDescription_TH     string `thrift:",52,omitempty"`
+	S_AltDescription_PT     string `thrift:",53,omitempty"`
+	S_AltDescription_HI     string `thrift:",54,omitempty"`
+	S_Kor_StorePrice_AOS    string `thrift:",55,omitempty"`
+	S_Kor_StorePrice_IOS    string `thrift:",56,omitempty"`
+	B_IsLimitTime           int16  `thrift:",57,omitempty"`
+	S_UIStartTime           string `thrift:",58,omitempty"`
+	S_StartTime             string `thrift:",59,omitempty"`
+	S_EndTime               string `thrift:",60,omitempty"`
 }
 
 type GetSkillData struct {
-	I_id                      int32
-	I_Area                    int16
-	S_Name_KO                 string
-	S_Name_EN                 string
-	S_Name_JA                 string
-	S_Name_ZH_CHS             string
-	S_Name_ZH_CHT             string
-	S_Name_VI                 string
-	S_Name_ES                 string
-	S_Name_IT                 string
-	S_Name_ID                 string
-	S_Name_TH                 string
-	S_Name_PT                 string
-	S_Name_HI                 string
-	S_Description_KO          string
-	S_Description_EN          string
-	S_Description_JA          string
-	S_Description_ZH_CHS      string
-	S_Description_ZH_CHT      string
-	S_Description_VI          string
-	S_Description_ES          string
-	S_Description_IT          string
-	S_Description_ID          string
-	S_Description_TH          string
-	S_Description_PT          string
-	S_Description_HI          string
-	S_ResourceName            string
-	I_MaxLevel                int64
-	S_GoodsType               string
-	I_Cost                    float64
-	F_CostIncreaseValue       float64
-	F_SkillValue              float64
-	F_SkillIncreaseValue      float64
-	F_SkillTime               float64
-	F_SkillTimeIncreaseValue  float64
-	F_Cooltime                float64
-	I_UnlockLevel             int64
-	I_UnlockCost              int64
-	I_RequirementSkillId_1    int64
-	I_RequirementSkillId_2    int64
-	I_RequirementFollowerId_1 int64
-	I_RequirementFollowerId_2 int64
-	I_RequirementPropId_1     int64
-	I_RequirementPropId_2     int64
-	I_RequirementPropCount    int64
+	I_id                      int32   `thrift:",1,omitempty"`
+	I_Area                    int16   `thrift:",2,omitempty"`
+	S_Name_KO                 string  `thrift:",3,omitempty"`
+	S_Name_EN                 string  `thrift:",4,omitempty"`
+	S_Name_JA                 string  `thrift:",5,omitempty"`
+	S_Name_ZH_CHS             string  `thrift:",6,omitempty"`
+	S_Name_ZH_CHT             string  `thrift:",7,omitempty"`
+	S_Name_VI                 string  `thrift:",8,omitempty"`
+	S_Name_ES                 string  `thrift:",9,omitempty"`
+	S_Name_IT                 string  `thrift:",10,omitempty"`
+	S_Name_ID                 string  `thrift:",11,omitempty"`
+	S_Name_TH                 string  `thrift:",12,omitempty"`
+	S_Name_PT                 string  `thrift:",13,omitempty"`
+	S_Name_HI                 string  `thrift:",14,omitempty"`
+	S_Description_KO          string  `thrift:",15,omitempty"`
+	S_Description_EN          string  `thrift:",16,omitempty"`
+	S_Description_JA          string  `thrift:",17,omitempty"`
+	S_Description_ZH_CHS      string  `thrift:",18,omitempty"`
+	S_Description_ZH_CHT      string  `thrift:",19,omitempty"`
+	S_Description_VI          string  `thrift:",20,omitempty"`
+	S_Description_ES          string  `thrift:",21,omitempty"`
+	S_Description_IT          string  `thrift:",22,omitempty"`
+	S_Description_ID          string  `thrift:",23,omitempty"`
+	S_Description_TH          string  `thrift:",24,omitempty"`
+	S_Description_PT          string  `thrift:",25,omitempty"`
+	S_Description_HI          string  `thrift:",26,omitempty"`
+	S_ResourceName            string  `thrift:",27,omitempty"`
+	I_MaxLevel                int64   `thrift:",28,omitempty"`
+	S_GoodsType               string  `thrift:",29,omitempty"`
+	I_Cost                    float64 `thrift:",30,omitempty"`
+	F_CostIncreaseValue       float64 `thrift:",31,omitempty"`
+	F_SkillValue              float64 `thrift:",32,omitempty"`
+	F_SkillIncreaseValue      float64 `thrift:",33,omitempty"`
+	F_SkillTime               float64 `thrift:",34,omitempty"`
+	F_SkillTimeIncreaseValue  float64 `thrift:",35,omitempty"`
+	F_Cooltime                float64 `thrift:",36,omitempty"`
+	I_UnlockLevel             int64   `thrift:",37,omitempty"`
+	I_UnlockCost              int64   `thrift:",38,omitempty"`
+	I_RequirementSkillId_1    int64   `thrift:",39,omitempty"`
+	I_RequirementSkillId_2    int64   `thrift:",40,omitempty"`
+	I_RequirementFollowerId_1 int64   `thrift:",41,omitempty"`
+	I_RequirementFollowerId_2 int64   `thrift:",42,omitempty"`
+	I_RequirementPropId_1     int64   `thrift:",43,omitempty"`
+	I_RequirementPropId_2     int64   `thrift:",44,omitempty"`
+	I_RequirementPropCount    int64   `thrift:",45,omitempty"`
 }
 
 type GetSubscribeList struct {
-	I_id              int64
-	I_Area            int16
-	S_Type            string
-	I_TimeLimit       int16
-	I_StartYear       int32
-	I_RepeatMonth     int32
-	I_MonthGroupIndex int32
-	B_IsActive        int16
+	I_id              int64  `thrift:",1,omitempty"`
+	I_Area            int16  `thrift:",2,omitempty"`
+	S_Type            string `thrift:",3,omitempty"`
+	I_TimeLimit       int16  `thrift:",4,omitempty"`
+	I_StartYear       int32  `thrift:",5,omitempty"`
+	I_RepeatMonth     int32  `thrift:",6,omitempty"`
+	I_MonthGroupIndex int32  `thrift:",7,omitempty"`
+	B_IsActive        int16  `thrift:",8,omitempty"`
 }
 
 type GetSubscribePass struct {
-	I_id                 int64
-	I_SubscribeID        int64
-	S_AcquireList        string
-	I_PointPrice         int16
-	I_PaidPoint          int64
-	I_ActiveBuffID       int64
-	I_HiddenStep         int64
-	I_ADPoint            int64
-	I_ADCoolTime         int64
-	I_TicketCollectionId int64
+	I_id                 int64  `thrift:",1,omitempty"`
+	I_SubscribeID        int64  `thrift:",2,omitempty"`
+	S_AcquireList        string `thrift:",3,omitempty"`
+	I_PointPrice         int16  `thrift:",4,omitempty"`
+	I_PaidPoint          int64  `thrift:",5,omitempty"`
+	I_ActiveBuffID       int64  `thrift:",6,omitempty"`
+	I_HiddenStep         int64  `thrift:",7,omitempty"`
+	I_ADPoint            int64  `thrift:",8,omitempty"`
+	I_ADCoolTime         int64  `thrift:",9,omitempty"`
+	I_TicketCollectionId int64  `thrift:",10,omitempty"`
 }
 
 type GetSubscribePassReward struct {
-	I_id              int64
-	I_Group           int64
-	I_Step            int16
-	I_Goal            int64
-	I_FreeRewardGroup int64
-	I_PaidRewardGroup int64
+	I_id              int64 `thrift:",1,omitempty"`
+	I_Group           int64 `thrift:",2,omitempty"`
+	I_Step            int16 `thrift:",3,omitempty"`
+	I_Goal            int64 `thrift:",4,omitempty"`
+	I_FreeRewardGroup int64 `thrift:",5,omitempty"`
+	I_PaidRewardGroup int64 `thrift:",6,omitempty"`
 }
 
 type GetSubscribePassRewardInformation struct {
-	I_id                 int32
-	S_ResourceName       string
-	S_Description_KO     string
-	S_Description_EN     string
-	S_Description_JA     string
-	S_Description_ZH_CHS string
-	S_Description_ZH_CHT string
-	S_Description_VI     string
-	S_Description_ES     string
-	S_Description_IT     string
-	S_Description_ID     string
-	S_Description_TH     string
-	S_Description_PT     string
-	S_Description_HI     string
-	B_IsActive           int16
+	I_id                 int32  `thrift:",1,omitempty"`
+	S_ResourceName       string `thrift:",2,omitempty"`
+	S_Description_KO     string `thrift:",3,omitempty"`
+	S_Description_EN     string `thrift:",4,omitempty"`
+	S_Description_JA     string `thrift:",5,omitempty"`
+	S_Description_ZH_CHS string `thrift:",6,omitempty"`
+	S_Description_ZH_CHT string `thrift:",7,omitempty"`
+	S_Description_VI     string `thrift:",8,omitempty"`
+	S_Description_ES     string `thrift:",9,omitempty"`
+	S_Description_IT     string `thrift:",10,omitempty"`
+	S_Description_ID     string `thrift:",11,omitempty"`
+	S_Description_TH     string `thrift:",12,omitempty"`
+	S_Description_PT     string `thrift:",13,omitempty"`
+	S_Description_HI     string `thrift:",14,omitempty"`
+	B_IsActive           int16  `thrift:",15,omitempty"`
 }
 
 type GetSystemNotificationData struct {
-	I_Id                 int64
-	S_DescriptionType    string
-	I_Type               string
-	S_Factor             string
-	S_Description_KO     string
-	S_Description_EN     string
-	S_Description_JA     string
-	S_Description_ZH_CHS string
-	S_Description_ZH_CHT string
-	S_Description_VI     string
-	S_Description_ES     string
-	S_Description_IT     string
-	S_Description_ID     string
-	S_Description_TH     string
-	S_Description_PT     string
-	S_Description_HI     string
+	I_Id                 int64  `thrift:",1,omitempty"`
+	S_DescriptionType    string `thrift:",2,omitempty"`
+	I_Type               string `thrift:",3,omitempty"`
+	S_Factor             string `thrift:",4,omitempty"`
+	S_Description_KO     string `thrift:",5,omitempty"`
+	S_Description_EN     string `thrift:",6,omitempty"`
+	S_Description_JA     string `thrift:",7,omitempty"`
+	S_Description_ZH_CHS string `thrift:",8,omitempty"`
+	S_Description_ZH_CHT string `thrift:",9,omitempty"`
+	S_Description_VI     string `thrift:",10,omitempty"`
+	S_Description_ES     string `thrift:",11,omitempty"`
+	S_Description_IT     string `thrift:",12,omitempty"`
+	S_Description_ID     string `thrift:",13,omitempty"`
+	S_Description_TH     string `thrift:",14,omitempty"`
+	S_Description_PT     string `thrift:",15,omitempty"`
+	S_Description_HI     string `thrift:",16,omitempty"`
 }
 
 type GetSystemStringData struct {
-	I_StringID int64
-	S_Category string
-	S_UIType   string
-	S_Key      string
-	S_KO       string
-	S_EN       string
-	S_JA       string
-	S_ZH_CHS   string
-	S_ZH_CHT   string
-	S_ID       string
-	S_PT       string
-	S_ES       string
-	S_RU       string
-	S_DE       string
-	S_AR_XA    string
-	S_VI       string
-	S_IT       string
-	S_TH       string
-	S_HI       string
+	I_StringID int64  `thrift:",1,omitempty"`
+	S_Category string `thrift:",2,omitempty"`
+	S_UIType   string `thrift:",3,omitempty"`
+	S_Key      string `thrift:",4,omitempty"`
+	S_KO       string `thrift:",5,omitempty"`
+	S_EN       string `thrift:",6,omitempty"`
+	S_JA       string `thrift:",7,omitempty"`
+	S_ZH_CHS   string `thrift:",8,omitempty"`
+	S_ZH_CHT   string `thrift:",9,omitempty"`
+	S_ID       string `thrift:",10,omitempty"`
+	S_PT       string `thrift:",11,omitempty"`
+	S_ES       string `thrift:",12,omitempty"`
+	S_RU       string `thrift:",13,omitempty"`
+	S_DE       string `thrift:",14,omitempty"`
+	S_AR_XA    string `thrift:",15,omitempty"`
+	S_VI       string `thrift:",16,omitempty"`
+	S_IT       string `thrift:",17,omitempty"`
+	S_TH       string `thrift:",18,omitempty"`
+	S_HI       string `thrift:",19,omitempty"`
 }
 
 type GetTabList struct {
-	Call string
-	Data InitDataInfo
+	Call string       `thrift:",1,omitempty"`
+	Data InitDataInfo `thrift:",2,omitempty"`
 }
 
 type GetTabListDataInfo struct {
-	Type        string
-	Device_uuid string
+	Type        string `thrift:",1,omitempty"`
+	Device_uuid string `thrift:",2,omitempty"`
 }
 
 type GetTabListRetDataInfo struct {
-	Tab_list []any // TODO
+	Tab_list []any `thrift:",1,omitempty"` // TODO
 }
 
 type GetTabListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        map[any]any     `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetTicketCollectionData struct {
-	I_id                 int32
-	S_TicketType         string
-	S_Title_KO           string
-	S_Title_EN           string
-	S_Title_JA           string
-	S_Title_ZH_CHS       string
-	S_Title_ZH_CHT       string
-	S_Title_VI           string
-	S_Title_ES           string
-	S_Title_IT           string
-	S_Title_ID           string
-	S_Title_TH           string
-	S_Title_PT           string
-	S_Title_HI           string
-	S_Description_KO     string
-	S_Description_EN     string
-	S_Description_JA     string
-	S_Description_ZH_CHS string
-	S_Description_ZH_CHT string
-	S_Description_VI     string
-	S_Description_ES     string
-	S_Description_IT     string
-	S_Description_ID     string
-	S_Description_TH     string
-	S_Description_PT     string
-	S_Description_HI     string
-	S_ResourceName       string
-	S_ResourceName_Big   string
-	I_Season             int16
-	S_PassUIBundleName   string
-	S_BackgroundColor    string
-	S_LabelColor         string
-	S_SeasonLabelColor   string
-	S_SeasonBackColor    string
-	I_SortOrder          int32
-	B_IsActive           int16
+	I_id                 int32  `thrift:",1,omitempty"`
+	S_TicketType         string `thrift:",2,omitempty"`
+	S_Title_KO           string `thrift:",3,omitempty"`
+	S_Title_EN           string `thrift:",4,omitempty"`
+	S_Title_JA           string `thrift:",5,omitempty"`
+	S_Title_ZH_CHS       string `thrift:",6,omitempty"`
+	S_Title_ZH_CHT       string `thrift:",7,omitempty"`
+	S_Title_VI           string `thrift:",8,omitempty"`
+	S_Title_ES           string `thrift:",9,omitempty"`
+	S_Title_IT           string `thrift:",10,omitempty"`
+	S_Title_ID           string `thrift:",11,omitempty"`
+	S_Title_TH           string `thrift:",12,omitempty"`
+	S_Title_PT           string `thrift:",13,omitempty"`
+	S_Title_HI           string `thrift:",14,omitempty"`
+	S_Description_KO     string `thrift:",15,omitempty"`
+	S_Description_EN     string `thrift:",16,omitempty"`
+	S_Description_JA     string `thrift:",17,omitempty"`
+	S_Description_ZH_CHS string `thrift:",18,omitempty"`
+	S_Description_ZH_CHT string `thrift:",19,omitempty"`
+	S_Description_VI     string `thrift:",20,omitempty"`
+	S_Description_ES     string `thrift:",21,omitempty"`
+	S_Description_IT     string `thrift:",22,omitempty"`
+	S_Description_ID     string `thrift:",23,omitempty"`
+	S_Description_TH     string `thrift:",24,omitempty"`
+	S_Description_PT     string `thrift:",25,omitempty"`
+	S_Description_HI     string `thrift:",26,omitempty"`
+	S_ResourceName       string `thrift:",27,omitempty"`
+	S_ResourceName_Big   string `thrift:",28,omitempty"`
+	I_Season             int16  `thrift:",29,omitempty"`
+	S_PassUIBundleName   string `thrift:",30,omitempty"`
+	S_BackgroundColor    string `thrift:",31,omitempty"`
+	S_LabelColor         string `thrift:",32,omitempty"`
+	S_SeasonLabelColor   string `thrift:",33,omitempty"`
+	S_SeasonBackColor    string `thrift:",34,omitempty"`
+	I_SortOrder          int32  `thrift:",35,omitempty"`
+	B_IsActive           int16  `thrift:",36,omitempty"`
 }
 
 type GetTotalCountryRank struct {
-	Call string
-	Data GetTotalCountryRankDataInfo
+	Call string                      `thrift:",1,omitempty"`
+	Data GetTotalCountryRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetTotalCountryRankDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Start_limit int32
-	End_limit   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Start_limit int32  `thrift:",5,omitempty"`
+	End_limit   int32  `thrift:",6,omitempty"`
 }
 
 type GetTotalCountryRankRet struct {
-	G           int16
-	S           int16
-	B           int16
-	Total_score int32
-	U_avatar    int16
-	U_id        string
-	U_nick      string
-	U_country   string
-	Rank        int32
+	G           int16  `thrift:",1,omitempty"`
+	S           int16  `thrift:",2,omitempty"`
+	B           int16  `thrift:",3,omitempty"`
+	Total_score int32  `thrift:",4,omitempty"`
+	U_avatar    int16  `thrift:",5,omitempty"`
+	U_id        string `thrift:",6,omitempty"`
+	U_nick      string `thrift:",7,omitempty"`
+	U_country   string `thrift:",8,omitempty"`
+	Rank        int32  `thrift:",9,omitempty"`
 }
 
 type GetTotalCountryRankRetDataInfo struct {
-	Start_limit int16
-	End_limit   int16
-	My_rank     GetTotalCountryRankRet
-	Rank_list   []any // TODO
+	Start_limit int16                  `thrift:",1,omitempty"`
+	End_limit   int16                  `thrift:",2,omitempty"`
+	My_rank     GetTotalCountryRankRet `thrift:",3,omitempty"`
+	Rank_list   []any                  `thrift:",4,omitempty"` // TODO
 }
 
 type GetTotalCountryRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetTotalCountryRankRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                   `thrift:",1,omitempty"`
+	Mode        string                         `thrift:",2,omitempty"`
+	Call        string                         `thrift:",3,omitempty"`
+	Data        GetTotalCountryRankRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData                `thrift:",5,omitempty"`
 }
 
 type GetTotalCountryUserRankRet struct {
-	G           int16
-	S           int16
-	B           int16
-	Total_score int32
-	U_avatar    int16
-	U_id        string
-	U_nick      string
-	U_country   string
+	G           int16  `thrift:",1,omitempty"`
+	S           int16  `thrift:",2,omitempty"`
+	B           int16  `thrift:",3,omitempty"`
+	Total_score int32  `thrift:",4,omitempty"`
+	U_avatar    int16  `thrift:",5,omitempty"`
+	U_id        string `thrift:",6,omitempty"`
+	U_nick      string `thrift:",7,omitempty"`
+	U_country   string `thrift:",8,omitempty"`
 }
 
 type GetTotalMastersRankRet struct {
-	All_per   int16
-	All_com   int16
-	Score     int32
-	U_avatar  int16
-	U_id      string
-	U_nick    string
-	U_country string
+	All_per   int16  `thrift:",1,omitempty"`
+	All_com   int16  `thrift:",2,omitempty"`
+	Score     int32  `thrift:",3,omitempty"`
+	U_avatar  int16  `thrift:",4,omitempty"`
+	U_id      string `thrift:",5,omitempty"`
+	U_nick    string `thrift:",6,omitempty"`
+	U_country string `thrift:",7,omitempty"`
 }
 
 type GetTotalMusicMyRank struct {
-	Grade string
-	Rank  int32
-	Score int32
+	Grade string `thrift:",1,omitempty"`
+	Rank  int32  `thrift:",2,omitempty"`
+	Score int32  `thrift:",3,omitempty"`
 }
 
 type GetTotalMusicRank struct {
-	Call string
-	Data GetTotalMusicRankDataInfo
+	Call string                    `thrift:",1,omitempty"`
+	Data GetTotalMusicRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetTotalMusicRankDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Music_idx   int32
-	Start_limit int32
-	End_limit   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Music_idx   int32  `thrift:",5,omitempty"`
+	Start_limit int32  `thrift:",6,omitempty"`
+	End_limit   int32  `thrift:",7,omitempty"`
 }
 
 type GetTotalMusicRankList struct {
-	Rank    int32
-	Id      string
-	Nick    string
-	Country string
-	Score   int32
+	Rank    int32  `thrift:",1,omitempty"`
+	Id      string `thrift:",2,omitempty"`
+	Nick    string `thrift:",3,omitempty"`
+	Country string `thrift:",4,omitempty"`
+	Score   int32  `thrift:",5,omitempty"`
 }
 
 type GetTotalMusicRankList1 struct {
-	Rank  int32
-	Id    string
-	Score int32
+	Rank  int32  `thrift:",1,omitempty"`
+	Id    string `thrift:",2,omitempty"`
+	Score int32  `thrift:",3,omitempty"`
 }
 
 type GetTotalMusicRankList2 struct {
-	Rank  int32
-	Id    string
-	Score int32
+	Rank  int32  `thrift:",1,omitempty"`
+	Id    string `thrift:",2,omitempty"`
+	Score int32  `thrift:",3,omitempty"`
 }
 
 type GetTotalMusicRankList3 struct {
-	Rank  int32
-	Id    string
-	Score int32
+	Rank  int32  `thrift:",1,omitempty"`
+	Id    string `thrift:",2,omitempty"`
+	Score int32  `thrift:",3,omitempty"`
 }
 
 type GetTotalMusicRankRetData struct {
-	Total_rank_list []any // TODO
-	Rank_list1      []any // TODO
-	Rank_list2      []any // TODO
-	Rank_list3      []any // TODO
-	My_rank_list    []any // TODO
+	Total_rank_list []any `thrift:",1,omitempty"` // TODO
+	Rank_list1      []any `thrift:",2,omitempty"` // TODO
+	Rank_list2      []any `thrift:",3,omitempty"` // TODO
+	Rank_list3      []any `thrift:",4,omitempty"` // TODO
+	My_rank_list    []any `thrift:",5,omitempty"` // TODO
 }
 
 type GetTotalMusicRankRetDataInfo struct {
-	Total_rank_list []any // TODO
-	Rank_list1      []any // TODO
-	Rank_list2      []any // TODO
-	Rank_list3      []any // TODO
-	My_rank_list    []any // TODO
+	Total_rank_list []any `thrift:",1,omitempty"` // TODO
+	Rank_list1      []any `thrift:",2,omitempty"` // TODO
+	Rank_list2      []any `thrift:",3,omitempty"` // TODO
+	Rank_list3      []any `thrift:",4,omitempty"` // TODO
+	My_rank_list    []any `thrift:",5,omitempty"` // TODO
 }
 
 type GetTotalMusicRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetTourList struct {
-	Call string
-	Data GetTourListDataInfo
+	Call string              `thrift:",1,omitempty"`
+	Data GetTourListDataInfo `thrift:",2,omitempty"`
 }
 
 type GetTourListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetTourListRetDataInfo struct {
-	Tour_idx int32
-	Title    string
+	Tour_idx int32  `thrift:",1,omitempty"`
+	Title    string `thrift:",2,omitempty"`
 }
 
 type GetTourListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetTourRank struct {
-	Call string
-	Data GetTourRankDataInfo
+	Call string              `thrift:",1,omitempty"`
+	Data GetTourRankDataInfo `thrift:",2,omitempty"`
 }
 
 type GetTourRankData struct {
-	U_seq     int64
-	U_id      string
-	U_nick    string
-	U_avatar  int32
-	U_country string
-	Rank      int64
-	Score     int64
-	Medal     []any // TODO
+	U_seq     int64  `thrift:",1,omitempty"`
+	U_id      string `thrift:",2,omitempty"`
+	U_nick    string `thrift:",3,omitempty"`
+	U_avatar  int32  `thrift:",4,omitempty"`
+	U_country string `thrift:",5,omitempty"`
+	Rank      int64  `thrift:",6,omitempty"`
+	Score     int64  `thrift:",7,omitempty"`
+	Medal     []any  `thrift:",8,omitempty"` // TODO
 }
 
 type GetTourRankDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Tour_idx    int32
-	Track_idx   int32
-	Mode        string
-	Start_limit int64
-	End_limit   int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Tour_idx    int32  `thrift:",5,omitempty"`
+	Track_idx   int32  `thrift:",6,omitempty"`
+	Mode        string `thrift:",7,omitempty"`
+	Start_limit int64  `thrift:",8,omitempty"`
+	End_limit   int64  `thrift:",9,omitempty"`
 }
 
 type GetTourRankRetDataInfo struct {
-	My_rank GetTourRankData
-	Rank    []any // TODO
+	My_rank GetTourRankData `thrift:",1,omitempty"`
+	Rank    []any           `thrift:",2,omitempty"` // TODO
 }
 
 type GetTourRankReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetTourRankRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Mode        string                 `thrift:",2,omitempty"`
+	Call        string                 `thrift:",3,omitempty"`
+	Data        GetTourRankRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData        `thrift:",5,omitempty"`
 }
 
 type GetTransferId struct {
-	Call string
-	Data GetTransferIdDataInfo
+	Call string                `thrift:",1,omitempty"`
+	Data GetTransferIdDataInfo `thrift:",2,omitempty"`
 }
 
 type GetTransferIdDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetTransferIdRetDataInfo struct {
-	Transfer_id string
+	Transfer_id string `thrift:",1,omitempty"`
 }
 
 type GetTransferIdReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        GetTransferIdRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Mode        string                   `thrift:",2,omitempty"`
+	Call        string                   `thrift:",3,omitempty"`
+	Data        GetTransferIdRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData          `thrift:",5,omitempty"`
 }
 
 type GetUnitData struct {
-	I_id                      int32
-	S_Name_KO                 string
-	S_Name_EN                 string
-	S_Name_JA                 string
-	S_Name_ZH_CHS             string
-	S_Name_ZH_CHT             string
-	S_Name_VI                 string
-	S_Name_ES                 string
-	S_Name_IT                 string
-	S_Name_ID                 string
-	S_Name_TH                 string
-	S_Name_PT                 string
-	S_Name_HI                 string
-	S_Description_KO          string
-	S_Description_EN          string
-	S_Description_JA          string
-	S_Description_ZH_CHS      string
-	S_Description_ZH_CHT      string
-	S_Description_VI          string
-	S_Description_ES          string
-	S_Description_IT          string
-	S_Description_ID          string
-	S_Description_TH          string
-	S_Description_PT          string
-	S_Description_HI          string
-	S_ResourceName            string
-	I_MaxLevel                int64
-	S_GoodsType               string
-	I_Cost                    float64
-	F_CostIncreaseValue       float64
-	F_Value                   float64
-	F_IncreaseValue           float64
-	I_UnlockLevel             int64
-	I_UnlockCost              int64
-	I_RequirementUnitId_1     int64
-	I_RequirementUnitId_2     int64
-	I_RequirementFollowerId_1 int64
-	I_RequirementFollowerId_2 int64
-	I_RequirementPropId_1     int64
-	I_RequirementPropId_2     int64
-	I_RequirementPropCount    int64
-	I_Area                    int16
-	B_IsActive                int16
+	I_id                      int32   `thrift:",1,omitempty"`
+	S_Name_KO                 string  `thrift:",2,omitempty"`
+	S_Name_EN                 string  `thrift:",3,omitempty"`
+	S_Name_JA                 string  `thrift:",4,omitempty"`
+	S_Name_ZH_CHS             string  `thrift:",5,omitempty"`
+	S_Name_ZH_CHT             string  `thrift:",6,omitempty"`
+	S_Name_VI                 string  `thrift:",7,omitempty"`
+	S_Name_ES                 string  `thrift:",8,omitempty"`
+	S_Name_IT                 string  `thrift:",9,omitempty"`
+	S_Name_ID                 string  `thrift:",10,omitempty"`
+	S_Name_TH                 string  `thrift:",11,omitempty"`
+	S_Name_PT                 string  `thrift:",12,omitempty"`
+	S_Name_HI                 string  `thrift:",13,omitempty"`
+	S_Description_KO          string  `thrift:",14,omitempty"`
+	S_Description_EN          string  `thrift:",15,omitempty"`
+	S_Description_JA          string  `thrift:",16,omitempty"`
+	S_Description_ZH_CHS      string  `thrift:",17,omitempty"`
+	S_Description_ZH_CHT      string  `thrift:",18,omitempty"`
+	S_Description_VI          string  `thrift:",19,omitempty"`
+	S_Description_ES          string  `thrift:",20,omitempty"`
+	S_Description_IT          string  `thrift:",21,omitempty"`
+	S_Description_ID          string  `thrift:",22,omitempty"`
+	S_Description_TH          string  `thrift:",23,omitempty"`
+	S_Description_PT          string  `thrift:",24,omitempty"`
+	S_Description_HI          string  `thrift:",25,omitempty"`
+	S_ResourceName            string  `thrift:",26,omitempty"`
+	I_MaxLevel                int64   `thrift:",27,omitempty"`
+	S_GoodsType               string  `thrift:",28,omitempty"`
+	I_Cost                    float64 `thrift:",29,omitempty"`
+	F_CostIncreaseValue       float64 `thrift:",30,omitempty"`
+	F_Value                   float64 `thrift:",31,omitempty"`
+	F_IncreaseValue           float64 `thrift:",32,omitempty"`
+	I_UnlockLevel             int64   `thrift:",33,omitempty"`
+	I_UnlockCost              int64   `thrift:",34,omitempty"`
+	I_RequirementUnitId_1     int64   `thrift:",35,omitempty"`
+	I_RequirementUnitId_2     int64   `thrift:",36,omitempty"`
+	I_RequirementFollowerId_1 int64   `thrift:",37,omitempty"`
+	I_RequirementFollowerId_2 int64   `thrift:",38,omitempty"`
+	I_RequirementPropId_1     int64   `thrift:",39,omitempty"`
+	I_RequirementPropId_2     int64   `thrift:",40,omitempty"`
+	I_RequirementPropCount    int64   `thrift:",41,omitempty"`
+	I_Area                    int16   `thrift:",42,omitempty"`
+	B_IsActive                int16   `thrift:",43,omitempty"`
 }
 
 type GetUpdateTime struct {
-	Call        string
-	Data        GetUpdateTimeDataInfo
-	Common_data ParamData
+	Call        string                `thrift:",1,omitempty"`
+	Data        GetUpdateTimeDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData             `thrift:",3,omitempty"`
 }
 
 type GetUpdateTimeDataInfo struct {
-	Device_uuid string
+	Device_uuid string `thrift:",1,omitempty"`
 }
 
 type GetUpdateTimeRetDataInfo struct {
-	Upd_time int64
+	Upd_time int64 `thrift:",1,omitempty"`
 }
 
 type GetUpdateTimeReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetUpdateTimeRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Server_time ServerTimeRet            `thrift:",2,omitempty"`
+	Mode        string                   `thrift:",3,omitempty"`
+	Call        string                   `thrift:",4,omitempty"`
+	Data        GetUpdateTimeRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData          `thrift:",6,omitempty"`
 }
 
 type GetUserCollection struct {
-	Call string
-	Data GetUserCollectionDataInfo
+	Call string                    `thrift:",1,omitempty"`
+	Data GetUserCollectionDataInfo `thrift:",2,omitempty"`
 }
 
 type GetUserCollectionDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetUserCollectionRetDataInfo struct {
-	Music_idx   int64
-	Value       int64
-	Get_type    int16
-	Get_time    string
-	Create_time string
+	Music_idx   int64  `thrift:",1,omitempty"`
+	Value       int64  `thrift:",2,omitempty"`
+	Get_type    int16  `thrift:",3,omitempty"`
+	Get_time    string `thrift:",4,omitempty"`
+	Create_time string `thrift:",5,omitempty"`
 }
 
 type GetUserCollectionReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type GetUserInfo struct {
-	Call        string
-	Data        GetUserInfoDataInfo
-	Common_data ParamData
+	Call        string              `thrift:",1,omitempty"`
+	Data        GetUserInfoDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData           `thrift:",3,omitempty"`
 }
 
 type GetUserInfoDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetUserInfoRetDataInfo struct {
-	U_cp    int64
-	U_candy float64
-	U_like  float64
-	U_fans  int64
+	U_cp    int64   `thrift:",1,omitempty"`
+	U_candy float64 `thrift:",2,omitempty"`
+	U_like  float64 `thrift:",3,omitempty"`
+	U_fans  int64   `thrift:",4,omitempty"`
 }
 
 type GetUserInfoReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetUserInfoRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Server_time ServerTimeRet          `thrift:",2,omitempty"`
+	Mode        string                 `thrift:",3,omitempty"`
+	Call        string                 `thrift:",4,omitempty"`
+	Data        GetUserInfoRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData        `thrift:",6,omitempty"`
 }
 
 type GetUserItemInven struct {
-	Call string
-	Data GetUserItemInvenDataInfo
+	Call string                   `thrift:",1,omitempty"`
+	Data GetUserItemInvenDataInfo `thrift:",2,omitempty"`
 }
 
 type GetUserItemInvenDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type GetUserItemInvenRetDataInfo struct {
-	Item_inven_list map[any]any // TODO
-	Empty           string
+	Item_inven_list map[any]any `thrift:",1,omitempty"` // TODO
+	Empty           string      `thrift:",2,omitempty"`
 }
 
 type GetUserItemInvenReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        GetUserItemInvenRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                `thrift:",1,omitempty"`
+	Server_time ServerTimeRet               `thrift:",2,omitempty"`
+	Mode        string                      `thrift:",3,omitempty"`
+	Call        string                      `thrift:",4,omitempty"`
+	Data        GetUserItemInvenRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData             `thrift:",6,omitempty"`
 }
 
 type GetVarietyStore struct {
-	Call        string
-	Data        GetVarietyStoreDataInfo
-	Common_data ParamData
+	Call        string                  `thrift:",1,omitempty"`
+	Data        GetVarietyStoreDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData               `thrift:",3,omitempty"`
 }
 
 type GetVarietyStoreDataInfo struct {
-	Device_uuid string
+	Device_uuid string `thrift:",1,omitempty"`
 }
 
 type GetVarietyStoreRetDataInfo struct {
-	I_id                 int32
-	S_ResourceName       string
-	S_Title_KO           string
-	S_Title_EN           string
-	S_Title_JA           string
-	S_Title_ZH_CHS       string
-	S_Title_ZH_CHT       string
-	S_Title_VI           string
-	S_Title_ES           string
-	S_Title_IT           string
-	S_Title_ID           string
-	S_Title_TH           string
-	S_Title_PT           string
-	S_Title_HI           string
-	S_Description_KO     string
-	S_Description_EN     string
-	S_Description_JA     string
-	S_Description_ZH_CHS string
-	S_Description_ZH_CHT string
-	S_Description_VI     string
-	S_Description_ES     string
-	S_Description_IT     string
-	S_Description_ID     string
-	S_Description_TH     string
-	S_Description_PT     string
-	S_Description_HI     string
-	I_Cost               int32
-	I_RewardType         int32
-	I_RewardId           int32
-	I_RewardQuantity     int32
+	I_id                 int32  `thrift:",1,omitempty"`
+	S_ResourceName       string `thrift:",2,omitempty"`
+	S_Title_KO           string `thrift:",3,omitempty"`
+	S_Title_EN           string `thrift:",4,omitempty"`
+	S_Title_JA           string `thrift:",5,omitempty"`
+	S_Title_ZH_CHS       string `thrift:",6,omitempty"`
+	S_Title_ZH_CHT       string `thrift:",7,omitempty"`
+	S_Title_VI           string `thrift:",8,omitempty"`
+	S_Title_ES           string `thrift:",9,omitempty"`
+	S_Title_IT           string `thrift:",10,omitempty"`
+	S_Title_ID           string `thrift:",11,omitempty"`
+	S_Title_TH           string `thrift:",12,omitempty"`
+	S_Title_PT           string `thrift:",13,omitempty"`
+	S_Title_HI           string `thrift:",14,omitempty"`
+	S_Description_KO     string `thrift:",15,omitempty"`
+	S_Description_EN     string `thrift:",16,omitempty"`
+	S_Description_JA     string `thrift:",17,omitempty"`
+	S_Description_ZH_CHS string `thrift:",18,omitempty"`
+	S_Description_ZH_CHT string `thrift:",19,omitempty"`
+	S_Description_VI     string `thrift:",20,omitempty"`
+	S_Description_ES     string `thrift:",21,omitempty"`
+	S_Description_IT     string `thrift:",22,omitempty"`
+	S_Description_ID     string `thrift:",23,omitempty"`
+	S_Description_TH     string `thrift:",24,omitempty"`
+	S_Description_PT     string `thrift:",25,omitempty"`
+	S_Description_HI     string `thrift:",26,omitempty"`
+	I_Cost               int32  `thrift:",27,omitempty"`
+	I_RewardType         int32  `thrift:",28,omitempty"`
+	I_RewardId           int32  `thrift:",29,omitempty"`
+	I_RewardQuantity     int32  `thrift:",30,omitempty"`
 }
 
 type GetVarietyStoreReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        []any           `thrift:",5,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type HibernationLog struct {
-	Call string
-	Data HibernationLogDataInfo
+	Call string                 `thrift:",1,omitempty"`
+	Data HibernationLogDataInfo `thrift:",2,omitempty"`
 }
 
 type HibernationLogDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type HibernationLogRetDataInfo struct {
-	Action int32
+	Action int32 `thrift:",1,omitempty"`
 }
 
 type HibernationLogReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        HibernationLogRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Server_time ServerTimeRet             `thrift:",2,omitempty"`
+	Mode        string                    `thrift:",3,omitempty"`
+	Call        string                    `thrift:",4,omitempty"`
+	Data        HibernationLogRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData           `thrift:",6,omitempty"`
 }
 
 type InitDataInfo struct {
-	Type        string
-	Os          int16
-	Ver         int32
-	Device_uuid string
+	Type        string `thrift:",1,omitempty"`
+	Os          int16  `thrift:",2,omitempty"`
+	Ver         int32  `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type InitRetDataInfo struct {
-	Idx      int16
-	Game_url string
-	Cdn_url  string
+	Idx      int16  `thrift:",1,omitempty"`
+	Game_url string `thrift:",2,omitempty"`
+	Cdn_url  string `thrift:",3,omitempty"`
 }
 
 type InitReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        InitRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        InitRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type ItemList struct {
-	I_RewardType     int32
-	I_RewardId       int32
-	D_RewardQuantity float64
+	I_RewardType     int32   `thrift:",1,omitempty"`
+	I_RewardId       int32   `thrift:",2,omitempty"`
+	D_RewardQuantity float64 `thrift:",3,omitempty"`
 }
 
 type ItemPurchase struct {
-	Call     string
-	Data     ItemPurchaseDataInfo
-	Sub_mode string
+	Call     string               `thrift:",1,omitempty"`
+	Data     ItemPurchaseDataInfo `thrift:",2,omitempty"`
+	Sub_mode string               `thrift:",3,omitempty"`
 }
 
 type ItemPurchaseDataInfo struct {
-	U_seq             int32
-	U_id              string
-	Uuid              string
-	Device_uuid       string
-	Developer_payload string
-	Pay_id            string
-	Purchase_token    string
-	Purchase_id       string
-	Os                int16
-	Restore           int16
+	U_seq             int32  `thrift:",1,omitempty"`
+	U_id              string `thrift:",2,omitempty"`
+	Uuid              string `thrift:",3,omitempty"`
+	Device_uuid       string `thrift:",4,omitempty"`
+	Developer_payload string `thrift:",5,omitempty"`
+	Pay_id            string `thrift:",6,omitempty"`
+	Purchase_token    string `thrift:",7,omitempty"`
+	Purchase_id       string `thrift:",8,omitempty"`
+	Os                int16  `thrift:",9,omitempty"`
+	Restore           int16  `thrift:",10,omitempty"`
 }
 
 type ItemPurchaseRetDataInfo struct {
-	Item_type   int16
-	Item_value  int64
-	Pay_id      string
-	Product_id  string
-	Purchase_id string
+	Item_type   int16  `thrift:",1,omitempty"`
+	Item_value  int64  `thrift:",2,omitempty"`
+	Pay_id      string `thrift:",3,omitempty"`
+	Product_id  string `thrift:",4,omitempty"`
+	Purchase_id string `thrift:",5,omitempty"`
 }
 
 type ItemPurchaseReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        ItemPurchaseRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        ItemPurchaseRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type ItemStoreList struct {
-	Call        string
-	Data        ItemStoreListDataInfo
-	Common_data ParamData
+	Call        string                `thrift:",1,omitempty"`
+	Data        ItemStoreListDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData             `thrift:",3,omitempty"`
 }
 
 type ItemStoreListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Store_type  int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Store_type  int16  `thrift:",5,omitempty"`
 }
 
 type ItemStoreListRetDataInfo struct {
-	Bonus             int64
-	Idx               int64
-	Pp_idx            int64
-	Title_cn          string
-	Title_en          string
-	Title_jp          string
-	Desc_cn           string
-	Desc_en           string
-	Desc_jp           string
-	Img_url           string
-	Buy_type          int16
-	Item_type         int16
-	Prev_price        float64
-	Price             float64
-	Str_prev_price    string
-	Str_price         string
-	Item_value        int64
-	Sale_status       int16
-	Aos_pp_product_id string
-	Ios_pp_product_id string
+	Bonus             int64   `thrift:",1,omitempty"`
+	Idx               int64   `thrift:",2,omitempty"`
+	Pp_idx            int64   `thrift:",3,omitempty"`
+	Title_cn          string  `thrift:",4,omitempty"`
+	Title_en          string  `thrift:",5,omitempty"`
+	Title_jp          string  `thrift:",6,omitempty"`
+	Desc_cn           string  `thrift:",7,omitempty"`
+	Desc_en           string  `thrift:",8,omitempty"`
+	Desc_jp           string  `thrift:",9,omitempty"`
+	Img_url           string  `thrift:",10,omitempty"`
+	Buy_type          int16   `thrift:",11,omitempty"`
+	Item_type         int16   `thrift:",12,omitempty"`
+	Prev_price        float64 `thrift:",13,omitempty"`
+	Price             float64 `thrift:",14,omitempty"`
+	Str_prev_price    string  `thrift:",15,omitempty"`
+	Str_price         string  `thrift:",16,omitempty"`
+	Item_value        int64   `thrift:",17,omitempty"`
+	Sale_status       int16   `thrift:",18,omitempty"`
+	Aos_pp_product_id string  `thrift:",19,omitempty"`
+	Ios_pp_product_id string  `thrift:",20,omitempty"`
 }
 
 type ItemStoreListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type LastSaveTime struct {
-	Call        string
-	Data        LastSaveTimeDataInfo
-	Common_data ParamData
+	Call        string               `thrift:",1,omitempty"`
+	Data        LastSaveTimeDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData            `thrift:",3,omitempty"`
 }
 
 type LastSaveTimeDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type LastSaveTimeRetDataInfo struct {
-	Last_save_time int64
-	Device_uuid    string
+	Last_save_time int64  `thrift:",1,omitempty"`
+	Device_uuid    string `thrift:",2,omitempty"`
 }
 
 type LastSaveTimeReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        LastSaveTimeRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Server_time ServerTimeRet           `thrift:",2,omitempty"`
+	Mode        string                  `thrift:",3,omitempty"`
+	Call        string                  `thrift:",4,omitempty"`
+	Data        LastSaveTimeRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData         `thrift:",6,omitempty"`
 }
 
 type LogCashComplete struct {
-	Call string
-	Data LogCashCompleteDataInfo
+	Call string                  `thrift:",1,omitempty"`
+	Data LogCashCompleteDataInfo `thrift:",2,omitempty"`
 }
 
 type LogCashCompleteDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Shop_id     int32
-	Value       string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Shop_id     int32  `thrift:",5,omitempty"`
+	Value       string `thrift:",6,omitempty"`
 }
 
 type LogCashCompleteRetDataInfo struct {
-	Status string
+	Status string `thrift:",1,omitempty"`
 }
 
 type LogCashCompleteReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        LogCashCompleteRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode               `thrift:",1,omitempty"`
+	Server_time ServerTimeRet              `thrift:",2,omitempty"`
+	Mode        string                     `thrift:",3,omitempty"`
+	Call        string                     `thrift:",4,omitempty"`
+	Data        LogCashCompleteRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData            `thrift:",6,omitempty"`
 }
 
 type Main struct {
-	Call     string
-	Data     MainDataInfo
-	Sub_mode string
+	Call     string       `thrift:",1,omitempty"`
+	Data     MainDataInfo `thrift:",2,omitempty"`
+	Sub_mode string       `thrift:",3,omitempty"`
 }
 
 type MainDataInfo struct {
-	U_seq        int32
-	U_id         string
-	Uuid         string
-	Device_uuid  string
-	Country_code string
+	U_seq        int32  `thrift:",1,omitempty"`
+	U_id         string `thrift:",2,omitempty"`
+	Uuid         string `thrift:",3,omitempty"`
+	Device_uuid  string `thrift:",4,omitempty"`
+	Country_code string `thrift:",5,omitempty"`
 }
 
 type MainFeatures struct {
-	Album_idx    int32
-	F_type       int16
-	Buy_type     int16
-	New_status   int16
-	Discount     int16
-	Price        float64
-	Banner_url   string
-	Location_url string
+	Album_idx    int32   `thrift:",1,omitempty"`
+	F_type       int16   `thrift:",2,omitempty"`
+	Buy_type     int16   `thrift:",3,omitempty"`
+	New_status   int16   `thrift:",4,omitempty"`
+	Discount     int16   `thrift:",5,omitempty"`
+	Price        float64 `thrift:",6,omitempty"`
+	Banner_url   string  `thrift:",7,omitempty"`
+	Location_url string  `thrift:",8,omitempty"`
 }
 
 type MainGameInfo struct {
-	Album_list      []any       // TODO
-	Music_list      []any       // TODO
-	Album_language  map[any]any // TODO
-	Music_language  map[any]any // TODO
-	Tab             map[any]any // TODO
-	Notice          []any       // TODO
-	Default_setting GetDefaultSettingRetDataInfo
+	Album_list      []any                        `thrift:",1,omitempty"` // TODO
+	Music_list      []any                        `thrift:",2,omitempty"` // TODO
+	Album_language  map[any]any                  `thrift:",3,omitempty"` // TODO
+	Music_language  map[any]any                  `thrift:",4,omitempty"` // TODO
+	Tab             map[any]any                  `thrift:",5,omitempty"` // TODO
+	Notice          []any                        `thrift:",6,omitempty"` // TODO
+	Default_setting GetDefaultSettingRetDataInfo `thrift:",7,omitempty"`
 }
 
 type MainRetDataInfo struct {
-	GameInfo MainGameInfo
-	Features []any // TODO
+	GameInfo MainGameInfo `thrift:",1,omitempty"`
+	Features []any        `thrift:",2,omitempty"` // TODO
 }
 
 type MainReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        MainRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        MainRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type MaintenanceData struct {
-	Code           int16
-	Title          string
-	Description    string
-	Utc_time       int16
-	Facebook_url   string
-	Start_datetime string
-	End_datetime   string
+	Code           int16  `thrift:",1,omitempty"`
+	Title          string `thrift:",2,omitempty"`
+	Description    string `thrift:",3,omitempty"`
+	Utc_time       int16  `thrift:",4,omitempty"`
+	Facebook_url   string `thrift:",5,omitempty"`
+	Start_datetime string `thrift:",6,omitempty"`
+	End_datetime   string `thrift:",7,omitempty"`
 }
 
 type MaintenanceList struct {
-	Idx            int16
-	Title          string
-	Start_datetime int32
-	End_datetime   int32
-	View_flg       int16
+	Idx            int16  `thrift:",1,omitempty"`
+	Title          string `thrift:",2,omitempty"`
+	Start_datetime int32  `thrift:",3,omitempty"`
+	End_datetime   int32  `thrift:",4,omitempty"`
+	View_flg       int16  `thrift:",5,omitempty"`
 }
 
 type MoreGames struct {
-	Call string
-	Data MoreGamesDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data MoreGamesDataInfo `thrift:",2,omitempty"`
 }
 
 type MoreGamesDataInfo struct {
-	Locale     string
-	Adset_type string
-	Uuid       string
+	Locale     string `thrift:",1,omitempty"`
+	Adset_type string `thrift:",2,omitempty"`
+	Uuid       string `thrift:",3,omitempty"`
 }
 
 type MoreGamesRetDataInfo struct {
-	App_id            int32
-	Material_id       int32
-	Material_type     string
-	Material_category string
-	Material_name     string
-	Material_link     string
-	Link_text         string
-	Link_url_aos      string
-	Link_url_ios      string
-	Thumbnail_url     string
-	Icon_url          string
-	Update_date       string
+	App_id            int32  `thrift:",1,omitempty"`
+	Material_id       int32  `thrift:",2,omitempty"`
+	Material_type     string `thrift:",3,omitempty"`
+	Material_category string `thrift:",4,omitempty"`
+	Material_name     string `thrift:",5,omitempty"`
+	Material_link     string `thrift:",6,omitempty"`
+	Link_text         string `thrift:",7,omitempty"`
+	Link_url_aos      string `thrift:",8,omitempty"`
+	Link_url_ios      string `thrift:",9,omitempty"`
+	Thumbnail_url     string `thrift:",10,omitempty"`
+	Icon_url          string `thrift:",11,omitempty"`
+	Update_date       string `thrift:",12,omitempty"`
 }
 
 type MoreGamesReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        map[any]any     `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type MusicData struct {
-	Music_idx int32
-	Score1    int32
-	Score2    int32
-	Score3    int32
+	Music_idx int32 `thrift:",1,omitempty"`
+	Score1    int32 `thrift:",2,omitempty"`
+	Score2    int32 `thrift:",3,omitempty"`
+	Score3    int32 `thrift:",4,omitempty"`
 }
 
 type MusicListInfo struct {
-	Music_idx   int64
-	Genre_idx   int32
-	Difficulty1 int16
-	Difficulty2 int16
-	Difficulty3 int16
-	Difficulty4 int16
-	Buy_type    int16
-	Free_type   int16
-	Price       float64
-	Buy_ad      int32
-	Music_ver   int32
-	Bpm         float64
-	Cdn_dir     string
-	Track_type  int16
-	File_type   int16
-	New_status  int16
-	Update_time int32
-	Language    map[any]any // TODO
+	Music_idx   int64       `thrift:",1,omitempty"`
+	Genre_idx   int32       `thrift:",2,omitempty"`
+	Difficulty1 int16       `thrift:",3,omitempty"`
+	Difficulty2 int16       `thrift:",4,omitempty"`
+	Difficulty3 int16       `thrift:",5,omitempty"`
+	Difficulty4 int16       `thrift:",6,omitempty"`
+	Buy_type    int16       `thrift:",7,omitempty"`
+	Free_type   int16       `thrift:",8,omitempty"`
+	Price       float64     `thrift:",9,omitempty"`
+	Buy_ad      int32       `thrift:",10,omitempty"`
+	Music_ver   int32       `thrift:",11,omitempty"`
+	Bpm         float64     `thrift:",12,omitempty"`
+	Cdn_dir     string      `thrift:",13,omitempty"`
+	Track_type  int16       `thrift:",14,omitempty"`
+	File_type   int16       `thrift:",15,omitempty"`
+	New_status  int16       `thrift:",16,omitempty"`
+	Update_time int32       `thrift:",17,omitempty"`
+	Language    map[any]any `thrift:",18,omitempty"` // TODO
 }
 
 type MusicListLanguage struct {
-	Title      string
-	Artist     string
-	Songwriter string
-	Lyricist   string
+	Title      string `thrift:",1,omitempty"`
+	Artist     string `thrift:",2,omitempty"`
+	Songwriter string `thrift:",3,omitempty"`
+	Lyricist   string `thrift:",4,omitempty"`
 }
 
 type MusicPointReview struct {
-	Call string
-	Data MusicPointReviewDataInfo
+	Call string                   `thrift:",1,omitempty"`
+	Data MusicPointReviewDataInfo `thrift:",2,omitempty"`
 }
 
 type MusicPointReviewDataInfo struct {
-	U_seq        int32
-	U_id         string
-	Uuid         string
-	Device_uuid  string
-	Review_point []any // TODO
+	U_seq        int32  `thrift:",1,omitempty"`
+	U_id         string `thrift:",2,omitempty"`
+	Uuid         string `thrift:",3,omitempty"`
+	Device_uuid  string `thrift:",4,omitempty"`
+	Review_point []any  `thrift:",5,omitempty"` // TODO
 }
 
 type MusicPointReviewRetDataInfo struct {
-	Music_idx  int32
-	Point      float64
-	Difficulty int16
+	Music_idx  int32   `thrift:",1,omitempty"`
+	Point      float64 `thrift:",2,omitempty"`
+	Difficulty int16   `thrift:",3,omitempty"`
 }
 
 type MusicPointReviewReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type MusicProduct struct {
-	Product_id     int32
-	Product_type   int16
-	Product_name   string
-	Store_name     string
-	IapID          string
-	Price          float64
-	Prev_price     float64
-	Price_str      string
-	Prev_price_str string
-	Currency       string
-	Image          string
-	Thumbnail      string
-	Main_desc      string
+	Product_id     int32   `thrift:",1,omitempty"`
+	Product_type   int16   `thrift:",2,omitempty"`
+	Product_name   string  `thrift:",3,omitempty"`
+	Store_name     string  `thrift:",4,omitempty"`
+	IapID          string  `thrift:",5,omitempty"`
+	Price          float64 `thrift:",6,omitempty"`
+	Prev_price     float64 `thrift:",7,omitempty"`
+	Price_str      string  `thrift:",8,omitempty"`
+	Prev_price_str string  `thrift:",9,omitempty"`
+	Currency       string  `thrift:",10,omitempty"`
+	Image          string  `thrift:",11,omitempty"`
+	Thumbnail      string  `thrift:",12,omitempty"`
+	Main_desc      string  `thrift:",13,omitempty"`
 }
 
 type NewStoreList struct {
-	Call string
-	Data NewStoreListDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data NewStoreListDataInfo `thrift:",2,omitempty"`
 }
 
 type NewStoreListData struct {
-	Store_idx int16
-	Music_idx int32
+	Store_idx int16 `thrift:",1,omitempty"`
+	Music_idx int32 `thrift:",2,omitempty"`
 }
 
 type NewStoreListDataInfo struct {
-	Os           int16
-	Type         string
-	Country_code string
-	U_seq        int32
-	U_id         string
-	Uuid         string
-	Device_uuid  string
+	Os           int16  `thrift:",1,omitempty"`
+	Type         string `thrift:",2,omitempty"`
+	Country_code string `thrift:",3,omitempty"`
+	U_seq        int32  `thrift:",4,omitempty"`
+	U_id         string `thrift:",5,omitempty"`
+	Uuid         string `thrift:",6,omitempty"`
+	Device_uuid  string `thrift:",7,omitempty"`
 }
 
 type NewStoreListRetDataInfo struct {
-	Store_idx    int16
-	Store_type   int16
-	Buy_type     int16
-	Prev_price   int64
-	Price        int64
-	Title        string
-	Sub_title    string
-	Img_url      string
-	Store_list   map[any]any // TODO
-	Product_data NewStoreProduct
-	Is_sale      int16
+	Store_idx    int16           `thrift:",1,omitempty"`
+	Store_type   int16           `thrift:",2,omitempty"`
+	Buy_type     int16           `thrift:",3,omitempty"`
+	Prev_price   int64           `thrift:",4,omitempty"`
+	Price        int64           `thrift:",5,omitempty"`
+	Title        string          `thrift:",6,omitempty"`
+	Sub_title    string          `thrift:",7,omitempty"`
+	Img_url      string          `thrift:",8,omitempty"`
+	Store_list   map[any]any     `thrift:",9,omitempty"` // TODO
+	Product_data NewStoreProduct `thrift:",10,omitempty"`
+	Is_sale      int16           `thrift:",11,omitempty"`
 }
 
 type NewStoreListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        map[any]any     `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type NewStoreProduct struct {
-	Product_id     int32
-	Product_type   int16
-	Product_name   string
-	Store_name     string
-	IapID          string
-	Price          float64
-	Prev_price     float64
-	Price_str      string
-	Prev_price_str string
-	Currency       string
-	Image          string
-	Thumbnail      string
-	Main_desc      string
+	Product_id     int32   `thrift:",1,omitempty"`
+	Product_type   int16   `thrift:",2,omitempty"`
+	Product_name   string  `thrift:",3,omitempty"`
+	Store_name     string  `thrift:",4,omitempty"`
+	IapID          string  `thrift:",5,omitempty"`
+	Price          float64 `thrift:",6,omitempty"`
+	Prev_price     float64 `thrift:",7,omitempty"`
+	Price_str      string  `thrift:",8,omitempty"`
+	Prev_price_str string  `thrift:",9,omitempty"`
+	Currency       string  `thrift:",10,omitempty"`
+	Image          string  `thrift:",11,omitempty"`
+	Thumbnail      string  `thrift:",12,omitempty"`
+	Main_desc      string  `thrift:",13,omitempty"`
 }
 
 type PaidEventPoint struct {
-	Call        string
-	Data        PaidEventPointDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        PaidEventPointDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type PaidEventPointDataInfo struct {
-	U_seq         int32
-	U_id          string
-	Uuid          string
-	Device_uuid   string
-	Type          int16
-	I_SubscribeID int64
-	I_Version     int32
+	U_seq         int32  `thrift:",1,omitempty"`
+	U_id          string `thrift:",2,omitempty"`
+	Uuid          string `thrift:",3,omitempty"`
+	Device_uuid   string `thrift:",4,omitempty"`
+	Type          int16  `thrift:",5,omitempty"`
+	I_SubscribeID int64  `thrift:",6,omitempty"`
+	I_Version     int32  `thrift:",7,omitempty"`
 }
 
 type PaidEventPointRetDataInfo struct {
-	U_cp          int64
-	U_candy       float64
-	I_SubscribeID int64
-	I_Point       int64
-	I_Version     int32
+	U_cp          int64   `thrift:",1,omitempty"`
+	U_candy       float64 `thrift:",2,omitempty"`
+	I_SubscribeID int64   `thrift:",3,omitempty"`
+	I_Point       int64   `thrift:",4,omitempty"`
+	I_Version     int32   `thrift:",5,omitempty"`
 }
 
 type PaidEventPointReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        PaidEventPointRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Server_time ServerTimeRet             `thrift:",2,omitempty"`
+	Mode        string                    `thrift:",3,omitempty"`
+	Call        string                    `thrift:",4,omitempty"`
+	Data        PaidEventPointRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData           `thrift:",6,omitempty"`
 }
 
 type ParamData struct {
-	Client_ver int32
-	Type       string
-	Os         int16
+	Client_ver int32  `thrift:",1,omitempty"`
+	Type       string `thrift:",2,omitempty"`
+	Os         int16  `thrift:",3,omitempty"`
 }
 
 type PlayCheck struct {
-	Call string
-	Data PlayCheckDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data PlayCheckDataInfo `thrift:",2,omitempty"`
 }
 
 type PlayCheckDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Tour_idx    int32
-	Track_idx   int32
-	Music_idx   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Tour_idx    int32  `thrift:",5,omitempty"`
+	Track_idx   int32  `thrift:",6,omitempty"`
+	Music_idx   int32  `thrift:",7,omitempty"`
 }
 
 type PlayCheckRetDataInfo struct {
-	Basic       int32
-	Pro         int32
-	Legend      int32
-	Extra       int32
-	Server_time int64
+	Basic       int32 `thrift:",1,omitempty"`
+	Pro         int32 `thrift:",2,omitempty"`
+	Legend      int32 `thrift:",3,omitempty"`
+	Extra       int32 `thrift:",4,omitempty"`
+	Server_time int64 `thrift:",5,omitempty"`
 }
 
 type PlayCheckReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        PlayCheckRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Mode        string               `thrift:",2,omitempty"`
+	Call        string               `thrift:",3,omitempty"`
+	Data        PlayCheckRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData      `thrift:",5,omitempty"`
 }
 
 type PlayMusic struct {
-	Call string
-	Data PlayMusicDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data PlayMusicDataInfo `thrift:",2,omitempty"`
 }
 
 type PlayMusicDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Music_idx   int32
-	Difficulty  int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Music_idx   int32  `thrift:",5,omitempty"`
+	Difficulty  int32  `thrift:",6,omitempty"`
 }
 
 type PlayMusicRetDataInfo struct {
-	Code      int16
-	Album_idx int32
-	Music_idx int32
-	Score1    int32
-	Score2    int32
-	Score3    int32
-	Grade1    int16
-	Grade2    int16
-	Grade3    int16
-	Play_cnt1 int32
-	Play_cnt2 int32
-	Play_cnt3 int32
-	Buy_type  int16
-	Price     float64
+	Code      int16   `thrift:",1,omitempty"`
+	Album_idx int32   `thrift:",2,omitempty"`
+	Music_idx int32   `thrift:",3,omitempty"`
+	Score1    int32   `thrift:",4,omitempty"`
+	Score2    int32   `thrift:",5,omitempty"`
+	Score3    int32   `thrift:",6,omitempty"`
+	Grade1    int16   `thrift:",7,omitempty"`
+	Grade2    int16   `thrift:",8,omitempty"`
+	Grade3    int16   `thrift:",9,omitempty"`
+	Play_cnt1 int32   `thrift:",10,omitempty"`
+	Play_cnt2 int32   `thrift:",11,omitempty"`
+	Play_cnt3 int32   `thrift:",12,omitempty"`
+	Buy_type  int16   `thrift:",13,omitempty"`
+	Price     float64 `thrift:",14,omitempty"`
 }
 
 type PlayMusicReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        PlayMusicRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Server_time ServerTimeRet        `thrift:",2,omitempty"`
+	Mode        string               `thrift:",3,omitempty"`
+	Call        string               `thrift:",4,omitempty"`
+	Data        PlayMusicRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData      `thrift:",6,omitempty"`
 }
 
 type ProvidePost struct {
-	Call        string
-	Data        ProvidePostDataInfo
-	Common_data ParamData
+	Call        string              `thrift:",1,omitempty"`
+	Data        ProvidePostDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData           `thrift:",3,omitempty"`
 }
 
 type ProvidePostDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int64
-	Type        int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int64  `thrift:",5,omitempty"`
+	Type        int16  `thrift:",6,omitempty"`
 }
 
 type ProvidePostRetDataInfo struct {
-	I_RewardType     int32
-	I_RewardId       int32
-	D_RewardQuantity float64
+	I_RewardType     int32   `thrift:",1,omitempty"`
+	I_RewardId       int32   `thrift:",2,omitempty"`
+	D_RewardQuantity float64 `thrift:",3,omitempty"`
 }
 
 type ProvidePostReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type ReadPost struct {
-	Call string
-	Data ReadPostDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data ReadPostDataInfo `thrift:",2,omitempty"`
 }
 
 type ReadPostDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Idx         int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Idx         int64  `thrift:",5,omitempty"`
 }
 
 type ReadPostRetDataInfo struct {
-	Idx int64
+	Idx int64 `thrift:",1,omitempty"`
 }
 
 type ReadPostReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        ReadPostRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Mode        string              `thrift:",2,omitempty"`
+	Call        string              `thrift:",3,omitempty"`
+	Data        ReadPostRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData     `thrift:",5,omitempty"`
 }
 
 type RetReward struct {
-	Reward_type  int16
-	Reward_id    int32
-	Reward_value float64
+	Reward_type  int16   `thrift:",1,omitempty"`
+	Reward_id    int32   `thrift:",2,omitempty"`
+	Reward_value float64 `thrift:",3,omitempty"`
 }
 
 type ReviewDataList struct {
-	Music_idx  int32
-	Point      float64
-	Difficulty int16
+	Music_idx  int32   `thrift:",1,omitempty"`
+	Point      float64 `thrift:",2,omitempty"`
+	Difficulty int16   `thrift:",3,omitempty"`
 }
 
 type RewardList struct {
-	I_id             int64
-	I_RewardType     int32
-	I_RewardId       int32
-	D_RewardQuantity float64
+	I_id             int64   `thrift:",1,omitempty"`
+	I_RewardType     int32   `thrift:",2,omitempty"`
+	I_RewardId       int32   `thrift:",3,omitempty"`
+	D_RewardQuantity float64 `thrift:",4,omitempty"`
 }
 
 type RewardListData struct {
-	I_id             int64
-	I_RewardType     int32
-	I_RewardId       int32
-	D_RewardQuantity float64
+	I_id             int64   `thrift:",1,omitempty"`
+	I_RewardType     int32   `thrift:",2,omitempty"`
+	I_RewardId       int32   `thrift:",3,omitempty"`
+	D_RewardQuantity float64 `thrift:",4,omitempty"`
 }
 
 type SaveUserAchievement struct {
-	I_id       int64
-	D_Quantity float64
-	S_Quantity string
+	I_id       int64   `thrift:",1,omitempty"`
+	D_Quantity float64 `thrift:",2,omitempty"`
+	S_Quantity string  `thrift:",3,omitempty"`
 }
 
 type SaveUserAreaInfo struct {
-	U_area_num          int16
-	D_Like              float64
-	I_UserFanCount      int64
-	I_UserFanGrade      int16
-	I_SelectedCostumeId int64
-	I_SelectedMusicId   int64
-	I_SelectedGuitarId  int64
-	D_Candy             float64
-	S_TutorialList      string
-	S_Gp1               string
-	S_Gp2               string
+	U_area_num          int16   `thrift:",1,omitempty"`
+	D_Like              float64 `thrift:",2,omitempty"`
+	I_UserFanCount      int64   `thrift:",3,omitempty"`
+	I_UserFanGrade      int16   `thrift:",4,omitempty"`
+	I_SelectedCostumeId int64   `thrift:",5,omitempty"`
+	I_SelectedMusicId   int64   `thrift:",6,omitempty"`
+	I_SelectedGuitarId  int64   `thrift:",7,omitempty"`
+	D_Candy             float64 `thrift:",8,omitempty"`
+	S_TutorialList      string  `thrift:",9,omitempty"`
+	S_Gp1               string  `thrift:",10,omitempty"`
+	S_Gp2               string  `thrift:",11,omitempty"`
 }
 
 type SaveUserCharacter struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type SaveUserCostume struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type SaveUserDailyMission struct {
-	I_id       int64
-	D_Quantity int64
+	I_id       int64 `thrift:",1,omitempty"`
+	D_Quantity int64 `thrift:",2,omitempty"`
 }
 
 type SaveUserEventPoint struct {
-	S_EventType string
-	I_DataID    int64
-	I_Point     int64
-	I_Step      int64
-	I_Version   int32
+	S_EventType string `thrift:",1,omitempty"`
+	I_DataID    int64  `thrift:",2,omitempty"`
+	I_Point     int64  `thrift:",3,omitempty"`
+	I_Step      int64  `thrift:",4,omitempty"`
+	I_Version   int32  `thrift:",5,omitempty"`
 }
 
 type SaveUserFollower struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type SaveUserFollowerQuest struct {
-	I_CurrentID       int32
-	D_ConditionValue1 float64
-	D_ConditionValue2 float64
-	D_ConditionValue3 float64
+	I_CurrentID       int32   `thrift:",1,omitempty"`
+	D_ConditionValue1 float64 `thrift:",2,omitempty"`
+	D_ConditionValue2 float64 `thrift:",3,omitempty"`
+	D_ConditionValue3 float64 `thrift:",4,omitempty"`
 }
 
 type SaveUserGuitar struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type SaveUserInfo struct {
-	U_like                float64
-	U_fans                int64
-	U_fans_grade          int16
-	U_selected_costume_id int64
-	U_selected_music_id   int64
+	U_like                float64 `thrift:",1,omitempty"`
+	U_fans                int64   `thrift:",2,omitempty"`
+	U_fans_grade          int16   `thrift:",3,omitempty"`
+	U_selected_costume_id int64   `thrift:",4,omitempty"`
+	U_selected_music_id   int64   `thrift:",5,omitempty"`
 }
 
 type SaveUserMessenger struct {
-	I_MessengerChatRoomId int64
-	I_LastConfirmIndex    int64
-	S_UnlockGroupList     string
-	L_UpdateTimeTicks     int64
+	I_MessengerChatRoomId int64  `thrift:",1,omitempty"`
+	I_LastConfirmIndex    int64  `thrift:",2,omitempty"`
+	S_UnlockGroupList     string `thrift:",3,omitempty"`
+	L_UpdateTimeTicks     int64  `thrift:",4,omitempty"`
 }
 
 type SaveUserMusic struct {
-	I_id                    int64
-	I_Level                 int64
-	I_BonusLevel            int64
-	B_EncoreBonusAppear     int64
-	I_EncoreBonusFollowerId int64
+	I_id                    int64 `thrift:",1,omitempty"`
+	I_Level                 int64 `thrift:",2,omitempty"`
+	I_BonusLevel            int64 `thrift:",3,omitempty"`
+	B_EncoreBonusAppear     int64 `thrift:",4,omitempty"`
+	I_EncoreBonusFollowerId int64 `thrift:",5,omitempty"`
 }
 
 type SaveUserSkill struct {
-	I_id               int64
-	B_Activate         int16
-	L_ActivateOnTicks  int64
-	L_ActivateOffTicks int64
+	I_id               int64 `thrift:",1,omitempty"`
+	B_Activate         int16 `thrift:",2,omitempty"`
+	L_ActivateOnTicks  int64 `thrift:",3,omitempty"`
+	L_ActivateOffTicks int64 `thrift:",4,omitempty"`
 }
 
 type ScoreDataList struct {
-	Music_idx     int32
-	Score         int32
-	Grade         int16
-	Play_cnt      int32
-	Difficulty    int16
-	Multiple      float64
-	Gp            int32
-	Achievement   int16
-	Play_type     int16
-	Play_datetime string
-	Mission_clear int16
-	Combo_grade   int16
-	Is_credit     int16
+	Music_idx     int32   `thrift:",1,omitempty"`
+	Score         int32   `thrift:",2,omitempty"`
+	Grade         int16   `thrift:",3,omitempty"`
+	Play_cnt      int32   `thrift:",4,omitempty"`
+	Difficulty    int16   `thrift:",5,omitempty"`
+	Multiple      float64 `thrift:",6,omitempty"`
+	Gp            int32   `thrift:",7,omitempty"`
+	Achievement   int16   `thrift:",8,omitempty"`
+	Play_type     int16   `thrift:",9,omitempty"`
+	Play_datetime string  `thrift:",10,omitempty"`
+	Mission_clear int16   `thrift:",11,omitempty"`
+	Combo_grade   int16   `thrift:",12,omitempty"`
+	Is_credit     int16   `thrift:",13,omitempty"`
 }
 
 type ServerTimeRet struct {
-	Time     int32
-	Datetime int64
+	Time     int32 `thrift:",1,omitempty"`
+	Datetime int64 `thrift:",2,omitempty"`
 }
 
 type SetAdReward struct {
-	Call        string
-	Data        SetAdRewardDataInfo
-	Common_data ParamData
+	Call        string              `thrift:",1,omitempty"`
+	Data        SetAdRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData           `thrift:",3,omitempty"`
 }
 
 type SetAdRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
-	Param1      string
-	Param2      string
-	Param3      string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
+	Param1      string `thrift:",6,omitempty"`
+	Param2      string `thrift:",7,omitempty"`
+	Param3      string `thrift:",8,omitempty"`
 }
 
 type SetAdRewardRetDataInfo struct {
-	I_id                  int32
-	User_ad_list          UserAdList
-	Reward_data           []any // TODO
-	User_follower_profile UserFollowerProfile
+	I_id                  int32               `thrift:",1,omitempty"`
+	User_ad_list          UserAdList          `thrift:",2,omitempty"`
+	Reward_data           []any               `thrift:",3,omitempty"` // TODO
+	User_follower_profile UserFollowerProfile `thrift:",4,omitempty"`
 }
 
 type SetAdRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetAdRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Server_time ServerTimeRet          `thrift:",2,omitempty"`
+	Mode        string                 `thrift:",3,omitempty"`
+	Call        string                 `thrift:",4,omitempty"`
+	Data        SetAdRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData        `thrift:",6,omitempty"`
 }
 
 type SetAttendance struct {
-	Call        string
-	Data        SetAttendanceDataInfo
-	Common_data ParamData
+	Call        string                `thrift:",1,omitempty"`
+	Data        SetAttendanceDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData             `thrift:",3,omitempty"`
 }
 
 type SetAttendanceDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Type        string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Type        string `thrift:",5,omitempty"`
 }
 
 type SetAttendanceRetDataInfo struct {
-	Status                          string
-	User_follower_quest             UserFollowerQuest
-	Attendance_count                int32
-	Attendance_date                 int32
-	Max_coutinuous_attendance_count int32
+	Status                          string            `thrift:",1,omitempty"`
+	User_follower_quest             UserFollowerQuest `thrift:",2,omitempty"`
+	Attendance_count                int32             `thrift:",3,omitempty"`
+	Attendance_date                 int32             `thrift:",4,omitempty"`
+	Max_coutinuous_attendance_count int32             `thrift:",5,omitempty"`
 }
 
 type SetAttendanceReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetAttendanceRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Server_time ServerTimeRet            `thrift:",2,omitempty"`
+	Mode        string                   `thrift:",3,omitempty"`
+	Call        string                   `thrift:",4,omitempty"`
+	Data        SetAttendanceRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData          `thrift:",6,omitempty"`
 }
 
 type SetBookmark struct {
-	Call string
-	Data SetBookmarkDataInfo
+	Call string              `thrift:",1,omitempty"`
+	Data SetBookmarkDataInfo `thrift:",2,omitempty"`
 }
 
 type SetBookmarkDataInfo struct {
-	U_seq         int32
-	U_id          string
-	Uuid          string
-	Device_uuid   string
-	Bookmark_list []any // TODO
+	U_seq         int32  `thrift:",1,omitempty"`
+	U_id          string `thrift:",2,omitempty"`
+	Uuid          string `thrift:",3,omitempty"`
+	Device_uuid   string `thrift:",4,omitempty"`
+	Bookmark_list []any  `thrift:",5,omitempty"` // TODO
 }
 
 type SetBookmarkDataList struct {
-	Music_idx int32
-	Flag      int16
+	Music_idx int32 `thrift:",1,omitempty"`
+	Flag      int16 `thrift:",2,omitempty"`
 }
 
 type SetBookmarkRetDataInfo struct {
-	Music_idx int32
-	Flag      int16
+	Music_idx int32 `thrift:",1,omitempty"`
+	Flag      int16 `thrift:",2,omitempty"`
 }
 
 type SetBookmarkReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        []any           `thrift:",5,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type SetEventReward struct {
-	Call        string
-	Data        SetEventRewardDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        SetEventRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type SetEventRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Event_idx   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Event_idx   int32  `thrift:",5,omitempty"`
 }
 
 type SetEventRewardItem struct {
-	Item_type int32
-	Item_id   int32
-	Count     int64
+	Item_type int32 `thrift:",1,omitempty"`
+	Item_id   int32 `thrift:",2,omitempty"`
+	Count     int64 `thrift:",3,omitempty"`
 }
 
 type SetEventRewardRetDataInfo struct {
-	U_cp         int64
-	U_candy      float64
-	U_like       float64
-	U_fans       int64
-	Reward_type  int16
-	Reward_id    int32
-	Reward_value int32
-	Status       string
-	Reward_data  []any // TODO
+	U_cp         int64   `thrift:",1,omitempty"`
+	U_candy      float64 `thrift:",2,omitempty"`
+	U_like       float64 `thrift:",3,omitempty"`
+	U_fans       int64   `thrift:",4,omitempty"`
+	Reward_type  int16   `thrift:",5,omitempty"`
+	Reward_id    int32   `thrift:",6,omitempty"`
+	Reward_value int32   `thrift:",7,omitempty"`
+	Status       string  `thrift:",8,omitempty"`
+	Reward_data  []any   `thrift:",9,omitempty"` // TODO
 }
 
 type SetEventRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetEventRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Server_time ServerTimeRet             `thrift:",2,omitempty"`
+	Mode        string                    `thrift:",3,omitempty"`
+	Call        string                    `thrift:",4,omitempty"`
+	Data        SetEventRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData           `thrift:",6,omitempty"`
 }
 
 type SetFollowerProfileGift struct {
-	Call        string
-	Data        SetFollowerProfileGiftDataInfo
-	Common_data ParamData
+	Call        string                         `thrift:",1,omitempty"`
+	Data        SetFollowerProfileGiftDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                      `thrift:",3,omitempty"`
 }
 
 type SetFollowerProfileGiftDataInfo struct {
-	U_seq          int32
-	U_id           string
-	Uuid           string
-	Device_uuid    string
-	Profile_id     int32
-	Gift_id        int32
-	Use_gitf_value int32
+	U_seq          int32  `thrift:",1,omitempty"`
+	U_id           string `thrift:",2,omitempty"`
+	Uuid           string `thrift:",3,omitempty"`
+	Device_uuid    string `thrift:",4,omitempty"`
+	Profile_id     int32  `thrift:",5,omitempty"`
+	Gift_id        int32  `thrift:",6,omitempty"`
+	Use_gitf_value int32  `thrift:",7,omitempty"`
 }
 
 type SetFollowerProfileGiftRetDataInfo struct {
-	I_gift_type            int32
-	User_follower_giftitem UserFollowerGiftItem
-	User_follower_profile  UserFollowerProfile
+	I_gift_type            int32                `thrift:",1,omitempty"`
+	User_follower_giftitem UserFollowerGiftItem `thrift:",2,omitempty"`
+	User_follower_profile  UserFollowerProfile  `thrift:",3,omitempty"`
 }
 
 type SetFollowerProfileGiftReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetFollowerProfileGiftRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                      `thrift:",1,omitempty"`
+	Server_time ServerTimeRet                     `thrift:",2,omitempty"`
+	Mode        string                            `thrift:",3,omitempty"`
+	Call        string                            `thrift:",4,omitempty"`
+	Data        SetFollowerProfileGiftRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData                   `thrift:",6,omitempty"`
 }
 
 type SetFollowerQuestInfinite struct {
-	Call        string
-	Data        SetFollowerQuestInfiniteDataInfo
-	Common_data ParamData
+	Call        string                           `thrift:",1,omitempty"`
+	Data        SetFollowerQuestInfiniteDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                        `thrift:",3,omitempty"`
 }
 
 type SetFollowerQuestInfiniteDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type SetFollowerQuestInfiniteRetDataInfo struct {
-	U_seq               int32
-	User_follower_quest UserFollowerQuest
+	U_seq               int32             `thrift:",1,omitempty"`
+	User_follower_quest UserFollowerQuest `thrift:",2,omitempty"`
 }
 
 type SetFollowerQuestInfiniteReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetFollowerQuestInfiniteRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                        `thrift:",1,omitempty"`
+	Server_time ServerTimeRet                       `thrift:",2,omitempty"`
+	Mode        string                              `thrift:",3,omitempty"`
+	Call        string                              `thrift:",4,omitempty"`
+	Data        SetFollowerQuestInfiniteRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData                     `thrift:",6,omitempty"`
 }
 
 type SetGameReward struct {
-	Call        string
-	Data        SetGameRewardDataInfo
-	Common_data ParamData
+	Call        string                `thrift:",1,omitempty"`
+	Data        SetGameRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData             `thrift:",3,omitempty"`
 }
 
 type SetGameRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Type        string
-	Id          int32
-	Level       int16
-	Quantity    float64
-	S_quantity  string
+	U_seq       int32   `thrift:",1,omitempty"`
+	U_id        string  `thrift:",2,omitempty"`
+	Uuid        string  `thrift:",3,omitempty"`
+	Device_uuid string  `thrift:",4,omitempty"`
+	Type        string  `thrift:",5,omitempty"`
+	Id          int32   `thrift:",6,omitempty"`
+	Level       int16   `thrift:",7,omitempty"`
+	Quantity    float64 `thrift:",8,omitempty"`
+	S_quantity  string  `thrift:",9,omitempty"`
 }
 
 type SetGameRewardRetDataInfo struct {
-	Type                  string
-	Id                    int32
-	Level                 int16
-	Reward_type           string
-	Reward_value          int64
-	Status                string
-	User_follower_profile UserFollowerProfile
+	Type                  string              `thrift:",1,omitempty"`
+	Id                    int32               `thrift:",2,omitempty"`
+	Level                 int16               `thrift:",3,omitempty"`
+	Reward_type           string              `thrift:",4,omitempty"`
+	Reward_value          int64               `thrift:",5,omitempty"`
+	Status                string              `thrift:",6,omitempty"`
+	User_follower_profile UserFollowerProfile `thrift:",7,omitempty"`
 }
 
 type SetGameRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetGameRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Server_time ServerTimeRet            `thrift:",2,omitempty"`
+	Mode        string                   `thrift:",3,omitempty"`
+	Call        string                   `thrift:",4,omitempty"`
+	Data        SetGameRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData          `thrift:",6,omitempty"`
 }
 
 type SetPassReward struct {
-	Call        string
-	Data        SetPassRewardDataInfo
-	Common_data ParamData
+	Call        string                `thrift:",1,omitempty"`
+	Data        SetPassRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData             `thrift:",3,omitempty"`
 }
 
 type SetPassRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Group       int32
-	Step        int32
-	Type        int16
-	I_Version   int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Group       int32  `thrift:",5,omitempty"`
+	Step        int32  `thrift:",6,omitempty"`
+	Type        int16  `thrift:",7,omitempty"`
+	I_Version   int32  `thrift:",8,omitempty"`
 }
 
 type SetPassRewardRetDataInfo struct {
-	Subscribe_pass_reward UserSubscribePassReward
-	Reward_data           []any // TODO
+	Subscribe_pass_reward UserSubscribePassReward `thrift:",1,omitempty"`
+	Reward_data           []any                   `thrift:",2,omitempty"` // TODO
 }
 
 type SetPassRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetPassRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Server_time ServerTimeRet            `thrift:",2,omitempty"`
+	Mode        string                   `thrift:",3,omitempty"`
+	Call        string                   `thrift:",4,omitempty"`
+	Data        SetPassRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData          `thrift:",6,omitempty"`
 }
 
 type SetReviewPopup struct {
-	Call        string
-	Data        SetReviewPopupDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        SetReviewPopupDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type SetReviewPopupDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type SetReviewPopupRetDataInfo struct {
-	Status string
+	Status string `thrift:",1,omitempty"`
 }
 
 type SetReviewPopupReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetReviewPopupRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Server_time ServerTimeRet             `thrift:",2,omitempty"`
+	Mode        string                    `thrift:",3,omitempty"`
+	Call        string                    `thrift:",4,omitempty"`
+	Data        SetReviewPopupRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData           `thrift:",6,omitempty"`
 }
 
 type SetSelectReward struct {
-	Call        string
-	Data        SetSelectRewardDataInfo
-	Common_data ParamData
+	Call        string                  `thrift:",1,omitempty"`
+	Data        SetSelectRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData               `thrift:",3,omitempty"`
 }
 
 type SetSelectRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
 }
 
 type SetSelectRewardInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
 }
 
 type SetSelectRewardRetDataInfo struct {
-	U_seq                   int32
-	User_select_reward_list []any // TODO
+	U_seq                   int32 `thrift:",1,omitempty"`
+	User_select_reward_list []any `thrift:",2,omitempty"` // TODO
 }
 
 type SetSelectRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetSelectRewardRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode               `thrift:",1,omitempty"`
+	Server_time ServerTimeRet              `thrift:",2,omitempty"`
+	Mode        string                     `thrift:",3,omitempty"`
+	Call        string                     `thrift:",4,omitempty"`
+	Data        SetSelectRewardRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData            `thrift:",6,omitempty"`
 }
 
 type SetSubscribe struct {
-	Call        string
-	Data        SetSubscribeDataInfo
-	Common_data ParamData
+	Call        string               `thrift:",1,omitempty"`
+	Data        SetSubscribeDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData            `thrift:",3,omitempty"`
 }
 
 type SetSubscribeDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_ids       []any // TODO
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_ids       []any  `thrift:",5,omitempty"` // TODO
 }
 
 type SetSubscribeRetDataInfo struct {
-	U_seq               int32
-	User_subscribe_list []any // TODO
+	U_seq               int32 `thrift:",1,omitempty"`
+	User_subscribe_list []any `thrift:",2,omitempty"` // TODO
 }
 
 type SetSubscribeReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetSubscribeRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Server_time ServerTimeRet           `thrift:",2,omitempty"`
+	Mode        string                  `thrift:",3,omitempty"`
+	Call        string                  `thrift:",4,omitempty"`
+	Data        SetSubscribeRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData         `thrift:",6,omitempty"`
 }
 
 type SetTutorial struct {
-	Call        string
-	Data        SetTutorialDataInfo
-	Common_data ParamData
+	Call        string              `thrift:",1,omitempty"`
+	Data        SetTutorialDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData           `thrift:",3,omitempty"`
 }
 
 type SetTutorialDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Step        string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Step        string `thrift:",5,omitempty"`
 }
 
 type SetTutorialNew struct {
-	Call        string
-	Data        SetTutorialNewDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        SetTutorialNewDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type SetTutorialNewDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_ids       []any // TODO
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_ids       []any  `thrift:",5,omitempty"` // TODO
 }
 
 type SetTutorialNewRetDataInfo struct {
-	U_seq    int32
-	Tutorial []any // TODO
+	U_seq    int32 `thrift:",1,omitempty"`
+	Tutorial []any `thrift:",2,omitempty"` // TODO
 }
 
 type SetTutorialNewReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetTutorialNewRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Server_time ServerTimeRet             `thrift:",2,omitempty"`
+	Mode        string                    `thrift:",3,omitempty"`
+	Call        string                    `thrift:",4,omitempty"`
+	Data        SetTutorialNewRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData           `thrift:",6,omitempty"`
 }
 
 type SetTutorialRetDataInfo struct {
-	Step string
+	Step string `thrift:",1,omitempty"`
 }
 
 type SetTutorialReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetTutorialRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Server_time ServerTimeRet          `thrift:",2,omitempty"`
+	Mode        string                 `thrift:",3,omitempty"`
+	Call        string                 `thrift:",4,omitempty"`
+	Data        SetTutorialRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData        `thrift:",6,omitempty"`
 }
 
 type SetUserFollowerProfileReward struct {
-	Call        string
-	Data        SetUserFollowerProfileRewardDataInfo
-	Common_data ParamData
+	Call        string                               `thrift:",1,omitempty"`
+	Data        SetUserFollowerProfileRewardDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                            `thrift:",3,omitempty"`
 }
 
 type SetUserFollowerProfileRewardDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	I_id        int32
-	S_level     string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	I_id        int32  `thrift:",5,omitempty"`
+	S_level     string `thrift:",6,omitempty"`
 }
 
 type SetUserFollowerProfileRewardRetDataInfo struct {
-	I_id                  int32
-	I_level               int32
-	Reward_data           []any // TODO
-	User_follower_profile UserFollowerProfile
+	I_id                  int32               `thrift:",1,omitempty"`
+	I_level               int32               `thrift:",2,omitempty"`
+	Reward_data           []any               `thrift:",3,omitempty"` // TODO
+	User_follower_profile UserFollowerProfile `thrift:",4,omitempty"`
 }
 
 type SetUserFollowerProfileRewardReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet   `thrift:",2,omitempty"`
+	Mode        string          `thrift:",3,omitempty"`
+	Call        string          `thrift:",4,omitempty"`
+	Data        []any           `thrift:",5,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",6,omitempty"`
 }
 
 type SetUserFollowerQuest struct {
-	Call        string
-	Data        SetUserFollowerQuestDataInfo
-	Common_data ParamData
+	Call        string                       `thrift:",1,omitempty"`
+	Data        SetUserFollowerQuestDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData                    `thrift:",3,omitempty"`
 }
 
 type SetUserFollowerQuestDataInfo struct {
-	U_seq            int32
-	U_id             string
-	Uuid             string
-	Device_uuid      string
-	I_CurrentID      int32
-	I_SubID          int32
-	D_ConditionValue float64
+	U_seq            int32   `thrift:",1,omitempty"`
+	U_id             string  `thrift:",2,omitempty"`
+	Uuid             string  `thrift:",3,omitempty"`
+	Device_uuid      string  `thrift:",4,omitempty"`
+	I_CurrentID      int32   `thrift:",5,omitempty"`
+	I_SubID          int32   `thrift:",6,omitempty"`
+	D_ConditionValue float64 `thrift:",7,omitempty"`
 }
 
 type SetUserFollowerQuestRetDataInfo struct {
-	I_CurrentID       int32
-	I_CompleteID      int32
-	D_ConditionValue1 float64
-	D_ConditionValue2 float64
-	D_ConditionValue3 float64
-	I_RewardReceived1 int16
-	I_RewardReceived2 int16
-	I_RewardReceived3 int16
-	Next_flg          int16
-	Reward_data       []any // TODO
+	I_CurrentID       int32   `thrift:",1,omitempty"`
+	I_CompleteID      int32   `thrift:",2,omitempty"`
+	D_ConditionValue1 float64 `thrift:",3,omitempty"`
+	D_ConditionValue2 float64 `thrift:",4,omitempty"`
+	D_ConditionValue3 float64 `thrift:",5,omitempty"`
+	I_RewardReceived1 int16   `thrift:",6,omitempty"`
+	I_RewardReceived2 int16   `thrift:",7,omitempty"`
+	I_RewardReceived3 int16   `thrift:",8,omitempty"`
+	Next_flg          int16   `thrift:",9,omitempty"`
+	Reward_data       []any   `thrift:",10,omitempty"` // TODO
 }
 
 type SetUserFollowerQuestReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetUserFollowerQuestRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                    `thrift:",1,omitempty"`
+	Server_time ServerTimeRet                   `thrift:",2,omitempty"`
+	Mode        string                          `thrift:",3,omitempty"`
+	Call        string                          `thrift:",4,omitempty"`
+	Data        SetUserFollowerQuestRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData                 `thrift:",6,omitempty"`
 }
 
 type SetUserGP struct {
-	Call string
-	Data SetUserGPDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data SetUserGPDataInfo `thrift:",2,omitempty"`
 }
 
 type SetUserGPDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Gp          int32
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Gp          int32  `thrift:",5,omitempty"`
 }
 
 type SetUserGPRetDataInfo struct {
-	Gp int32
+	Gp int32 `thrift:",1,omitempty"`
 }
 
 type SetUserGPReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        SetUserGPRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Server_time ServerTimeRet        `thrift:",2,omitempty"`
+	Mode        string               `thrift:",3,omitempty"`
+	Call        string               `thrift:",4,omitempty"`
+	Data        SetUserGPRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData      `thrift:",6,omitempty"`
 }
 
 type StoreList struct {
-	Call string
-	Data StoreListDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data StoreListDataInfo `thrift:",2,omitempty"`
 }
 
 type StoreListData struct {
-	Store_idx int16
-	Music_idx int32
+	Store_idx int16 `thrift:",1,omitempty"`
+	Music_idx int32 `thrift:",2,omitempty"`
 }
 
 type StoreListDataInfo struct {
-	U_seq int32
-	U_id  string
-	Uuid  string
+	U_seq int32  `thrift:",1,omitempty"`
+	U_id  string `thrift:",2,omitempty"`
+	Uuid  string `thrift:",3,omitempty"`
 }
 
 type StoreListRetDataInfo struct {
-	Store_idx  int16
-	Store_type int16
-	Title      string
-	Sub_title  string
-	Img_url    string
-	Store_list map[any]any // TODO
+	Store_idx  int16       `thrift:",1,omitempty"`
+	Store_type int16       `thrift:",2,omitempty"`
+	Title      string      `thrift:",3,omitempty"`
+	Sub_title  string      `thrift:",4,omitempty"`
+	Img_url    string      `thrift:",5,omitempty"`
+	Store_list map[any]any `thrift:",6,omitempty"` // TODO
 }
 
 type StoreListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        map[any]any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        map[any]any     `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type StoreNotice struct {
-	Call string
-	Data StoreNoticeDataInfo
+	Call string              `thrift:",1,omitempty"`
+	Data StoreNoticeDataInfo `thrift:",2,omitempty"`
 }
 
 type StoreNoticeDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type StoreNoticeRetDataInfo struct {
-	Idx            int32
-	Product_id_aos int64
-	Product_id_ios int64
-	Front_img_url  string
-	Back_img_url   string
-	Main_desc      string
-	Sub_desc       string
+	Idx            int32  `thrift:",1,omitempty"`
+	Product_id_aos int64  `thrift:",2,omitempty"`
+	Product_id_ios int64  `thrift:",3,omitempty"`
+	Front_img_url  string `thrift:",4,omitempty"`
+	Back_img_url   string `thrift:",5,omitempty"`
+	Main_desc      string `thrift:",6,omitempty"`
+	Sub_desc       string `thrift:",7,omitempty"`
 }
 
 type StoreNoticeReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type TabListData struct {
-	Tap_idx   int16
-	Music_idx int32
+	Tap_idx   int16 `thrift:",1,omitempty"`
+	Music_idx int32 `thrift:",2,omitempty"`
 }
 
 type TitleList struct {
-	Call string
-	Data TitleListDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data TitleListDataInfo `thrift:",2,omitempty"`
 }
 
 type TitleListDataInfo struct {
-	Type string
+	Type string `thrift:",1,omitempty"`
 }
 
 type TitleListRetDataInfo struct {
-	Idx           int16
-	Resource_name string
-	Down_status   int16
-	Buy_type      int16
-	Price         int32
-	Buy_type2     int16
-	Price2        int32
-	Value         int32
-	Event_point   int64
-	Desc_ko       string
-	Desc_en       string
-	Desc_ja       string
+	Idx           int16  `thrift:",1,omitempty"`
+	Resource_name string `thrift:",2,omitempty"`
+	Down_status   int16  `thrift:",3,omitempty"`
+	Buy_type      int16  `thrift:",4,omitempty"`
+	Price         int32  `thrift:",5,omitempty"`
+	Buy_type2     int16  `thrift:",6,omitempty"`
+	Price2        int32  `thrift:",7,omitempty"`
+	Value         int32  `thrift:",8,omitempty"`
+	Event_point   int64  `thrift:",9,omitempty"`
+	Desc_ko       string `thrift:",10,omitempty"`
+	Desc_en       string `thrift:",11,omitempty"`
+	Desc_ja       string `thrift:",12,omitempty"`
 }
 
 type TitleListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        []any // TODO
-	Maintenance MaintenanceData
+	Error       ErrorRetCode    `thrift:",1,omitempty"`
+	Mode        string          `thrift:",2,omitempty"`
+	Call        string          `thrift:",3,omitempty"`
+	Data        []any           `thrift:",4,omitempty"` // TODO
+	Maintenance MaintenanceData `thrift:",5,omitempty"`
 }
 
 type TotalTopRank struct {
 }
 
 type TourMain struct {
-	Call string
-	Data TourMainDataInfo
+	Call string           `thrift:",1,omitempty"`
+	Data TourMainDataInfo `thrift:",2,omitempty"`
 }
 
 type TourMainDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type TourMainRetDataInfo struct {
-	Idx         int32
-	Title       string
-	Start_time  int64
-	End_time    int64
-	Server_time int64
-	Mode        string
-	Tour_track  []any // TODO
-	Tour_rank   TourRank
-	Track_rank  map[any]any // TODO
-	Utc         int16
+	Idx         int32       `thrift:",1,omitempty"`
+	Title       string      `thrift:",2,omitempty"`
+	Start_time  int64       `thrift:",3,omitempty"`
+	End_time    int64       `thrift:",4,omitempty"`
+	Server_time int64       `thrift:",5,omitempty"`
+	Mode        string      `thrift:",6,omitempty"`
+	Tour_track  []any       `thrift:",7,omitempty"` // TODO
+	Tour_rank   TourRank    `thrift:",8,omitempty"`
+	Track_rank  map[any]any `thrift:",9,omitempty"` // TODO
+	Utc         int16       `thrift:",10,omitempty"`
 }
 
 type TourMainReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        TourMainRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Mode        string              `thrift:",2,omitempty"`
+	Call        string              `thrift:",3,omitempty"`
+	Data        TourMainRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData     `thrift:",5,omitempty"`
 }
 
 type TourMusicList struct {
-	Music_idx int32
+	Music_idx int32 `thrift:",1,omitempty"`
 }
 
 type TourMyRank struct {
-	Rank  int64
-	Score int64
-	Medal []any // TODO
+	Rank  int64 `thrift:",1,omitempty"`
+	Score int64 `thrift:",2,omitempty"`
+	Medal []any `thrift:",3,omitempty"` // TODO
 }
 
 type TourRank struct {
-	My_rank  TourMyRank
-	Top_rank []any // TODO
+	My_rank  TourMyRank `thrift:",1,omitempty"`
+	Top_rank []any      `thrift:",2,omitempty"` // TODO
 }
 
 type TourRankData struct {
-	Track []any // TODO
-	Total TotalTopRank
+	Track []any        `thrift:",1,omitempty"` // TODO
+	Total TotalTopRank `thrift:",2,omitempty"`
 }
 
 type TourTrackList struct {
-	Idx         int32
-	Tour_idx    int32
-	My_rank     int64
-	Music_idx   string
-	Start_time  int32
-	End_time    int32
-	Open_flg    int16
-	Difficulty1 int16
-	Difficulty2 int16
-	Difficulty3 int16
-	Difficulty4 int16
+	Idx         int32  `thrift:",1,omitempty"`
+	Tour_idx    int32  `thrift:",2,omitempty"`
+	My_rank     int64  `thrift:",3,omitempty"`
+	Music_idx   string `thrift:",4,omitempty"`
+	Start_time  int32  `thrift:",5,omitempty"`
+	End_time    int32  `thrift:",6,omitempty"`
+	Open_flg    int16  `thrift:",7,omitempty"`
+	Difficulty1 int16  `thrift:",8,omitempty"`
+	Difficulty2 int16  `thrift:",9,omitempty"`
+	Difficulty3 int16  `thrift:",10,omitempty"`
+	Difficulty4 int16  `thrift:",11,omitempty"`
 }
 
 type TrackMyRank struct {
-	Score int64
-	Medal int16
+	Score int64 `thrift:",1,omitempty"`
+	Medal int16 `thrift:",2,omitempty"`
 }
 
 type TrackMyScore struct {
-	Score int64
-	Medal int16
+	Score int64 `thrift:",1,omitempty"`
+	Medal int16 `thrift:",2,omitempty"`
 }
 
 type TrackRank struct {
-	My_score map[any]any // TODO
+	My_score map[any]any `thrift:",1,omitempty"` // TODO
 }
 
 type TrackTopRank struct {
-	U_seq     int64
-	U_id      string
-	U_nick    string
-	U_country string
-	Rank      int64
-	Score     int64
+	U_seq     int64  `thrift:",1,omitempty"`
+	U_id      string `thrift:",2,omitempty"`
+	U_nick    string `thrift:",3,omitempty"`
+	U_country string `thrift:",4,omitempty"`
+	Rank      int64  `thrift:",5,omitempty"`
+	Score     int64  `thrift:",6,omitempty"`
 }
 
 type TransferUser struct {
-	Call string
-	Data TransferUserDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data TransferUserDataInfo `thrift:",2,omitempty"`
 }
 
 type TransferUserDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Email       string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Email       string `thrift:",5,omitempty"`
 }
 
 type TransferUserRetDataInfo struct {
-	Transfer_id string
+	Transfer_id string `thrift:",1,omitempty"`
 }
 
 type TransferUserReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        TransferUserRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        TransferUserRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type UpdateAchievement struct {
-	Call string
-	Data UpdateAchievementDataInfo
+	Call string                    `thrift:",1,omitempty"`
+	Data UpdateAchievementDataInfo `thrift:",2,omitempty"`
 }
 
 type UpdateAchievementDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Achievement int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Achievement int16  `thrift:",5,omitempty"`
 }
 
 type UpdateAchievementRetDataInfo struct {
-	Achievement int16
+	Achievement int16 `thrift:",1,omitempty"`
 }
 
 type UpdateAchievementReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UpdateAchievementRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                 `thrift:",1,omitempty"`
+	Mode        string                       `thrift:",2,omitempty"`
+	Call        string                       `thrift:",3,omitempty"`
+	Data        UpdateAchievementRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData              `thrift:",5,omitempty"`
 }
 
 type UpdateAvatar struct {
-	Call string
-	Data UpdateAvatarDataInfo
+	Call string               `thrift:",1,omitempty"`
+	Data UpdateAvatarDataInfo `thrift:",2,omitempty"`
 }
 
 type UpdateAvatarDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	U_avatar    int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	U_avatar    int16  `thrift:",5,omitempty"`
 }
 
 type UpdateAvatarRetDataInfo struct {
-	U_avatar int16
+	U_avatar int16 `thrift:",1,omitempty"`
 }
 
 type UpdateAvatarReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UpdateAvatarRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        UpdateAvatarRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type UpdateNickName struct {
-	Call        string
-	Data        UpdateNickNameDataInfo
-	Common_data ParamData
+	Call        string                 `thrift:",1,omitempty"`
+	Data        UpdateNickNameDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData              `thrift:",3,omitempty"`
 }
 
 type UpdateNickNameDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Nickname    string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Nickname    string `thrift:",5,omitempty"`
 }
 
 type UpdateNickNameRetDataInfo struct {
-	Nickname string
+	Nickname string `thrift:",1,omitempty"`
 }
 
 type UpdateNickNameReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UpdateNickNameRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Mode        string                    `thrift:",2,omitempty"`
+	Call        string                    `thrift:",3,omitempty"`
+	Data        UpdateNickNameRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData           `thrift:",5,omitempty"`
 }
 
 type UpdateScore struct {
-	Call string
-	Data UpdateScoreDataInfo
+	Call string              `thrift:",1,omitempty"`
+	Data UpdateScoreDataInfo `thrift:",2,omitempty"`
 }
 
 type UpdateScoreDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Score_list  []any // TODO
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Score_list  []any  `thrift:",5,omitempty"` // TODO
 }
 
 type UpdateScoreDataList struct {
-	Music_idx   int32
-	Score       int32
-	Grade       int16
-	Play_cnt    int32
-	Difficulty  int16
-	Combo_grade int16
-	Collection  []any // TODO
+	Music_idx   int32 `thrift:",1,omitempty"`
+	Score       int32 `thrift:",2,omitempty"`
+	Grade       int16 `thrift:",3,omitempty"`
+	Play_cnt    int32 `thrift:",4,omitempty"`
+	Difficulty  int16 `thrift:",5,omitempty"`
+	Combo_grade int16 `thrift:",6,omitempty"`
+	Collection  []any `thrift:",7,omitempty"` // TODO
 }
 
 type UpdateScoreRetDataInfo struct {
-	Update_list []any // TODO
-	U_gold      int64
-	U_ep        int64
-	Event_flg   int16
+	Update_list []any `thrift:",1,omitempty"` // TODO
+	U_gold      int64 `thrift:",2,omitempty"`
+	U_ep        int64 `thrift:",3,omitempty"`
+	Event_flg   int16 `thrift:",4,omitempty"`
 }
 
 type UpdateScoreReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        UpdateScoreRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode           `thrift:",1,omitempty"`
+	Server_time ServerTimeRet          `thrift:",2,omitempty"`
+	Mode        string                 `thrift:",3,omitempty"`
+	Call        string                 `thrift:",4,omitempty"`
+	Data        UpdateScoreRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData        `thrift:",6,omitempty"`
 }
 
 type UpdateUserTitle struct {
-	Call string
-	Data UpdateUserTitleDataInfo
+	Call string                  `thrift:",1,omitempty"`
+	Data UpdateUserTitleDataInfo `thrift:",2,omitempty"`
 }
 
 type UpdateUserTitleDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	U_title     int16
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	U_title     int16  `thrift:",5,omitempty"`
 }
 
 type UpdateUserTitleRetDataInfo struct {
-	U_title int16
+	U_title int16 `thrift:",1,omitempty"`
 }
 
 type UpdateUserTitleReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UpdateUserTitleRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode               `thrift:",1,omitempty"`
+	Mode        string                     `thrift:",2,omitempty"`
+	Call        string                     `thrift:",3,omitempty"`
+	Data        UpdateUserTitleRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData            `thrift:",5,omitempty"`
 }
 
 type UseCoupon struct {
-	Call string
-	Data UseCouponDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data UseCouponDataInfo `thrift:",2,omitempty"`
 }
 
 type UseCouponDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Send_ppid   string
-	Coupon      string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Send_ppid   string `thrift:",5,omitempty"`
+	Coupon      string `thrift:",6,omitempty"`
 }
 
 type UseCouponRetDataInfo struct {
-	Ret string
+	Ret string `thrift:",1,omitempty"`
 }
 
 type UseCouponReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UseCouponRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Mode        string               `thrift:",2,omitempty"`
+	Call        string               `thrift:",3,omitempty"`
+	Data        UseCouponRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData      `thrift:",5,omitempty"`
 }
 
 type UseCredit struct {
-	Call string
-	Data UseCreditDataInfo
+	Call string            `thrift:",1,omitempty"`
+	Data UseCreditDataInfo `thrift:",2,omitempty"`
 }
 
 type UseCreditDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Credit      int64
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Credit      int64  `thrift:",5,omitempty"`
 }
 
 type UseCreditRetDataInfo struct {
-	U_gold   int64
-	U_cp     int64
-	U_mp     int64
-	U_credit int64
+	U_gold   int64 `thrift:",1,omitempty"`
+	U_cp     int64 `thrift:",2,omitempty"`
+	U_mp     int64 `thrift:",3,omitempty"`
+	U_credit int64 `thrift:",4,omitempty"`
 }
 
 type UseCreditReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UseCreditRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Mode        string               `thrift:",2,omitempty"`
+	Call        string               `thrift:",3,omitempty"`
+	Data        UseCreditRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData      `thrift:",5,omitempty"`
 }
 
 type UserAchievement struct {
-	I_id       int64
-	I_Level    int64
-	D_Quantity float64
-	S_Quantity string
+	I_id       int64   `thrift:",1,omitempty"`
+	I_Level    int64   `thrift:",2,omitempty"`
+	D_Quantity float64 `thrift:",3,omitempty"`
+	S_Quantity string  `thrift:",4,omitempty"`
 }
 
 type UserAreaData struct {
-	U_area_num          int16
-	D_Candy             float64
-	D_Like              float64
-	I_UserFanCount      int64
-	I_UserFanGrade      int16
-	I_SelectedCostumeId int64
-	I_SelectedMusicId   int64
-	I_SelectedGuitarId  int64
-	S_TutorialList      string
-	S_Gp1               string
-	S_Gp2               string
+	U_area_num          int16   `thrift:",1,omitempty"`
+	D_Candy             float64 `thrift:",2,omitempty"`
+	D_Like              float64 `thrift:",3,omitempty"`
+	I_UserFanCount      int64   `thrift:",4,omitempty"`
+	I_UserFanGrade      int16   `thrift:",5,omitempty"`
+	I_SelectedCostumeId int64   `thrift:",6,omitempty"`
+	I_SelectedMusicId   int64   `thrift:",7,omitempty"`
+	I_SelectedGuitarId  int64   `thrift:",8,omitempty"`
+	S_TutorialList      string  `thrift:",9,omitempty"`
+	S_Gp1               string  `thrift:",10,omitempty"`
+	S_Gp2               string  `thrift:",11,omitempty"`
 }
 
 type UserAvatarList struct {
-	Call string
-	Data UserAvatarListDataInfo
+	Call string                 `thrift:",1,omitempty"`
+	Data UserAvatarListDataInfo `thrift:",2,omitempty"`
 }
 
 type UserAvatarListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type UserAvatarListRetDataInfo struct {
-	U_seq  int32
-	Avatar []any // TODO
+	U_seq  int32 `thrift:",1,omitempty"`
+	Avatar []any `thrift:",2,omitempty"` // TODO
 }
 
 type UserAvatarListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UserAvatarListRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode              `thrift:",1,omitempty"`
+	Mode        string                    `thrift:",2,omitempty"`
+	Call        string                    `thrift:",3,omitempty"`
+	Data        UserAvatarListRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData           `thrift:",5,omitempty"`
 }
 
 type UserBuff struct {
-	I_id         int64
-	I_Level      int64
-	I_ActiveTime int64
-	I_EndTime    int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_ActiveTime int64 `thrift:",3,omitempty"`
+	I_EndTime    int64 `thrift:",4,omitempty"`
 }
 
 type UserCandyShop struct {
-	I_id              int64
-	I_CurrentBuyCount int64
-	I_TotalBuyCount   int64
-	L_LastBuyTick     float64
-	Upd_day           int64
+	I_id              int64   `thrift:",1,omitempty"`
+	I_CurrentBuyCount int64   `thrift:",2,omitempty"`
+	I_TotalBuyCount   int64   `thrift:",3,omitempty"`
+	L_LastBuyTick     float64 `thrift:",4,omitempty"`
+	Upd_day           int64   `thrift:",5,omitempty"`
 }
 
 type UserCharacter struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type UserContentsData struct {
-	User_achievement             []any // TODO
-	User_buff                    []any // TODO
-	User_candy_shop              []any // TODO
-	User_character               []any // TODO
-	User_costume                 []any // TODO
-	User_daily_mission           []any // TODO
-	User_follower                []any // TODO
-	User_music                   []any // TODO
-	User_prop                    []any // TODO
-	User_unit                    []any // TODO
-	User_skill                   []any // TODO
-	User_shop                    []any // TODO
-	User_messenger               []any // TODO
-	User_guitar                  []any // TODO
-	User_event_point             []any // TODO
-	User_subscribe_list          []any // TODO
-	User_subscribe_pass_reward   []any // TODO
-	User_ticketcollection        []any // TODO
-	User_follower_quest          []any // TODO
-	User_follower_profile_reward []any // TODO
-	User_follower_profile        []any // TODO
-	User_follower_giftitem       []any // TODO
-	User_ad_list                 []any // TODO
-	User_chthird_stage           []any // TODO
-	User_tutorial                []any // TODO
-	User_ad_level                []any // TODO
-	User_select_reward           []any // TODO
+	User_achievement             []any `thrift:",1,omitempty"`  // TODO
+	User_buff                    []any `thrift:",2,omitempty"`  // TODO
+	User_candy_shop              []any `thrift:",3,omitempty"`  // TODO
+	User_character               []any `thrift:",4,omitempty"`  // TODO
+	User_costume                 []any `thrift:",5,omitempty"`  // TODO
+	User_daily_mission           []any `thrift:",6,omitempty"`  // TODO
+	User_follower                []any `thrift:",7,omitempty"`  // TODO
+	User_music                   []any `thrift:",8,omitempty"`  // TODO
+	User_prop                    []any `thrift:",9,omitempty"`  // TODO
+	User_unit                    []any `thrift:",10,omitempty"` // TODO
+	User_skill                   []any `thrift:",11,omitempty"` // TODO
+	User_shop                    []any `thrift:",12,omitempty"` // TODO
+	User_messenger               []any `thrift:",13,omitempty"` // TODO
+	User_guitar                  []any `thrift:",14,omitempty"` // TODO
+	User_event_point             []any `thrift:",15,omitempty"` // TODO
+	User_subscribe_list          []any `thrift:",16,omitempty"` // TODO
+	User_subscribe_pass_reward   []any `thrift:",17,omitempty"` // TODO
+	User_ticketcollection        []any `thrift:",18,omitempty"` // TODO
+	User_follower_quest          []any `thrift:",19,omitempty"` // TODO
+	User_follower_profile_reward []any `thrift:",20,omitempty"` // TODO
+	User_follower_profile        []any `thrift:",21,omitempty"` // TODO
+	User_follower_giftitem       []any `thrift:",22,omitempty"` // TODO
+	User_ad_list                 []any `thrift:",23,omitempty"` // TODO
+	User_chthird_stage           []any `thrift:",24,omitempty"` // TODO
+	User_tutorial                []any `thrift:",25,omitempty"` // TODO
+	User_ad_level                []any `thrift:",26,omitempty"` // TODO
+	User_select_reward           []any `thrift:",27,omitempty"` // TODO
 }
 
 type UserCostume struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type UserDailyMission struct {
-	I_id       int64
-	I_Level    int64
-	D_Quantity int64
-	Upd_date   string
+	I_id       int64  `thrift:",1,omitempty"`
+	I_Level    int64  `thrift:",2,omitempty"`
+	D_Quantity int64  `thrift:",3,omitempty"`
+	Upd_date   string `thrift:",4,omitempty"`
 }
 
 type UserData struct {
-	U_seq int64
-	U_mp  int64
+	U_seq int64 `thrift:",1,omitempty"`
+	U_mp  int64 `thrift:",2,omitempty"`
 }
 
 type UserDel struct {
-	Call        string
-	Data        UserDelDataInfo
-	Common_data ParamData
+	Call        string          `thrift:",1,omitempty"`
+	Data        UserDelDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData       `thrift:",3,omitempty"`
 }
 
 type UserDelDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type UserDelRetDataInfo struct {
-	Result string
+	Result string `thrift:",1,omitempty"`
 }
 
 type UserDelReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UserDelRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode       `thrift:",1,omitempty"`
+	Mode        string             `thrift:",2,omitempty"`
+	Call        string             `thrift:",3,omitempty"`
+	Data        UserDelRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData    `thrift:",5,omitempty"`
 }
 
 type UserEventPoint struct {
-	S_EventType  string
-	I_DataID     int64
-	I_Point      int64
-	I_Step       int64
-	I_ADViewTime int64
-	I_Version    int32
+	S_EventType  string `thrift:",1,omitempty"`
+	I_DataID     int64  `thrift:",2,omitempty"`
+	I_Point      int64  `thrift:",3,omitempty"`
+	I_Step       int64  `thrift:",4,omitempty"`
+	I_ADViewTime int64  `thrift:",5,omitempty"`
+	I_Version    int32  `thrift:",6,omitempty"`
 }
 
 type UserFollower struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type UserFollowerQuest struct {
-	I_id              int64
-	I_CurrentID       int64
-	I_CompleteID      int64
-	D_ConditionValue1 float64
-	D_ConditionValue2 float64
-	D_ConditionValue3 float64
-	I_RewardReceived1 int16
-	I_RewardReceived2 int16
-	I_RewardReceived3 int16
-	I_isInfinity      int16
+	I_id              int64   `thrift:",1,omitempty"`
+	I_CurrentID       int64   `thrift:",2,omitempty"`
+	I_CompleteID      int64   `thrift:",3,omitempty"`
+	D_ConditionValue1 float64 `thrift:",4,omitempty"`
+	D_ConditionValue2 float64 `thrift:",5,omitempty"`
+	D_ConditionValue3 float64 `thrift:",6,omitempty"`
+	I_RewardReceived1 int16   `thrift:",7,omitempty"`
+	I_RewardReceived2 int16   `thrift:",8,omitempty"`
+	I_RewardReceived3 int16   `thrift:",9,omitempty"`
+	I_isInfinity      int16   `thrift:",10,omitempty"`
 }
 
 type UserGuitar struct {
-	I_id         int64
-	I_Level      int64
-	I_BonusLevel int64
+	I_id         int64 `thrift:",1,omitempty"`
+	I_Level      int64 `thrift:",2,omitempty"`
+	I_BonusLevel int64 `thrift:",3,omitempty"`
 }
 
 type UserInfo struct {
-	U_like                float64
-	U_fans                int64
-	U_fans_grade          int16
-	U_selected_costume_id int64
-	U_selected_music_id   int64
+	U_like                float64 `thrift:",1,omitempty"`
+	U_fans                int64   `thrift:",2,omitempty"`
+	U_fans_grade          int16   `thrift:",3,omitempty"`
+	U_selected_costume_id int64   `thrift:",4,omitempty"`
+	U_selected_music_id   int64   `thrift:",5,omitempty"`
 }
 
 type UserItemInvenList struct {
-	Item_list []any // TODO
+	Item_list []any `thrift:",1,omitempty"` // TODO
 }
 
 type UserItemList struct {
-	Item_type int32
-	Item_id   int32
-	Count     int64
+	Item_type int32 `thrift:",1,omitempty"`
+	Item_id   int32 `thrift:",2,omitempty"`
+	Count     int64 `thrift:",3,omitempty"`
 }
 
 type UserJoin struct {
-	Call        string
-	Data        UserJoinDataInfo
-	Common_data ParamData
+	Call        string           `thrift:",1,omitempty"`
+	Data        UserJoinDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData        `thrift:",3,omitempty"`
 }
 
 type UserJoinDataInfo struct {
-	Os           int16
-	Join_type    int16
-	Uuid         string
-	Device_uuid  string
-	Device_token string
-	Sns_id       string
-	Access_token string
-	Country      string
-	State        string
+	Os           int16  `thrift:",1,omitempty"`
+	Join_type    int16  `thrift:",2,omitempty"`
+	Uuid         string `thrift:",3,omitempty"`
+	Device_uuid  string `thrift:",4,omitempty"`
+	Device_token string `thrift:",5,omitempty"`
+	Sns_id       string `thrift:",6,omitempty"`
+	Access_token string `thrift:",7,omitempty"`
+	Country      string `thrift:",8,omitempty"`
+	State        string `thrift:",9,omitempty"`
 }
 
 type UserJoinRetDataInfo struct {
-	U_seq int32
-	U_id  string
+	U_seq int32  `thrift:",1,omitempty"`
+	U_id  string `thrift:",2,omitempty"`
 }
 
 type UserJoinReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        UserJoinRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Server_time ServerTimeRet       `thrift:",2,omitempty"`
+	Mode        string              `thrift:",3,omitempty"`
+	Call        string              `thrift:",4,omitempty"`
+	Data        UserJoinRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData     `thrift:",6,omitempty"`
 }
 
 type UserLevel struct {
-	U_girl_level     int64
-	U_skill_level    int64
-	U_mate_level     int64
-	U_follower_level int64
-	U_play_level     int64
+	U_girl_level     int64 `thrift:",1,omitempty"`
+	U_skill_level    int64 `thrift:",2,omitempty"`
+	U_mate_level     int64 `thrift:",3,omitempty"`
+	U_follower_level int64 `thrift:",4,omitempty"`
+	U_play_level     int64 `thrift:",5,omitempty"`
 }
 
 type UserLoad struct {
-	Call        string
-	Data        UserLoadDataInfo
-	Common_data ParamData
+	Call        string           `thrift:",1,omitempty"`
+	Data        UserLoadDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData        `thrift:",3,omitempty"`
 }
 
 type UserLoadDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Type        string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Type        string `thrift:",5,omitempty"`
 }
 
 type UserLoadRetDataInfo struct {
-	User          UserData
-	Area_data     map[any]any // TODO
-	User_contents UserContentsData
+	User          UserData         `thrift:",1,omitempty"`
+	Area_data     map[any]any      `thrift:",2,omitempty"` // TODO
+	User_contents UserContentsData `thrift:",3,omitempty"`
 }
 
 type UserLoadReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        UserLoadRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Server_time ServerTimeRet       `thrift:",2,omitempty"`
+	Mode        string              `thrift:",3,omitempty"`
+	Call        string              `thrift:",4,omitempty"`
+	Data        UserLoadRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData     `thrift:",6,omitempty"`
 }
 
 type UserLogin struct {
-	Call        string
-	Data        UserLoginDataInfo
-	Common_data ParamData
+	Call        string            `thrift:",1,omitempty"`
+	Data        UserLoginDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData         `thrift:",3,omitempty"`
 }
 
 type UserLoginDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	U_state     string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	U_state     string `thrift:",5,omitempty"`
 }
 
 type UserLoginRetDataInfo struct {
-	User          UserData
-	Area_data     map[any]any // TODO
-	User_contents UserContentsData
+	User          UserData         `thrift:",1,omitempty"`
+	Area_data     map[any]any      `thrift:",2,omitempty"` // TODO
+	User_contents UserContentsData `thrift:",3,omitempty"`
 }
 
 type UserLoginReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        UserLoginRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode         `thrift:",1,omitempty"`
+	Server_time ServerTimeRet        `thrift:",2,omitempty"`
+	Mode        string               `thrift:",3,omitempty"`
+	Call        string               `thrift:",4,omitempty"`
+	Data        UserLoginRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData      `thrift:",6,omitempty"`
 }
 
 type UserMessenger struct {
-	I_MessengerChatRoomId int64
-	I_LastConfirmIndex    int64
-	S_UnlockGroupList     string
-	L_UpdateTimeTicks     int64
+	I_MessengerChatRoomId int64  `thrift:",1,omitempty"`
+	I_LastConfirmIndex    int64  `thrift:",2,omitempty"`
+	S_UnlockGroupList     string `thrift:",3,omitempty"`
+	L_UpdateTimeTicks     int64  `thrift:",4,omitempty"`
 }
 
 type UserMusic struct {
-	I_id                      int64
-	I_Level                   int64
-	I_BonusLevel              int64
-	B_EncoreBonusAppear       int64
-	L_EncoreBonusActivateTime int64
-	I_EncoreBonusFollowerId   int64
-	I_ChThirdActiveTime       int64
+	I_id                      int64 `thrift:",1,omitempty"`
+	I_Level                   int64 `thrift:",2,omitempty"`
+	I_BonusLevel              int64 `thrift:",3,omitempty"`
+	B_EncoreBonusAppear       int64 `thrift:",4,omitempty"`
+	L_EncoreBonusActivateTime int64 `thrift:",5,omitempty"`
+	I_EncoreBonusFollowerId   int64 `thrift:",6,omitempty"`
+	I_ChThirdActiveTime       int64 `thrift:",7,omitempty"`
 }
 
 type UserProp struct {
-	I_id    int64
-	I_Level int64
+	I_id    int64 `thrift:",1,omitempty"`
+	I_Level int64 `thrift:",2,omitempty"`
 }
 
 type UserPurchase struct {
-	Call     string
-	Data     UserPurchaseDataInfo
-	Sub_mode string
+	Call     string               `thrift:",1,omitempty"`
+	Data     UserPurchaseDataInfo `thrift:",2,omitempty"`
+	Sub_mode string               `thrift:",3,omitempty"`
 }
 
 type UserPurchaseDataInfo struct {
-	U_seq             int32
-	U_id              string
-	Uuid              string
-	Device_uuid       string
-	Developer_payload string
-	Pay_id            string
-	Purchase_token    string
-	Purchase_id       string
-	Os                int16
-	Restore           int16
+	U_seq             int32  `thrift:",1,omitempty"`
+	U_id              string `thrift:",2,omitempty"`
+	Uuid              string `thrift:",3,omitempty"`
+	Device_uuid       string `thrift:",4,omitempty"`
+	Developer_payload string `thrift:",5,omitempty"`
+	Pay_id            string `thrift:",6,omitempty"`
+	Purchase_token    string `thrift:",7,omitempty"`
+	Purchase_id       string `thrift:",8,omitempty"`
+	Os                int16  `thrift:",9,omitempty"`
+	Restore           int16  `thrift:",10,omitempty"`
 }
 
 type UserPurchaseErrorLog struct {
-	Call string
-	Data UserPurchaseErrorLogDataInfo
+	Call string                       `thrift:",1,omitempty"`
+	Data UserPurchaseErrorLogDataInfo `thrift:",2,omitempty"`
 }
 
 type UserPurchaseErrorLogDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
-	Error_log   string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
+	Error_log   string `thrift:",5,omitempty"`
 }
 
 type UserPurchaseErrorLogRetDataInfo struct {
-	Ret string
+	Ret string `thrift:",1,omitempty"`
 }
 
 type UserPurchaseErrorLogReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UserPurchaseErrorLogRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode                    `thrift:",1,omitempty"`
+	Mode        string                          `thrift:",2,omitempty"`
+	Call        string                          `thrift:",3,omitempty"`
+	Data        UserPurchaseErrorLogRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData                 `thrift:",5,omitempty"`
 }
 
 type UserPurchaseMusicIdx struct {
-	Music_idx int32
+	Music_idx int32 `thrift:",1,omitempty"`
 }
 
 type UserPurchaseRetDataInfo struct {
-	Pay_id      string
-	Product_id  string
-	Purchase_id string
-	Music_data  []any // TODO
+	Pay_id      string `thrift:",1,omitempty"`
+	Product_id  string `thrift:",2,omitempty"`
+	Purchase_id string `thrift:",3,omitempty"`
+	Music_data  []any  `thrift:",4,omitempty"` // TODO
 }
 
 type UserPurchaseReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UserPurchaseRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode            `thrift:",1,omitempty"`
+	Mode        string                  `thrift:",2,omitempty"`
+	Call        string                  `thrift:",3,omitempty"`
+	Data        UserPurchaseRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData         `thrift:",5,omitempty"`
 }
 
 type UserSave struct {
-	Call        string
-	Data        UserSaveDataInfo
-	Common_data ParamData
+	Call        string           `thrift:",1,omitempty"`
+	Data        UserSaveDataInfo `thrift:",2,omitempty"`
+	Common_data ParamData        `thrift:",3,omitempty"`
 }
 
 type UserSaveData struct {
-	U_candy          int64
-	U_like           int64
-	U_fans           int64
-	U_girl_level     int64
-	U_skill_level    int64
-	U_mate_level     int64
-	U_follower_level int64
-	U_play_level     int64
+	U_candy          int64 `thrift:",1,omitempty"`
+	U_like           int64 `thrift:",2,omitempty"`
+	U_fans           int64 `thrift:",3,omitempty"`
+	U_girl_level     int64 `thrift:",4,omitempty"`
+	U_skill_level    int64 `thrift:",5,omitempty"`
+	U_mate_level     int64 `thrift:",6,omitempty"`
+	U_follower_level int64 `thrift:",7,omitempty"`
+	U_play_level     int64 `thrift:",8,omitempty"`
 }
 
 type UserSaveDataInfo struct {
-	U_seq               int32
-	U_id                string
-	Uuid                string
-	Device_uuid         string
-	Type                string
-	User_info           []any // TODO
-	User_area_info      []any // TODO
-	User_achievement    []any // TODO
-	User_character      []any // TODO
-	User_costume        []any // TODO
-	User_daily_mission  []any // TODO
-	User_follower       []any // TODO
-	User_music          []any // TODO
-	User_skill          []any // TODO
-	User_messenger      []any // TODO
-	User_guitar         []any // TODO
-	User_event_point    []any // TODO
-	User_follower_quest []any // TODO
+	U_seq               int32  `thrift:",1,omitempty"`
+	U_id                string `thrift:",2,omitempty"`
+	Uuid                string `thrift:",3,omitempty"`
+	Device_uuid         string `thrift:",4,omitempty"`
+	Type                string `thrift:",5,omitempty"`
+	User_info           []any  `thrift:",6,omitempty"`  // TODO
+	User_area_info      []any  `thrift:",7,omitempty"`  // TODO
+	User_achievement    []any  `thrift:",8,omitempty"`  // TODO
+	User_character      []any  `thrift:",9,omitempty"`  // TODO
+	User_costume        []any  `thrift:",10,omitempty"` // TODO
+	User_daily_mission  []any  `thrift:",11,omitempty"` // TODO
+	User_follower       []any  `thrift:",12,omitempty"` // TODO
+	User_music          []any  `thrift:",13,omitempty"` // TODO
+	User_skill          []any  `thrift:",14,omitempty"` // TODO
+	User_messenger      []any  `thrift:",15,omitempty"` // TODO
+	User_guitar         []any  `thrift:",16,omitempty"` // TODO
+	User_event_point    []any  `thrift:",17,omitempty"` // TODO
+	User_follower_quest []any  `thrift:",18,omitempty"` // TODO
 }
 
 type UserSaveRetDataInfo struct {
-	Status string
+	Status string `thrift:",1,omitempty"`
 }
 
 type UserSaveReturn struct {
-	Error       ErrorRetCode
-	Server_time ServerTimeRet
-	Mode        string
-	Call        string
-	Data        UserSaveRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode        `thrift:",1,omitempty"`
+	Server_time ServerTimeRet       `thrift:",2,omitempty"`
+	Mode        string              `thrift:",3,omitempty"`
+	Call        string              `thrift:",4,omitempty"`
+	Data        UserSaveRetDataInfo `thrift:",5,omitempty"`
+	Maintenance MaintenanceData     `thrift:",6,omitempty"`
 }
 
 type UserScore struct {
-	Music_idx          int32
-	Score1             int64
-	Score2             int64
-	Score3             int64
-	Score4             int64
-	Grade1             int16
-	Grade2             int16
-	Grade3             int16
-	Grade4             int16
-	Play_cnt1          int64
-	Play_cnt2          int64
-	Play_cnt3          int64
-	Play_cnt4          int64
-	Combo_grade1       int16
-	Combo_grade2       int16
-	Combo_grade3       int16
-	Combo_grade4       int16
-	Multi_score1       int64
-	Multi_score2       int64
-	Multi_score3       int64
-	Multi_score4       int64
-	Multi_play_cnt1    int64
-	Multi_play_cnt2    int64
-	Multi_play_cnt3    int64
-	Multi_play_cnt4    int64
-	Multi_combo_grade1 int16
-	Multi_combo_grade2 int16
-	Multi_combo_grade3 int16
-	Multi_combo_grade4 int16
-	Purchase_type      int16
-	Is_extra           int16
-	Review_point       int16
-	Rank_list          GetTotalMusicRankRetDataInfo
+	Music_idx          int32                        `thrift:",1,omitempty"`
+	Score1             int64                        `thrift:",2,omitempty"`
+	Score2             int64                        `thrift:",3,omitempty"`
+	Score3             int64                        `thrift:",4,omitempty"`
+	Score4             int64                        `thrift:",5,omitempty"`
+	Grade1             int16                        `thrift:",6,omitempty"`
+	Grade2             int16                        `thrift:",7,omitempty"`
+	Grade3             int16                        `thrift:",8,omitempty"`
+	Grade4             int16                        `thrift:",9,omitempty"`
+	Play_cnt1          int64                        `thrift:",10,omitempty"`
+	Play_cnt2          int64                        `thrift:",11,omitempty"`
+	Play_cnt3          int64                        `thrift:",12,omitempty"`
+	Play_cnt4          int64                        `thrift:",13,omitempty"`
+	Combo_grade1       int16                        `thrift:",14,omitempty"`
+	Combo_grade2       int16                        `thrift:",15,omitempty"`
+	Combo_grade3       int16                        `thrift:",16,omitempty"`
+	Combo_grade4       int16                        `thrift:",17,omitempty"`
+	Multi_score1       int64                        `thrift:",18,omitempty"`
+	Multi_score2       int64                        `thrift:",19,omitempty"`
+	Multi_score3       int64                        `thrift:",20,omitempty"`
+	Multi_score4       int64                        `thrift:",21,omitempty"`
+	Multi_play_cnt1    int64                        `thrift:",22,omitempty"`
+	Multi_play_cnt2    int64                        `thrift:",23,omitempty"`
+	Multi_play_cnt3    int64                        `thrift:",24,omitempty"`
+	Multi_play_cnt4    int64                        `thrift:",25,omitempty"`
+	Multi_combo_grade1 int16                        `thrift:",26,omitempty"`
+	Multi_combo_grade2 int16                        `thrift:",27,omitempty"`
+	Multi_combo_grade3 int16                        `thrift:",28,omitempty"`
+	Multi_combo_grade4 int16                        `thrift:",29,omitempty"`
+	Purchase_type      int16                        `thrift:",30,omitempty"`
+	Is_extra           int16                        `thrift:",31,omitempty"`
+	Review_point       int16                        `thrift:",32,omitempty"`
+	Rank_list          GetTotalMusicRankRetDataInfo `thrift:",33,omitempty"`
 }
 
 type UserShop struct {
-	I_id           int64
-	I_Count        int64
-	I_TotalCount   int64
-	I_PurchaseTime int64
-	Upd_day        int64
+	I_id           int64 `thrift:",1,omitempty"`
+	I_Count        int64 `thrift:",2,omitempty"`
+	I_TotalCount   int64 `thrift:",3,omitempty"`
+	I_PurchaseTime int64 `thrift:",4,omitempty"`
+	Upd_day        int64 `thrift:",5,omitempty"`
 }
 
 type UserSkill struct {
-	I_id               int64
-	I_Level            int64
-	B_Activate         int16
-	L_ActivateOnTicks  int64
-	L_ActivateOffTicks int64
+	I_id               int64 `thrift:",1,omitempty"`
+	I_Level            int64 `thrift:",2,omitempty"`
+	B_Activate         int16 `thrift:",3,omitempty"`
+	L_ActivateOnTicks  int64 `thrift:",4,omitempty"`
+	L_ActivateOffTicks int64 `thrift:",5,omitempty"`
 }
 
 type UserSubscribeList struct {
-	I_SubscribeID int64
-	I_ActiveTime  int64
-	I_isActive    int64
+	I_SubscribeID int64 `thrift:",1,omitempty"`
+	I_ActiveTime  int64 `thrift:",2,omitempty"`
+	I_isActive    int64 `thrift:",3,omitempty"`
 }
 
 type UserSubscribePassReward struct {
-	I_SubscribeID int64
-	I_Type        int64
-	I_Step        int64
-	I_UpdateTime  int64
-	I_Version     int32
+	I_SubscribeID int64 `thrift:",1,omitempty"`
+	I_Type        int64 `thrift:",2,omitempty"`
+	I_Step        int64 `thrift:",3,omitempty"`
+	I_UpdateTime  int64 `thrift:",4,omitempty"`
+	I_Version     int32 `thrift:",5,omitempty"`
 }
 
 type UserTicketCollection struct {
-	I_id int64
+	I_id int64 `thrift:",1,omitempty"`
 }
 
 type UserTitleList struct {
-	Call string
-	Data UserTitleListDataInfo
+	Call string                `thrift:",1,omitempty"`
+	Data UserTitleListDataInfo `thrift:",2,omitempty"`
 }
 
 type UserTitleListDataInfo struct {
-	U_seq       int32
-	U_id        string
-	Uuid        string
-	Device_uuid string
+	U_seq       int32  `thrift:",1,omitempty"`
+	U_id        string `thrift:",2,omitempty"`
+	Uuid        string `thrift:",3,omitempty"`
+	Device_uuid string `thrift:",4,omitempty"`
 }
 
 type UserTitleListRetDataInfo struct {
-	U_seq int32
-	Title []any // TODO
+	U_seq int32 `thrift:",1,omitempty"`
+	Title []any `thrift:",2,omitempty"` // TODO
 }
 
 type UserTitleListReturn struct {
-	Error       ErrorRetCode
-	Mode        string
-	Call        string
-	Data        UserTitleListRetDataInfo
-	Maintenance MaintenanceData
+	Error       ErrorRetCode             `thrift:",1,omitempty"`
+	Mode        string                   `thrift:",2,omitempty"`
+	Call        string                   `thrift:",3,omitempty"`
+	Data        UserTitleListRetDataInfo `thrift:",4,omitempty"`
+	Maintenance MaintenanceData          `thrift:",5,omitempty"`
 }
 
 type UserUnit struct {
-	I_id    int64
-	I_Level int64
+	I_id    int64 `thrift:",1,omitempty"`
+	I_Level int64 `thrift:",2,omitempty"`
 }

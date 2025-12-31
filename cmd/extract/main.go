@@ -20,8 +20,8 @@ var csGoTypeMapping = map[string]string{
 	"Boolean":      "bool",
 	"Double":       "float64",
 	"Float":        "float32",
-	"List`1":       "[]any // TODO",
-	"Dictionary`2": "map[any]any // TODO",
+	"List`1":       "[]any",
+	"Dictionary`2": "map[any]any",
 }
 
 var csPythonTypeMapping = map[string]string{
@@ -112,12 +112,16 @@ func generateGoModels(classes []ThriftClass) error {
 		var structLine strings.Builder
 
 		fmt.Fprintf(&structLine, "type %s struct {\n", goStructName)
-		for _, prop := range class.Properties {
+		for propIndex, prop := range class.Properties {
 			_type := csGoTypeMapping[prop.Type]
 			if _type == "" {
 				_type = strings.ToUpper(prop.Type[0:1]) + prop.Type[1:]
 			}
-			fmt.Fprintf(&structLine, "\t%s %s\n", prop.Name, _type)
+			fmt.Fprintf(&structLine, "\t%s %s `thrift:\",%d,omitempty\"`", prop.Name, _type, propIndex+1)
+			if strings.Contains(prop.Type, "`") {
+				structLine.WriteString(" // TODO")
+			}
+			structLine.WriteString("\n")
 		}
 
 		structLine.WriteString("}\n\n")
