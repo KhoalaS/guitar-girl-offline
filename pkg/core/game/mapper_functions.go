@@ -48,7 +48,7 @@ func GetUpdateTimeMapperFunc(data general.Struct) GetUpdateTimeParams {
 func DefaultSettingListMapperFunc(data general.Struct) DefaultSettingListParams {
 	return DefaultSettingListParams{
 		DeviceId:   data.Get(protocol.FieldId(1)).(string),
-		UnknownInt: data.Get(protocol.FieldId(2)).(int32),
+		UnknownInt: data.Get(protocol.FieldId(2)).(int16),
 	}
 }
 
