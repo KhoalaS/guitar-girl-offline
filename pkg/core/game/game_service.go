@@ -5,54 +5,55 @@ import (
 	"time"
 
 	embeds "github.com/KhoalaS/guitar-girl-offline"
-	"github.com/KhoalaS/guitar-girl-offline/pkg/model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/main_model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 )
 
 type GameService interface {
-	Init(params InitParameters) (model.InitRetDataInfo, model.ErrorRetCode)
-	GetServerTime(params GetServerTimeParams) (BaseTimestamp, model.ErrorRetCode)
-	UserLogin(params UserLoginParams) (model.UserLoginRetDataInfo, model.ErrorRetCode)
-	GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo
+	Init(params InitParameters) (main_model.InitRetDataInfo, common_model.ErrorRetCode)
+	GetServerTime(params GetServerTimeParams) (BaseTimestamp, common_model.ErrorRetCode)
+	UserLogin(params UserLoginParams) (user_model.UserLoginRetDataInfo, common_model.ErrorRetCode)
+	GetUpdateTime(params GetUpdateTimeParams) main_model.GetUpdateTimeRetDataInfo
 	DefaultSettingList(params DefaultSettingListParams) DefaultSettingList
-	GetGameDataList(params GetGameDataListParams) (map[string]any, model.ErrorRetCode)
+	GetGameDataList(params GetGameDataListParams) (map[string]any, common_model.ErrorRetCode)
 }
 
 type GameServiceImpl struct {
 	UserRepository
 }
 
-func (service *GameServiceImpl) Init(params InitParameters) (model.InitRetDataInfo, model.ErrorRetCode) {
-	return model.InitRetDataInfo{
+func (service *GameServiceImpl) Init(params InitParameters) (main_model.InitRetDataInfo, common_model.ErrorRetCode) {
+	return main_model.InitRetDataInfo{
 		Idx:      253,
 		Game_url: "https://game.gtgl.pmang.cloud",
 		Cdn_url:  "https://dl.gtgl.pmang.cloud",
-	}, model.ErrorRetCode{}
+	}, common_model.ErrorRetCode{}
 }
 
-func (service *GameServiceImpl) GetServerTime(params GetServerTimeParams) (BaseTimestamp, model.ErrorRetCode) {
-	return getBaseTimeStamp(time.Now(), params.TimeZone), model.ErrorRetCode{}
+func (service *GameServiceImpl) GetServerTime(params GetServerTimeParams) (BaseTimestamp, common_model.ErrorRetCode) {
+	return getBaseTimeStamp(time.Now(), params.TimeZone), common_model.ErrorRetCode{}
 }
 
-func (service *GameServiceImpl) UserLogin(params UserLoginParams) (model.UserLoginRetDataInfo, model.ErrorRetCode) {
+func (service *GameServiceImpl) UserLogin(params UserLoginParams) (user_model.UserLoginRetDataInfo, common_model.ErrorRetCode) {
 	// TODO internal logic
 	userData, err := service.UserRepository.GetUser(params.UserId)
 	if err != nil {
-		return model.UserLoginRetDataInfo{}, model.ErrorRetCode{
+		return user_model.UserLoginRetDataInfo{}, common_model.ErrorRetCode{
 			Code:   998,
 			Errmsg: "Sorry. Not a registered user.",
 		}
 	}
 
-	return model.UserLoginRetDataInfo{
+	return user_model.UserLoginRetDataInfo{
 		User: userData,
-		User_contents: nil,
-	}, model.ErrorRetCode{}
+	}, common_model.ErrorRetCode{}
 
 }
 
-func (service *GameServiceImpl) GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo {
+func (service *GameServiceImpl) GetUpdateTime(params GetUpdateTimeParams) main_model.GetUpdateTimeRetDataInfo {
 	// TODO internal logic
-	return model.GetUpdateTimeRetDataInfo{
+	return main_model.GetUpdateTimeRetDataInfo{
 		Upd_time: 1761876067,
 	}
 }
@@ -173,15 +174,15 @@ func (service *GameServiceImpl) DefaultSettingList(params DefaultSettingListPara
 	}
 }
 
-func (service *GameServiceImpl) GetGameDataList(params GetGameDataListParams) (map[string]any, model.ErrorRetCode) {
+func (service *GameServiceImpl) GetGameDataList(params GetGameDataListParams) (map[string]any, common_model.ErrorRetCode) {
 	var data map[string]any
 
 	err := json.Unmarshal(embeds.GameData, &data)
 	if err != nil {
-		return nil, model.ErrorRetCode{Code: 1, Errmsg: err.Error()}
+		return nil, common_model.ErrorRetCode{Code: 1, Errmsg: err.Error()}
 	}
 
-	return data, model.ErrorRetCode{}
+	return data, common_model.ErrorRetCode{}
 }
 
 type GetGameDataListParams struct {

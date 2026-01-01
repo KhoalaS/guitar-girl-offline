@@ -4,7 +4,9 @@ import (
 	"time"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core"
-	"github.com/KhoalaS/guitar-girl-offline/pkg/model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/main_model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 )
 
 type GameApi struct {
@@ -23,7 +25,7 @@ func (api *GameApi) SetTimeZone(timeZone string) {
 	api.timeZone = timeZone
 }
 
-func (api *GameApi) Init(params BaseGameRequest[InitParameters], apiCategory string) BaseGameResponse[model.InitRetDataInfo] {
+func (api *GameApi) Init(params BaseGameRequest[InitParameters], apiCategory string) BaseGameResponse[main_model.InitRetDataInfo] {
 	serverList, err := api.service.Init(params.Data)
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, serverList, err)
 }
@@ -33,19 +35,19 @@ func (api *GameApi) GetServerTime(params BaseGameRequest[GetServerTimeParams], a
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, timeStamp, err)
 }
 
-func (api *GameApi) UserLogin(params BaseGameRequest[UserLoginParams], apiCategory string) BaseGameResponse[model.UserLoginRetDataInfo] {
+func (api *GameApi) UserLogin(params BaseGameRequest[UserLoginParams], apiCategory string) BaseGameResponse[user_model.UserLoginRetDataInfo] {
 	loginResult, serviceError := api.service.UserLogin(params.Data)
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, serviceError)
 }
 
-func (api *GameApi) GetUpdateTime(params BaseGameRequest[GetUpdateTimeParams], apiCategory string) BaseGameResponse[model.GetUpdateTimeRetDataInfo] {
+func (api *GameApi) GetUpdateTime(params BaseGameRequest[GetUpdateTimeParams], apiCategory string) BaseGameResponse[main_model.GetUpdateTimeRetDataInfo] {
 	loginResult := api.service.GetUpdateTime(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, model.ErrorRetCode{})
+	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, common_model.ErrorRetCode{})
 }
 
 func (api *GameApi) DefaultSettingList(params BaseGameRequest[DefaultSettingListParams], apiCategory string) BaseGameResponse[DefaultSettingList] {
 	settingList := api.service.DefaultSettingList(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, model.ErrorRetCode{})
+	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, common_model.ErrorRetCode{})
 }
 
 func (api *GameApi) GetGameDataList(params BaseGameRequest[GetGameDataListParams], apiCategory string) BaseGameResponse[map[string]any] {
@@ -54,7 +56,7 @@ func (api *GameApi) GetGameDataList(params BaseGameRequest[GetGameDataListParams
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, err)
 }
 
-func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError model.ErrorRetCode) BaseGameResponse[T] {
+func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError common_model.ErrorRetCode) BaseGameResponse[T] {
 	now := time.Now()
 
 	baseResponse := BaseGameResponse[T]{
@@ -102,12 +104,12 @@ type BaseGameRequest[T any] struct {
 }
 
 type BaseGameResponse[T any] struct {
-	Error        model.ErrorRetCode `thrift:",1"`
-	Timestamp    BaseTimestamp      `thrift:",2"`
-	Category     string             `thrift:",3"`
-	FunctionName string             `thrift:",4"`
-	Data         T                  `thrift:",5,omitempty"`
-	EmptyValue   Empty              `thrift:",6"`
+	Error        common_model.ErrorRetCode `thrift:",1"`
+	Timestamp    BaseTimestamp             `thrift:",2"`
+	Category     string                    `thrift:",3"`
+	FunctionName string                    `thrift:",4"`
+	Data         T                         `thrift:",5,omitempty"`
+	EmptyValue   Empty                     `thrift:",6"`
 }
 
 type Empty struct{}

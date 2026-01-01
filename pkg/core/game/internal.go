@@ -1,19 +1,19 @@
 package game
 
-import "github.com/KhoalaS/guitar-girl-offline/pkg/model"
+import "github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 
 type Engine struct {
 }
 
 type UserRepository interface {
-	GetUser(userId string) (model.UserData, error)
+	GetUser(userId string) (user_model.UserData, error)
 }
 
 type UserRepositoryImpl struct{}
 
-func (repo *UserRepositoryImpl) GetUser(userId string) (model.UserData, error) {
-	return model.UserData{
+func (repo *UserRepositoryImpl) GetUser(userId string) (user_model.UserData, error) {
+	return user_model.UserData{
 		U_seq: 10295032,
-		U_mp:  "1765733351097",
+		U_id:  "1765733351097",
 	}, nil
 }
