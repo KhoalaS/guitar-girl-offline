@@ -30,35 +30,35 @@ func (api *GameApi) UserSave(params BaseGameRequest[user_model.UserSaveDataInfo]
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, status, err)
 }
 
-func (api *GameApi) Init(params BaseGameRequest[InitParameters], apiCategory string) BaseGameResponse[main_model.InitRetDataInfo] {
+func (api *GameApi) Init(params main_model.Request, apiCategory string) BaseGameResponse[main_model.InitRetDataInfo] {
 	serverList, err := api.service.Init(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, serverList, err)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, serverList, err)
 }
 
-func (api *GameApi) GetServerTime(params BaseGameRequest[GetServerTimeParams], apiCategory string) BaseGameResponse[BaseTimestamp] {
+func (api *GameApi) GetServerTime(params main_model.GetServerTime, apiCategory string) BaseGameResponse[main_model.GetServerTimeRetDataInfo] {
 	timeStamp, err := api.service.GetServerTime(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, timeStamp, err)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, timeStamp, err)
 }
 
-func (api *GameApi) UserLogin(params BaseGameRequest[UserLoginParams], apiCategory string) BaseGameResponse[user_model.UserLoginRetDataInfo] {
+func (api *GameApi) UserLogin(params user_model.UserLogin, apiCategory string) BaseGameResponse[user_model.UserLoginRetDataInfo] {
 	loginResult, serviceError := api.service.UserLogin(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, serviceError)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, loginResult, serviceError)
 }
 
-func (api *GameApi) GetUpdateTime(params BaseGameRequest[GetUpdateTimeParams], apiCategory string) BaseGameResponse[main_model.GetUpdateTimeRetDataInfo] {
+func (api *GameApi) GetUpdateTime(params main_model.GetUpdateTime, apiCategory string) BaseGameResponse[main_model.GetUpdateTimeRetDataInfo] {
 	loginResult := api.service.GetUpdateTime(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, common_model.ErrorRetCode{})
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, loginResult, common_model.ErrorRetCode{})
 }
 
-func (api *GameApi) DefaultSettingList(params BaseGameRequest[DefaultSettingListParams], apiCategory string) BaseGameResponse[DefaultSettingList] {
+func (api *GameApi) DefaultSettingList(params main_model.DefaultSettingList, apiCategory string) BaseGameResponse[main_model.DefaultSettingListRetDataInfo] {
 	settingList := api.service.DefaultSettingList(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, common_model.ErrorRetCode{})
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, settingList, common_model.ErrorRetCode{})
 }
 
-func (api *GameApi) GetGameDataList(params BaseGameRequest[GetGameDataListParams], apiCategory string) BaseGameResponse[map[string]any] {
+func (api *GameApi) GetGameDataList(params main_model.GetGameDataList, apiCategory string) BaseGameResponse[main_model.GetGameDataListRetDataInfo] {
 	settingList, err := api.service.GetGameDataList(params.Data)
 
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, settingList, err)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, settingList, err)
 }
 
 func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError common_model.ErrorRetCode) BaseGameResponse[T] {
@@ -84,16 +84,11 @@ func SecondsToServerISO(t time.Time, timeZone string) string {
 	return t.In(loc).Format("20060102150405")
 }
 
-func getBaseTimeStamp(t time.Time, timeZone string) BaseTimestamp {
-	return BaseTimestamp{
-		UnixSeconds:       t.Unix(),
-		ServerTimeIsoDate: int64(core.MustAtoi(SecondsToServerISO(t, timeZone))),
+func getBaseTimeStamp(t time.Time, timeZone string) main_model.GetServerTimeRetDataInfo {
+	return main_model.GetServerTimeRetDataInfo{
+		Time:     t.Unix(),
+		Datetime: int64(core.MustAtoi(SecondsToServerISO(t, timeZone))),
 	}
-}
-
-type BaseTimestamp struct {
-	UnixSeconds       int64 `thrift:",1"`
-	ServerTimeIsoDate int64 `thrift:",2"`
 }
 
 type EnvironmentData struct {
@@ -109,12 +104,12 @@ type BaseGameRequest[T any] struct {
 }
 
 type BaseGameResponse[T any] struct {
-	Error        common_model.ErrorRetCode `thrift:",1"`
-	Timestamp    BaseTimestamp             `thrift:",2"`
-	Category     string                    `thrift:",3"`
-	FunctionName string                    `thrift:",4"`
-	Data         T                         `thrift:",5,omitempty"`
-	EmptyValue   Empty                     `thrift:",6"`
+	Error        common_model.ErrorRetCode           `thrift:",1"`
+	Timestamp    main_model.GetServerTimeRetDataInfo `thrift:",2"`
+	Category     string                              `thrift:",3"`
+	FunctionName string                              `thrift:",4"`
+	Data         T                                   `thrift:",5,omitempty"`
+	EmptyValue   Empty                               `thrift:",6"`
 }
 
 type Empty struct{}

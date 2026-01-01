@@ -38,6 +38,7 @@ func main() {
 
 	gameService := &game.GameServiceImpl{
 		UserRepository: &game.UserRepositoryImpl{},
+		Timezone: "Asia/Seoul",
 	}
 	gameApi := game.NewGameApi(gameService)
 	gameRpc := game.NewGameRpc(gameApi)

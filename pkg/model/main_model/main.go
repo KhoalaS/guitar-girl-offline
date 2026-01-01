@@ -1577,8 +1577,8 @@ type AvatarListReturn struct {
 }
 
 type DefaultSettingListRetDataInfo struct {
-	Status       string `thrift:",1,omitempty"`
-	Setting_list []any  `thrift:",2,omitempty"` // TODO
+	Status       string                   `thrift:",1,omitempty"`
+	Setting_list []DefaultSettingDataList `thrift:",2,omitempty"` // TODO
 }
 
 type GetPropLevelData struct {
