@@ -11,13 +11,15 @@ import (
 type GameService interface {
 	Init(params InitParameters) (model.InitRetDataInfo, model.ErrorRetCode)
 	GetServerTime(params GetServerTimeParams) (BaseTimestamp, model.ErrorRetCode)
-	UserLogin(params UserLoginParams) (*UserLoginResult, model.ErrorRetCode)
+	UserLogin(params UserLoginParams) (model.UserLoginRetDataInfo, model.ErrorRetCode)
 	GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo
 	DefaultSettingList(params DefaultSettingListParams) DefaultSettingList
 	GetGameDataList(params GetGameDataListParams) (map[string]any, model.ErrorRetCode)
 }
 
-type GameServiceImpl struct{}
+type GameServiceImpl struct {
+	UserRepository
+}
 
 func (service *GameServiceImpl) Init(params InitParameters) (model.InitRetDataInfo, model.ErrorRetCode) {
 	return model.InitRetDataInfo{
@@ -31,12 +33,21 @@ func (service *GameServiceImpl) GetServerTime(params GetServerTimeParams) (BaseT
 	return getBaseTimeStamp(time.Now(), params.TimeZone), model.ErrorRetCode{}
 }
 
-func (service *GameServiceImpl) UserLogin(params UserLoginParams) (*UserLoginResult, model.ErrorRetCode) {
+func (service *GameServiceImpl) UserLogin(params UserLoginParams) (model.UserLoginRetDataInfo, model.ErrorRetCode) {
 	// TODO internal logic
-	return nil, model.ErrorRetCode{
-		Code:   998,
-		Errmsg: "Sorry. Not a registered user.",
+	userData, err := service.UserRepository.GetUser(params.UserId)
+	if err != nil {
+		return model.UserLoginRetDataInfo{}, model.ErrorRetCode{
+			Code:   998,
+			Errmsg: "Sorry. Not a registered user.",
+		}
 	}
+
+	return model.UserLoginRetDataInfo{
+		User: userData,
+		User_contents: nil,
+	}, model.ErrorRetCode{}
+
 }
 
 func (service *GameServiceImpl) GetUpdateTime(params GetUpdateTimeParams) model.GetUpdateTimeRetDataInfo {
@@ -190,7 +201,7 @@ type Pair struct {
 
 type DefaultSettingListParams struct {
 	DeviceId   string `thrift:",1"`
-	UnknownInt int32  `thrift:",2"`
+	UnknownInt int16  `thrift:",2"`
 }
 
 type GetUpdateTimeParams struct {

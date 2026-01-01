@@ -5409,8 +5409,8 @@ type UserDailyMission struct {
 }
 
 type UserData struct {
-	U_seq int64 `thrift:",1,omitempty"`
-	U_mp  int64 `thrift:",2,omitempty"`
+	U_seq int32  `thrift:",1,omitempty"`
+	U_mp  string `thrift:",2,omitempty"`
 }
 
 type UserDel struct {
@@ -5574,9 +5574,9 @@ type UserLoginDataInfo struct {
 }
 
 type UserLoginRetDataInfo struct {
-	User          UserData         `thrift:",1,omitempty"`
-	Area_data     map[any]any      `thrift:",2,omitempty"` // TODO
-	User_contents UserContentsData `thrift:",3,omitempty"`
+	User          UserData    `thrift:",1,omitempty"`
+	Area_data     map[any]any `thrift:",2,omitempty"` // TODO
+	User_contents map[any]any `thrift:",3,omitempty"`
 }
 
 type UserLoginReturn struct {

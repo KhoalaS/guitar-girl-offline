@@ -36,7 +36,9 @@ func main() {
 		}
 	}()
 
-	gameService := &game.GameServiceImpl{}
+	gameService := &game.GameServiceImpl{
+		UserRepository: &game.UserRepositoryImpl{},
+	}
 	gameApi := game.NewGameApi(gameService)
 	gameRpc := game.NewGameRpc(gameApi)
 

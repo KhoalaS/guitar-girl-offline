@@ -33,7 +33,7 @@ func (api *GameApi) GetServerTime(params BaseGameRequest[GetServerTimeParams], a
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, timeStamp, err)
 }
 
-func (api *GameApi) UserLogin(params BaseGameRequest[UserLoginParams], apiCategory string) BaseGameResponse[*UserLoginResult] {
+func (api *GameApi) UserLogin(params BaseGameRequest[UserLoginParams], apiCategory string) BaseGameResponse[model.UserLoginRetDataInfo] {
 	loginResult, serviceError := api.service.UserLogin(params.Data)
 	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, loginResult, serviceError)
 }
