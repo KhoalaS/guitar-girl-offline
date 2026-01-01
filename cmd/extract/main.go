@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-var classRegex = regexp.MustCompile(`(?s)\/\/ Namespace: (.+?)\n\[Serializable\]\npublic\s+class\s+([A-Za-z_][A-Za-z0-9_]*)\s*:\s*TBase,\s*TAbstractBase\s*\{.*?Properties(.*?)\n\n.+?\n\}`)
+var classRegex = regexp.MustCompile(`(?s)\/\/ Namespace: ([^\n]+?)\n\[Serializable\]\npublic\s+class\s+([A-Za-z_][A-Za-z0-9_]*)\s*:\s*TBase,\s*TAbstractBase\s*\{.*?Properties(.*?)\n\n.+?\n\}`)
 var csGoTypeMapping = map[string]string{
 	"String":       "string",
 	"Int32":        "int32",
@@ -87,7 +87,8 @@ func main() {
 
 	switch targetFlag {
 	case "go":
-		generateGoModels(classes, destDir)
+		models := generateGoModels(classes)
+		writeGoModels(models, destDir)
 	case "python":
 		generatePythonModels(classes)
 	default:
@@ -95,55 +96,77 @@ func main() {
 	}
 }
 
-func generateGoModels(classes []ThriftClass, destDir string) error {
-
-	builderMap := map[string]*strings.Builder{}
-
-	goModelFile, err := os.Create("thrift_model.go")
-	if err != nil {
-		return err
-	}
-	defer goModelFile.Close()
-
-	goModelFile.WriteString("package model\n\n")
+func generateGoModels(classes []ThriftClass) map[string]*Model {
+	modelMap := map[string]*Model{}
 
 	for _, class := range classes {
-		if _, ok := builderMap[class.Namespace]; !ok {
-			var packageBuilder strings.Builder
-			fmt.Fprintf(&packageBuilder, "package %s_model\n\n", class.Namespace)
-			builderMap[class.Namespace] = &packageBuilder
+		if _, ok := modelMap[class.Namespace]; ok {
+			modelMap[class.Namespace] = &Model{
+				Namespace: class.Namespace,
+				Classes:   make(map[string]ThriftClass),
+			}
 		}
 
-		goStructName := strings.ToUpper(class.Name[0:1]) + class.Name[1:]
-		var structLine strings.Builder
-
-		fmt.Fprintf(&structLine, "type %s struct {\n", goStructName)
-		for propIndex, prop := range class.Properties {
-			_type := csGoTypeMapping[prop.Type]
-			if _type == "" {
-				_type = strings.ToUpper(prop.Type[0:1]) + prop.Type[1:]
-			}
-			fmt.Fprintf(&structLine, "\t%s %s `thrift:\",%d,omitempty\"`", prop.Name, _type, propIndex+1)
-			if strings.Contains(prop.Type, "`") {
-				structLine.WriteString(" // TODO")
-			}
-			structLine.WriteString("\n")
-		}
-
-		structLine.WriteString("}\n\n")
-		packageBuilder := builderMap[class.Namespace]
-		packageBuilder.WriteString(structLine.String())
+		modelMap[class.Namespace].Classes[class.Name] = class
 	}
 
-	for namespace, builder := range builderMap {
-		packageName := fmt.Sprintf("%s_model", namespace)
+	for _, model := range modelMap {
+	Outer:
+		for _, class := range model.Classes {
+			for _, prop := range class.Properties {
+				if _, builtinType := csGoTypeMapping[prop.Type]; !builtinType {
+					if _, inNamespace := model.Classes[prop.Type]; !inNamespace {
+						model.NeedsCommonImport = true
+						break Outer
+					}
+				}
+			}
+		}
+	}
+
+	return modelMap
+}
+
+func writeGoModels(models map[string]*Model, destDir string) error {
+	for _, model := range models {
+		var modelStringBuilder strings.Builder
+		packageName := fmt.Sprintf("%s_model", model.Namespace)
+
+		fmt.Fprintf(&modelStringBuilder, "package %s\n\n", packageName)
+		if model.NeedsCommonImport {
+			modelStringBuilder.WriteString("import \"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model\"\n\n")
+		}
+
+		for _, class := range model.Classes {
+
+			goStructName := strings.ToUpper(class.Name[0:1]) + class.Name[1:]
+			var structLine strings.Builder
+
+			fmt.Fprintf(&structLine, "type %s struct {\n", goStructName)
+			for propIndex, prop := range class.Properties {
+				_type := csGoTypeMapping[prop.Type]
+				if _type == "" {
+					_type = strings.ToUpper(prop.Type[0:1]) + prop.Type[1:]
+				}
+				fmt.Fprintf(&structLine, "\t%s %s `thrift:\",%d,omitempty\"`", prop.Name, _type, propIndex+1)
+				if strings.Contains(prop.Type, "`") {
+					structLine.WriteString(" // TODO")
+				}
+				structLine.WriteString("\n")
+			}
+
+			structLine.WriteString("}\n\n")
+			modelStringBuilder.WriteString(structLine.String())
+		}
+
 		destfolder := filepath.Join(destDir, packageName)
 		os.Mkdir(destfolder, 0775)
 
-		destfile := filepath.Join(destfolder, fmt.Sprintf("%s.go", namespace))
+		destfile := filepath.Join(destfolder, fmt.Sprintf("%s.go", model.Namespace))
 		f, _ := os.Create(destfile)
-		f.WriteString(builder.String())
+		f.WriteString(modelStringBuilder.String())
 	}
+
 	fmt.Println("Created thrift data models")
 	return nil
 }
@@ -223,4 +246,10 @@ type ThriftClass struct {
 type Property struct {
 	Name string
 	Type string
+}
+
+type Model struct {
+	Namespace         string
+	NeedsCommonImport bool
+	Classes           map[string]ThriftClass
 }
