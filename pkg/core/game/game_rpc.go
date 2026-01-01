@@ -6,6 +6,7 @@ import (
 	"net/url"
 
 	embeds "github.com/KhoalaS/guitar-girl-offline"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
 	"github.com/KhoalaS/thrifter"
 	"github.com/KhoalaS/thrifter/general"
@@ -49,6 +50,7 @@ func (gameRpc *GameRpc) registerMainMux() {
 	mux.HandleFunc("/defaultSettingList/en/", gameRpc.defaultSettingList)
 	mux.HandleFunc("/getGameDataList/en/", gameRpc.getGameDataList)
 	mux.HandleFunc("/getServerTime/en/", gameRpc.getServerTime)
+	mux.HandleFunc("/getEventRewardList/en/", gameRpc.getEventRewardList)
 
 	//TODO other endpoints
 
@@ -70,6 +72,7 @@ func (gameRpc *GameRpc) registerUserMux() {
 
 	mux.HandleFunc("/userJoin/en/", gameRpc.userJoin)
 	mux.HandleFunc("/userLogin/en/", gameRpc.userLogin)
+	mux.HandleFunc("/userSave/en/", gameRpc.userLogin)
 
 	//TODO other endpoints
 
@@ -211,6 +214,25 @@ func (gameRpc GameRpc) getServerTime(w http.ResponseWriter, r *http.Request) {
 	baseRequest := ThriftStructToBaseGameRequest(generalStruct, 4, GetServerTimeParamsMapperFunc)
 	baseRequest.Data.TimeZone = gameRpc.api.timeZone
 	response := gameRpc.api.GetServerTime(baseRequest, "main")
+	responseData, err := thrifter.Marshal(response)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 3).Err(err).Send()
+		return
+	}
+
+	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
+	w.Write([]byte(thriftBytes))
+}
+
+func (gameRpc GameRpc) getEventRewardList(w http.ResponseWriter, r *http.Request) {
+	// TODO
+	w.Write([]byte("QlpoNDFBWSZTWQiziR0ACIp//f//8hts5H///wX6I6///aHuGAUP/CAdxAB/jF4gAFAFHegXWvdnRBQACDJgBMAATAAAAAJgmACYAAJiYAACYmICIJ6RNPVNMgyAMRoAADQBiBoyAYgAYgyGIaaAyaaMcJgAAAAACYRgAAAAmJhNBk0ZGAAAAAE1UQknkQ0obJpN6oMgD1AYmjQA0NNAyBiANNHqeSAe1QaAaZ6oIkqKZqeSNGmgAAaNAAANAAA0ANNAA0AAAAA1SzpunFNOlOCVx1aJclXFvi36mMRkWBURIABYgpcS2C20CwttCWYlyKm7Rbt1W2uCrVa1mLK5OGRhpTNusWzPHGylxG1rupM26aHEcU1rXXNxWxxJbo4YNDdijHDaM2aWTFZt5FnEVYWINfQylpiqpwwk3YQ0sSrHTVMpcMFVyrCla4nDLCptm21GspiFuxjAtlTTM2WICkS9pAbqwlIDAIgOjwcDBxwBaQCFACAAIIBAC4VuVbo12InEVAOc4nE6hhETsBMIFUMarsG049AZ+IqhSAzFgALfxBYsCuWmFRnEYjHTpiJZwrBi7MQixBCoAsgCyCjIgtX1BWNq64+m1K1MBVwZrZzbyRtsn4FNHa8xeL7d77/P5h5YtSrIk/cut+TZ37PrrVCdGfsRydE1eqhYr54ddcVl1MpCzAFnZQSlBdIEGQxTUJBKHYEMgkJCDIpauUtywZAkuhuYfJ/35t87mY+43kyAUsKKIQqJfmIiHaBvQv4IoZWI5S7GVUDTCaYnffrjvztmY+cbD8BiU3nZOWMMXhrjvKLirAXTWrI4GoD9U1ZS9eeYT+iwWT31VjDvoWc/RV4vdgvcnexvD4rIsGId9tZwjRQUUyiNEooqqqqhYBDSXrSCQkjiWaAzWvN4PNselYotVMHzMB/2O9R/Wjz48KPUjaMGI2jdK7cc8e6Or+WOwq5pLFTMdirMcSWpVg1PSjZW9bo7kdc8g2kt5iOCWKxTC/djtVvYXPGL2lGO2dw8dPl0d028SPC8SNPY0cO7GSRCwujgLDIgXRISMbUUCyvS9q3YOFHSVwUvAjfHuKMGhV5UHxsx044Kp1YyVcp16sJ49GEVrHvP5HdjB82Pw0eYfxOWOdHOd6j0fqHkJdVSwVdM6l7XrRn7lGObnBwjfR5tHPut/fUZ789vBngvNzoOONiWngVrRvjS72NjcE8NSzRuo7R1KM9ejmjG2R1Dsx58ffRtUnNB2lOsf8kv1R/RL10uiPUks1HRJaRlL/VHSzR60f7Mx+2jjkupxxrJfQktGY3R5MaxryUYto9WPR1o8qP/RmS2kuiS9WNqOrR3I6zwzHrZ7EctHyUvJOiPLo6IxHJJZj8hxSWsfZPXjfHlxrR5lHJGsfANSrSOiOt/8XckU4UJAIs4kdA="))
+}
+
+func (gameRpc *GameRpc) userSave(w http.ResponseWriter, r *http.Request) {
+	// TODO actual saving
+	response := gameRpc.api.UserSave(BaseGameRequest[user_model.UserSaveDataInfo]{}, "main")
 	responseData, err := thrifter.Marshal(response)
 	if err != nil {
 		InternalErrorHandler(w, err)
