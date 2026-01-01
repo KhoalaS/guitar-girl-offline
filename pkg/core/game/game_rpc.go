@@ -150,7 +150,6 @@ func (gameRpc *GameRpc) userLogin(w http.ResponseWriter, r *http.Request) {
 	}
 
 	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
-
 	w.Write([]byte(thriftBytes))
 }
 func (gameRpc *GameRpc) getVarietyStore(w http.ResponseWriter, r *http.Request) {
@@ -172,7 +171,8 @@ func (gameRpc *GameRpc) getUpdateTime(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write(responseData)
+	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
+	w.Write([]byte(thriftBytes))
 }
 
 func (gameRpc *GameRpc) defaultSettingList(w http.ResponseWriter, r *http.Request) {
@@ -192,7 +192,8 @@ func (gameRpc *GameRpc) defaultSettingList(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-	w.Write(responseData)
+	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
+	w.Write([]byte(thriftBytes))
 }
 
 func (gameRpc *GameRpc) getGameDataList(w http.ResponseWriter, r *http.Request) {
