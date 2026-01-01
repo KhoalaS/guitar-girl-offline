@@ -82,7 +82,7 @@ The offial game server is still operational. The server is "deactivated" by addi
 
 ```bash
 go run cmd/proxy/main.go
-# serves on localhost:10002
+# serves on localhost:10003
 ```
 
 ## TODO
