@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core/auth"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/core/cdn"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core/game"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -38,7 +39,7 @@ func main() {
 
 	gameService := &game.GameServiceImpl{
 		UserRepository: &game.UserRepositoryImpl{},
-		Timezone: "Asia/Seoul",
+		Timezone:       "Asia/Seoul",
 	}
 	gameApi := game.NewGameApi(gameService)
 	gameRpc := game.NewGameRpc(gameApi)
@@ -52,6 +53,13 @@ func main() {
 
 	go func() {
 		if err := gameServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatal().Err(err).Msg("Listen error")
+		}
+	}()
+
+	cdnServer := cdn.NewCdnServer(10002)
+	go func() {
+		if err := cdnServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatal().Err(err).Msg("Listen error")
 		}
 	}()

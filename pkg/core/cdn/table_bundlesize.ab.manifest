@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.2.10f1
+CRC: 4236248759
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: df68ffa7c4093a95876eb5423398da96
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 3ed147dff271613970b245cde47f68d5
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources_AssetBundles/table/table_bundlesize/Android_SizeTable.txt
+- Assets/Resources_AssetBundles/table/table_bundlesize/iOS_SizeTable.txt
+Dependencies: []

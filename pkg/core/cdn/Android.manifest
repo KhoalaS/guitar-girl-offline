@@ -1,0 +1,1498 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.2.10f1
+CRC: 134278223
+HashAppended: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: texture/texture_mail_image/texture_mail_starpass_goods_sale_1_ko.ab
+      Dependencies: {}
+    Info_1:
+      Name: music/music_2_10.ab
+      Dependencies: {}
+    Info_2:
+      Name: preview/preview_img_guitar_25.ab
+      Dependencies: {}
+    Info_3:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_2.ab
+      Dependencies: {}
+    Info_4:
+      Name: spine/spine_character/character_1_10.ab
+      Dependencies: {}
+    Info_5:
+      Name: spine/spine_character/character_2_221.ab
+      Dependencies: {}
+    Info_6:
+      Name: texture/texture_mail_image/texture_mail_ohmyanne_2_go.ab
+      Dependencies: {}
+    Info_7:
+      Name: music/music_2_6.ab
+      Dependencies: {}
+    Info_8:
+      Name: music/music_2_15.ab
+      Dependencies: {}
+    Info_9:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_9.ab
+      Dependencies: {}
+    Info_10:
+      Name: ch_third/story_object/story_fxobject_round_guitar.ab
+      Dependencies: {}
+    Info_11:
+      Name: spine/spine_character/character_2_225.ab
+      Dependencies: {}
+    Info_12:
+      Name: texture/texture_follower_full/texture_follower_full_12.ab
+      Dependencies: {}
+    Info_13:
+      Name: ticketcollection/ticketcollection_s13_illust.ab
+      Dependencies: {}
+    Info_14:
+      Name: preview/preview_img_guitar_232.ab
+      Dependencies: {}
+    Info_15:
+      Name: spine/spine_character/character_1_24.ab
+      Dependencies: {}
+    Info_16:
+      Name: texture/texture_profile_background/texture_profile_background_206_1.ab
+      Dependencies: {}
+    Info_17:
+      Name: spine/spine_guitar/guitar_2_235.ab
+      Dependencies: {}
+    Info_18:
+      Name: ch_third/story_texture/story_foreground_white_smooth_01.ab
+      Dependencies: {}
+    Info_19:
+      Name: messenger/messenger_texture_album_files/messengeralbum_19.ab
+      Dependencies: {}
+    Info_20:
+      Name: texture/texture_shop_detail.ab
+      Dependencies: {}
+    Info_21:
+      Name: ch_third/story_object/story_fxobject_round_milk.ab
+      Dependencies: {}
+    Info_22:
+      Name: texture/texture_profile_background/texture_profile_background_13_1.ab
+      Dependencies: {}
+    Info_23:
+      Name: spine/spine_guitar/guitar_1_12.ab
+      Dependencies: {}
+    Info_24:
+      Name: spine/spine_guitar/guitar_2_220.ab
+      Dependencies: {}
+    Info_25:
+      Name: spine/spine_guitar/guitar_2_206.ab
+      Dependencies: {}
+    Info_26:
+      Name: ch_third/story_texture/story_background_instrument_store_02.ab
+      Dependencies: {}
+    Info_27:
+      Name: texture/texture_mail_image/texture_mail_kakao_cashback_ko_6.ab
+      Dependencies: {}
+    Info_28:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_4.ab
+      Dependencies: {}
+    Info_29:
+      Name: music/music_2_7.ab
+      Dependencies: {}
+    Info_30:
+      Name: spine/spine_guitar/guitar_1_05.ab
+      Dependencies: {}
+    Info_31:
+      Name: messenger/messenger_texture_album_files/messengeralbum_216.ab
+      Dependencies: {}
+    Info_32:
+      Name: preview/preview_img_guitar_235.ab
+      Dependencies: {}
+    Info_33:
+      Name: starpass/starpass_eveningpicnic.ab
+      Dependencies: {}
+    Info_34:
+      Name: spine/spine_guitar/guitar_2_224.ab
+      Dependencies: {}
+    Info_35:
+      Name: icon/icon_guitar_area1.ab
+      Dependencies: {}
+    Info_36:
+      Name: spine/spine_guitar/guitar_2_236.ab
+      Dependencies: {}
+    Info_37:
+      Name: music/music_2_9.ab
+      Dependencies: {}
+    Info_38:
+      Name: spine/spine_character/character_1_01.ab
+      Dependencies: {}
+    Info_39:
+      Name: texture/texture_profile_background/texture_profile_background_1_1.ab
+      Dependencies: {}
+    Info_40:
+      Name: spine/spine_guitar/guitar_1_15.ab
+      Dependencies: {}
+    Info_41:
+      Name: texture/texture_profile_background/texture_profile_background_208_1.ab
+      Dependencies: {}
+    Info_42:
+      Name: spine/spine_guitar/guitar_2_244.ab
+      Dependencies: {}
+    Info_43:
+      Name: starpass/starpass_cottoncandy.ab
+      Dependencies: {}
+    Info_44:
+      Name: spine/spine_guitar/guitar_1_26.ab
+      Dependencies: {}
+    Info_45:
+      Name: messenger/messenger_texture_album_files/messengeralbum_204.ab
+      Dependencies: {}
+    Info_46:
+      Name: music/music_1_12.ab
+      Dependencies: {}
+    Info_47:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_9.ab
+      Dependencies: {}
+    Info_48:
+      Name: spine/spine_character/character_1_12.ab
+      Dependencies: {}
+    Info_49:
+      Name: icon/icon_costume_area2.ab
+      Dependencies: {}
+    Info_50:
+      Name: messenger/messenger_texture_album_files/messengeralbum_17.ab
+      Dependencies: {}
+    Info_51:
+      Name: spine/spine_character/character_2_227.ab
+      Dependencies: {}
+    Info_52:
+      Name: music/music_2_13.ab
+      Dependencies: {}
+    Info_53:
+      Name: icon/icon_music_area2.ab
+      Dependencies: {}
+    Info_54:
+      Name: spine/spine_character/character_1_18.ab
+      Dependencies: {}
+    Info_55:
+      Name: spine/spine_guitar/guitar_1_30.ab
+      Dependencies: {}
+    Info_56:
+      Name: ticketcollection/ticketcollection_s02.ab
+      Dependencies: {}
+    Info_57:
+      Name: messenger/messenger_texture_album_files/messengeralbum_213.ab
+      Dependencies: {}
+    Info_58:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_9.ab
+      Dependencies: {}
+    Info_59:
+      Name: ticketcollection/ticketcollection_s11.ab
+      Dependencies: {}
+    Info_60:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_8.ab
+      Dependencies: {}
+    Info_61:
+      Name: texture/texture_follower_full/texture_follower_full_15.ab
+      Dependencies: {}
+    Info_62:
+      Name: spine/spine_guitar/guitar_1_14.ab
+      Dependencies: {}
+    Info_63:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_1.ab
+      Dependencies: {}
+    Info_64:
+      Name: textureassetbundle
+      Dependencies: {}
+    Info_65:
+      Name: music/music_2_18.ab
+      Dependencies: {}
+    Info_66:
+      Name: spine/spine_guitar/guitar_1_18.ab
+      Dependencies: {}
+    Info_67:
+      Name: spine/spine_character/character_2_216.ab
+      Dependencies: {}
+    Info_68:
+      Name: music/music_2_2.ab
+      Dependencies: {}
+    Info_69:
+      Name: ch_third/story_texture/story_background_instrument_store_01.ab
+      Dependencies: {}
+    Info_70:
+      Name: music/music_1_9.ab
+      Dependencies: {}
+    Info_71:
+      Name: music/music_1_3.ab
+      Dependencies: {}
+    Info_72:
+      Name: ch_third/story_texture/story_background_moa_room_01.ab
+      Dependencies: {}
+    Info_73:
+      Name: preview/preview_img_guitar_219.ab
+      Dependencies: {}
+    Info_74:
+      Name: starpass/starpass_cherryblossom.ab
+      Dependencies: {}
+    Info_75:
+      Name: spine/spine_guitar/guitar_2_210.ab
+      Dependencies: {}
+    Info_76:
+      Name: ch_third/story_object/story_fxobject_round_phone.ab
+      Dependencies: {}
+    Info_77:
+      Name: table/table_bundlesize.ab
+      Dependencies: {}
+    Info_78:
+      Name: messenger/messenger_icon_chat.ab
+      Dependencies: {}
+    Info_79:
+      Name: spine/spine_guitar/guitar_1_27.ab
+      Dependencies: {}
+    Info_80:
+      Name: preview/preview_img_costume_215.ab
+      Dependencies: {}
+    Info_81:
+      Name: spine/spine_guitar/guitar_1_17.ab
+      Dependencies: {}
+    Info_82:
+      Name: ticketcollection/ticketcollection_s05.ab
+      Dependencies: {}
+    Info_83:
+      Name: preview/preview_img_guitar_9.ab
+      Dependencies: {}
+    Info_84:
+      Name: spine/spine_character/character_2_207.ab
+      Dependencies: {}
+    Info_85:
+      Name: spine/spine_guitar/guitar_2_222.ab
+      Dependencies: {}
+    Info_86:
+      Name: preview/preview_img_guitar_12.ab
+      Dependencies: {}
+    Info_87:
+      Name: icon/icon_follower_area1.ab
+      Dependencies: {}
+    Info_88:
+      Name: starpass/starpass_shiningsummer.ab
+      Dependencies: {}
+    Info_89:
+      Name: messenger/messenger_texture_album_files/messengeralbum_08.ab
+      Dependencies: {}
+    Info_90:
+      Name: spine/spine_guitar/guitar_1_20.ab
+      Dependencies: {}
+    Info_91:
+      Name: spine/spine_guitar/guitar_1_24.ab
+      Dependencies: {}
+    Info_92:
+      Name: starpass/starpass_snowfestival.ab
+      Dependencies: {}
+    Info_93:
+      Name: preview/preview_img_guitar_206.ab
+      Dependencies: {}
+    Info_94:
+      Name: spine/spine_guitar/guitar_1_02.ab
+      Dependencies: {}
+    Info_95:
+      Name: texture/texture_follower_full/texture_follower_full_6.ab
+      Dependencies: {}
+    Info_96:
+      Name: messenger/messenger_texture_album_files/messengeralbum_208.ab
+      Dependencies: {}
+    Info_97:
+      Name: spine/spine_guitar/guitar_2_228.ab
+      Dependencies: {}
+    Info_98:
+      Name: texture/texture_follower_full/texture_follower_full_4.ab
+      Dependencies: {}
+    Info_99:
+      Name: icon/icon_gift.ab
+      Dependencies: {}
+    Info_100:
+      Name: spine/spine_guitar/guitar_2_208.ab
+      Dependencies: {}
+    Info_101:
+      Name: texture/texture_follower_full/texture_follower_full_11.ab
+      Dependencies: {}
+    Info_102:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_12.ab
+      Dependencies: {}
+    Info_103:
+      Name: preview/preview_img_costume_18.ab
+      Dependencies: {}
+    Info_104:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_3.ab
+      Dependencies: {}
+    Info_105:
+      Name: texture/texture_mail_image/texture_mail_ohmyanne_3_go.ab
+      Dependencies: {}
+    Info_106:
+      Name: music/music_2_24.ab
+      Dependencies: {}
+    Info_107:
+      Name: spine/spine_guitar/guitar_2_205.ab
+      Dependencies: {}
+    Info_108:
+      Name: preview/preview_img_guitar_20.ab
+      Dependencies: {}
+    Info_109:
+      Name: spine/spine_guitar/guitar_1_03.ab
+      Dependencies: {}
+    Info_110:
+      Name: icon/icon_common_choco_shop.ab
+      Dependencies: {}
+    Info_111:
+      Name: texture/texture_mail_image/texture_mail_deathknight_ko.ab
+      Dependencies: {}
+    Info_112:
+      Name: spine/spine_character/character_2_214.ab
+      Dependencies: {}
+    Info_113:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_3.ab
+      Dependencies: {}
+    Info_114:
+      Name: texture/texture_follower_full/texture_follower_full_205.ab
+      Dependencies: {}
+    Info_115:
+      Name: texture/texture_follower_full/texture_follower_full_13.ab
+      Dependencies: {}
+    Info_116:
+      Name: ch_third/story_texture/story_background_white.ab
+      Dependencies: {}
+    Info_117:
+      Name: music/music_1_26.ab
+      Dependencies: {}
+    Info_118:
+      Name: spine/spine_guitar/guitar_1_28.ab
+      Dependencies: {}
+    Info_119:
+      Name: texture/texture_profile_background/texture_profile_background_12_1.ab
+      Dependencies: {}
+    Info_120:
+      Name: ch_third/story_texture/story_fxtexture_emphasize_01.ab
+      Dependencies: {}
+    Info_121:
+      Name: preview/preview_img_costume_14.ab
+      Dependencies: {}
+    Info_122:
+      Name: preview/preview_img_guitar_15.ab
+      Dependencies: {}
+    Info_123:
+      Name: spine/spine_guitar/guitar_2_214.ab
+      Dependencies: {}
+    Info_124:
+      Name: messenger/messenger_texture_album_files/messengeralbum_13.ab
+      Dependencies: {}
+    Info_125:
+      Name: texture/texture_mail_image/texture_mail_deathknight_go.ab
+      Dependencies: {}
+    Info_126:
+      Name: spine/spine_character/character_1_22.ab
+      Dependencies: {}
+    Info_127:
+      Name: spine/spine_guitar/guitar_1_35.ab
+      Dependencies: {}
+    Info_128:
+      Name: preview/preview_img_guitar_205.ab
+      Dependencies: {}
+    Info_129:
+      Name: texture/texture_profile_background/texture_profile_background_4_1.ab
+      Dependencies: {}
+    Info_130:
+      Name: sound/sound_bundle_bgm/bundle_music_globeflower.ab
+      Dependencies: {}
+    Info_131:
+      Name: spine/spine_guitar/guitar_1_38.ab
+      Dependencies: {}
+    Info_132:
+      Name: spine/spine_character/character_2_211.ab
+      Dependencies: {}
+    Info_133:
+      Name: spine/spine_guitar/guitar_2_211.ab
+      Dependencies: {}
+    Info_134:
+      Name: ch_third/story_texture/story_background_black_smooth_01.ab
+      Dependencies: {}
+    Info_135:
+      Name: messenger/messenger_texture_album_files/messengeralbum_07.ab
+      Dependencies: {}
+    Info_136:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_1.ab
+      Dependencies: {}
+    Info_137:
+      Name: messenger/messenger_texture_album_files/messengeralbum_18.ab
+      Dependencies: {}
+    Info_138:
+      Name: music/music_1_16.ab
+      Dependencies: {}
+    Info_139:
+      Name: preview/preview_img_guitar_17.ab
+      Dependencies: {}
+    Info_140:
+      Name: music/music_2_11.ab
+      Dependencies: {}
+    Info_141:
+      Name: spine/spine_guitar/guitar_2_230.ab
+      Dependencies: {}
+    Info_142:
+      Name: messenger/messenger_texture_album_files/messengeralbum_209.ab
+      Dependencies: {}
+    Info_143:
+      Name: spine/spine_guitar/guitar_2_203.ab
+      Dependencies: {}
+    Info_144:
+      Name: preview/preview_img_costume_25.ab
+      Dependencies: {}
+    Info_145:
+      Name: texture/texture_profile_background/texture_profile_background_9_1.ab
+      Dependencies: {}
+    Info_146:
+      Name: messenger/messenger_texture_album_files/messengeralbum_03.ab
+      Dependencies: {}
+    Info_147:
+      Name: ticketcollection/ticketcollection_s01_illust.ab
+      Dependencies: {}
+    Info_148:
+      Name: ch_third/story_texture/story_background_school_corridor_01.ab
+      Dependencies: {}
+    Info_149:
+      Name: spine/spine_character/character_2_203.ab
+      Dependencies: {}
+    Info_150:
+      Name: texture/texture_follower_full/texture_follower_full_1.ab
+      Dependencies: {}
+    Info_151:
+      Name: preview/preview_img_guitar_236.ab
+      Dependencies: {}
+    Info_152:
+      Name: spine/spine_character/character_1_02.ab
+      Dependencies: {}
+    Info_153:
+      Name: texture/texture_follower_full/texture_follower_full_10.ab
+      Dependencies: {}
+    Info_154:
+      Name: ch_third/story_texture/story_background_illust_01.ab
+      Dependencies: {}
+    Info_155:
+      Name: music/music_1_2.ab
+      Dependencies: {}
+    Info_156:
+      Name: spine/spine_character/character_1_06.ab
+      Dependencies: {}
+    Info_157:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_7.ab
+      Dependencies: {}
+    Info_158:
+      Name: texture/texture_mail_image/texture_mail_kakao_cashback_ko_7.ab
+      Dependencies: {}
+    Info_159:
+      Name: starpass/starpass_harvest.ab
+      Dependencies: {}
+    Info_160:
+      Name: texture/texture_profile_background/texture_profile_background_2_1.ab
+      Dependencies: {}
+    Info_161:
+      Name: music/music_1_4.ab
+      Dependencies: {}
+    Info_162:
+      Name: preview/preview_img_costume_23.ab
+      Dependencies: {}
+    Info_163:
+      Name: messenger/messenger_texture_album_files/messengeralbum_10003.ab
+      Dependencies: {}
+    Info_164:
+      Name: music/music_1_13.ab
+      Dependencies: {}
+    Info_165:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_5.ab
+      Dependencies: {}
+    Info_166:
+      Name: spine/spine_guitar/guitar_1_23.ab
+      Dependencies: {}
+    Info_167:
+      Name: spine/spine_guitar/guitar_2_246.ab
+      Dependencies: {}
+    Info_168:
+      Name: spine/spine_character/character_2_220.ab
+      Dependencies: {}
+    Info_169:
+      Name: music/music_2_23.ab
+      Dependencies: {}
+    Info_170:
+      Name: spine/spine_guitar/guitar_2_245.ab
+      Dependencies: {}
+    Info_171:
+      Name: messenger/messenger_texture_album_files/messengeralbum_215.ab
+      Dependencies: {}
+    Info_172:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_6.ab
+      Dependencies: {}
+    Info_173:
+      Name: spine/spine_guitar/guitar_2_226.ab
+      Dependencies: {}
+    Info_174:
+      Name: messenger/messenger_texture_album_files/messengeralbum_10001.ab
+      Dependencies: {}
+    Info_175:
+      Name: spine/spine_character/character_1_08.ab
+      Dependencies: {}
+    Info_176:
+      Name: preview/preview_img_guitar_28.ab
+      Dependencies: {}
+    Info_177:
+      Name: music/music_2_16.ab
+      Dependencies: {}
+    Info_178:
+      Name: ticketcollection/ticketcollection_s10_illust.ab
+      Dependencies: {}
+    Info_179:
+      Name: spine/spine_guitar/guitar_1_37.ab
+      Dependencies: {}
+    Info_180:
+      Name: preview/preview_img_costume_218.ab
+      Dependencies: {}
+    Info_181:
+      Name: messenger/messenger_texture_album_files/messengeralbum_10000.ab
+      Dependencies: {}
+    Info_182:
+      Name: spine/spine_character/character_2_222.ab
+      Dependencies: {}
+    Info_183:
+      Name: texture/texture_follower_full/texture_follower_full_203.ab
+      Dependencies: {}
+    Info_184:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_11.ab
+      Dependencies: {}
+    Info_185:
+      Name: ticketcollection/ticketcollection_s03_illust.ab
+      Dependencies: {}
+    Info_186:
+      Name: messenger/messenger_texture_album_files/messengeralbum_210.ab
+      Dependencies: {}
+    Info_187:
+      Name: preview/preview_img_costume_211.ab
+      Dependencies: {}
+    Info_188:
+      Name: sound/sound_bundle_bgm/bundle_music_ch_third_lobby_1.ab
+      Dependencies: {}
+    Info_189:
+      Name: music/music_1_6.ab
+      Dependencies: {}
+    Info_190:
+      Name: messenger/messenger_texture_album_files/messengeralbum_203.ab
+      Dependencies: {}
+    Info_191:
+      Name: music/music_1_8.ab
+      Dependencies: {}
+    Info_192:
+      Name: spine/spine_guitar/guitar_2_221.ab
+      Dependencies: {}
+    Info_193:
+      Name: spine/spine_guitar/guitar_2_223.ab
+      Dependencies: {}
+    Info_194:
+      Name: preview/preview_img_guitar_221.ab
+      Dependencies: {}
+    Info_195:
+      Name: spine/spine_guitar/guitar_2_238.ab
+      Dependencies: {}
+    Info_196:
+      Name: messenger/messenger_texture_album_files/messengeralbum_10.ab
+      Dependencies: {}
+    Info_197:
+      Name: preview/preview_img_costume_223.ab
+      Dependencies: {}
+    Info_198:
+      Name: messenger/messenger_texture_album_files/messengeralbum_217.ab
+      Dependencies: {}
+    Info_199:
+      Name: texture/texture_follower_full/texture_follower_full_207.ab
+      Dependencies: {}
+    Info_200:
+      Name: spine/spine_character/character_2_206.ab
+      Dependencies: {}
+    Info_201:
+      Name: texture/texture_mail_image/texture_mail_thanksgiving_2021_ko.ab
+      Dependencies: {}
+    Info_202:
+      Name: spine/spine_guitar/guitar_2_229.ab
+      Dependencies: {}
+    Info_203:
+      Name: texture/texture_mail_image/texture_mail_ohmyanne_go.ab
+      Dependencies: {}
+    Info_204:
+      Name: ticketcollection/ticketcollection_s06_illust.ab
+      Dependencies: {}
+    Info_205:
+      Name: spine/spine_guitar/guitar_2_217.ab
+      Dependencies: {}
+    Info_206:
+      Name: spine/spine_character/character_1_30.ab
+      Dependencies: {}
+    Info_207:
+      Name: spine/spine_character/character_1_15.ab
+      Dependencies: {}
+    Info_208:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_4.ab
+      Dependencies: {}
+    Info_209:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_10.ab
+      Dependencies: {}
+    Info_210:
+      Name: starpass/starpass_sweetidol.ab
+      Dependencies: {}
+    Info_211:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_11.ab
+      Dependencies: {}
+    Info_212:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_1.ab
+      Dependencies: {}
+    Info_213:
+      Name: spine/spine_character/character_2_208.ab
+      Dependencies: {}
+    Info_214:
+      Name: music/music_2_19.ab
+      Dependencies: {}
+    Info_215:
+      Name: messenger/messenger_texture_album_files/messengeralbum_11.ab
+      Dependencies: {}
+    Info_216:
+      Name: preview/preview_img_guitar_203.ab
+      Dependencies: {}
+    Info_217:
+      Name: spine/spine_guitar/guitar_1_08.ab
+      Dependencies: {}
+    Info_218:
+      Name: preview/preview_img_guitar_11.ab
+      Dependencies: {}
+    Info_219:
+      Name: spine/spine_character/character_2_223.ab
+      Dependencies: {}
+    Info_220:
+      Name: ch_third/story_object/story_fxobject_round_guitarcase.ab
+      Dependencies: {}
+    Info_221:
+      Name: spine/spine_guitar/guitar_2_227.ab
+      Dependencies: {}
+    Info_222:
+      Name: music/music_1_22.ab
+      Dependencies: {}
+    Info_223:
+      Name: preview/preview_img_guitar_216.ab
+      Dependencies: {}
+    Info_224:
+      Name: preview/preview_img_guitar_215.ab
+      Dependencies: {}
+    Info_225:
+      Name: icon/icon_ticket.ab
+      Dependencies: {}
+    Info_226:
+      Name: spine/spine_guitar/guitar_2_202.ab
+      Dependencies: {}
+    Info_227:
+      Name: preview/preview_img_costume_219.ab
+      Dependencies: {}
+    Info_228:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_11.ab
+      Dependencies: {}
+    Info_229:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_2.ab
+      Dependencies: {}
+    Info_230:
+      Name: preview/preview_img_guitar_23.ab
+      Dependencies: {}
+    Info_231:
+      Name: texture/texture_profile_background/texture_profile_background_204_1.ab
+      Dependencies: {}
+    Info_232:
+      Name: spine/spine_character/character_2_218.ab
+      Dependencies: {}
+    Info_233:
+      Name: ticketcollection/ticketcollection_s08_illust.ab
+      Dependencies: {}
+    Info_234:
+      Name: spine/spine_guitar/guitar_2_243.ab
+      Dependencies: {}
+    Info_235:
+      Name: music/music_1_11.ab
+      Dependencies: {}
+    Info_236:
+      Name: messenger/messenger_texture_album_files/messengeralbum_201.ab
+      Dependencies: {}
+    Info_237:
+      Name: texture/texture_profile_background/texture_profile_background_7_1.ab
+      Dependencies: {}
+    Info_238:
+      Name: texture/texture_profile_background/texture_profile_background_11_1.ab
+      Dependencies: {}
+    Info_239:
+      Name: preview/preview_img_guitar_233.ab
+      Dependencies: {}
+    Info_240:
+      Name: icon/icon_music_area1.ab
+      Dependencies: {}
+    Info_241:
+      Name: sound/sound_bundle_bgm/bundle_music_jinglebell.ab
+      Dependencies: {}
+    Info_242:
+      Name: messenger/messenger_texture_album_files/messengeralbum_15.ab
+      Dependencies: {}
+    Info_243:
+      Name: messenger/messenger_texture_album_files/messengeralbum_218.ab
+      Dependencies: {}
+    Info_244:
+      Name: table/table_db.ab
+      Dependencies: {}
+    Info_245:
+      Name: texture/texture_mail_image/texture_mail_kakao_cashback_ko_8.ab
+      Dependencies: {}
+    Info_246:
+      Name: spine/spine_guitar/guitar_1_06.ab
+      Dependencies: {}
+    Info_247:
+      Name: spine/spine_character/character_2_213.ab
+      Dependencies: {}
+    Info_248:
+      Name: preview/preview_img_guitar_4.ab
+      Dependencies: {}
+    Info_249:
+      Name: ch_third/ch_third_chapter_prefab/ch_third_chapter_prefab_2.ab
+      Dependencies: {}
+    Info_250:
+      Name: preview/preview_img_guitar_22.ab
+      Dependencies: {}
+    Info_251:
+      Name: preview/preview_img_guitar_26.ab
+      Dependencies: {}
+    Info_252:
+      Name: messenger/messenger_texture_album_files/messengeralbum_10002.ab
+      Dependencies: {}
+    Info_253:
+      Name: ch_third/story_texture/story_background_girl_room_01.ab
+      Dependencies: {}
+    Info_254:
+      Name: preview/preview_img_guitar_220.ab
+      Dependencies: {}
+    Info_255:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_13.ab
+      Dependencies: {}
+    Info_256:
+      Name: ch_third/story_texture/story_background_illust_02.ab
+      Dependencies: {}
+    Info_257:
+      Name: music/music_2_14.ab
+      Dependencies: {}
+    Info_258:
+      Name: preview/preview_img_costume_220.ab
+      Dependencies: {}
+    Info_259:
+      Name: spine/spine_character/character_2_226.ab
+      Dependencies: {}
+    Info_260:
+      Name: preview/preview_img_guitar_224.ab
+      Dependencies: {}
+    Info_261:
+      Name: preview/preview_img_costume_21.ab
+      Dependencies: {}
+    Info_262:
+      Name: spine/spine_guitar/guitar_1_07.ab
+      Dependencies: {}
+    Info_263:
+      Name: spine/spine_guitar/guitar_1_10.ab
+      Dependencies: {}
+    Info_264:
+      Name: spine/spine_character/character_2_210.ab
+      Dependencies: {}
+    Info_265:
+      Name: preview/preview_img_costume_24.ab
+      Dependencies: {}
+    Info_266:
+      Name: texture/texture_follower_full/texture_follower_full_5.ab
+      Dependencies: {}
+    Info_267:
+      Name: spine/spine_guitar/guitar_2_225.ab
+      Dependencies: {}
+    Info_268:
+      Name: spine/spine_guitar/guitar_1_16.ab
+      Dependencies: {}
+    Info_269:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_3.ab
+      Dependencies: {}
+    Info_270:
+      Name: spine/spine_character/character_1_14.ab
+      Dependencies: {}
+    Info_271:
+      Name: spine/spine_character/character_1_01_2.ab
+      Dependencies: {}
+    Info_272:
+      Name: music/music_1_5.ab
+      Dependencies: {}
+    Info_273:
+      Name: messenger/messenger_texture_album_files/messengeralbum_02.ab
+      Dependencies: {}
+    Info_274:
+      Name: spine/spine_guitar/guitar_2_204.ab
+      Dependencies: {}
+    Info_275:
+      Name: spine/spine_character/character_1_11.ab
+      Dependencies: {}
+    Info_276:
+      Name: ch_third/story_texture/story_background_joy_room_01.ab
+      Dependencies: {}
+    Info_277:
+      Name: spine/spine_guitar/guitar_1_29.ab
+      Dependencies: {}
+    Info_278:
+      Name: ch_third/story_texture/story_background_classroom_01.ab
+      Dependencies: {}
+    Info_279:
+      Name: music/music_1_19.ab
+      Dependencies: {}
+    Info_280:
+      Name: spine/spine_character/character_2_217.ab
+      Dependencies: {}
+    Info_281:
+      Name: messenger/messenger_texture_album_files/messengeralbum_20.ab
+      Dependencies: {}
+    Info_282:
+      Name: spine/spine_guitar/guitar_2_209.ab
+      Dependencies: {}
+    Info_283:
+      Name: spine/spine_guitar/guitar_1_19.ab
+      Dependencies: {}
+    Info_284:
+      Name: preview/preview_img_guitar_29.ab
+      Dependencies: {}
+    Info_285:
+      Name: spine/spine_guitar/guitar_1_01.ab
+      Dependencies: {}
+    Info_286:
+      Name: spine/spine_character/character_1_19.ab
+      Dependencies: {}
+    Info_287:
+      Name: spine/spine_character/character_1_09.ab
+      Dependencies: {}
+    Info_288:
+      Name: ticketcollection/ticketcollection_s08.ab
+      Dependencies: {}
+    Info_289:
+      Name: texture/texture_follower_full/texture_follower_full_100001.ab
+      Dependencies: {}
+    Info_290:
+      Name: texture/texture_profile_background/texture_profile_background_14_1.ab
+      Dependencies: {}
+    Info_291:
+      Name: messenger/messenger_texture_album_files/messengeralbum_206.ab
+      Dependencies: {}
+    Info_292:
+      Name: messenger/messenger_texture_album_files/messengeralbum_09.ab
+      Dependencies: {}
+    Info_293:
+      Name: spine/spine_character/character_1_16.ab
+      Dependencies: {}
+    Info_294:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_7.ab
+      Dependencies: {}
+    Info_295:
+      Name: spine/spine_guitar/guitar_1_09.ab
+      Dependencies: {}
+    Info_296:
+      Name: messenger/messenger_texture_album_files/messengeralbum_207.ab
+      Dependencies: {}
+    Info_297:
+      Name: spine/spine_guitar/guitar_2_219.ab
+      Dependencies: {}
+    Info_298:
+      Name: ticketcollection/ticketcollection_s11_illust.ab
+      Dependencies: {}
+    Info_299:
+      Name: spine/spine_guitar/guitar_2_234.ab
+      Dependencies: {}
+    Info_300:
+      Name: ticketcollection/ticketcollection_s07.ab
+      Dependencies: {}
+    Info_301:
+      Name: preview/preview_img_costume_22.ab
+      Dependencies: {}
+    Info_302:
+      Name: preview/preview_img_guitar_16.ab
+      Dependencies: {}
+    Info_303:
+      Name: ticketcollection/ticketcollection_s05_illust.ab
+      Dependencies: {}
+    Info_304:
+      Name: starpass/starpass_dreamingpastel.ab
+      Dependencies: {}
+    Info_305:
+      Name: spine/spine_character/character_1_32.ab
+      Dependencies: {}
+    Info_306:
+      Name: messenger/messenger_texture_album_files/messengeralbum_214.ab
+      Dependencies: {}
+    Info_307:
+      Name: spine/spine_character/character_1_17.ab
+      Dependencies: {}
+    Info_308:
+      Name: preview/preview_img_guitar_228.ab
+      Dependencies: {}
+    Info_309:
+      Name: spine/spine_character/character_2_215.ab
+      Dependencies: {}
+    Info_310:
+      Name: texture/texture_follower_full/texture_follower_full_9.ab
+      Dependencies: {}
+    Info_311:
+      Name: spine/spine_character/character_1_26.ab
+      Dependencies: {}
+    Info_312:
+      Name: ticketcollection/ticketcollection_s13.ab
+      Dependencies: {}
+    Info_313:
+      Name: messenger/messenger_texture_album_files/messengeralbum_205.ab
+      Dependencies: {}
+    Info_314:
+      Name: texture/texture_profile_background/texture_profile_background_8_1.ab
+      Dependencies: {}
+    Info_315:
+      Name: preview/preview_img_guitar_226.ab
+      Dependencies: {}
+    Info_316:
+      Name: texture/texture_profile_background/texture_profile_background_205_1.ab
+      Dependencies: {}
+    Info_317:
+      Name: spine/spine_guitar/guitar_1_31.ab
+      Dependencies: {}
+    Info_318:
+      Name: ticketcollection/ticketcollection_s02_illust.ab
+      Dependencies: {}
+    Info_319:
+      Name: ticketcollection/ticketcollection_s12.ab
+      Dependencies: {}
+    Info_320:
+      Name: spine/spine_guitar/guitar_2_216.ab
+      Dependencies: {}
+    Info_321:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_5.ab
+      Dependencies: {}
+    Info_322:
+      Name: texture/texture_follower_full/texture_follower_full_2.ab
+      Dependencies: {}
+    Info_323:
+      Name: spine/spine_character/character_2_229.ab
+      Dependencies: {}
+    Info_324:
+      Name: spine/spine_guitar/guitar_1_21.ab
+      Dependencies: {}
+    Info_325:
+      Name: music/music_1_15.ab
+      Dependencies: {}
+    Info_326:
+      Name: texture/texture_mail_image/texture_mail_thanksgiving_2021_go.ab
+      Dependencies: {}
+    Info_327:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_6.ab
+      Dependencies: {}
+    Info_328:
+      Name: texture/texture_follower_full/texture_follower_full_7.ab
+      Dependencies: {}
+    Info_329:
+      Name: starpass/starpass_christmas.ab
+      Dependencies: {}
+    Info_330:
+      Name: messenger/messenger_texture_album_files/messengeralbum_04.ab
+      Dependencies: {}
+    Info_331:
+      Name: sound/sound_bundle_sfx/bundle_sfx_story_classroomdoor.ab
+      Dependencies: {}
+    Info_332:
+      Name: spine/spine_character/character_1_27.ab
+      Dependencies: {}
+    Info_333:
+      Name: texture/texture_profile_background/texture_profile_background_6_1.ab
+      Dependencies: {}
+    Info_334:
+      Name: music/music_1_1.ab
+      Dependencies: {}
+    Info_335:
+      Name: ticketcollection/ticketcollection_s01.ab
+      Dependencies: {}
+    Info_336:
+      Name: sound/sound_bundle_bgm/bundle_music_story_thema_miso.ab
+      Dependencies: {}
+    Info_337:
+      Name: texture/texture_profile_background/texture_profile_background_207_1.ab
+      Dependencies: {}
+    Info_338:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_13.ab
+      Dependencies: {}
+    Info_339:
+      Name: messenger/messenger_texture_album_files/messengeralbum_05.ab
+      Dependencies: {}
+    Info_340:
+      Name: spine/spine_guitar/guitar_2_241.ab
+      Dependencies: {}
+    Info_341:
+      Name: music/music_1_25.ab
+      Dependencies: {}
+    Info_342:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_4.ab
+      Dependencies: {}
+    Info_343:
+      Name: spine/spine_guitar/guitar_2_242.ab
+      Dependencies: {}
+    Info_344:
+      Name: spine/spine_character/character_2_219.ab
+      Dependencies: {}
+    Info_345:
+      Name: spine/spine_character/character_1_13.ab
+      Dependencies: {}
+    Info_346:
+      Name: music/music_1_7.ab
+      Dependencies: {}
+    Info_347:
+      Name: preview/preview_img_guitar_30.ab
+      Dependencies: {}
+    Info_348:
+      Name: spine/spine_character/character_1_07.ab
+      Dependencies: {}
+    Info_349:
+      Name: spine/spine_character/character_2_228.ab
+      Dependencies: {}
+    Info_350:
+      Name: preview/preview_img_guitar_13.ab
+      Dependencies: {}
+    Info_351:
+      Name: spine/spine_character/character_1_28.ab
+      Dependencies: {}
+    Info_352:
+      Name: music/music_1_17.ab
+      Dependencies: {}
+    Info_353:
+      Name: preview/preview_img_guitar_234.ab
+      Dependencies: {}
+    Info_354:
+      Name: ticketcollection/ticketcollection_s06.ab
+      Dependencies: {}
+    Info_355:
+      Name: music/music_2_17.ab
+      Dependencies: {}
+    Info_356:
+      Name: music/music_1_23.ab
+      Dependencies: {}
+    Info_357:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_12.ab
+      Dependencies: {}
+    Info_358:
+      Name: spine/spine_character/character_2_202.ab
+      Dependencies: {}
+    Info_359:
+      Name: texture/texture_follower_full/texture_follower_full_204.ab
+      Dependencies: {}
+    Info_360:
+      Name: spine/spine_guitar/guitar_1_04.ab
+      Dependencies: {}
+    Info_361:
+      Name: spine/spine_guitar/guitar_2_233.ab
+      Dependencies: {}
+    Info_362:
+      Name: music/music_2_3.ab
+      Dependencies: {}
+    Info_363:
+      Name: texture/texture_mail_image/texture_mail_kakao_cashback_ko.ab
+      Dependencies: {}
+    Info_364:
+      Name: preview/preview_img_costume_217.ab
+      Dependencies: {}
+    Info_365:
+      Name: preview/preview_img_costume_210.ab
+      Dependencies: {}
+    Info_366:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_5.ab
+      Dependencies: {}
+    Info_367:
+      Name: messenger/messenger_texture_album_files/messengeralbum_01.ab
+      Dependencies: {}
+    Info_368:
+      Name: texture/texture_follower_full/texture_follower_full_100002.ab
+      Dependencies: {}
+    Info_369:
+      Name: ticketcollection/ticketcollection_s03.ab
+      Dependencies: {}
+    Info_370:
+      Name: ch_third/story_texture/story_background_convenience_store_01.ab
+      Dependencies: {}
+    Info_371:
+      Name: texture/texture_profile_background/texture_profile_background_5_1.ab
+      Dependencies: {}
+    Info_372:
+      Name: icon/icon_follower_area2.ab
+      Dependencies: {}
+    Info_373:
+      Name: music/music_2_12.ab
+      Dependencies: {}
+    Info_374:
+      Name: preview/preview_img_costume_17.ab
+      Dependencies: {}
+    Info_375:
+      Name: preview/preview_img_costume_221.ab
+      Dependencies: {}
+    Info_376:
+      Name: texture/texture_follower_full/texture_follower_full_208.ab
+      Dependencies: {}
+    Info_377:
+      Name: starpass/starpass_lemon.ab
+      Dependencies: {}
+    Info_378:
+      Name: texture/texture_follower_full/texture_follower_full_8.ab
+      Dependencies: {}
+    Info_379:
+      Name: spine/spine_guitar/guitar_1_34.ab
+      Dependencies: {}
+    Info_380:
+      Name: texture/texture_mail_image/texture_mail_kakao_cashback_ko_9.ab
+      Dependencies: {}
+    Info_381:
+      Name: ch_third/ch_third_chapter_prefab/ch_third_chapter_prefab_1.ab
+      Dependencies: {}
+    Info_382:
+      Name: texture/texture_follower_full/texture_follower_full_14.ab
+      Dependencies: {}
+    Info_383:
+      Name: sceneassetbundle
+      Dependencies:
+        Dependency_0: textureassetbundle
+    Info_384:
+      Name: sound/sound_bundle_sfx/bundle_sfx_story_titlepopup.ab
+      Dependencies: {}
+    Info_385:
+      Name: spine/spine_guitar/guitar_1_32.ab
+      Dependencies: {}
+    Info_386:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_2.ab
+      Dependencies: {}
+    Info_387:
+      Name: preview/preview_img_costume_15.ab
+      Dependencies: {}
+    Info_388:
+      Name: preview/preview_img_guitar_21.ab
+      Dependencies: {}
+    Info_389:
+      Name: starpass/starpass_pleasantspring.ab
+      Dependencies: {}
+    Info_390:
+      Name: music/music_2_8.ab
+      Dependencies: {}
+    Info_391:
+      Name: spine/spine_character/character_2_205.ab
+      Dependencies: {}
+    Info_392:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_7.ab
+      Dependencies: {}
+    Info_393:
+      Name: spine/spine_character/character_1_31.ab
+      Dependencies: {}
+    Info_394:
+      Name: texture/texture_follower_full/texture_follower_full_3.ab
+      Dependencies: {}
+    Info_395:
+      Name: ticketcollection/ticketcollection_s07_illust.ab
+      Dependencies: {}
+    Info_396:
+      Name: spine/spine_guitar/guitar_1_33.ab
+      Dependencies: {}
+    Info_397:
+      Name: spine/spine_character/character_2_204.ab
+      Dependencies: {}
+    Info_398:
+      Name: spine/spine_character/character_1_03.ab
+      Dependencies: {}
+    Info_399:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_8.ab
+      Dependencies: {}
+    Info_400:
+      Name: music/music_2_20.ab
+      Dependencies: {}
+    Info_401:
+      Name: preview/preview_img_guitar_222.ab
+      Dependencies: {}
+    Info_402:
+      Name: spine/spine_character/character_2_212.ab
+      Dependencies: {}
+    Info_403:
+      Name: texture/texture_mail_image/texture_mail_starpass_goods_sale_1_go.ab
+      Dependencies: {}
+    Info_404:
+      Name: preview/preview_img_costume_212.ab
+      Dependencies: {}
+    Info_405:
+      Name: spine/spine_guitar/guitar_1_13.ab
+      Dependencies: {}
+    Info_406:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_8.ab
+      Dependencies: {}
+    Info_407:
+      Name: preview/preview_img_costume_222.ab
+      Dependencies: {}
+    Info_408:
+      Name: icon/icon_guitar_area2.ab
+      Dependencies: {}
+    Info_409:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_background_10.ab
+      Dependencies: {}
+    Info_410:
+      Name: preview/preview_img_costume_214.ab
+      Dependencies: {}
+    Info_411:
+      Name: spine/spine_guitar/guitar_2_212.ab
+      Dependencies: {}
+    Info_412:
+      Name: preview/preview_img_guitar_229.ab
+      Dependencies: {}
+    Info_413:
+      Name: ticketcollection/ticketcollection_s04_illust.ab
+      Dependencies: {}
+    Info_414:
+      Name: spine/spine_character/character_1_04.ab
+      Dependencies: {}
+    Info_415:
+      Name: spine/spine_guitar/guitar_1_40.ab
+      Dependencies: {}
+    Info_416:
+      Name: preview/preview_img_guitar_230.ab
+      Dependencies: {}
+    Info_417:
+      Name: spine/spine_guitar/guitar_1_39.ab
+      Dependencies: {}
+    Info_418:
+      Name: music/music_1_18.ab
+      Dependencies: {}
+    Info_419:
+      Name: preview/preview_img_costume_224.ab
+      Dependencies: {}
+    Info_420:
+      Name: music/music_2_21.ab
+      Dependencies: {}
+    Info_421:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_live_6.ab
+      Dependencies: {}
+    Info_422:
+      Name: starpass/starpass_maidinvalentine.ab
+      Dependencies: {}
+    Info_423:
+      Name: spine/spine_character/character_1_20.ab
+      Dependencies: {}
+    Info_424:
+      Name: spine/spine_character/character_2_201.ab
+      Dependencies: {}
+    Info_425:
+      Name: spine/spine_guitar/guitar_2_207.ab
+      Dependencies: {}
+    Info_426:
+      Name: texture/texture_follower_full/texture_follower_full_206.ab
+      Dependencies: {}
+    Info_427:
+      Name: preview/preview_img_costume_11.ab
+      Dependencies: {}
+    Info_428:
+      Name: texture/texture_mail_image/texture_mail_ohmyanne_1_go.ab
+      Dependencies: {}
+    Info_429:
+      Name: preview/preview_img_costume_26.ab
+      Dependencies: {}
+    Info_430:
+      Name: messenger/messenger_texture_album_files/messengeralbum_202.ab
+      Dependencies: {}
+    Info_431:
+      Name: music/music_2_5.ab
+      Dependencies: {}
+    Info_432:
+      Name: messenger/messenger_texture_album_files/messengeralbum_16.ab
+      Dependencies: {}
+    Info_433:
+      Name: spine/spine_character/character_1_21.ab
+      Dependencies: {}
+    Info_434:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_12.ab
+      Dependencies: {}
+    Info_435:
+      Name: preview/preview_img_guitar_225.ab
+      Dependencies: {}
+    Info_436:
+      Name: music/music_2_4.ab
+      Dependencies: {}
+    Info_437:
+      Name: spine/spine_guitar/guitar_1_22.ab
+      Dependencies: {}
+    Info_438:
+      Name: spine/spine_guitar/guitar_2_215.ab
+      Dependencies: {}
+    Info_439:
+      Name: ch_third/story_texture/story_background_lecturehall_01.ab
+      Dependencies: {}
+    Info_440:
+      Name: spine/spine_character/character_1_05.ab
+      Dependencies: {}
+    Info_441:
+      Name: spine/spine_character/character_1_23.ab
+      Dependencies: {}
+    Info_442:
+      Name: preview/preview_img_guitar_231.ab
+      Dependencies: {}
+    Info_443:
+      Name: spine/spine_guitar/guitar_1_25.ab
+      Dependencies: {}
+    Info_444:
+      Name: messenger/messenger_texture_album_files/messengeralbum_211.ab
+      Dependencies: {}
+    Info_445:
+      Name: texture/texture_follower_full/texture_follower_full_100000.ab
+      Dependencies: {}
+    Info_446:
+      Name: music/music_2_22.ab
+      Dependencies: {}
+    Info_447:
+      Name: texture/texture_profile_background/texture_profile_background_203_1.ab
+      Dependencies: {}
+    Info_448:
+      Name: texture/texture_profile_background/texture_profile_background_100000_1.ab
+      Dependencies: {}
+    Info_449:
+      Name: ch_third/story_texture/story_background_artcenter_02.ab
+      Dependencies: {}
+    Info_450:
+      Name: preview/preview_img_guitar_27.ab
+      Dependencies: {}
+    Info_451:
+      Name: music/music_1_10.ab
+      Dependencies: {}
+    Info_452:
+      Name: texture/texture_profile_background/texture_profile_background_10_1.ab
+      Dependencies: {}
+    Info_453:
+      Name: spine/spine_guitar/guitar_2_240.ab
+      Dependencies: {}
+    Info_454:
+      Name: spine/spine_character/character_2_209.ab
+      Dependencies: {}
+    Info_455:
+      Name: music/music_2_1.ab
+      Dependencies: {}
+    Info_456:
+      Name: sound/sound_bundle_bgm/bundle_music_story_thema_moa.ab
+      Dependencies: {}
+    Info_457:
+      Name: ticketcollection/ticketcollection_s10.ab
+      Dependencies: {}
+    Info_458:
+      Name: spine/spine_character/character_1_29.ab
+      Dependencies: {}
+    Info_459:
+      Name: preview/preview_img_guitar_217.ab
+      Dependencies: {}
+    Info_460:
+      Name: sound/sound_bundle_sfx/bundle_sfx_story_handslap.ab
+      Dependencies: {}
+    Info_461:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_10.ab
+      Dependencies: {}
+    Info_462:
+      Name: spine/spine_character/character_2_201_2.ab
+      Dependencies: {}
+    Info_463:
+      Name: spine/spine_guitar/guitar_2_232.ab
+      Dependencies: {}
+    Info_464:
+      Name: ch_third/story_texture/story_background_school_01.ab
+      Dependencies: {}
+    Info_465:
+      Name: spine/spine_guitar/guitar_1_11.ab
+      Dependencies: {}
+    Info_466:
+      Name: spine/spine_guitar/guitar_2_218.ab
+      Dependencies: {}
+    Info_467:
+      Name: preview/preview_img_guitar_7.ab
+      Dependencies: {}
+    Info_468:
+      Name: ticketcollection/ticketcollection_s09.ab
+      Dependencies: {}
+    Info_469:
+      Name: starpass/starpass_halloween.ab
+      Dependencies: {}
+    Info_470:
+      Name: icon/icon_costume_area1.ab
+      Dependencies: {}
+    Info_471:
+      Name: messenger/messenger_texture_album_files/messengeralbum_12.ab
+      Dependencies: {}
+    Info_472:
+      Name: music/music_1_21.ab
+      Dependencies: {}
+    Info_473:
+      Name: ch_third/story_object/story_text_items.ab
+      Dependencies: {}
+    Info_474:
+      Name: texture/texture_shop_starpass_goods_banner/texture_shop_starpass_goods_banner_13.ab
+      Dependencies: {}
+    Info_475:
+      Name: sound/sound_bundle_bgm/bundle_sub_music_story_conflict.ab
+      Dependencies: {}
+    Info_476:
+      Name: ticketcollection/ticketcollection_s12_illust.ab
+      Dependencies: {}
+    Info_477:
+      Name: ticketcollection/ticketcollection_s04.ab
+      Dependencies: {}
+    Info_478:
+      Name: texture/texture_profile_background/texture_profile_background_15_1.ab
+      Dependencies: {}
+    Info_479:
+      Name: spine/spine_guitar/guitar_2_201.ab
+      Dependencies: {}
+    Info_480:
+      Name: spine/spine_character/character_2_224.ab
+      Dependencies: {}
+    Info_481:
+      Name: spine/spine_guitar/guitar_2_231.ab
+      Dependencies: {}
+    Info_482:
+      Name: spine/spine_guitar/guitar_2_239.ab
+      Dependencies: {}
+    Info_483:
+      Name: spine/spine_character/character_1_25.ab
+      Dependencies: {}
+    Info_484:
+      Name: texture/texture_profile_background/texture_profile_background_3_1.ab
+      Dependencies: {}
+    Info_485:
+      Name: spine/spine_guitar/guitar_1_36.ab
+      Dependencies: {}
+    Info_486:
+      Name: preview/preview_img_guitar_18.ab
+      Dependencies: {}
+    Info_487:
+      Name: music/music_1_14.ab
+      Dependencies: {}
+    Info_488:
+      Name: messenger/messenger_texture_album_files/messengeralbum_06.ab
+      Dependencies: {}
+    Info_489:
+      Name: preview/preview_img_guitar_24.ab
+      Dependencies: {}
+    Info_490:
+      Name: spine/spine_guitar/guitar_2_237.ab
+      Dependencies: {}
+    Info_491:
+      Name: preview/preview_img_guitar_227.ab
+      Dependencies: {}
+    Info_492:
+      Name: ticketcollection/ticketcollection_s09_illust.ab
+      Dependencies: {}
+    Info_493:
+      Name: music/music_1_20.ab
+      Dependencies: {}
+    Info_494:
+      Name: messenger/messenger_texture_album_files/messengeralbum_14.ab
+      Dependencies: {}
+    Info_495:
+      Name: music/music_1_24.ab
+      Dependencies: {}
+    Info_496:
+      Name: ch_third/story_texture/story_background_artcenter_01.ab
+      Dependencies: {}
