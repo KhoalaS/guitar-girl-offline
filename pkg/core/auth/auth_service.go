@@ -74,12 +74,12 @@ func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseAuthRespons
 			Member: LoginResponseValueMember{
 				CurrentDate:         nowMillis,
 				UpdateDate:          nowMillis,
-				StatusCd:            nil,
+				StatusCd:            "OK",
 				MemberId:            memberId,
 				Nickname:            "User",
 				ProfileImageUrl:     nil,
 				Feeling:             nil,
-				AdultAuth:           nil,
+				AdultAuth:           NO,
 				AdultAuthDate:       nil,
 				RecentLoginDate:     nil,
 				RecentAppId:         requestDto.appId,
@@ -166,10 +166,10 @@ type LoginResponseValueMember struct {
 	UpdateDate          int64   `json:"upd_dt"`
 	StatusCd            any     `json:"status_cd"`
 	MemberId            int     `json:"member_id"`
-	Nickname            string  `json:"nick_name"`
+	Nickname            string  `json:"nickname"`
 	ProfileImageUrl     *string `json:"profile_img_url"`
 	Feeling             any     `json:"feeling"`
-	AdultAuth           *YN     `json:"adult_auth_yn"`
+	AdultAuth           YN      `json:"adult_auth_yn"`
 	AdultAuthDate       *int64  `json:"adult_auth_dt"`
 	RecentLoginDate     *int64  `json:"recent_login_dt"`
 	RecentAppId         int     `json:"recent_app_id"`
