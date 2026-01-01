@@ -2438,33 +2438,33 @@ type SetUserFollowerQuest struct {
 }
 
 type UserContentsData struct {
-	User_achievement             []any `thrift:",1,omitempty"`  // TODO
-	User_buff                    []any `thrift:",2,omitempty"`  // TODO
-	User_candy_shop              []any `thrift:",3,omitempty"`  // TODO
-	User_character               []any `thrift:",4,omitempty"`  // TODO
-	User_costume                 []any `thrift:",5,omitempty"`  // TODO
-	User_daily_mission           []any `thrift:",6,omitempty"`  // TODO
-	User_follower                []any `thrift:",7,omitempty"`  // TODO
-	User_music                   []any `thrift:",8,omitempty"`  // TODO
-	User_prop                    []any `thrift:",9,omitempty"`  // TODO
-	User_unit                    []any `thrift:",10,omitempty"` // TODO
-	User_skill                   []any `thrift:",11,omitempty"` // TODO
-	User_shop                    []any `thrift:",12,omitempty"` // TODO
-	User_messenger               []any `thrift:",13,omitempty"` // TODO
-	User_guitar                  []any `thrift:",14,omitempty"` // TODO
-	User_event_point             []any `thrift:",15,omitempty"` // TODO
-	User_subscribe_list          []any `thrift:",16,omitempty"` // TODO
-	User_subscribe_pass_reward   []any `thrift:",17,omitempty"` // TODO
-	User_ticketcollection        []any `thrift:",18,omitempty"` // TODO
-	User_follower_quest          []any `thrift:",19,omitempty"` // TODO
-	User_follower_profile_reward []any `thrift:",20,omitempty"` // TODO
-	User_follower_profile        []any `thrift:",21,omitempty"` // TODO
-	User_follower_giftitem       []any `thrift:",22,omitempty"` // TODO
-	User_ad_list                 []any `thrift:",23,omitempty"` // TODO
-	User_chthird_stage           []any `thrift:",24,omitempty"` // TODO
-	User_tutorial                []any `thrift:",25,omitempty"` // TODO
-	User_ad_level                []any `thrift:",26,omitempty"` // TODO
-	User_select_reward           []any `thrift:",27,omitempty"` // TODO
+	User_achievement             []UserAchievement           `thrift:",1,omitempty"`
+	User_buff                    []UserBuff                  `thrift:",2,omitempty"`
+	User_candy_shop              []UserCandyShop             `thrift:",3,omitempty"`
+	User_character               []UserCharacter             `thrift:",4,omitempty"`
+	User_costume                 []UserCostume               `thrift:",5,omitempty"`
+	User_daily_mission           []UserDailyMission          `thrift:",6,omitempty"`
+	User_follower                []UserFollower              `thrift:",7,omitempty"`
+	User_music                   []UserMusic                 `thrift:",8,omitempty"`
+	User_prop                    []UserProp                  `thrift:",9,omitempty"`
+	User_unit                    []UserUnit                  `thrift:",10,omitempty"`
+	User_skill                   []UserSkill                 `thrift:",11,omitempty"`
+	User_shop                    []UserShop                  `thrift:",12,omitempty"`
+	User_messenger               []UserMessenger             `thrift:",13,omitempty"`
+	User_guitar                  []UserGuitar                `thrift:",14,omitempty"`
+	User_event_point             []UserEventPoint            `thrift:",15,omitempty"`
+	User_subscribe_list          []UserSubscribeList         `thrift:",16,omitempty"`
+	User_subscribe_pass_reward   []UserSubscribePassReward   `thrift:",17,omitempty"`
+	User_ticketcollection        []UserTicketCollection      `thrift:",18,omitempty"`
+	User_follower_quest          []UserFollowerQuest         `thrift:",19,omitempty"`
+	User_follower_profile_reward []UserFollowerProfileReward `thrift:",20,omitempty"`
+	User_follower_profile        []UserFollowerProfile       `thrift:",21,omitempty"`
+	User_follower_giftitem       []UserFollowerGiftItem      `thrift:",22,omitempty"`
+	User_ad_list                 []UserAdList                `thrift:",23,omitempty"`
+	User_chthird_stage           []UserChThirdStage          `thrift:",24,omitempty"`
+	User_tutorial                []UserTutorial              `thrift:",25,omitempty"`
+	User_ad_level                []UserAdLevel               `thrift:",26,omitempty"`
+	User_select_reward           []UserSelectReward          `thrift:",27,omitempty"`
 }
 
 type UserFollowerQuest struct {
@@ -2490,9 +2490,9 @@ type UserJoinReturn struct {
 }
 
 type UserLoginRetDataInfo struct {
-	User          UserData         `thrift:",1,omitempty"`
-	Area_data     map[any]any      `thrift:",2,omitempty"` // TODO
-	User_contents UserContentsData `thrift:",3,omitempty"`
+	User          UserData               `thrift:",1,omitempty"`
+	Area_data     map[int32]UserAreaData `thrift:",2,omitempty"`
+	User_contents UserContentsData       `thrift:",3,omitempty"`
 }
 
 type BuyUserTitleReturn struct {
