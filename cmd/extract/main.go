@@ -100,7 +100,7 @@ func generateGoModels(classes []ThriftClass) map[string]*Model {
 	modelMap := map[string]*Model{}
 
 	for _, class := range classes {
-		if _, ok := modelMap[class.Namespace]; ok {
+		if _, ok := modelMap[class.Namespace]; !ok {
 			modelMap[class.Namespace] = &Model{
 				Namespace: class.Namespace,
 				Classes:   make(map[string]ThriftClass),
@@ -131,6 +131,7 @@ func writeGoModels(models map[string]*Model, destDir string) error {
 	for _, model := range models {
 		var modelStringBuilder strings.Builder
 		packageName := fmt.Sprintf("%s_model", model.Namespace)
+		packageName = strings.ReplaceAll(packageName, ".", "_")
 
 		fmt.Fprintf(&modelStringBuilder, "package %s\n\n", packageName)
 		if model.NeedsCommonImport {
@@ -147,7 +148,11 @@ func writeGoModels(models map[string]*Model, destDir string) error {
 				_type := csGoTypeMapping[prop.Type]
 				if _type == "" {
 					_type = strings.ToUpper(prop.Type[0:1]) + prop.Type[1:]
+					if _, namespaceHasType := model.Classes[prop.Type]; !namespaceHasType {
+						_type = fmt.Sprintf("common_model.%s", _type)
+					}
 				}
+
 				fmt.Fprintf(&structLine, "\t%s %s `thrift:\",%d,omitempty\"`", prop.Name, _type, propIndex+1)
 				if strings.Contains(prop.Type, "`") {
 					structLine.WriteString(" // TODO")
