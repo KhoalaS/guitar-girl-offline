@@ -7,6 +7,7 @@ type Engine struct {
 
 type UserRepository interface {
 	GetUser(userId string) (user_model.UserData, error)
+	SaveUser(userId string, data user_model.UserData) error
 }
 
 type UserRepositoryImpl struct{}
@@ -16,4 +17,9 @@ func (repo *UserRepositoryImpl) GetUser(userId string) (user_model.UserData, err
 		U_seq: 10295032,
 		U_id:  "1765733351097",
 	}, nil
+}
+
+func (repo *UserRepositoryImpl) SaveUser(userId string, data user_model.UserData) error {
+	// TODO
+	return nil
 }
