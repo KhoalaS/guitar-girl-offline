@@ -1,75 +1,63 @@
+// Dll : Assembly-CSharp.dll
+// Namespace: user
 [Serializable]
-public class initDataInfo : TBase, TAbstractBase
+public class userData : TBase, TAbstractBase
 {
 	// Fields
-	private Int16 _idx; // 0x10
-	private String _game_url; // 0x18
-	private String _cdn_url; // 0x20
-	public Isset __isset; // 0x28
+	private Int64 _u_seq; // 0x10
+	private Int64 _u_mp; // 0x18
+	public Isset __isset; // 0x20
 
 	// Properties
-	
+	public Int64 U_seq { get; set; }
+	public Int64 U_mp { get; set; }
+
 	// Methods
-	// RVA: 0x1e87f70 VA: 0x753a393f70
-	public Int16 get_Idx() { }
-	// RVA: 0x1e87f78 VA: 0x753a393f78
-	public Void set_Idx(Int16 value) { }
-	// RVA: 0x1e87f88 VA: 0x753a393f88
-	public String get_Game_url() { }
-	// RVA: 0x1e87f90 VA: 0x753a393f90
-	public Void set_Game_url(String value) { }
-	// RVA: 0x1e87fa0 VA: 0x753a393fa0
-	public String get_Cdn_url() { }
-	// RVA: 0x1e87fa8 VA: 0x753a393fa8
-	public Void set_Cdn_url(String value) { }
-	// RVA: 0x1e87fb8 VA: 0x753a393fb8
+	// RVA: 0x1e7c070 VA: 0x753a388070
+	public Int64 get_U_seq() { }
+	// RVA: 0x1e7c078 VA: 0x753a388078
+	public Void set_U_seq(Int64 value) { }
+	// RVA: 0x1e7c088 VA: 0x753a388088
+	public Int64 get_U_mp() { }
+	// RVA: 0x1e7c090 VA: 0x753a388090
+	public Void set_U_mp(Int64 value) { }
+	// RVA: 0x1e7c0a0 VA: 0x753a3880a0
 	public Void .ctor() { }
-	// RVA: 0x1e87fc0 VA: 0x753a393fc0
+	// RVA: 0x1e7c0a8 VA: 0x753a3880a8
 	public Void Read(TProtocol iprot) { }
-	// RVA: 0x1e88218 VA: 0x753a394218
+	// RVA: 0x1e7c294 VA: 0x753a388294
 	public Void Write(TProtocol oprot) { }
-	// RVA: 0x1e88540 VA: 0x753a394540
+	// RVA: 0x1e7c510 VA: 0x753a388510
 	public override String ToString() { }
 }
 
+// Dll : Assembly-CSharp.dll
+// Namespace: multi
 [Serializable]
-public class initRetDataInfo : TBase, TAbstractBase
+public class userData : TBase, TAbstractBase
 {
 	// Fields
-	private Int16 _idx; // 0x10
-	private String _game_url; // 0x18
-	private String _cdn_url; // 0x20
-	public Isset __isset; // 0x28
+	private Int64 _u_seq; // 0x10
+	private Int64 _u_mp; // 0x18
+	public Isset __isset; // 0x20
 
 	// Properties
-	public Int16 Idx { get; set; }
-	public String Game_url { get; set; }
-	public String Cdn_url { get; set; }
 
 	// Methods
-	// RVA: 0x1e87f70 VA: 0x753a393f70
-	public Int16 get_Idx() { }
-	// RVA: 0x1e87f78 VA: 0x753a393f78
-	public Void set_Idx(Int16 value) { }
-	// RVA: 0x1e87f88 VA: 0x753a393f88
-	public String get_Game_url() { }
-	// RVA: 0x1e87f90 VA: 0x753a393f90
-	public Void set_Game_url(String value) { }
-	// RVA: 0x1e87fa0 VA: 0x753a393fa0
-	public String get_Cdn_url() { }
-	// RVA: 0x1e87fa8 VA: 0x753a393fa8
-	public Void set_Cdn_url(String value) { }
-	// RVA: 0x1e87fb8 VA: 0x753a393fb8
+	// RVA: 0x1e7c070 VA: 0x753a388070
+	public Int64 get_U_seq() { }
+	// RVA: 0x1e7c078 VA: 0x753a388078
+	public Void set_U_seq(Int64 value) { }
+	// RVA: 0x1e7c088 VA: 0x753a388088
+	public Int64 get_U_mp() { }
+	// RVA: 0x1e7c090 VA: 0x753a388090
+	public Void set_U_mp(Int64 value) { }
+	// RVA: 0x1e7c0a0 VA: 0x753a3880a0
 	public Void .ctor() { }
-	// RVA: 0x1e87fc0 VA: 0x753a393fc0
+	// RVA: 0x1e7c0a8 VA: 0x753a3880a8
 	public Void Read(TProtocol iprot) { }
-	// RVA: 0x1e88218 VA: 0x753a394218
+	// RVA: 0x1e7c294 VA: 0x753a388294
 	public Void Write(TProtocol oprot) { }
-	// RVA: 0x1e88540 VA: 0x753a394540
+	// RVA: 0x1e7c510 VA: 0x753a388510
 	public override String ToString() { }
-}
-
-public class initRetDataInfo : TBase, TAbstractBase
-{
-	[SOME CODE]
 }
