@@ -6,12 +6,13 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 	"regexp"
 	"sort"
 	"strings"
 )
 
-var classRegex = regexp.MustCompile(`(?s)public\s+class\s+([A-Za-z_][A-Za-z0-9_]*)\s*:\s*TBase,\s*TAbstractBase\s*\{.*?Properties(.*?)\n\n.+?\n\}`)
+var classRegex = regexp.MustCompile(`(?s)\/\/ Namespace: (.+?)\n\[Serializable\]\npublic\s+class\s+([A-Za-z_][A-Za-z0-9_]*)\s*:\s*TBase,\s*TAbstractBase\s*\{.*?Properties(.*?)\n\n.+?\n\}`)
 var csGoTypeMapping = map[string]string{
 	"String":       "string",
 	"Int32":        "int32",
@@ -44,9 +45,11 @@ func main() {
 	var debugFlag bool
 	var targetFlag string
 	var dumpFilePath string
+	var destDir string
 	flag.BoolVar(&debugFlag, "debug", false, "dump thrift classes to json file")
 	flag.StringVar(&targetFlag, "target", "go", "target programming language")
 	flag.StringVar(&dumpFilePath, "dump", "./dump.cs", "path to the dump.cs file")
+	flag.StringVar(&destDir, "dest", "./pkg/model", "path to the destination of the model files")
 	flag.Parse()
 
 	dumpFile, err := os.Open(dumpFilePath)
@@ -59,11 +62,13 @@ func main() {
 
 	classMatches := extractClasses(dumpFileContent)
 	for _, class := range classMatches {
-		className := string(class[1])
+		namespace := string(class[1])
+		className := string(class[2])
 
-		properties := extractProperties(class[2])
+		properties := extractProperties(class[3])
 		classes = append(classes, ThriftClass{
 			Name:       className,
+			Namespace:  namespace,
 			Properties: properties,
 		})
 	}
@@ -82,7 +87,7 @@ func main() {
 
 	switch targetFlag {
 	case "go":
-		generateGoModels(classes)
+		generateGoModels(classes, destDir)
 	case "python":
 		generatePythonModels(classes)
 	default:
@@ -90,7 +95,10 @@ func main() {
 	}
 }
 
-func generateGoModels(classes []ThriftClass) error {
+func generateGoModels(classes []ThriftClass, destDir string) error {
+
+	builderMap := map[string]*strings.Builder{}
+
 	goModelFile, err := os.Create("thrift_model.go")
 	if err != nil {
 		return err
@@ -99,16 +107,14 @@ func generateGoModels(classes []ThriftClass) error {
 
 	goModelFile.WriteString("package model\n\n")
 
-	addedClasses := map[string]bool{}
-
 	for _, class := range classes {
-		goStructName := strings.ToUpper(class.Name[0:1]) + class.Name[1:]
-		if _, ok := addedClasses[goStructName]; ok {
-			continue
+		if _, ok := builderMap[class.Namespace]; !ok {
+			var packageBuilder strings.Builder
+			fmt.Fprintf(&packageBuilder, "package %s_model\n\n", class.Namespace)
+			builderMap[class.Namespace] = &packageBuilder
 		}
 
-		addedClasses[goStructName] = true
-
+		goStructName := strings.ToUpper(class.Name[0:1]) + class.Name[1:]
 		var structLine strings.Builder
 
 		fmt.Fprintf(&structLine, "type %s struct {\n", goStructName)
@@ -125,7 +131,18 @@ func generateGoModels(classes []ThriftClass) error {
 		}
 
 		structLine.WriteString("}\n\n")
-		goModelFile.WriteString(structLine.String())
+		packageBuilder := builderMap[class.Namespace]
+		packageBuilder.WriteString(structLine.String())
+	}
+
+	for namespace, builder := range builderMap {
+		packageName := fmt.Sprintf("%s_model", namespace)
+		destfolder := filepath.Join(destDir, packageName)
+		os.Mkdir(destfolder, 0775)
+
+		destfile := filepath.Join(destfolder, fmt.Sprintf("%s.go", namespace))
+		f, _ := os.Create(destfile)
+		f.WriteString(builder.String())
 	}
 	fmt.Println("Created thrift data models")
 	return nil
@@ -198,6 +215,7 @@ func extractProperties(data []byte) []Property {
 }
 
 type ThriftClass struct {
+	Namespace  string
 	Name       string
 	Properties []Property
 }
