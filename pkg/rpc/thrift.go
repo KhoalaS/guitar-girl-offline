@@ -25,6 +25,27 @@ func ThriftDataToStruct(input string) (general.Struct, error) {
 	return thriftStruct, nil
 }
 
+func ThriftDataToAny[T any](input string) (T, error) {
+	var data T
+
+	decocdedBytes, err := decodeBase64(input)
+	if err != nil {
+		return data, err
+	}
+
+	decompressedBytes, err := decompressBzip2(decocdedBytes)
+	if err != nil {
+		return data, err
+	}
+
+	err = thrifter.Unmarshal(decompressedBytes, &data)
+	if err != nil {
+		return data, err
+	}
+
+	return data, nil
+}
+
 func ThriftBytesToBz2B64(input []byte) (string, error) {
 	compressedBytes, err := compressBz2(input)
 	if err != nil {

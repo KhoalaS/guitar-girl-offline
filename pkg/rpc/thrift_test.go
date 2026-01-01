@@ -4,6 +4,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 	"github.com/KhoalaS/thrifter"
 	"github.com/KhoalaS/thrifter/protocol"
 )
@@ -48,5 +49,17 @@ func TestThriftMapEncoding(t *testing.T) {
 	_, err := thrifter.Marshal(&m)
 	if err != nil {
 		t.Error(err)
+	}
+}
+
+func TestThriftMarshalling(t *testing.T) {
+	message := "QlpoMzFBWSZTWaNUnfgAABv9oP9uAQBAAH/gIAA/TRwAAAIAQCAAdCKb1J5TJkJoxMmCaNp6hntIJiAAAGgNDUk0qCiAJrFg4nBpqQACeCjBEXLHIiohjds9ZQeP0+xZaU/Mk0nYZCotc+G7pBIMDqImEOlD3MLV/uNoQPlw0RxPpjuorY4lKEsRQua9i7kinChIUapO/AA="
+	requestData, err := ThriftDataToAny[user_model.SetAttendance](message)
+	if err != nil {
+		t.Error(err)
+	}
+
+	if requestData.Call != "setAttendance" {
+		t.Fail()
 	}
 }
