@@ -248,12 +248,27 @@ func (service *GameServiceImpl) UserLogin(params UserLoginParams) (user_model.Us
 						I_BonusLevel: 0,
 					},
 					user_model.UserCostume{
+						I_id:         2,
+						I_Level:      1,
+						I_BonusLevel: 0,
+					},
+					user_model.UserCostume{
+						I_id:         3,
+						I_Level:      1,
+						I_BonusLevel: 0,
+					},
+					user_model.UserCostume{
 						I_id:         9,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
 					user_model.UserCostume{
 						I_id:         13,
+						I_Level:      1,
+						I_BonusLevel: 0,
+					},
+					user_model.UserCostume{
+						I_id:         14,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
