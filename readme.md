@@ -29,6 +29,7 @@ Then make post requests to http://localhost:9999/translate with a body like `Qlp
 ├── cmd
 │   ├── extract/                # Model extractor tool
 │   ├── debug/                  # Debug server
+│   ├── proxy/                  # Proxy server for game server
 │   └── main.go                 # Main entry point for game + auth server
 │
 ├── pkg
@@ -74,6 +75,14 @@ go run cmd/extract/main.go --dump ./dump.cs
 ```
 
 This will generate the model files in the `pkg/model` directory.
+
+## EOS game server proxy
+
+The offial game server is still operational. The server is "deactivated" by adding a `Maintenance` field to all responses which restricts users from entering the game. The game can still be played by proxying the requests and removing that field. It is still unknown how long the real servers will be operational though.
+
+```bash
+go run cmd/proxy/main.go
+```
 
 ## TODO
 
