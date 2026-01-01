@@ -18,7 +18,7 @@ func NewCdnServer(port uint16) http.Server {
 		w.Write(androidManifest)
 	})
 
-	mux.HandleFunc("GET /AssetBundles/Android/table/table_bundlesize.ab.manifest HTTP/1.1", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("GET /AssetBundles/Android/table/table_bundlesize.ab.manifest", func(w http.ResponseWriter, r *http.Request) {
 		w.Write(tableBundlesizeManifest)
 	})
 
