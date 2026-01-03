@@ -1,12 +1,15 @@
 package store_model
 
-import "github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
+import (
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
+)
 
 type BuyContentsRetDataInfo struct {
-	U_cp       int64                  `thrift:",1,omitempty"`
-	U_candy    float64                `thrift:",2,omitempty"`
-	User_skill common_model.UserSkill `thrift:",3,omitempty"`
-	User_unit  common_model.UserUnit  `thrift:",4,omitempty"`
+	U_cp       int64                `thrift:",1,omitempty"`
+	U_candy    float64              `thrift:",2,omitempty"`
+	User_skill user_model.UserSkill `thrift:",3,omitempty"`
+	User_unit  user_model.UserUnit  `thrift:",4,omitempty"`
 }
 
 type RetReward struct {
@@ -118,10 +121,10 @@ type BuyCheckReturn struct {
 }
 
 type BuyShopRetDataInfo struct {
-	U_cp          int64                    `thrift:",1,omitempty"`
-	U_candy       float64                  `thrift:",2,omitempty"`
-	Reward_data   []any                    `thrift:",3,omitempty"` // TODO
-	User_ad_level common_model.UserAdLevel `thrift:",4,omitempty"`
+	U_cp          int64                  `thrift:",1,omitempty"`
+	U_candy       float64                `thrift:",2,omitempty"`
+	Reward_data   []any                  `thrift:",3,omitempty"` // TODO
+	User_ad_level user_model.UserAdLevel `thrift:",4,omitempty"`
 }
 
 type GetVarietyStoreRetDataInfo struct {
