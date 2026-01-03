@@ -18,6 +18,7 @@ type GameService interface {
 	DefaultSettingList(params main_model.DefaultSettingListDataInfo) main_model.DefaultSettingListRetDataInfo
 	GetGameDataList(params main_model.GetGameDataListDataInfo) (main_model.GetGameDataListRetDataInfo, common_model.ErrorRetCode)
 	UserSave(params user_model.UserSaveDataInfo) (user_model.UserSaveRetDataInfo, common_model.ErrorRetCode)
+	UserJoin(params user_model.UserJoinDataInfo) (user_model.UserJoinRetDataInfo, common_model.ErrorRetCode)
 }
 
 type GameServiceImpl struct {
@@ -45,7 +46,7 @@ func (service *GameServiceImpl) GetServerTime(params main_model.MainDataInfo) (m
 
 func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (user_model.UserLoginRetDataInfo, common_model.ErrorRetCode) {
 	// TODO internal logic
-	userData, err := service.UserRepository.GetUser(params.U_id)
+	userData, err := service.UserRepository.GetUserByMemberId(params.Uuid)
 	if err != nil {
 		return user_model.UserLoginRetDataInfo{}, common_model.ErrorRetCode{
 			Code:   998,
@@ -571,7 +572,10 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 	}
 
 	return user_model.UserLoginRetDataInfo{
-		User: userData,
+		User: user_model.UserData{
+			U_seq: userData.U_seq,
+			U_id:  userData.U_id,
+		},
 	}, common_model.ErrorRetCode{}
 
 }
@@ -708,4 +712,19 @@ func (service *GameServiceImpl) GetGameDataList(params main_model.GetGameDataLis
 	}
 
 	return data, common_model.ErrorRetCode{}
+}
+
+func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (user_model.UserJoinRetDataInfo, common_model.ErrorRetCode) {
+	user, err := service.UserRepository.CreateUser(params.Uuid, params.Device_uuid)
+	if err != nil {
+		return user_model.UserJoinRetDataInfo{}, common_model.ErrorRetCode{
+			Code:   800,
+			Errmsg: "Error creating user",
+		}
+	}
+
+	return user_model.UserJoinRetDataInfo{
+		U_seq: user.U_seq,
+		U_id:  user.U_id,
+	}, common_model.ErrorRetCode{}
 }

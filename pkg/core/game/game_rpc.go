@@ -110,6 +110,22 @@ func (gameRpc *GameRpc) mainRequest(w http.ResponseWriter, r *http.Request) {
 func (gameRpc *GameRpc) getPostTime(w http.ResponseWriter, r *http.Request) {
 }
 func (gameRpc *GameRpc) userJoin(w http.ResponseWriter, r *http.Request) {
+	requestDto, _ := getRequestDto(r)
+
+	var responseData []byte
+
+	baseRequest, _ := rpc.ThriftDataToAny[user_model.UserJoin](requestDto.TapsonicData)
+
+	response := gameRpc.api.UserJoin(baseRequest, "user")
+	responseData, err := thrifter.Marshal(response)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		log.Debug().Int("code", 3).Err(err).Send()
+		return
+	}
+
+	thriftBytes, _ := rpc.ThriftBytesToBz2B64(responseData)
+	w.Write([]byte(thriftBytes))
 }
 func (gameRpc *GameRpc) userLogin(w http.ResponseWriter, r *http.Request) {
 	requestDto, _ := getRequestDto(r)

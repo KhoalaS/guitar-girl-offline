@@ -37,8 +37,9 @@ func main() {
 		}
 	}()
 
+	userDatabase := game.NewMockDb()
 	gameService := &game.GameServiceImpl{
-		UserRepository: &game.UserRepositoryImpl{},
+		UserRepository: game.NewUserRepositoryImpl(userDatabase),
 		Timezone:       "Asia/Seoul",
 	}
 	gameApi := game.NewGameApi(gameService)

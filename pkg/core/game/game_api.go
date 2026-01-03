@@ -61,6 +61,11 @@ func (api *GameApi) GetGameDataList(params main_model.GetGameDataList, apiCatego
 	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, settingList, err)
 }
 
+func (api *GameApi) UserJoin(params user_model.UserJoin, apiCategory string) BaseGameResponse[user_model.UserJoinRetDataInfo] {
+	user, err := api.service.UserJoin(params.Data)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, user, err)
+}
+
 func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError common_model.ErrorRetCode) BaseGameResponse[T] {
 	now := time.Now()
 
