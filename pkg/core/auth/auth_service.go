@@ -17,9 +17,10 @@ import (
 
 type AuthService interface {
 	Analytics() BaseAuthResponse
-	Register(fcmToken string, deviceId string, puid string, localeCd string) BaseAuthResponse
+	GcmRegister(fcmToken string, deviceId string, puid string, localeCd string) BaseAuthResponse
 	Login(requestDto LoginRequestDto) BaseAuthResponse
-	ReferrerSave(referrer string, adId string, appKey string, installBeginTime int64, referrerClickTime int, deviceCd string, appId int, appSecret string, localCd string) BaseAuthResponse
+	// TODO referrer string, adId string, appKey string, installBeginTime int64, referrerClickTime int, deviceCd string, appId int, appSecret string, localCd string
+	ReferrerSave() BaseAuthResponse
 	GeoipCountryCodeInfo(deviceCd string, appId int, localCd string) BaseAuthResponse
 	Eula(resultScheme int, platformCd string, releaseYmd string, nationCd string) BaseAuthResponse
 }
@@ -48,7 +49,7 @@ func (service AuthServiceImpl) Analytics() BaseAuthResponse {
 	}
 }
 
-func (service AuthServiceImpl) Register(fcmToken string, deviceId string, puid string, localeCd string) BaseAuthResponse {
+func (service AuthServiceImpl) GcmRegister(fcmToken string, deviceId string, puid string, localeCd string) BaseAuthResponse {
 	// TODO What is this "fcmheader" field? Firebase Cloud Messaging?
 	// Is it relevant? Is the value the same for all requests or dependant on the parameters?
 	return BaseAuthResponse{
@@ -113,7 +114,7 @@ func (service AuthServiceImpl) Login(requestDto LoginRequestDto) BaseAuthRespons
 	}
 }
 
-func (service AuthServiceImpl) ReferrerSave(referrer string, adId string, appKey string, installBeginTime int64, referrerClickTime int, deviceCd string, appId int, appSecret string, localCd string) BaseAuthResponse {
+func (service AuthServiceImpl) ReferrerSave() BaseAuthResponse {
 	return BaseAuthResponse{
 		Value:         "OK",
 		ResultCode:    "000",
