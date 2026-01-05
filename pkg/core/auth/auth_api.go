@@ -46,6 +46,10 @@ func (auth *AuthApi) RegisterAccountsRoutes(mux *http.ServeMux) {
 
 		w.Write(eulaFileBytes)
 	})
+
+	mux.HandleFunc("POST /api/referrer/save", auth.referrerSaveHandler)
+	mux.HandleFunc("POST /api/gcm/{appId}/register/2", auth.gcmRegisterHandler)
+	
 }
 
 func (auth *AuthApi) loginHandler(w http.ResponseWriter, r *http.Request) {
@@ -59,6 +63,28 @@ func (auth *AuthApi) loginHandler(w http.ResponseWriter, r *http.Request) {
 	requestDto := LoginRequestDtoFromFormdata(r.Form)
 
 	response := auth.authService.Login(requestDto)
+	responseData, err := json.Marshal(response)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		return
+	}
+
+	w.Write(responseData)
+}
+
+func (auth *AuthApi) referrerSaveHandler(w http.ResponseWriter, r *http.Request) {
+	response := auth.authService.ReferrerSave()
+	responseData, err := json.Marshal(response)
+	if err != nil {
+		InternalErrorHandler(w, err)
+		return
+	}
+
+	w.Write(responseData)
+}
+
+func (auth *AuthApi) gcmRegisterHandler(w http.ResponseWriter, r *http.Request) {
+	response := auth.authService.GcmRegister("", "", "", "")
 	responseData, err := json.Marshal(response)
 	if err != nil {
 		InternalErrorHandler(w, err)
