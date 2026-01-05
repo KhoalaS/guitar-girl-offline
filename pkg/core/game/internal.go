@@ -34,8 +34,10 @@ func (repo *UserRepositoryImpl) GetUserByMemberId(memberId string) (user_model.U
 	queryString := `SELECT * from user_data where uuid = ?`
 	row := repo.database.QueryRow(queryString, memberId)
 	var user user_model.UserData
+	var uuid string
 
 	err := row.Scan(
+		&uuid,
 		&user.U_seq,
 		&user.U_id,
 		&user.U_name,
