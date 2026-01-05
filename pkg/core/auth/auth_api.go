@@ -22,8 +22,6 @@ func NewAuthApi(service AuthService) *AuthApi {
 
 func (auth *AuthApi) RegisterStaticRoutes(mux *http.ServeMux) {
 	staticSubDir, _ := fs.Sub(embeds.StaticFiles, "static")
-	eulaFile, _ := staticSubDir.Open("eula.html")
-	eulaFileBytes, _ := io.ReadAll(eulaFile)
 
 	mux.Handle(
 		"/images/",
@@ -37,13 +35,17 @@ func (auth *AuthApi) RegisterStaticRoutes(mux *http.ServeMux) {
 		"/js/",
 		http.FileServerFS(staticSubDir),
 	)
-	mux.HandleFunc("/eula.html", func(w http.ResponseWriter, r *http.Request) {
-		w.Write(eulaFileBytes)
-	})
 }
 
 func (auth *AuthApi) RegisterAccountsRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("POST /api/accounts/v3/global/login", auth.loginHandler)
+	mux.HandleFunc("POST /api/eula/6/game/{appId}", func(w http.ResponseWriter, r *http.Request) {
+		staticSubDir, _ := fs.Sub(embeds.StaticFiles, "static")
+		eulaFile, _ := staticSubDir.Open("eula.html")
+		eulaFileBytes, _ := io.ReadAll(eulaFile)
+
+		w.Write(eulaFileBytes)
+	})
 }
 
 func (auth *AuthApi) loginHandler(w http.ResponseWriter, r *http.Request) {
