@@ -6,11 +6,17 @@ Requirements:
 
 -   go 1.25.5
 -   bzip2 1.0.8
+-   sqlite3 >= 3.44.4
 
 Building the server binary:
 
 ```bash
+# reset user db
+sqlite3 data.db < sql/create_user_table.sql 
+
+# build
 go build -o build/main cmd/main.go
+
 # run it
 ./build/main
 ```
