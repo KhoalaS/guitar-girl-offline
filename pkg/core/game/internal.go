@@ -15,7 +15,7 @@ type Engine struct {
 
 type UserRepository interface {
 	GetUserByMemberId(memberId string) (user_model.UserData, error)
-	GetUser(userSequence int32) (user_model.UserData, error)
+	GetUserBySequence(userSequence int32) (user_model.UserData, error)
 	SaveUser(userSequence int32, data user_model.UserData) error
 	CreateUser(memberId string, deviceUuid string) (user_model.UserData, error)
 }
@@ -69,7 +69,7 @@ func (repo *UserRepositoryImpl) GetUserByMemberId(memberId string) (user_model.U
 	return user, nil
 }
 
-func (repo *UserRepositoryImpl) GetUser(userSequence int32) (user_model.UserData, error) {
+func (repo *UserRepositoryImpl) GetUserBySequence(userSequence int32) (user_model.UserData, error) {
 	queryString := `SELECT * from user_data where u_seq = ?`
 	row := repo.database.QueryRow(queryString, userSequence)
 
