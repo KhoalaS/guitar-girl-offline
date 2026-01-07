@@ -23,6 +23,7 @@ type GameService interface {
 
 type GameServiceImpl struct {
 	UserRepository
+	UserAreaRepository
 	Timezone string
 }
 
@@ -698,6 +699,34 @@ func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (us
 			Errmsg: "Error creating user",
 		}
 	}
+
+	service.UserAreaRepository.SetAreaData(params.Uuid, user_model.UserAreaData{
+		U_area_num:          1,
+		D_Candy:             0,
+		D_Like:              0,
+		I_UserFanCount:      0,
+		I_UserFanGrade:      1,
+		I_SelectedCostumeId: 1,
+		I_SelectedMusicId:   1,
+		I_SelectedGuitarId:  1,
+		S_TutorialList:      "",
+		S_Gp1:               "",
+		S_Gp2:               "",
+	})
+
+	service.UserAreaRepository.SetAreaData(params.Uuid, user_model.UserAreaData{
+		U_area_num:          2,
+		D_Candy:             0,
+		D_Like:              0,
+		I_UserFanCount:      0,
+		I_UserFanGrade:      1,
+		I_SelectedCostumeId: 1,
+		I_SelectedMusicId:   1,
+		I_SelectedGuitarId:  1,
+		S_TutorialList:      "",
+		S_Gp1:               "",
+		S_Gp2:               "",
+	})
 
 	return user_model.UserJoinRetDataInfo{
 		U_seq: user.U_seq,
