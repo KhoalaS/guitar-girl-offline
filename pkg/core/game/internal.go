@@ -10,6 +10,8 @@ import (
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 )
 
+const dateFormat string = "2006-01-02 15:04:05"
+
 type Engine struct {
 }
 
@@ -18,6 +20,7 @@ type UserRepository interface {
 	GetUserBySequence(userSequence int32) (user_model.UserData, error)
 	SaveUser(userSequence int32, data user_model.UserData) error
 	CreateUser(memberId string, deviceUuid string) (user_model.UserData, error)
+	UpdateLastCommunication(memberId string) error
 }
 
 type UserRepositoryImpl struct {
@@ -145,7 +148,7 @@ func (repo *UserRepositoryImpl) CreateUser(memberId string, deviceUuid string) (
 
 	uSeq := CreateUserSequence()
 	uId := CreateUserId()
-	loginDate := now.Format("2006-01-02 15:04:05")
+	loginDate := now.Format(dateFormat)
 
 	_, err := repo.database.Exec(
 		query,
@@ -186,6 +189,19 @@ func (repo *UserRepositoryImpl) CreateUser(memberId string, deviceUuid string) (
 
 func (repo *UserRepositoryImpl) SaveUser(userSequence int32, data user_model.UserData) error {
 	// TODO
+	return nil
+}
+
+func (repo *UserRepositoryImpl) UpdateLastCommunication(memberId string) error {
+	nowDateString := time.Now().Format(dateFormat)
+
+	query := `INSERT INTO user_data (u_last_communication) VALUES(?)`
+	_, err := repo.database.Exec(query, nowDateString)
+
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
 
