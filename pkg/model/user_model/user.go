@@ -860,7 +860,8 @@ type UpdateAvatar struct {
 }
 
 type UserData struct {
-	U_seq                   int32   `thrift:",1,omitempty"`
+	U_seq int32 `thrift:",1,omitempty"`
+	// unix millis
 	U_id                    string  `thrift:",2,omitempty"`
 	U_name                  string  `thrift:",3,omitempty"`
 	U_nick                  string  `thrift:",4,omitempty"`
@@ -873,16 +874,20 @@ type UserData struct {
 	U_selected_music_id     int64   `thrift:",11,omitempty"`
 	U_retain_continuous_tap int16   `thrift:",12,omitempty"`
 	U_join_type             int16   `thrift:",13,omitempty"`
-	U_last_login            string  `thrift:",14,omitempty"`
-	U_last_communication    string  `thrift:",15,omitempty"`
-	U_save_date             string  `thrift:",16,omitempty"`
-	U_create_time           string  `thrift:",17,omitempty"`
-	U_tutorial_step         int16   `thrift:",18,omitempty"`
-	U_review_popup          string  `thrift:",19,omitempty"`
-	Device_uuid             string  `thrift:",20,omitempty"`
-	U_samseck_step          int16   `thrift:",21,omitempty"`
-	U_free_cp               int64   `thrift:",22,omitempty"`
-	U_charge_cp             int64   `thrift:",23,omitempty"`
+	// YYYY-MM-DD hh:mm:ss
+	U_last_login string `thrift:",14,omitempty"`
+	// YYYY-MM-DD hh:mm:ss
+	U_last_communication string `thrift:",15,omitempty"`
+	// unix seconds
+	U_save_date string `thrift:",16,omitempty"`
+	// unix seconds
+	U_create_time   string `thrift:",17,omitempty"`
+	U_tutorial_step int16  `thrift:",18,omitempty"`
+	U_review_popup  string `thrift:",19,omitempty"`
+	Device_uuid     string `thrift:",20,omitempty"`
+	U_samseck_step  int16  `thrift:",21,omitempty"`
+	U_free_cp       int64  `thrift:",22,omitempty"`
+	U_charge_cp     int64  `thrift:",23,omitempty"`
 }
 
 type SetFollowerProfileGift struct {
@@ -2578,24 +2583,24 @@ type UserCandyShop struct {
 }
 
 type UserSaveDataInfo struct {
-	U_seq               int32  `thrift:",1,omitempty"`
-	U_id                string `thrift:",2,omitempty"`
-	Uuid                string `thrift:",3,omitempty"`
-	Device_uuid         string `thrift:",4,omitempty"`
-	Type                string `thrift:",5,omitempty"`
-	User_info           []any  `thrift:",6,omitempty"`  // TODO
-	User_area_info      []any  `thrift:",7,omitempty"`  // TODO
-	User_achievement    []any  `thrift:",8,omitempty"`  // TODO
-	User_character      []any  `thrift:",9,omitempty"`  // TODO
-	User_costume        []any  `thrift:",10,omitempty"` // TODO
-	User_daily_mission  []any  `thrift:",11,omitempty"` // TODO
-	User_follower       []any  `thrift:",12,omitempty"` // TODO
-	User_music          []any  `thrift:",13,omitempty"` // TODO
-	User_skill          []any  `thrift:",14,omitempty"` // TODO
-	User_messenger      []any  `thrift:",15,omitempty"` // TODO
-	User_guitar         []any  `thrift:",16,omitempty"` // TODO
-	User_event_point    []any  `thrift:",17,omitempty"` // TODO
-	User_follower_quest []any  `thrift:",18,omitempty"` // TODO
+	U_seq               int32                   `thrift:",1,omitempty"`
+	U_id                string                  `thrift:",2,omitempty"`
+	Uuid                string                  `thrift:",3,omitempty"`
+	Device_uuid         string                  `thrift:",4,omitempty"`
+	Type                string                  `thrift:",5,omitempty"`
+	User_info           []SaveUserInfo          `thrift:",6,omitempty"`
+	User_area_info      []SaveUserAreaInfo      `thrift:",7,omitempty"`
+	User_achievement    []SaveUserAchievement   `thrift:",8,omitempty"`
+	User_character      []SaveUserCharacter     `thrift:",9,omitempty"`
+	User_costume        []SaveUserCostume       `thrift:",10,omitempty"`
+	User_daily_mission  []SaveUserDailyMission  `thrift:",11,omitempty"`
+	User_follower       []SaveUserFollower      `thrift:",12,omitempty"`
+	User_music          []SaveUserMusic         `thrift:",13,omitempty"`
+	User_skill          []SaveUserSkill         `thrift:",14,omitempty"`
+	User_messenger      []SaveUserMessenger     `thrift:",15,omitempty"`
+	User_guitar         []SaveUserGuitar        `thrift:",16,omitempty"`
+	User_event_point    []SaveUserEventPoint    `thrift:",17,omitempty"`
+	User_follower_quest []SaveUserFollowerQuest `thrift:",18,omitempty"`
 }
 
 type ChThirdStreamStageDataInfo struct {
