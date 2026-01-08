@@ -28,6 +28,10 @@ type GameServiceImpl struct {
 }
 
 func (service *GameServiceImpl) UserSave(params user_model.UserSaveDataInfo) (user_model.UserSaveRetDataInfo, common_model.ErrorRetCode) {
+	for _, areaData := range params.User_area_info {
+		// TODO db transaction inside SetAreaData that accepts UserAreaInfo slice 
+		service.UserAreaRepository.SetAreaData(params.Uuid, areaData)
+	}
 	return user_model.UserSaveRetDataInfo{
 		Status: "Y",
 	}, common_model.ErrorRetCode{}
@@ -700,7 +704,7 @@ func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (us
 		}
 	}
 
-	service.UserAreaRepository.SetAreaData(params.Uuid, user_model.UserAreaData{
+	service.UserAreaRepository.SetAreaData(params.Uuid, user_model.SaveUserAreaInfo{
 		U_area_num:          1,
 		D_Candy:             0,
 		D_Like:              0,
@@ -714,7 +718,7 @@ func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (us
 		S_Gp2:               "",
 	})
 
-	service.UserAreaRepository.SetAreaData(params.Uuid, user_model.UserAreaData{
+	service.UserAreaRepository.SetAreaData(params.Uuid, user_model.SaveUserAreaInfo{
 		U_area_num:          2,
 		D_Candy:             0,
 		D_Like:              0,

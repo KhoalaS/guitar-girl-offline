@@ -7,7 +7,7 @@ import (
 )
 
 type UserAreaRepository interface {
-	SetAreaData(memberId string, areaData user_model.UserAreaData) error
+	SetAreaData(memberId string, areaData user_model.SaveUserAreaInfo) error
 	GetAreaData(memberId string, areaId int16) (user_model.UserAreaData, error)
 	GetAllAreaData(memberId string) ([]user_model.UserAreaData, error)
 }
@@ -85,7 +85,7 @@ func (userAreaRepo *UserAreaRepositoryImpl) GetAreaData(memberId string, areaId 
 	return areaData, nil
 }
 
-func (userAreaRepo *UserAreaRepositoryImpl) SetAreaData(memberId string, areaData user_model.UserAreaData) error {
+func (userAreaRepo *UserAreaRepositoryImpl) SetAreaData(memberId string, areaData user_model.SaveUserAreaInfo) error {
 	upsertQuery := `
 	INSERT INTO user_area_info
 		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
