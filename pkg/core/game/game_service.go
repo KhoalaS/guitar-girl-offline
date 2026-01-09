@@ -29,7 +29,7 @@ type GameServiceImpl struct {
 
 func (service *GameServiceImpl) UserSave(params user_model.UserSaveDataInfo) (user_model.UserSaveRetDataInfo, common_model.ErrorRetCode) {
 	for _, areaData := range params.User_area_info {
-		// TODO db transaction inside SetAreaData that accepts UserAreaInfo slice 
+		// TODO db transaction inside SetAreaData that accepts UserAreaInfo slice
 		service.UserAreaRepository.SetAreaData(params.Uuid, areaData)
 	}
 	return user_model.UserSaveRetDataInfo{
@@ -59,37 +59,16 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 		}
 	}
 
+	areaData, _ := service.GetAllAreaData(params.Uuid)
+	areaDataMap := map[int32]user_model.UserAreaData{}
+	for _, area := range areaData {
+		areaDataMap[int32(area.U_area_num)] = area
+	}
+
 	if params.U_seq != 0 {
 		return user_model.UserLoginRetDataInfo{
-			User: userData,
-			Area_data: map[int32]user_model.UserAreaData{
-				1: user_model.UserAreaData{
-					U_area_num:          1,
-					D_Like:              0,
-					I_UserFanCount:      1000000,
-					I_UserFanGrade:      7668,
-					I_SelectedCostumeId: 2,
-					I_SelectedMusicId:   13,
-					I_SelectedGuitarId:  3,
-					D_Candy:             10,
-					S_TutorialList:      "",
-					S_Gp1:               "96981935241350",
-					S_Gp2:               "0",
-				},
-				2: user_model.UserAreaData{
-					U_area_num:          2,
-					D_Like:              0,
-					I_UserFanCount:      0,
-					I_UserFanGrade:      0,
-					I_SelectedCostumeId: 1,
-					I_SelectedMusicId:   201,
-					I_SelectedGuitarId:  201,
-					D_Candy:             201,
-					S_TutorialList:      "",
-					S_Gp1:               "0",
-					S_Gp2:               "0",
-				},
-			},
+			User:      userData,
+			Area_data: areaDataMap,
 			User_contents: user_model.UserContentsData{
 				User_achievement: []user_model.UserAchievement{
 					user_model.UserAchievement{
@@ -662,7 +641,7 @@ func (service *GameServiceImpl) DefaultSettingList(params main_model.DefaultSett
 			},
 			{
 				Setting_key:   "pass_goods_sale_end_time",
-				Setting_value: "2022-02-27 23:59",
+				Setting_value: "2999-02-27 23:59",
 			},
 			{
 				Setting_key:   "attendacne_buff_value",

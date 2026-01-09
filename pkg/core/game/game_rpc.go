@@ -72,7 +72,7 @@ func (gameRpc *GameRpc) registerUserMux() {
 
 	mux.HandleFunc("/userJoin/en/", gameRpc.userJoin)
 	mux.HandleFunc("/userLogin/en/", gameRpc.userLogin)
-	mux.HandleFunc("/userSave/en/", gameRpc.userLogin)
+	mux.HandleFunc("/userSave/en/", gameRpc.userSave)
 
 	//TODO other endpoints
 
