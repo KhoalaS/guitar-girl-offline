@@ -60,7 +60,7 @@ func (u *UserAchievementRepositoryImpl) SetAchievements(memberId string, achieve
 	defer tx.Rollback()
 
 	query := `
-		INSERT INTO user_achievements VALUES (?,?,?,?,?)
+		INSERT INTO user_achievement VALUES (?,?,?,?,?)
 		ON CONFLICT (uuid, i_id) DO
 		UPDATE SET 
 			d_quantity = excluded.d_quantity,
