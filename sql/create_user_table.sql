@@ -42,3 +42,12 @@ CREATE TABLE user_area_info (
     PRIMARY KEY (uuid, u_area_num),
     FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
 );
+DROP TABLE IF EXISTS user_achievement;
+CREATE TABLE user_achievement (
+    uuid TEXT NOT NULL i_id: INTEGER NOT NULL,
+    i_Level: INTEGER,
+    d_Quantity: INTEGER,
+    s_Quantity: TEXT,
+    PRIMARY KEY (uuid, i_id),
+    FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
+)

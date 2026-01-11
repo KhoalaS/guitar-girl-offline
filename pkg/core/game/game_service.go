@@ -24,6 +24,7 @@ type GameService interface {
 type GameServiceImpl struct {
 	UserRepository
 	UserAreaRepository
+	UserAchievementRepository
 	Timezone string
 }
 
@@ -675,6 +676,8 @@ func (service *GameServiceImpl) GetGameDataList(params main_model.GetGameDataLis
 }
 
 func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (user_model.UserJoinRetDataInfo, common_model.ErrorRetCode) {
+	// TODO put everything inside a transaction
+
 	user, err := service.UserRepository.CreateUser(params.Uuid, params.Device_uuid)
 	if err != nil {
 		return user_model.UserJoinRetDataInfo{}, common_model.ErrorRetCode{
