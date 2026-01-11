@@ -33,6 +33,9 @@ func (service *GameServiceImpl) UserSave(params user_model.UserSaveDataInfo) (us
 		// TODO db transaction inside SetAreaData that accepts UserAreaInfo slice
 		service.UserAreaRepository.SetAreaData(params.Uuid, areaData)
 	}
+
+	service.UserAchievementRepository.SetAchievements(params.Uuid, params.User_achievement)
+
 	return user_model.UserSaveRetDataInfo{
 		Status: "Y",
 	}, common_model.ErrorRetCode{}

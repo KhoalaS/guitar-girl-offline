@@ -9,7 +9,7 @@ import (
 
 type UserAchievementRepository interface {
 	GetAchievements(memberId string) ([]user_model.UserAchievement, error)
-	SetAchievements(memberId string, achievements []user_model.UserAchievement) error
+	SetAchievements(memberId string, achievements []user_model.SaveUserAchievement) error
 }
 
 func NewUserAchievementRepository(database *sql.DB) UserAchievementRepository {
@@ -50,7 +50,7 @@ func (u *UserAchievementRepositoryImpl) GetAchievements(memberId string) ([]user
 
 }
 
-func (u *UserAchievementRepositoryImpl) SetAchievements(memberId string, achievements []user_model.UserAchievement) error {
+func (u *UserAchievementRepositoryImpl) SetAchievements(memberId string, achievements []user_model.SaveUserAchievement) error {
 	ctx := context.TODO()
 	tx, err := u.database.BeginTx(ctx, nil)
 	if err != nil {
@@ -63,13 +63,12 @@ func (u *UserAchievementRepositoryImpl) SetAchievements(memberId string, achieve
 		INSERT INTO user_achievements VALUES (?,?,?,?,?)
 		ON CONFLICT (uuid, i_id) DO
 		UPDATE SET 
-			i_level = excluded.i_level,
 			d_quantity = excluded.d_quantity,
 			s_quantity = excluded.s_quantity
 	`
 
 	for _, achievement := range achievements {
-		_, err := tx.Exec(query, memberId, achievement.I_id, achievement.I_Level, achievement.D_Quantity, achievement.S_Quantity)
+		_, err := tx.Exec(query, memberId, achievement.I_id, 1, achievement.D_Quantity, achievement.S_Quantity)
 		if err != nil {
 			return err
 		}
