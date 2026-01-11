@@ -8,6 +8,7 @@ import (
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/main_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
+	"github.com/rs/zerolog/log"
 )
 
 type GameService interface {
@@ -34,7 +35,16 @@ func (service *GameServiceImpl) UserSave(params user_model.UserSaveDataInfo) (us
 		service.UserAreaRepository.SetAreaData(params.Uuid, areaData)
 	}
 
-	service.UserAchievementRepository.SetAchievements(params.Uuid, params.User_achievement)
+	err := service.UserAchievementRepository.SetAchievements(params.Uuid, params.User_achievement)
+	if err != nil {
+		log.Err(err).Send()
+		return user_model.UserSaveRetDataInfo{
+				Status: "N",
+			}, common_model.ErrorRetCode{
+				Code:   102,
+				Errmsg: "Error saving user achievements.",
+			}
+	}
 
 	return user_model.UserSaveRetDataInfo{
 		Status: "Y",

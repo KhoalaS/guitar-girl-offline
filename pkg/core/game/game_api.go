@@ -7,6 +7,7 @@ import (
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/main_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
+	"github.com/rs/zerolog/log"
 )
 
 type GameApi struct {
@@ -79,6 +80,8 @@ func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZon
 	baseResponse.Error = serviceError
 	if serviceError.Code == 0 {
 		baseResponse.Data = data
+	} else {
+		log.Error().Str("message", serviceError.Errmsg).Str("call", functionName).Send()
 	}
 
 	return baseResponse
