@@ -142,37 +142,37 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 					},
 				},
 				User_daily_mission: []user_model.UserDailyMission{
-					user_model.UserDailyMission{
+					{
 						I_id:       1,
 						I_Level:    1,
 						D_Quantity: 1,
 						Upd_date:   "2025-12-30 00:37:17",
 					},
-					user_model.UserDailyMission{
+					{
 						I_id:       2,
 						I_Level:    1,
 						D_Quantity: 23,
 						Upd_date:   "",
 					},
-					user_model.UserDailyMission{
+					{
 						I_id:       3,
 						I_Level:    1,
 						D_Quantity: 0,
 						Upd_date:   "",
 					},
-					user_model.UserDailyMission{
+					{
 						I_id:       4,
 						I_Level:    1,
 						D_Quantity: 1,
 						Upd_date:   "",
 					},
-					user_model.UserDailyMission{
+					{
 						I_id:       5,
 						I_Level:    1,
 						D_Quantity: 902,
 						Upd_date:   "",
 					},
-					user_model.UserDailyMission{
+					{
 						I_id:       6,
 						I_Level:    1,
 						D_Quantity: 0,
@@ -618,6 +618,25 @@ func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (us
 		S_Gp1:               "",
 		S_Gp2:               "",
 	})
+
+	service.UserCharacterRepository.SetCharacter(params.Uuid, []user_model.SaveUserCharacter{
+		{
+			I_id:         1,
+			I_Level:      1,
+			I_BonusLevel: 0,
+		},
+	})
+
+	defaultAchievements := []user_model.SaveUserAchievement{}
+	for i := 1; i <= 10; i++ {
+		defaultAchievements = append(defaultAchievements, user_model.SaveUserAchievement{
+			I_id:       int64(i),
+			D_Quantity: 1,
+			S_Quantity: "",
+		})
+	}
+
+	service.UserAchievementRepository.SetAchievements(params.Uuid, defaultAchievements)
 
 	return user_model.UserJoinRetDataInfo{
 		U_seq: user.U_seq,
