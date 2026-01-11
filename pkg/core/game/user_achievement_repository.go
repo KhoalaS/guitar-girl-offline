@@ -44,6 +44,8 @@ func (u *UserAchievementRepositoryImpl) GetAchievements(memberId string) ([]user
 			rows.Close()
 			return []user_model.UserAchievement{}, err
 		}
+
+		achievements = append(achievements, achievement)
 	}
 
 	return achievements, nil
