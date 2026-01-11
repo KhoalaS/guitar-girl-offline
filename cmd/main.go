@@ -42,6 +42,7 @@ func main() {
 		UserRepository:            game.NewUserRepositoryImpl(userDatabase),
 		UserAreaRepository:        game.NewUserAreaRepositoryImpl(userDatabase),
 		UserAchievementRepository: game.NewUserAchievementRepository(userDatabase),
+		UserCharacterRepository:   game.NewUserCharacterRepository(userDatabase),
 		Timezone:                  "Asia/Seoul",
 	}
 	gameApi := game.NewGameApi(gameService)

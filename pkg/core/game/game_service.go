@@ -26,6 +26,7 @@ type GameServiceImpl struct {
 	UserRepository
 	UserAreaRepository
 	UserAchievementRepository
+	UserCharacterRepository
 	Timezone string
 }
 
@@ -45,6 +46,8 @@ func (service *GameServiceImpl) UserSave(params user_model.UserSaveDataInfo) (us
 				Errmsg: "Error saving user achievements.",
 			}
 	}
+
+	service.UserCharacterRepository.SetCharacter(params.Uuid, params.User_character)
 
 	return user_model.UserSaveRetDataInfo{
 		Status: "Y",
@@ -80,6 +83,7 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 	}
 
 	achievements, _ := service.UserAchievementRepository.GetAchievements(params.Uuid)
+	characters, _ := service.UserCharacterRepository.GetCharacter(params.Uuid)
 
 	if params.U_seq != 0 {
 		return user_model.UserLoginRetDataInfo{
@@ -104,18 +108,7 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 						Upd_day:           20251231,
 					},
 				},
-				User_character: []user_model.UserCharacter{
-					user_model.UserCharacter{
-						I_id:         1,
-						I_Level:      227,
-						I_BonusLevel: 9,
-					},
-					user_model.UserCharacter{
-						I_id:         2,
-						I_Level:      1,
-						I_BonusLevel: 0,
-					},
-				},
+				User_character: characters,
 				User_costume: []user_model.UserCostume{
 					user_model.UserCostume{
 						I_id:         1,
