@@ -204,8 +204,10 @@ func (gameRpc GameRpc) getEventRewardList(w http.ResponseWriter, r *http.Request
 }
 
 func (gameRpc *GameRpc) userSave(w http.ResponseWriter, r *http.Request) {
-	// TODO actual saving
-	response := gameRpc.api.UserSave(BaseGameRequest[user_model.UserSaveDataInfo]{}, "main")
+	requestDto, _ := getRequestDto(r)
+
+	baseRequest, _ := rpc.ThriftDataToAny[user_model.UserSave](requestDto.TapsonicData)
+	response := gameRpc.api.UserSave(baseRequest, "user")
 	responseData, err := thrifter.Marshal(response)
 	if err != nil {
 		InternalErrorHandler(w, err)

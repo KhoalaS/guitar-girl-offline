@@ -26,9 +26,9 @@ func (api *GameApi) SetTimeZone(timeZone string) {
 	api.timeZone = timeZone
 }
 
-func (api *GameApi) UserSave(params BaseGameRequest[user_model.UserSaveDataInfo], apiCategory string) BaseGameResponse[user_model.UserSaveRetDataInfo] {
+func (api *GameApi) UserSave(params user_model.UserSave, apiCategory string) BaseGameResponse[user_model.UserSaveRetDataInfo] {
 	status, err := api.service.UserSave(params.Data)
-	return NewBaseGameResponse(params.FunctionName, apiCategory, api.timeZone, status, err)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, status, err)
 }
 
 func (api *GameApi) Init(params main_model.Request, apiCategory string) BaseGameResponse[main_model.InitRetDataInfo] {
