@@ -1,5 +1,4 @@
-DROP TABLE IF EXISTS user_data;
-CREATE TABLE user_data (
+CREATE TABLE IF NOT EXISTS user_data (
     uuid TEXT PRIMARY KEY,
     u_seq INTEGER,
     u_id TEXT,
@@ -25,8 +24,7 @@ CREATE TABLE user_data (
     u_free_cp INTEGER,
     u_charge_cp INTEGER
 );
-DROP TABLE IF EXISTS user_area_info;
-CREATE TABLE user_area_info (
+CREATE TABLE IF NOT EXISTS user_area_info (
     uuid TEXT NOT NULL,
     u_area_num INTEGER NOT NULL,
     d_like REAL,
@@ -42,13 +40,20 @@ CREATE TABLE user_area_info (
     PRIMARY KEY (uuid, u_area_num),
     FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
 );
-DROP TABLE IF EXISTS user_achievement;
-CREATE TABLE user_achievement (
+CREATE TABLE IF NOT EXISTS user_achievement (
     uuid TEXT NOT NULL,
     i_id INTEGER NOT NULL,
     i_level INTEGER,
     d_quantity INTEGER,
     s_quantity TEXT,
+    PRIMARY KEY (uuid, i_id),
+    FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS user_character (
+    uuid TEXT NOT NULL,
+    i_id INTEGER NOT NULL,
+    i_level INTEGER DEFAULT 1,
+    i_bonusLevel INTEGER DEFAULT 0,
     PRIMARY KEY (uuid, i_id),
     FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
 )
