@@ -45,10 +45,10 @@ CREATE TABLE user_area_info (
 DROP TABLE IF EXISTS user_achievement;
 CREATE TABLE user_achievement (
     uuid TEXT NOT NULL,
-    i_id: INTEGER NOT NULL,
-    i_level: INTEGER,
-    d_quantity: INTEGER,
-    s_quantity: TEXT,
+    i_id INTEGER NOT NULL,
+    i_level INTEGER,
+    d_quantity INTEGER,
+    s_quantity TEXT,
     PRIMARY KEY (uuid, i_id),
     FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
 )
