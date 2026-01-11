@@ -79,116 +79,15 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 		areaDataMap[int32(area.U_area_num)] = area
 	}
 
+	achievements, _ := service.UserAchievementRepository.GetAchievements(params.Uuid)
+
 	if params.U_seq != 0 {
 		return user_model.UserLoginRetDataInfo{
 			User:      userData,
 			Area_data: areaDataMap,
 			User_contents: user_model.UserContentsData{
-				User_achievement: []user_model.UserAchievement{
-					user_model.UserAchievement{
-						I_id:       1,
-						I_Level:    2,
-						D_Quantity: 0,
-						S_Quantity: "227",
-					},
-					user_model.UserAchievement{
-						I_id:       2,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "187",
-					},
-					user_model.UserAchievement{
-						I_id:       3,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "96981935241350",
-					},
-					user_model.UserAchievement{
-						I_id:       4,
-						I_Level:    2,
-						D_Quantity: 0,
-						S_Quantity: "7668",
-					},
-					user_model.UserAchievement{
-						I_id:       5,
-						I_Level:    2,
-						D_Quantity: 0,
-						S_Quantity: "8",
-					},
-					user_model.UserAchievement{
-						I_id:       6,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "645",
-					},
-					user_model.UserAchievement{
-						I_id:       7,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "2",
-					},
-					user_model.UserAchievement{
-						I_id:       8,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "1",
-					},
-					user_model.UserAchievement{
-						I_id:       9,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "1",
-					},
-					user_model.UserAchievement{
-						I_id:       10,
-						I_Level:    2,
-						D_Quantity: 0,
-						S_Quantity: "6",
-					},
-					user_model.UserAchievement{
-						I_id:       201,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "0",
-					},
-					user_model.UserAchievement{
-						I_id:       202,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "0",
-					},
-					user_model.UserAchievement{
-						I_id:       203,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "0",
-					},
-					user_model.UserAchievement{
-						I_id:       204,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "0",
-					},
-					user_model.UserAchievement{
-						I_id:       205,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "0",
-					},
-					user_model.UserAchievement{
-						I_id:       206,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "0",
-					},
-					user_model.UserAchievement{
-						I_id:       207,
-						I_Level:    1,
-						D_Quantity: 0,
-						S_Quantity: "0",
-					},
-				},
-				User_buff: nil,
+				User_achievement: achievements,
+				User_buff:        nil,
 				User_candy_shop: []user_model.UserCandyShop{
 					user_model.UserCandyShop{
 						I_id:              1,
