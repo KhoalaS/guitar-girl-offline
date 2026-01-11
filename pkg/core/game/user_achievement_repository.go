@@ -25,7 +25,7 @@ type UserAchievementRepositoryImpl struct {
 func (u *UserAchievementRepositoryImpl) GetAchievements(memberId string) ([]user_model.UserAchievement, error) {
 	achievements := []user_model.UserAchievement{}
 
-	query := `SELECT (i_id, i_Level, d_Quantity, s_Quantity) FROM user_achievement WHERE uuid = ?`
+	query := `SELECT (i_id, i_level, d_quantity, s_quantity) FROM user_achievement WHERE uuid = ?`
 	rows, err := u.database.Query(query, memberId)
 	if err != nil {
 		return achievements, err
@@ -59,7 +59,14 @@ func (u *UserAchievementRepositoryImpl) SetAchievements(memberId string, achieve
 
 	defer tx.Rollback()
 
-	query := "INSERT INTO user_achievements VALUES (?,?,?,?,?)"
+	query := `
+		INSERT INTO user_achievements VALUES (?,?,?,?,?)
+		ON CONFLICT (uuid, i_id) DO
+		UPDATE SET 
+			i_level = excluded.i_level,
+			d_quantity = excluded.d_quantity,
+			s_quantity = excluded.s_quantity
+	`
 
 	for _, achievement := range achievements {
 		_, err := tx.Exec(query, memberId, achievement.I_id, achievement.I_Level, achievement.D_Quantity, achievement.S_Quantity)
