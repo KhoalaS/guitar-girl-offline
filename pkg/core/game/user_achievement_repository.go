@@ -25,7 +25,7 @@ type UserAchievementRepositoryImpl struct {
 func (u *UserAchievementRepositoryImpl) GetAchievements(memberId string) ([]user_model.UserAchievement, error) {
 	achievements := []user_model.UserAchievement{}
 
-	query := `SELECT (i_id, i_level, d_quantity, s_quantity) FROM user_achievement WHERE uuid = ?`
+	query := `SELECT i_id, i_level, d_quantity, s_quantity FROM user_achievement WHERE uuid = ?`
 	rows, err := u.database.Query(query, memberId)
 	if err != nil {
 		return achievements, err
