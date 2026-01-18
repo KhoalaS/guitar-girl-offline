@@ -6,6 +6,7 @@ import (
 	"github.com/KhoalaS/guitar-girl-offline/pkg/core"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/main_model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/store_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 	"github.com/rs/zerolog/log"
 )
@@ -65,6 +66,26 @@ func (api *GameApi) GetGameDataList(params main_model.GetGameDataList, apiCatego
 func (api *GameApi) UserJoin(params user_model.UserJoin, apiCategory string) BaseGameResponse[user_model.UserJoinRetDataInfo] {
 	user, err := api.service.UserJoin(params.Data)
 	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, user, err)
+}
+
+func (api *GameApi) BuyVarietyStore(params store_model.BuyVarietyStore, apiCategory string) BaseGameResponse[store_model.BuyVarietyStoreRetDataInfo] {
+	data, err := api.service.BuyVarietyStore(params.Data)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, data, err)
+}
+
+func (api *GameApi) BuyCheck(params store_model.BuyCheck, apiCategory string) BaseGameResponse[store_model.BuyCheckRetDataInfo] {
+	data, err := api.service.BuyCheck(params.Data)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, data, err)
+}
+
+func (api *GameApi) UserLoad(params user_model.UserLoad, apiCategory string) BaseGameResponse[user_model.UserLoadRetDataInfo] {
+	data, err := api.service.UserLoad(params.Data)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, data, err)
+}
+
+func (api *GameApi) UserSetSubscribe(params user_model.SetSubscribe, apiCategory string) BaseGameResponse[user_model.SetSubscribeRetDataInfo] {
+	data, err := api.service.UserSetSubscribe(params.Data)
+	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, data, err)
 }
 
 func NewBaseGameResponse[T any](functionName string, apiCategory string, timeZone string, data T, serviceError common_model.ErrorRetCode) BaseGameResponse[T] {

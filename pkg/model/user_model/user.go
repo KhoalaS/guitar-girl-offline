@@ -764,8 +764,8 @@ type PlayMusic struct {
 }
 
 type SetSubscribeRetDataInfo struct {
-	U_seq               int32 `thrift:",1,omitempty"`
-	User_subscribe_list []any `thrift:",2,omitempty"` // TODO
+	U_seq               int32               `thrift:",1,omitempty"`
+	User_subscribe_list []UserSubscribeList `thrift:",2,omitempty"`
 }
 
 type FacebookUserJoinDataInfo struct {
@@ -2405,11 +2405,11 @@ type SetGameRewardDataInfo struct {
 }
 
 type SetSubscribeDataInfo struct {
-	U_seq       int32  `thrift:",1,omitempty"`
-	U_id        string `thrift:",2,omitempty"`
-	Uuid        string `thrift:",3,omitempty"`
-	Device_uuid string `thrift:",4,omitempty"`
-	I_ids       []any  `thrift:",5,omitempty"` // TODO
+	U_seq       int32   `thrift:",1,omitempty"`
+	U_id        string  `thrift:",2,omitempty"`
+	Uuid        string  `thrift:",3,omitempty"`
+	Device_uuid string  `thrift:",4,omitempty"`
+	I_ids       []int32 `thrift:",5,omitempty"` // TODO
 }
 
 type BuyItem struct {

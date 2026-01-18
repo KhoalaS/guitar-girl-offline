@@ -7,6 +7,7 @@ import (
 	embeds "github.com/KhoalaS/guitar-girl-offline"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/common_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/main_model"
+	"github.com/KhoalaS/guitar-girl-offline/pkg/model/store_model"
 	"github.com/KhoalaS/guitar-girl-offline/pkg/model/user_model"
 	"github.com/rs/zerolog/log"
 )
@@ -20,6 +21,10 @@ type GameService interface {
 	GetGameDataList(params main_model.GetGameDataListDataInfo) (main_model.GetGameDataListRetDataInfo, common_model.ErrorRetCode)
 	UserSave(params user_model.UserSaveDataInfo) (user_model.UserSaveRetDataInfo, common_model.ErrorRetCode)
 	UserJoin(params user_model.UserJoinDataInfo) (user_model.UserJoinRetDataInfo, common_model.ErrorRetCode)
+	BuyVarietyStore(params store_model.BuyVarietyStoreDataInfo) (store_model.BuyVarietyStoreRetDataInfo, common_model.ErrorRetCode)
+	BuyCheck(params store_model.BuyCheckDataInfo) (store_model.BuyCheckRetDataInfo, common_model.ErrorRetCode)
+	UserLoad(params user_model.UserLoadDataInfo) (user_model.UserLoadRetDataInfo, common_model.ErrorRetCode)
+	UserSetSubscribe(params user_model.SetSubscribeDataInfo) (user_model.SetSubscribeRetDataInfo, common_model.ErrorRetCode)
 }
 
 type GameServiceImpl struct {
@@ -93,14 +98,14 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 				User_achievement: achievements,
 				User_buff:        nil,
 				User_candy_shop: []user_model.UserCandyShop{
-					user_model.UserCandyShop{
+					{
 						I_id:              1,
 						I_CurrentBuyCount: 1,
 						I_TotalBuyCount:   1,
 						L_LastBuyTick:     1767022695,
 						Upd_day:           20251230,
 					},
-					user_model.UserCandyShop{
+					{
 						I_id:              2,
 						I_CurrentBuyCount: 1,
 						I_TotalBuyCount:   1,
@@ -110,32 +115,32 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 				},
 				User_character: characters,
 				User_costume: []user_model.UserCostume{
-					user_model.UserCostume{
+					{
 						I_id:         1,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
-					user_model.UserCostume{
+					{
 						I_id:         2,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
-					user_model.UserCostume{
+					{
 						I_id:         3,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
-					user_model.UserCostume{
+					{
 						I_id:         9,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
-					user_model.UserCostume{
+					{
 						I_id:         13,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
-					user_model.UserCostume{
+					{
 						I_id:         14,
 						I_Level:      1,
 						I_BonusLevel: 0,
@@ -180,29 +185,29 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 					},
 				},
 				User_follower: []user_model.UserFollower{
-					user_model.UserFollower{
+					{
 						I_id:         1,
 						I_Level:      125,
 						I_BonusLevel: 5,
 					},
-					user_model.UserFollower{
+					{
 						I_id:         2,
 						I_Level:      48,
 						I_BonusLevel: 1,
 					},
-					user_model.UserFollower{
+					{
 						I_id:         3,
 						I_Level:      13,
 						I_BonusLevel: 0,
 					},
-					user_model.UserFollower{
+					{
 						I_id:         4,
 						I_Level:      1,
 						I_BonusLevel: 0,
 					},
 				},
 				User_music: []user_model.UserMusic{
-					user_model.UserMusic{
+					{
 						I_id:                      1,
 						I_Level:                   6,
 						I_BonusLevel:              0,
@@ -211,7 +216,7 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 						I_EncoreBonusFollowerId:   0,
 						I_ChThirdActiveTime:       0,
 					},
-					user_model.UserMusic{
+					{
 						I_id:                      2,
 						I_Level:                   1,
 						I_BonusLevel:              0,
@@ -220,7 +225,7 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 						I_EncoreBonusFollowerId:   0,
 						I_ChThirdActiveTime:       0,
 					},
-					user_model.UserMusic{
+					{
 						I_id:                      3,
 						I_Level:                   1,
 						I_BonusLevel:              0,
@@ -263,15 +268,22 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 					},
 				},
 				User_shop: []user_model.UserShop{
-					user_model.UserShop{
+					{
 						I_id:           1,
 						I_Count:        1,
 						I_TotalCount:   1,
 						I_PurchaseTime: 1765734809,
 						Upd_day:        20251215,
 					},
-					user_model.UserShop{
+					{
 						I_id:           13,
+						I_Count:        1,
+						I_TotalCount:   1,
+						I_PurchaseTime: 1767114545,
+						Upd_day:        20251231,
+					},
+					{
+						I_id:           3013,
 						I_Count:        1,
 						I_TotalCount:   1,
 						I_PurchaseTime: 1767114545,
@@ -327,14 +339,14 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 				},
 				User_subscribe_list: nil,
 				User_subscribe_pass_reward: []user_model.UserSubscribePassReward{
-					user_model.UserSubscribePassReward{
+					{
 						I_SubscribeID: 5,
 						I_Type:        0,
 						I_Step:        0,
 						I_UpdateTime:  1765734537,
 						I_Version:     5,
 					},
-					user_model.UserSubscribePassReward{
+					{
 						I_SubscribeID: 5,
 						I_Type:        0,
 						I_Step:        1,
@@ -342,8 +354,21 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 						I_Version:     5,
 					},
 				},
-				User_ticketcollection: nil,
-				User_follower_quest:   nil,
+				User_ticketcollection: []user_model.UserTicketCollection{
+					{
+						I_id: 1,
+					},
+					{
+						I_id: 2,
+					},
+					{
+						I_id: 3,
+					},
+					{
+						I_id: 4,
+					},
+				},
+				User_follower_quest: nil,
 				User_follower_profile_reward: []user_model.UserFollowerProfileReward{
 					user_model.UserFollowerProfileReward{
 						I_id:          1,
@@ -641,5 +666,89 @@ func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (us
 	return user_model.UserJoinRetDataInfo{
 		U_seq: user.U_seq,
 		U_id:  user.U_id,
+	}, common_model.ErrorRetCode{}
+}
+
+func (service *GameServiceImpl) BuyVarietyStore(params store_model.BuyVarietyStoreDataInfo) (store_model.BuyVarietyStoreRetDataInfo, common_model.ErrorRetCode) {
+	// TODO internal logic, storing purchase
+	user, _ := service.UserRepository.GetUserByMemberId(params.Uuid)
+
+	return store_model.BuyVarietyStoreRetDataInfo{
+		U_cp:         user.U_cp,
+		U_candy:      user.U_candy,
+		Reward_type:  4,
+		Reward_id:    params.Idx,
+		Reward_value: 1,
+		Status:       "Y",
+	}, common_model.ErrorRetCode{}
+}
+
+func (service *GameServiceImpl) BuyCheck(params store_model.BuyCheckDataInfo) (store_model.BuyCheckRetDataInfo, common_model.ErrorRetCode) {
+	return store_model.BuyCheckRetDataInfo{
+		Result: "Y",
+	}, common_model.ErrorRetCode{}
+}
+
+func (service *GameServiceImpl) UserLoad(params user_model.UserLoadDataInfo) (user_model.UserLoadRetDataInfo, common_model.ErrorRetCode) {
+	// TODO
+	if params.Type == "shop" {
+		return user_model.UserLoadRetDataInfo{
+			User_contents: user_model.UserContentsData{
+				User_shop: []user_model.UserShop{
+					{
+						I_id:           1,
+						I_Count:        1,
+						I_TotalCount:   1,
+						I_PurchaseTime: 1765734809,
+						Upd_day:        20251215,
+					},
+					{
+						I_id:           13,
+						I_Count:        1,
+						I_TotalCount:   1,
+						I_PurchaseTime: 1767114545,
+						Upd_day:        20251231,
+					},
+					{
+						I_id:           3012,
+						I_Count:        1,
+						I_TotalCount:   1,
+						I_PurchaseTime: 1767114545,
+						Upd_day:        20251231,
+					},
+					{
+						I_id:           3013,
+						I_Count:        1,
+						I_TotalCount:   1,
+						I_PurchaseTime: 1767114545,
+						Upd_day:        20251231,
+					},
+				},
+			},
+		}, common_model.ErrorRetCode{}
+	}
+
+	return user_model.UserLoadRetDataInfo{}, common_model.ErrorRetCode{
+		Code:   999,
+		Errmsg: "Unimplemented",
+	}
+}
+
+func (service *GameServiceImpl) UserSetSubscribe(params user_model.SetSubscribeDataInfo) (user_model.SetSubscribeRetDataInfo, common_model.ErrorRetCode) {
+	// TODO db persistence
+
+	subscriptions := []user_model.UserSubscribeList{}
+
+	for _, id := range params.I_ids {
+		subscriptions = append(subscriptions, user_model.UserSubscribeList{
+			I_SubscribeID: int64(id),
+			I_ActiveTime:  time.Now().Unix(),
+			I_isActive:    1,
+		})
+	}
+
+	return user_model.SetSubscribeRetDataInfo{
+		U_seq:               params.U_seq,
+		User_subscribe_list: subscriptions,
 	}, common_model.ErrorRetCode{}
 }
