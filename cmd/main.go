@@ -47,10 +47,9 @@ func main() {
 		Timezone:                  "Asia/Seoul",
 	}
 	gameApi := game.NewGameApi(gameService)
-	gameRpc := game.NewGameRpc(gameApi)
-
 	gameMux := http.NewServeMux()
-	gameRpc.RegisterRoutes(gameMux)
+	game.NewGameRpc(gameApi, gameMux)
+
 	gameServer := http.Server{
 		Addr:    ":10001",
 		Handler: gameMux,

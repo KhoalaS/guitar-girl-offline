@@ -24,7 +24,7 @@ type GameService interface {
 	BuyVarietyStore(params store_model.BuyVarietyStoreDataInfo) (store_model.BuyVarietyStoreRetDataInfo, common_model.ErrorRetCode)
 	BuyCheck(params store_model.BuyCheckDataInfo) (store_model.BuyCheckRetDataInfo, common_model.ErrorRetCode)
 	UserLoad(params user_model.UserLoadDataInfo) (user_model.UserLoadRetDataInfo, common_model.ErrorRetCode)
-	UserSetSubscribe(params user_model.SetSubscribeDataInfo) (user_model.SetSubscribeRetDataInfo, common_model.ErrorRetCode)
+	SetSubscribe(params user_model.SetSubscribeDataInfo) (user_model.SetSubscribeRetDataInfo, common_model.ErrorRetCode)
 }
 
 type GameServiceImpl struct {
@@ -742,7 +742,7 @@ func (service *GameServiceImpl) UserLoad(params user_model.UserLoadDataInfo) (us
 	}
 }
 
-func (service *GameServiceImpl) UserSetSubscribe(params user_model.SetSubscribeDataInfo) (user_model.SetSubscribeRetDataInfo, common_model.ErrorRetCode) {
+func (service *GameServiceImpl) SetSubscribe(params user_model.SetSubscribeDataInfo) (user_model.SetSubscribeRetDataInfo, common_model.ErrorRetCode) {
 	// TODO db persistence
 
 	subscriptions := []user_model.UserSubscribeList{}

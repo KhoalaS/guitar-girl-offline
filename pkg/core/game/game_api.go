@@ -83,8 +83,8 @@ func (api *GameApi) UserLoad(params user_model.UserLoad, apiCategory string) Bas
 	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, data, err)
 }
 
-func (api *GameApi) UserSetSubscribe(params user_model.SetSubscribe, apiCategory string) BaseGameResponse[user_model.SetSubscribeRetDataInfo] {
-	data, err := api.service.UserSetSubscribe(params.Data)
+func (api *GameApi) SetSubscribe(params user_model.SetSubscribe, apiCategory string) BaseGameResponse[user_model.SetSubscribeRetDataInfo] {
+	data, err := api.service.SetSubscribe(params.Data)
 	return NewBaseGameResponse(params.Call, apiCategory, api.timeZone, data, err)
 }
 
