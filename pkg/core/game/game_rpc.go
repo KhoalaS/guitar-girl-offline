@@ -6,8 +6,6 @@ import (
 
 	"github.com/KhoalaS/guitar-girl-offline/pkg/rpc"
 	"github.com/KhoalaS/thrifter"
-	"github.com/KhoalaS/thrifter/general"
-	"github.com/KhoalaS/thrifter/protocol"
 	"github.com/rs/zerolog/log"
 )
 
@@ -89,10 +87,6 @@ func NewGameRpc(api GameApi, mux *http.ServeMux) *GameRpc {
 	mux.HandleFunc("/{category}/{call}/en/", gameRpc.ServeRPC)
 
 	return gameRpc
-}
-
-func GetFunctionNameFromThrift(thriftStruct general.Struct) string {
-	return thriftStruct.Get(protocol.FieldId(1)).(string)
 }
 
 func getRequestDto(r *http.Request) (RpcRequestDto, error) {
