@@ -32,6 +32,7 @@ type GameServiceImpl struct {
 	UserAreaRepository
 	UserAchievementRepository
 	UserCharacterRepository
+	UserCostumeRepository
 	Timezone string
 }
 
@@ -53,6 +54,7 @@ func (service *GameServiceImpl) UserSave(params user_model.UserSaveDataInfo) (us
 	}
 
 	service.UserCharacterRepository.SetCharacter(params.Uuid, params.User_character)
+	service.UserCostumeRepository.SetCostumes(params.Uuid, params.User_costume)
 
 	return user_model.UserSaveRetDataInfo{
 		Status: "Y",
@@ -89,6 +91,7 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 
 	achievements, _ := service.UserAchievementRepository.GetAchievements(params.Uuid)
 	characters, _ := service.UserCharacterRepository.GetCharacter(params.Uuid)
+	costumes, _ := service.UserCostumeRepository.GetCostumes(params.Uuid)
 
 	if params.U_seq != 0 {
 		return user_model.UserLoginRetDataInfo{
@@ -114,38 +117,7 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 					},
 				},
 				User_character: characters,
-				User_costume: []user_model.UserCostume{
-					{
-						I_id:         1,
-						I_Level:      1,
-						I_BonusLevel: 0,
-					},
-					{
-						I_id:         2,
-						I_Level:      1,
-						I_BonusLevel: 0,
-					},
-					{
-						I_id:         3,
-						I_Level:      1,
-						I_BonusLevel: 0,
-					},
-					{
-						I_id:         9,
-						I_Level:      1,
-						I_BonusLevel: 0,
-					},
-					{
-						I_id:         13,
-						I_Level:      1,
-						I_BonusLevel: 0,
-					},
-					{
-						I_id:         14,
-						I_Level:      1,
-						I_BonusLevel: 0,
-					},
-				},
+				User_costume:   costumes,
 				User_daily_mission: []user_model.UserDailyMission{
 					{
 						I_id:       1,
@@ -366,6 +338,33 @@ func (service *GameServiceImpl) UserLogin(params user_model.UserLoginDataInfo) (
 					},
 					{
 						I_id: 4,
+					},
+					{
+						I_id: 5,
+					},
+					{
+						I_id: 6,
+					},
+					{
+						I_id: 7,
+					},
+					{
+						I_id: 8,
+					},
+					{
+						I_id: 9,
+					},
+					{
+						I_id: 10,
+					},
+					{
+						I_id: 11,
+					},
+					{
+						I_id: 12,
+					},
+					{
+						I_id: 13,
 					},
 				},
 				User_follower_quest: nil,
@@ -663,6 +662,15 @@ func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (us
 
 	service.UserAchievementRepository.SetAchievements(params.Uuid, defaultAchievements)
 
+	defaultCostumes := []user_model.SaveUserCostume{
+		{
+			I_id:         1,
+			I_Level:      1,
+			I_BonusLevel: 0,
+		},
+	}
+	service.UserCostumeRepository.SetCostumes(params.Uuid, defaultCostumes)
+
 	return user_model.UserJoinRetDataInfo{
 		U_seq: user.U_seq,
 		U_id:  user.U_id,
@@ -739,9 +747,9 @@ func (service *GameServiceImpl) UserSetSubscribe(params user_model.SetSubscribeD
 
 	subscriptions := []user_model.UserSubscribeList{}
 
-	for _, id := range params.I_ids {
+	for id := range 100 {
 		subscriptions = append(subscriptions, user_model.UserSubscribeList{
-			I_SubscribeID: int64(id),
+			I_SubscribeID: int64(id + 1),
 			I_ActiveTime:  time.Now().Unix(),
 			I_isActive:    1,
 		})

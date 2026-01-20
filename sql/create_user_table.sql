@@ -56,4 +56,12 @@ CREATE TABLE IF NOT EXISTS user_character (
     i_bonusLevel INTEGER DEFAULT 0,
     PRIMARY KEY (uuid, i_id),
     FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
-)
+);
+CREATE TABLE IF NOT EXISTS user_costume (
+    uuid TEXT NOT NULL,
+    i_id INTEGER NOT NULL,
+    i_Level INTEGER DEFAULT 1,
+    i_BonusLevel INTEGER DEFAULT 0,
+    PRIMARY KEY (uuid, i_id),
+    FOREIGN KEY (uuid) REFERENCES user_data(uuid) ON DELETE CASCADE
+);
