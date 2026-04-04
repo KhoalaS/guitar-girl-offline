@@ -2,6 +2,7 @@ package game
 
 import (
 	"encoding/json"
+	"fmt"
 	"time"
 
 	embeds "github.com/KhoalaS/guitar-girl-offline"
@@ -64,8 +65,8 @@ func (service *GameServiceImpl) UserSave(params user_model.UserSaveDataInfo) (us
 func (service *GameServiceImpl) Init(params main_model.InitDataInfo) (main_model.InitRetDataInfo, common_model.ErrorRetCode) {
 	return main_model.InitRetDataInfo{
 		Idx:      253,
-		Game_url: "https://game.gtgl.pmang.cloud",
-		Cdn_url:  "https://dl.gtgl.pmang.cloud",
+		Game_url: "https://game.gtgl.pmang.cloud:10001",
+		Cdn_url:  "https://dl.gtgl.pmang.cloud:10002",
 	}, common_model.ErrorRetCode{}
 }
 
@@ -597,6 +598,7 @@ func (service *GameServiceImpl) GetGameDataList(params main_model.GetGameDataLis
 	var data main_model.GetGameDataListRetDataInfo
 
 	err := json.Unmarshal(embeds.GameData, &data)
+	log.Debug().Any("settings", data).Send()
 	if err != nil {
 		return main_model.GetGameDataListRetDataInfo{}, common_model.ErrorRetCode{Code: 1, Errmsg: err.Error()}
 	}
@@ -611,7 +613,7 @@ func (service *GameServiceImpl) UserJoin(params user_model.UserJoinDataInfo) (us
 	if err != nil {
 		return user_model.UserJoinRetDataInfo{}, common_model.ErrorRetCode{
 			Code:   800,
-			Errmsg: "Error creating user",
+			Errmsg: fmt.Sprintf("Error creating user: %v", err),
 		}
 	}
 

@@ -3,10 +3,13 @@ package game
 import (
 	"database/sql"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 func NewMockDb() *sql.DB {
-	db, _ := sql.Open("sqlite3", "./data.db")
+	db, err := sql.Open("sqlite", "./data.db")
+	if err != nil {
+		panic("could not open game database")
+	}
 	return db
 }

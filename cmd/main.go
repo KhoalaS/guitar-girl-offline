@@ -32,7 +32,7 @@ func main() {
 		Handler: authMux,
 	}
 	go func() {
-		if err := authServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		if err := authServer.ListenAndServeTLS("./certs/cert.pem", "./certs/key.pem"); err != nil && err != http.ErrServerClosed {
 			log.Fatal().Err(err).Msg("Listen error")
 		}
 	}()
@@ -56,14 +56,28 @@ func main() {
 	}
 
 	go func() {
-		if err := gameServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		if err := gameServer.ListenAndServeTLS("./certs/cert.pem", "./certs/key.pem"); err != nil && err != http.ErrServerClosed {
 			log.Fatal().Err(err).Msg("Listen error")
 		}
 	}()
 
 	cdnServer := cdn.NewCdnServer(10002)
 	go func() {
-		if err := cdnServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		if err := cdnServer.ListenAndServeTLS("./certs/cert.pem", "./certs/key.pem"); err != nil && err != http.ErrServerClosed {
+			log.Fatal().Err(err).Msg("Listen error")
+		}
+	}()
+
+	httpsMux := http.NewServeMux()
+	httpsMux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("ok"))
+	})
+	httpsServer := http.Server{
+		Addr:    ":443",
+		Handler: httpsMux,
+	}
+	go func() {
+		if err := httpsServer.ListenAndServeTLS("./certs/cert.pem", "./certs/key.pem"); err != nil && err != http.ErrServerClosed {
 			log.Fatal().Err(err).Msg("Listen error")
 		}
 	}()
@@ -75,6 +89,10 @@ func main() {
 	defer cancel()
 
 	if err := authServer.Shutdown(shutdownCtx); err != nil {
+		log.Fatal().Err(err).Msg("Server forced to shutdown")
+	}
+
+	if err := httpsServer.Shutdown(shutdownCtx); err != nil {
 		log.Fatal().Err(err).Msg("Server forced to shutdown")
 	}
 
