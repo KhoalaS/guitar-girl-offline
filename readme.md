@@ -84,7 +84,10 @@ This will generate the model files in the `pkg/model` directory.
 
 ## EOS game server proxy
 
-The offial game server is still operational. The server is "deactivated" by adding a `Maintenance` field to all responses which restricts users from entering the game. The game can still be played by proxying the requests and removing that field. It is still unknown how long the real servers will be operational though.
+> [!IMPORTANT]  
+> The proxy does not work anymore since the game servers are shutdown.
+
+~~The offial game server is still operational. The server is "deactivated" by adding a `Maintenance` field to all responses which restricts users from entering the game. The game can still be played by proxying the requests and removing that field. It is still unknown how long the real servers will be operational though.~~
 
 ```bash
 go run cmd/proxy/main.go
