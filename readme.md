@@ -103,6 +103,10 @@ This requires docker engine to be installed on the system.
 
 ```bash
 cd patcher
+
+# get the game apkm file and put into the patcher/ folder
+cp path/to/game.apkm ./app.apkm
+
 # build the image, the GAME_API_URL needs to be a https URL, the game rejects http URLs
 docker build --build-arg GAME_API_URL="https://YOUR_HOST" -t ggo-patcher .
 docker run ggo-patcher
@@ -110,6 +114,7 @@ docker run ggo-patcher
 # ... in a new terminal
 # get the container id
 docker ps
+
 # copy the patched apkm file to the host system
 docker cp CONTAINER_ID:/patcher/patched_app.apkm ./patched_app.apkm
 docker stop CONTAINER_ID
